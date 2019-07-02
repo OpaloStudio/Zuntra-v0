@@ -1,0 +1,89 @@
+// GLOBAL MIXINS
+@import url('https://fonts.googleapis.com/css?family=Lora:400,400i,600,700|Roboto:300,400')
+@import url('https://fonts.googleapis.com/css?family=Zilla+Slab:300,400,600,700')
+// MIXIN DE NAVBAR GRADIENTE
+=grad-color($lado,$grad1, $grad2)
+    background: -webkit-linear-gradient($lado, $grad1, $grad2)
+    background: -o-linear-gradient($lado, $grad1, $grad2)
+    background: -moz-linear-gradient($lado, $grad1, $grad2)
+    background: linear-gradient($lado, $grad1, $grad2)
+
+//MIXIN PARA BOTON FAV DE LAS CARDS
+=translate-3d($dato1,$dato2,$dato3)
+    -webkit-transform: translate3D($dato1,$dato2,$dato3)
+    -moz-transform: translate3D($dato1,$dato2,$dato3)
+    transform: translate3D($dato1,$dato2,$dato3)
+
+=filter($porcentaje)
+    -webkit-filter: grayscale($porcentaje)
+    filter: grayscale($porcentaje)
+
+// MIXIN DE LAS CARDS PARA REDONDEO Y SOMBRAS
+=redondeado($radius)
+    -webkit-border-radius: $radius
+    -moz-border-radius: $radius
+    border-radius: $radius
+
+=sombra($shadowColor)
+    -webkit-box-shadow: $shadowColor
+    -moz-box-shadow: $shadowColor
+    box-shadow: $shadowColor
+
+=margin-tl($top, $left)
+    margin-top: $top
+    margin-left: $left
+
+=boton-base()
+    flex: 1 1 auto
+    margin: 10px
+    padding: 10px
+    text-align: center
+    transition: 0.5s
+    background-size: 200% auto
+    color: white
+    border-radius: 15px
+
+=Lora($color,$tipo,$size)
+    font-family: 'Lora', serif
+    font-size: $size
+    font-style: $tipo
+    font-weight: 400
+    line-height: 35px
+    color: $color
+
+=Zilla($color,$tipo,$size,$peso)
+    font-family: 'Zilla Slab', serif
+    font-size: $size
+    font-style: $tipo
+    font-weight: $peso
+    line-height: 35px
+    color: $color
+
+=Roboto($color, $tipo,$size)
+    font-family: 'Roboto', sans-serif
+    font-size: $size
+    font-style: $tipo
+    font-weight: 300
+    line-height: 35px
+    color: $color
+
+=btnBoletia($px,$color,$back,$color2,$back2)
+    +redondeado($px)
+    color: $color
+    background-color: $back
+    font-size: 20px
+    border: 2px solid $color
+    &:hover
+        color: $color2
+        background-color: $back2
+        border: 2px solid $color2
+=wh($w,$h)
+    width: $w
+    height: $h
+
+=marginTL($t,$l)
+    margin-top: $t
+    margin-left: $l
+
+
+    
