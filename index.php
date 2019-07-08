@@ -16,7 +16,7 @@ session_start();
 
     <meta name="keyword" content="">
 
-    <title>Ludi Os</title>
+    <title>Zuntra POP CLUB</title>
     <link rel="icon" type="image/png" id="dinamico" href="vistas/img/elfavicon/favnar.png" />
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
@@ -97,7 +97,7 @@ session_start();
 	}
 	else{
 		//Aquí se incluyen todos los controladores del index.
-		include('controladores/controlador.login.php');
+		include('controladores/controlador.home.php');
 	}
 
 	?>
@@ -158,13 +158,13 @@ elseif(isset($_GET['page'])){
 	}
 }
 else{
-	include('vistas/modulos/login.php');
+	include('vistas/modulos/home.php');
 	
 
 }
 
-include('vistas/modulos/navbar.php');
-include('vistas/modulos/nav.php');
+
+
 
 ?>
 

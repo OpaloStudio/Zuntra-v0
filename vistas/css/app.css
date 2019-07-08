@@ -17,13 +17,41 @@
   width: 100%;
   height: 100vh; }
 
-.contenedorBitacoras {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100vh; }
+.contenedorHome {
+  height: 100vh;
+  width: 100vw; }
 
+.slidePromo {
+  height: 50vh;
+  background-image: url("../img/promo1.jpg");
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: black; }
+
+.slideReservar {
+  height: 50vh;
+  background-image: url("../img/vasos.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: black; }
+
+.slideSwipe {
+  height: 50vh;
+  background-image: url("../img/vasos2.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: black; }
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (max-width: 600px) {
+  .slidePromo {
+    background-size: cover; } }
+/* Medium devices (landscape tablets, 768px and up) */
+/* Large devices (laptops/desktops, 992px and up) */
+/* Extra large devices (large laptops and desktops, 1200px and up) */
 .contenedorCalendario {
   display: flex;
   justify-content: center;
