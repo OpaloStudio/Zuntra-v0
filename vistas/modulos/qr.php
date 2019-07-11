@@ -1,3 +1,3 @@
 <div class="contenedorDocumentos">
-  <h1>Documentos</h1>
+  <img class="imgQr" src="vistas/img/pix3.png">
 </div>

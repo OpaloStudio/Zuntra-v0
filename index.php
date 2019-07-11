@@ -80,7 +80,7 @@ session_start();
 
 			case '6':
 			//Panel de publicaciones
-			include('controladores/controlador.informacion.php');
+			include('controladores/controlador.qr.php');
 			break;
 
 			case '7':
@@ -145,12 +145,12 @@ elseif(isset($_GET['page'])){
 
 		case '6':
 		//vista de informacion
-		include('vistas/modulos/informacion.php');
+		include('vistas/modulos/qr.php');
 		break;
 
 		case '7':
 		//vista de administrar
-		include('vistas/modulos/administrar.php');
+		include('vistas/modulos/perfil.php');
 		break;
 
 		case '8':

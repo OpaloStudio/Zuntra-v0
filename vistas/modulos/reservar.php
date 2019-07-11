@@ -1,6 +1,15 @@
-<div class="contenedorDashboard">
+<div class="contenedorFormulario">
 
   <form>
+  <div class="form-group">
+      <label for="exampleFormControlSelect1">¿Con quién quieres reservar?</label>
+      <select class="form-control" id="exampleFormControlSelect1">
+      <option selected>-Elige a alguien-</option>
+        <option>Nadie</option>
+        <option>Juanito</option>
+        <option>Lola</option>
+      </select>
+    </div>
     <div class="form-group">
       <label for="exampleFormControlSelect1">Tipo de Reservación</label>
       <select class="form-control" id="exampleFormControlSelect1">
