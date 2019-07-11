@@ -24,6 +24,8 @@ session_start();
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
     <link href="vistas/css/app.css" media="all" rel="stylesheet" type="text/css" />
+	
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/css/tempusdominus-bootstrap-4.min.css" />
 
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous"></script>
@@ -33,6 +35,8 @@ session_start();
         crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/interactjs@1.3.4/dist/interact.min.js"></script>
     <script src="vistas/js/jquery.nicescroll.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/js/tempusdominus-bootstrap-4.min.js"></script>
 
 
 
@@ -51,27 +55,27 @@ session_start();
 
 			case '1':
 			//Registro
-			include('controladores/controlador.dashboard.php');
+			include('controladores/controlador.logScreen.php');
 			break;
 
 			case '2':
 			//Perfil
-			include('controladores/controlador.calendario.php');
+			include('controladores/controlador.reservar.php');
 			break;
 
 			case '3':
 			//Nueva publicación
-			include('controladores/controlador.bitacoras.php');
+			include('controladores/controlador.promos.php');
 			break;
 
 			case '4':
 			//Publicación
-			include('controladores/controlador.evaluaciones.php');
+			include('controladores/controlador.login.php');
 			break;
 
 			case '5':
 			//Buscador
-			include('controladores/controlador.documentos.php');
+			include('controladores/controlador.register.php');
 			break;
 
 			case '6':
@@ -116,27 +120,27 @@ elseif(isset($_GET['page'])){
 
 		case '1':
 		//vista del dashboard
-		include('vistas/modulos/dashboard.php');
+		include('vistas/modulos/logScreen.php');
 		break;
 
 		case '2':
 		//vista del calendario
-		include('vistas/modulos/calendario.php');
+		include('vistas/modulos/reservar.php');
 		break;
 
 		case '3':
 		//vista de las bitacoras
-		include('vistas/modulos/bitacoras.php');
+		include('vistas/modulos/promos.php');
 		break;
 
 		case '4':
 		//vista de evaluaciones
-		include('vistas/modulos/evaluaciones.php');
+		include('vistas/modulos/login.php');
 		break;
 
 		case '5':
 		//vista de documentos
-		include('vistas/modulos/documentos.php');
+		include('vistas/modulos/register.php');
 		break;
 
 		case '6':

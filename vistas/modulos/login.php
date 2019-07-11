@@ -14,7 +14,7 @@
       <label class="form-check-label" for="exampleCheck1">Check me out</label>
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
-    <a href="?page=1" class="btn btn-primary">ir a Formulario</a>
+    <a href="?page=1" class="btn btn-primary">atras</a>
   </form>
  
 </div>
