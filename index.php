@@ -90,7 +90,7 @@ session_start();
 
 			case '8':
 			//Panel de publicaciones
-			include('controladores/controlador.configuracion.php');
+			include('controladores/controlador.swipe.php');
 			break;
 
 			case 'default':
@@ -155,7 +155,7 @@ elseif(isset($_GET['page'])){
 
 		case '8':
 		//vista de configuracion
-		include('vistas/modulos/configuracion.php');
+		include('vistas/modulos/swipe.php');
 		break;
 
 
