@@ -1,7 +1,7 @@
 <div class="contenedorHome">
 
   <div class="row">
-    <div class="col-12 slidePromo"><a href="?page=3">Promos</a></div>
+    <div class="col-12 slidePromo" onclick="irPromos()"></div>
   </div>
   <div class="row">
       <div class="col-6 slideReservar">

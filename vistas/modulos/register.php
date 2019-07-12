@@ -29,7 +29,9 @@
       <label for="password2">Repetir Contraseña</label>
       <input type="password" class="form-control inputsClaros" id="password2">
     </div>
-    <button type="submit" class="btn btnRegistro">Registrarse</button>
+    <div class="zonaBtnRegistro">
+      <button type="submit" class="btn btnRegistro">Registrarse</button>
+    </div>
 
 
 

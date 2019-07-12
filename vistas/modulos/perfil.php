@@ -63,7 +63,7 @@
         <option>Lola</option>
       </select>
     </div>
-    <button type="submit" class="btn btnOscuro">Iniciar</button>
+    <button type="button" class="btn btnOscuro" onclick="irSwipe()">Iniciar</button>
 
   </form>
 </div>

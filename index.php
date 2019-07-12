@@ -85,7 +85,7 @@ session_start();
 
 			case '7':
 			//Panel de publicaciones
-			include('controladores/controlador.administrar.php');
+			include('controladores/controlador.perfil.php');
 			break;
 
 			case '8':
@@ -111,6 +111,11 @@ session_start();
 			case '12':
 			//Recuperar contrasenas
 			include('controladores/controlador.recuperar.php');
+			break;
+
+			case '13':
+			//Home
+			include('controladores/controlador.home.php');
 			break;
 
 			case 'default':
@@ -196,6 +201,11 @@ elseif(isset($_GET['page'])){
 		case '12':
 		//Recuperar contrasena
 		include('vistas/modulos/recuperar.php');
+		break;
+
+		case '13':
+		//Recuperar contrasena
+		include('vistas/modulos/home.php');
 		break;
 
 

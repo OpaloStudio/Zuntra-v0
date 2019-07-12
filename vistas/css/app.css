@@ -257,6 +257,11 @@ hr {
     background-color: black;
     border: 2px solid white; }
 
+.zonaBtnRegistro {
+  width: 100%;
+  display: flex;
+  justify-content: center; }
+
 .reservarBack {
   background-color: white;
   width: 100%; }

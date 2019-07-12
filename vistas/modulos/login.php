@@ -13,7 +13,7 @@
       <input type="checkbox" class="form-check-input " id="exampleCheck1">
       <label  class="form-check-label blanco" for="exampleCheck1">Check me out</label>
     </div>
-    <button type="submit" class="btn btnOscuro">Submit</button>
+    <button type="button" class="btn btnOscuro" onclick="irSwipe()">Submit</button>
     <a href="?page=1" class="">atras</a>
   </form>
  
