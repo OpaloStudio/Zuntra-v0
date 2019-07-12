@@ -93,6 +93,16 @@ session_start();
 			include('controladores/controlador.swipe.php');
 			break;
 
+			case '9':
+			//chat
+			include('controladores/controlador.chat.php');
+			break;
+
+			case '10':
+			//Panel de chats
+			include('controladores/controlador.inbox.php');
+			break;
+
 			case 'default':
 			
 			break;
@@ -156,6 +166,15 @@ elseif(isset($_GET['page'])){
 		case '8':
 		//vista de configuracion
 		include('vistas/modulos/swipe.php');
+		break;
+
+		case '9':
+		//chat
+		include('vistas/modulos.chat.php');
+		break;
+		case '10':
+		//Panel de chats
+		include('vistas/modulos.inbox.php');
 		break;
 
 
