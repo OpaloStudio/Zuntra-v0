@@ -29,6 +29,65 @@
 .iconos
     width: 100%
 
+//modal
+
+.btnModal
+    background-color: #DEC9A1
+    color: white
+    +redondeado(20px 0px 20px 20px)
+    width: 100%
+
+.dropdown-menu
+    background-color: #DEC9A1
+    +redondeado(20px 0px 20px 20px)
+
+.btnBloquear
+    +btnClaro(20px,white,#DEC9A1,white,black)
+    width: 50%
+    margin-bottom: 20px
+
+.divSubmit
+    display: flex
+    justify-content: center
+
+.labelBloquear
+    margin-left: 10px
+
+
+
+
+
+input[type="checkbox"] 
+    visibility: hidden
+
+label 
+    cursor: pointer
+
+input[type="checkbox"] + label:before 
+    border: 1px solid #DEC9A1
+    content: "\00a0"
+    display: inline-block
+    font: 16px/1em sans-serif
+    height: 16px
+    margin: 0 .25em 0 0
+    padding: 0
+    vertical-align: top
+    width: 16px
+
+input[type="checkbox"]:checked + label:before 
+    background: #DEC9A1
+    color: white
+    content: "\2713"
+    text-align: center
+
+input[type="checkbox"]:checked + label:after 
+    font-weight: bold
+
+input[type="checkbox"]:focus + label::before 
+    outline: rgb(59, 153, 252) auto 5px
+
+
+
 //zona de la imagen del perfil
 
 .imgSwipe
@@ -45,6 +104,8 @@
     margin-top: 70vh
     color: white
 
+.modal-body
+    color: #212121
 //zona de la bioagrafia
 
 .bioSwipe
