@@ -1,476 +1,70 @@
-@charset "UTF-8";
-.formularioLogin {
-  width: 100vw; }
-
-.contenedorFormulario {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100vw;
-  height: 100vh;
-  background-color: #212121;
-  color: white; }
-
-.inputOscuro {
-  border: 1px solid white;
-  background-color: rgba(255, 255, 255, 0.11);
-  -webkit-border-radius: 20px;
-  -moz-border-radius: 20px;
-  border-radius: 20px;
-  color: white; }
-
-.contenedorChat {
-  width: 100%;
-  height: 100vh; }
-
-.navInbox {
-  height: 10vh;
-  background-color: #212121; }
-
-.divMensajes {
-  margin-top: 12vh; }
-
-.mnsjOtro {
-  background-color: #DEC9A1;
-  height: 70px;
-  width: 80vw;
-  margin: 20px 20px 20px 20px;
-  -webkit-border-radius: 30px 30px 30px 0px;
-  -moz-border-radius: 30px 30px 30px 0px;
-  border-radius: 30px 30px 30px 0px;
-  padding: 5px; }
-
-.mnsjYo {
-  background-color: rgba(222, 201, 161, 0.58);
-  height: 70px;
-  width: 80vw;
-  margin: 20px 20px 20px 20px;
-  -webkit-border-radius: 30px 30px 0px 30px;
-  -moz-border-radius: 30px 30px 0px 30px;
-  border-radius: 30px 30px 0px 30px;
-  padding: 5px; }
-
-.imgSala {
-  height: 60px;
-  width: 60px;
-  background-image: url("../img/rosas.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-color: black;
-  -webkit-border-radius: 60px;
-  -moz-border-radius: 60px;
-  border-radius: 60px; }
-
-.imgChat {
-  height: 60px;
-  width: 60px;
-  background-image: url("../img/rosas.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-color: black;
-  -webkit-border-radius: 60px;
-  -moz-border-radius: 60px;
-  border-radius: 60px;
-  right: 0;
-  position: fixed;
-  margin-right: 10px; }
-
-.contenedorHome {
-  height: 100vh;
-  width: 100vw; }
-
-.slidePromo {
-  height: 50vh;
-  background-image: url("../img/promo1.jpg");
-  background-size: 100% auto;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-color: black; }
-
-.slideReservar {
-  height: 50vh;
-  background-image: url("../img/vasos.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-color: black; }
-
-.tituloHome {
-  color: white;
-  padding: 5px; }
-
-.pHome {
-  color: white;
-  padding: 5px; }
-
-.slideSwipe {
-  height: 50vh;
-  background-image: url("../img/vasos2.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-color: black; }
-
-/* Small devices (portrait tablets and large phones, 600px and up) */
-@media only screen and (max-width: 600px) {
-  .slidePromo {
-    background-size: cover; } }
-/* Medium devices (landscape tablets, 768px and up) */
-/* Large devices (laptops/desktops, 992px and up) */
-/* Extra large devices (large laptops and desktops, 1200px and up) */
-.contenedorInbox {
-  width: 100%;
-  height: 100vh; }
-
-.navInbox {
-  height: 10vh;
-  background-color: #212121; }
-
-.divMensajes {
-  margin-top: 12vh; }
-
-.sala {
-  background-color: rgba(33, 33, 33, 0.8);
-  height: 70px;
-  width: 80vw;
-  margin: 20px 20px 20px 20px;
-  -webkit-border-radius: 30px 30px 30px 0px;
-  -moz-border-radius: 30px 30px 30px 0px;
-  border-radius: 30px 30px 30px 0px;
-  padding: 5px; }
-
-.sala:hover {
-  background-color: #212121; }
-
-.imgSala {
-  height: 60px;
-  width: 60px;
-  background-image: url("../img/rosas.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-color: black;
-  -webkit-border-radius: 60px;
-  -moz-border-radius: 60px;
-  border-radius: 60px; }
-
-.contenedorLogScreen {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  width: 100%;
-  height: 100vh;
-  background-image: url("../img/vasos2.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-color: black; }
-
-.btnOscuro {
-  -webkit-border-radius: 20px;
-  -moz-border-radius: 20px;
-  border-radius: 20px;
-  color: white;
-  background-color: rgba(239, 239, 239, 0.48);
-  font-size: 20px;
-  border: 2px solid white;
-  width: 300px; }
-  .btnOscuro:hover {
-    color: white;
-    background-color: black;
-    border: 2px solid white; }
-
-.contenedorPromos {
-  width: 100%;
-  height: 100vh; }
-
-.contenedorDocumentos {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100vh; }
-
-.imgQr {
-  height: 100px; }
-
-.contenedorRegister {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100vh; }
-
-.btnRegistro {
-  -webkit-border-radius: 20px;
-  -moz-border-radius: 20px;
-  border-radius: 20px;
-  color: white;
-  background-color: #DEC9A1;
-  font-size: 20px;
-  border: 2px solid white; }
-  .btnRegistro:hover {
-    color: white;
-    background-color: black;
-    border: 2px solid white; }
-
-.contenedorInformacion {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100vh; }
-
-.btnReservar {
-  -webkit-border-radius: 20px;
-  -moz-border-radius: 20px;
-  border-radius: 20px;
-  color: white;
-  background-color: #DEC9A1;
-  font-size: 20px;
-  border: 2px solid white;
-  width: 300px; }
-  .btnReservar:hover {
-    color: white;
-    background-color: black;
-    border: 2px solid white; }
-
-.inputsClaros {
-  border: 1px solid #212121;
-  -webkit-border-radius: 20px;
-  -moz-border-radius: 20px;
-  border-radius: 20px; }
-
-.contenedorSwipe {
-  height: 100vh;
-  width: 100vw; }
-
-.navSwipe {
-  height: 10vh;
-  display: flex;
-  align-items: center; }
-
-.btnPuntos {
-  background-color: transparent;
-  color: white;
-  font-size: 30px;
-  right: 0;
-  position: fixed;
-  margin-right: 10px; }
-
-.fas {
-  color: white;
-  font-size: 40px;
-  margin-left: 10px; }
-
-.fa-comments {
-  margin-left: 20px; }
-
-.iconos {
-  width: 100%; }
-
-.btnModal {
-  background-color: #DEC9A1;
-  color: white;
-  -webkit-border-radius: 20px 0px 20px 20px;
-  -moz-border-radius: 20px 0px 20px 20px;
-  border-radius: 20px 0px 20px 20px;
-  width: 100%; }
-
-.dropdown-menu {
-  background-color: #DEC9A1;
-  -webkit-border-radius: 20px 0px 20px 20px;
-  -moz-border-radius: 20px 0px 20px 20px;
-  border-radius: 20px 0px 20px 20px; }
-
-.btnBloquear {
-  -webkit-border-radius: 20px;
-  -moz-border-radius: 20px;
-  border-radius: 20px;
-  color: white;
-  background-color: #DEC9A1;
-  font-size: 20px;
-  border: 2px solid white;
-  width: 50%;
-  margin-bottom: 20px; }
-  .btnBloquear:hover {
-    color: white;
-    background-color: black;
-    border: 2px solid white; }
-
-.divSubmit {
-  display: flex;
-  justify-content: center; }
-
-.labelBloquear {
-  margin-left: 10px; }
-
-input[type="checkbox"] {
-  visibility: hidden; }
-
-label {
-  cursor: pointer; }
-
-input[type="checkbox"] + label:before {
-  border: 1px solid #DEC9A1;
-  content: " ";
-  display: inline-block;
-  font: 16px/1em sans-serif;
-  height: 16px;
-  margin: 0 0.25em 0 0;
-  padding: 0;
-  vertical-align: top;
-  width: 16px; }
-
-input[type="checkbox"]:checked + label:before {
-  background: #DEC9A1;
-  color: white;
-  content: "✓";
-  text-align: center; }
-
-input[type="checkbox"]:checked + label:after {
-  font-weight: bold; }
-
-input[type="checkbox"]:focus + label::before {
-  outline: #3b99fc auto 5px; }
-
-.imgSwipe {
-  background-image: url("../img/rosas.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-color: black;
-  height: 80vh; }
-
-.divNombre {
-  height: 10vh;
-  background-color: rgba(33, 33, 33, 0.45);
-  margin-top: 70vh;
-  color: white; }
-
-.modal-body {
-  color: #212121; }
-
-.bioSwipe {
-  height: 20vh;
-  background-color: rgba(33, 33, 33, 0.9); }
-
-.descripcion {
-  color: white;
-  margin: 10px 20px 10px 20px; }
-
-.switch {
-  font-size: 1rem;
-  position: relative; }
-
-.switch input {
-  position: absolute;
-  height: 1px;
-  width: 1px;
-  background: none;
-  border: 0;
-  clip: rect(0 0 0 0);
-  clip-path: inset(50%);
-  overflow: hidden;
-  padding: 0; }
-
-.switch input + label {
-  position: relative;
-  min-width: calc(calc(2.375rem * .8) * 2);
-  border-radius: calc(2.375rem * .8);
-  height: calc(2.375rem * .8);
-  line-height: calc(2.375rem * .8);
-  display: inline-block;
-  cursor: pointer;
-  outline: none;
-  user-select: none;
-  vertical-align: middle;
-  text-indent: calc(calc(calc(2.375rem * .8) * 2) + .5rem); }
-
-.switch input + label::before,
-.switch input + label::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: calc(calc(2.375rem * .8) * 2);
-  bottom: 0;
-  display: block; }
-
-.switch input + label::before {
-  right: 0;
-  background-color: #dee2e6;
-  border-radius: calc(2.375rem * .8);
-  transition: 0.2s all; }
-
-.switch input + label::after {
-  top: 2px;
-  left: 2px;
-  width: calc(calc(2.375rem * .8) - calc(2px * 2));
-  height: calc(calc(2.375rem * .8) - calc(2px * 2));
-  border-radius: 50%;
-  background-color: white;
-  transition: 0.2s all; }
-
-.switch input:checked + label::before {
-  background-color: green; }
-
-.switch input:checked + label::after {
-  margin-left: calc(2.375rem * .8); }
-
-.switch input:focus + label::before {
-  outline: none;
-  box-shadow: 0 0 0 0.2rem rgba(0, 136, 221, 0.25); }
-
-.switch input:disabled + label {
-  color: #868e96;
-  cursor: not-allowed; }
-
-.switch input:disabled + label::before {
-  background-color: #e9ecef; }
-
-.switch.switch-sm {
-  font-size: 0.875rem; }
-
-.switch.switch-sm input + label {
-  min-width: calc(calc(1.9375rem * .8) * 2);
-  height: calc(1.9375rem * .8);
-  line-height: calc(1.9375rem * .8);
-  text-indent: calc(calc(calc(1.9375rem * .8) * 2) + .5rem); }
-
-.switch.switch-sm input + label::before {
-  width: calc(calc(1.9375rem * .8) * 2); }
-
-.switch.switch-sm input + label::after {
-  width: calc(calc(1.9375rem * .8) - calc(2px * 2));
-  height: calc(calc(1.9375rem * .8) - calc(2px * 2)); }
-
-.switch.switch-sm input:checked + label::after {
-  margin-left: calc(1.9375rem * .8); }
-
-.switch.switch-lg {
-  font-size: 1.25rem; }
-
-.switch.switch-lg input + label {
-  min-width: calc(calc(3rem * .8) * 2);
-  height: calc(3rem * .8);
-  line-height: calc(3rem * .8);
-  text-indent: calc(calc(calc(3rem * .8) * 2) + .5rem); }
-
-.switch.switch-lg input + label::before {
-  width: calc(calc(3rem * .8) * 2); }
-
-.switch.switch-lg input + label::after {
-  width: calc(calc(3rem * .8) - calc(2px * 2));
-  height: calc(calc(3rem * .8) - calc(2px * 2)); }
-
-.switch.switch-lg input:checked + label::after {
-  margin-left: calc(3rem * .8); }
-
-.switch + .switch {
-  margin-left: 1rem; }
-
-/*# sourceMappingURL=app.css.map */
+/*
+Error: File to import not found or unreadable: loginAdmin.
+       Load path: /Applications/MAMP/htdocs/zuntra/vistas/sass
+        on line 13 of sass/3-modules/_modules-dir.sass
+        from line 9 of /Applications/MAMP/htdocs/zuntra/vistas/sass/app.sass
+
+8: @import "2-layouts/layouts-dir"
+9: @import "3-modules/modules-dir"
+
+Backtrace:
+sass/3-modules/_modules-dir.sass:13
+/Applications/MAMP/htdocs/zuntra/vistas/sass/app.sass:9
+/Users/opalo/.rbenv/versions/2.3.4/lib/ruby/gems/2.3.0/gems/sass-3.5.3/lib/sass/tree/import_node.rb:67:in `rescue in import'
+/Users/opalo/.rbenv/versions/2.3.4/lib/ruby/gems/2.3.0/gems/sass-3.5.3/lib/sass/tree/import_node.rb:45:in `import'
+/Users/opalo/.rbenv/versions/2.3.4/lib/ruby/gems/2.3.0/gems/sass-3.5.3/lib/sass/tree/import_node.rb:28:in `imported_file'
+/Users/opalo/.rbenv/versions/2.3.4/lib/ruby/gems/2.3.0/gems/sass-3.5.3/lib/sass/tree/import_node.rb:37:in `css_import?'
+/Users/opalo/.rbenv/versions/2.3.4/lib/ruby/gems/2.3.0/gems/sass-3.5.3/lib/sass/tree/visitors/perform.rb:314:in `visit_import'
+/Users/opalo/.rbenv/versions/2.3.4/lib/ruby/gems/2.3.0/gems/sass-3.5.3/lib/sass/tree/visitors/base.rb:36:in `visit'
+/Users/opalo/.rbenv/versions/2.3.4/lib/ruby/gems/2.3.0/gems/sass-3.5.3/lib/sass/tree/visitors/perform.rb:162:in `block in visit'
+/Users/opalo/.rbenv/versions/2.3.4/lib/ruby/gems/2.3.0/gems/sass-3.5.3/lib/sass/stack.rb:79:in `block in with_base'
+/Users/opalo/.rbenv/versions/2.3.4/lib/ruby/gems/2.3.0/gems/sass-3.5.3/lib/sass/stack.rb:135:in `with_frame'
+/Users/opalo/.rbenv/versions/2.3.4/lib/ruby/gems/2.3.0/gems/sass-3.5.3/lib/sass/stack.rb:79:in `with_base'
+/Users/opalo/.rbenv/versions/2.3.4/lib/ruby/gems/2.3.0/gems/sass-3.5.3/lib/sass/tree/visitors/perform.rb:162:in `visit'
+/Users/opalo/.rbenv/versions/2.3.4/lib/ruby/gems/2.3.0/gems/sass-3.5.3/lib/sass/tree/visitors/perform.rb:329:in `block (2 levels) in visit_import'
+/Users/opalo/.rbenv/versions/2.3.4/lib/ruby/gems/2.3.0/gems/sass-3.5.3/lib/sass/tree/visitors/perform.rb:329:in `map'
+/Users/opalo/.rbenv/versions/2.3.4/lib/ruby/gems/2.3.0/gems/sass-3.5.3/lib/sass/tree/visitors/perform.rb:329:in `block in visit_import'
+/Users/opalo/.rbenv/versions/2.3.4/lib/ruby/gems/2.3.0/gems/sass-3.5.3/lib/sass/stack.rb:88:in `block in with_import'
+/Users/opalo/.rbenv/versions/2.3.4/lib/ruby/gems/2.3.0/gems/sass-3.5.3/lib/sass/stack.rb:135:in `with_frame'
+/Users/opalo/.rbenv/versions/2.3.4/lib/ruby/gems/2.3.0/gems/sass-3.5.3/lib/sass/stack.rb:88:in `with_import'
+/Users/opalo/.rbenv/versions/2.3.4/lib/ruby/gems/2.3.0/gems/sass-3.5.3/lib/sass/tree/visitors/perform.rb:326:in `visit_import'
+/Users/opalo/.rbenv/versions/2.3.4/lib/ruby/gems/2.3.0/gems/sass-3.5.3/lib/sass/tree/visitors/base.rb:36:in `visit'
+/Users/opalo/.rbenv/versions/2.3.4/lib/ruby/gems/2.3.0/gems/sass-3.5.3/lib/sass/tree/visitors/perform.rb:162:in `block in visit'
+/Users/opalo/.rbenv/versions/2.3.4/lib/ruby/gems/2.3.0/gems/sass-3.5.3/lib/sass/stack.rb:79:in `block in with_base'
+/Users/opalo/.rbenv/versions/2.3.4/lib/ruby/gems/2.3.0/gems/sass-3.5.3/lib/sass/stack.rb:135:in `with_frame'
+/Users/opalo/.rbenv/versions/2.3.4/lib/ruby/gems/2.3.0/gems/sass-3.5.3/lib/sass/stack.rb:79:in `with_base'
+/Users/opalo/.rbenv/versions/2.3.4/lib/ruby/gems/2.3.0/gems/sass-3.5.3/lib/sass/tree/visitors/perform.rb:162:in `visit'
+/Users/opalo/.rbenv/versions/2.3.4/lib/ruby/gems/2.3.0/gems/sass-3.5.3/lib/sass/tree/visitors/base.rb:52:in `block in visit_children'
+/Users/opalo/.rbenv/versions/2.3.4/lib/ruby/gems/2.3.0/gems/sass-3.5.3/lib/sass/tree/visitors/base.rb:52:in `map'
+/Users/opalo/.rbenv/versions/2.3.4/lib/ruby/gems/2.3.0/gems/sass-3.5.3/lib/sass/tree/visitors/base.rb:52:in `visit_children'
+/Users/opalo/.rbenv/versions/2.3.4/lib/ruby/gems/2.3.0/gems/sass-3.5.3/lib/sass/tree/visitors/perform.rb:171:in `block in visit_children'
+/Users/opalo/.rbenv/versions/2.3.4/lib/ruby/gems/2.3.0/gems/sass-3.5.3/lib/sass/tree/visitors/perform.rb:183:in `with_environment'
+/Users/opalo/.rbenv/versions/2.3.4/lib/ruby/gems/2.3.0/gems/sass-3.5.3/lib/sass/tree/visitors/perform.rb:170:in `visit_children'
+/Users/opalo/.rbenv/versions/2.3.4/lib/ruby/gems/2.3.0/gems/sass-3.5.3/lib/sass/tree/visitors/base.rb:36:in `block in visit'
+/Users/opalo/.rbenv/versions/2.3.4/lib/ruby/gems/2.3.0/gems/sass-3.5.3/lib/sass/tree/visitors/perform.rb:190:in `visit_root'
+/Users/opalo/.rbenv/versions/2.3.4/lib/ruby/gems/2.3.0/gems/sass-3.5.3/lib/sass/tree/visitors/base.rb:36:in `visit'
+/Users/opalo/.rbenv/versions/2.3.4/lib/ruby/gems/2.3.0/gems/sass-3.5.3/lib/sass/tree/visitors/perform.rb:161:in `visit'
+/Users/opalo/.rbenv/versions/2.3.4/lib/ruby/gems/2.3.0/gems/sass-3.5.3/lib/sass/tree/visitors/perform.rb:10:in `visit'
+/Users/opalo/.rbenv/versions/2.3.4/lib/ruby/gems/2.3.0/gems/sass-3.5.3/lib/sass/tree/root_node.rb:36:in `css_tree'
+/Users/opalo/.rbenv/versions/2.3.4/lib/ruby/gems/2.3.0/gems/sass-3.5.3/lib/sass/tree/root_node.rb:29:in `render_with_sourcemap'
+/Users/opalo/.rbenv/versions/2.3.4/lib/ruby/gems/2.3.0/gems/sass-3.5.3/lib/sass/engine.rb:389:in `_render_with_sourcemap'
+/Users/opalo/.rbenv/versions/2.3.4/lib/ruby/gems/2.3.0/gems/sass-3.5.3/lib/sass/engine.rb:307:in `render_with_sourcemap'
+/Users/opalo/.rbenv/versions/2.3.4/lib/ruby/gems/2.3.0/gems/sass-3.5.3/lib/sass/plugin/compiler.rb:462:in `update_stylesheet'
+/Users/opalo/.rbenv/versions/2.3.4/lib/ruby/gems/2.3.0/gems/sass-3.5.3/lib/sass/plugin/compiler.rb:215:in `block in update_stylesheets'
+/Users/opalo/.rbenv/versions/2.3.4/lib/ruby/gems/2.3.0/gems/sass-3.5.3/lib/sass/plugin/compiler.rb:209:in `each'
+/Users/opalo/.rbenv/versions/2.3.4/lib/ruby/gems/2.3.0/gems/sass-3.5.3/lib/sass/plugin/compiler.rb:209:in `update_stylesheets'
+/Users/opalo/.rbenv/versions/2.3.4/lib/ruby/gems/2.3.0/gems/sass-3.5.3/lib/sass/plugin/compiler.rb:443:in `on_file_changed'
+/Users/opalo/.rbenv/versions/2.3.4/lib/ruby/gems/2.3.0/gems/sass-3.5.3/lib/sass/plugin/compiler.rb:320:in `block in watch'
+/Users/opalo/.rbenv/versions/2.3.4/lib/ruby/gems/2.3.0/gems/sass-listen-4.0.0/lib/sass-listen/event/config.rb:23:in `call'
+/Users/opalo/.rbenv/versions/2.3.4/lib/ruby/gems/2.3.0/gems/sass-listen-4.0.0/lib/sass-listen/event/processor.rb:115:in `_process_changes'
+/Users/opalo/.rbenv/versions/2.3.4/lib/ruby/gems/2.3.0/gems/sass-listen-4.0.0/lib/sass-listen/event/processor.rb:19:in `block in loop_for'
+/Users/opalo/.rbenv/versions/2.3.4/lib/ruby/gems/2.3.0/gems/sass-listen-4.0.0/lib/sass-listen/event/processor.rb:15:in `loop'
+/Users/opalo/.rbenv/versions/2.3.4/lib/ruby/gems/2.3.0/gems/sass-listen-4.0.0/lib/sass-listen/event/processor.rb:15:in `loop_for'
+/Users/opalo/.rbenv/versions/2.3.4/lib/ruby/gems/2.3.0/gems/sass-listen-4.0.0/lib/sass-listen/event/loop.rb:84:in `_wait_for_changes'
+/Users/opalo/.rbenv/versions/2.3.4/lib/ruby/gems/2.3.0/gems/sass-listen-4.0.0/lib/sass-listen/event/loop.rb:42:in `block in setup'
+/Users/opalo/.rbenv/versions/2.3.4/lib/ruby/gems/2.3.0/gems/sass-listen-4.0.0/lib/sass-listen/internals/thread_pool.rb:6:in `block in add'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Error: File to import not found or unreadable: loginAdmin.\A        Load path: /Applications/MAMP/htdocs/zuntra/vistas/sass\A         on line 13 of sass/3-modules/_modules-dir.sass\A         from line 9 of /Applications/MAMP/htdocs/zuntra/vistas/sass/app.sass\A \A 8: @import \"2-layouts/layouts-dir\"\A 9: @import \"3-modules/modules-dir\""; }

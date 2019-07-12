@@ -53,9 +53,11 @@
 .labelBloquear
     margin-left: 10px
 
+.razon
+    +inputClaro()
 
-
-
+.elModal
+    +redondeado(30px)
 
 input[type="checkbox"] 
     visibility: hidden
@@ -63,7 +65,7 @@ input[type="checkbox"]
 label 
     cursor: pointer
 
-input[type="checkbox"] + label:before 
+.checkBloquear + label:before 
     border: 1px solid #DEC9A1
     content: "\00a0"
     display: inline-block
@@ -74,16 +76,16 @@ input[type="checkbox"] + label:before
     vertical-align: top
     width: 16px
 
-input[type="checkbox"]:checked + label:before 
+.checkBloquear:checked + label:before 
     background: #DEC9A1
     color: white
     content: "\2713"
     text-align: center
 
-input[type="checkbox"]:checked + label:after 
+.checkBloquear:checked + label:after 
     font-weight: bold
 
-input[type="checkbox"]:focus + label::before 
+.checkBloquear:focus + label::before 
     outline: rgb(59, 153, 252) auto 5px
 
 

@@ -1,5 +1,3 @@
 <script>
-function abrirModal(){
-    
-}
+
 </script>

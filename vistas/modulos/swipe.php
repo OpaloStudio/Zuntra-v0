@@ -39,28 +39,28 @@
       <div class="content">
   <div class="box">
     <p>
-      <input type="checkbox" id="c1" name="cb">
+      <input class="checkBloquear" type="checkbox" id="c1" name="cb">
       <label for="c1">No especificar</label>
     </p>
     <p>
-      <input type="checkbox" id="c2" name="cb">
+      <input class="checkBloquear" type="checkbox" id="c2" name="cb">
       <label for="c2">Comportamiento fuera de lugar</label>
     </p>
     <p>
-      <input type="checkbox" id="c3" name="cb">
+      <input class="checkBloquear" type="checkbox" id="c3" name="cb">
       <label for="c3">Es muy insistente</label>
     </p>
 
     <p>
-      <input type="checkbox" id="c4" name="cb">
+      <input class="checkBloquear" type="checkbox" id="c4" name="cb">
       <label for="c4">Hay una relación pasada</label>
     </p>
   </div>
 </div>
         
         <div class="form-group">
-    <label for="exampleFormControlTextarea1">Otra razón o queja</label>
-    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+    <label for="razon">Otra razón o queja</label>
+    <textarea class="form-control razon" id="razon" rows="3"></textarea>
   </div>
       </div>
       </form>
