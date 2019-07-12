@@ -170,11 +170,11 @@ elseif(isset($_GET['page'])){
 
 		case '9':
 		//chat
-		include('vistas/modulos.chat.php');
+		include('vistas/modulos/chat.php');
 		break;
 		case '10':
 		//Panel de chats
-		include('vistas/modulos.inbox.php');
+		include('vistas/modulos/inbox.php');
 		break;
 
 

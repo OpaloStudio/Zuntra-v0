@@ -10,12 +10,63 @@
   width: 100vw;
   height: 100vh; }
 
-.contenedorAdministrar {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.contenedorChat {
   width: 100%;
   height: 100vh; }
+
+.navInbox {
+  height: 10vh;
+  background-color: #212121; }
+
+.divMensajes {
+  margin-top: 12vh; }
+
+.mnsjOtro {
+  background-color: #DEC9A1;
+  height: 70px;
+  width: 80vw;
+  margin: 20px 20px 20px 20px;
+  -webkit-border-radius: 30px 30px 30px 0px;
+  -moz-border-radius: 30px 30px 30px 0px;
+  border-radius: 30px 30px 30px 0px;
+  padding: 5px; }
+
+.mnsjYo {
+  background-color: rgba(222, 201, 161, 0.58);
+  height: 70px;
+  width: 80vw;
+  margin: 20px 20px 20px 20px;
+  -webkit-border-radius: 30px 30px 0px 30px;
+  -moz-border-radius: 30px 30px 0px 30px;
+  border-radius: 30px 30px 0px 30px;
+  padding: 5px; }
+
+.imgSala {
+  height: 60px;
+  width: 60px;
+  background-image: url("../img/rosas.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: black;
+  -webkit-border-radius: 60px;
+  -moz-border-radius: 60px;
+  border-radius: 60px; }
+
+.imgChat {
+  height: 60px;
+  width: 60px;
+  background-image: url("../img/rosas.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: black;
+  -webkit-border-radius: 60px;
+  -moz-border-radius: 60px;
+  border-radius: 60px;
+  right: 0;
+  position: fixed;
+  margin-right: 10px; }
 
 .contenedorHome {
   height: 100vh;
@@ -52,12 +103,41 @@
 /* Medium devices (landscape tablets, 768px and up) */
 /* Large devices (laptops/desktops, 992px and up) */
 /* Extra large devices (large laptops and desktops, 1200px and up) */
-.contenedorCalendario {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.contenedorInbox {
   width: 100%;
   height: 100vh; }
+
+.navInbox {
+  height: 10vh;
+  background-color: #212121; }
+
+.divMensajes {
+  margin-top: 12vh; }
+
+.sala {
+  background-color: rgba(33, 33, 33, 0.8);
+  height: 70px;
+  width: 80vw;
+  margin: 20px 20px 20px 20px;
+  -webkit-border-radius: 30px 30px 30px 0px;
+  -moz-border-radius: 30px 30px 30px 0px;
+  border-radius: 30px 30px 30px 0px;
+  padding: 5px; }
+
+.sala:hover {
+  background-color: #212121; }
+
+.imgSala {
+  height: 60px;
+  width: 60px;
+  background-image: url("../img/rosas.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: black;
+  -webkit-border-radius: 60px;
+  -moz-border-radius: 60px;
+  border-radius: 60px; }
 
 .contenedorConfiguracion {
   display: flex;

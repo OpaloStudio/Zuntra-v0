@@ -1,7 +1,53 @@
 
-.contenedorAdministrar
-    display: flex
-    justify-content: center
-    align-items: center
+.contenedorChat
     width: 100%
     height: 100vh
+
+.navInbox
+    height: 10vh
+    background-color: #212121
+
+//zona de los mensajes
+
+.divMensajes
+    margin-top: 12vh
+
+.mnsjOtro
+    background-color: #DEC9A1
+    height: 70px
+    width: 80vw
+    margin: 20px 20px 20px 20px
+    +redondeado(30px 30px 30px 0px)
+    padding: 5px
+
+.mnsjYo
+    background-color: rgba(222,201,161,0.58)
+    height: 70px
+    width: 80vw
+    margin: 20px 20px 20px 20px
+    +redondeado(30px 30px 0px 30px)
+    padding: 5px
+
+
+.imgSala
+    height: 60px
+    width: 60px
+    background-image: url("../img/rosas.jpg")
+    background-size: cover
+    background-repeat: no-repeat
+    background-position: center
+    background-color: black
+    +redondeado(60px)
+
+.imgChat
+    height: 60px
+    width: 60px
+    background-image: url("../img/rosas.jpg")
+    background-size: cover
+    background-repeat: no-repeat
+    background-position: center
+    background-color: black
+    +redondeado(60px)
+    right: 0
+    position: fixed
+    margin-right: 10px

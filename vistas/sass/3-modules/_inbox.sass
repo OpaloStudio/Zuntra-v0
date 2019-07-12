@@ -1,8 +1,35 @@
 
 
-.contenedorCalendario
-    display: flex
-    justify-content: center
-    align-items: center
+.contenedorInbox
     width: 100%
     height: 100vh
+
+.navInbox
+    height: 10vh
+    background-color: #212121
+
+//zona de los mensajes
+
+.divMensajes
+    margin-top: 12vh
+
+.sala
+    background-color: rgba(33, 33, 33,0.80)
+    height: 70px
+    width: 80vw
+    margin: 20px 20px 20px 20px
+    +redondeado(30px 30px 30px 0px)
+    padding: 5px
+
+.sala:hover
+    background-color: #212121
+
+.imgSala
+    height: 60px
+    width: 60px
+    background-image: url("../img/rosas.jpg")
+    background-size: cover
+    background-repeat: no-repeat
+    background-position: center
+    background-color: black
+    +redondeado(60px)
