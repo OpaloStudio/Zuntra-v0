@@ -1,14 +1,22 @@
-@import url("https://fonts.googleapis.com/css?family=Lora:400,400i,600,700|Roboto:300,400");
-@import url("https://fonts.googleapis.com/css?family=Zilla+Slab:300,400,600,700");
 .formularioLogin {
-  width: 500px; }
+  width: 100vw; }
 
 .contenedorFormulario {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100vw;
-  height: 100vh; }
+  height: 100vh;
+  background-color: #212121;
+  color: white; }
+
+.inputOscuro {
+  border: 1px solid white;
+  background-color: rgba(255, 255, 255, 0.11);
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+  color: white; }
 
 .contenedorChat {
   width: 100%;
@@ -88,6 +96,14 @@
   background-position: center;
   background-color: black; }
 
+.tituloHome {
+  color: white;
+  padding: 5px; }
+
+.pHome {
+  color: white;
+  padding: 5px; }
+
 .slideSwipe {
   height: 50vh;
   background-image: url("../img/vasos2.jpg");
@@ -139,12 +155,32 @@
   -moz-border-radius: 60px;
   border-radius: 60px; }
 
-.contenedorConfiguracion {
+.contenedorLogScreen {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   width: 100%;
-  height: 100vh; }
+  height: 100vh;
+  background-image: url("../img/vasos2.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: black; }
+
+.btnOscuro {
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+  color: white;
+  background-color: rgba(239, 239, 239, 0.48);
+  font-size: 20px;
+  border: 2px solid white;
+  width: 300px; }
+  .btnOscuro:hover {
+    color: white;
+    background-color: black;
+    border: 2px solid white; }
 
 .contenedorPromos {
   width: 100%;
@@ -160,12 +196,25 @@
 .imgQr {
   height: 100px; }
 
-.contenedorEvaluaciones {
+.contenedorRegister {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
   height: 100vh; }
+
+.btnRegistro {
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+  color: white;
+  background-color: #DEC9A1;
+  font-size: 20px;
+  border: 2px solid white; }
+  .btnRegistro:hover {
+    color: white;
+    background-color: black;
+    border: 2px solid white; }
 
 .contenedorInformacion {
   display: flex;
@@ -173,6 +222,26 @@
   align-items: center;
   width: 100%;
   height: 100vh; }
+
+.btnReservar {
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+  color: white;
+  background-color: #DEC9A1;
+  font-size: 20px;
+  border: 2px solid white;
+  width: 300px; }
+  .btnReservar:hover {
+    color: white;
+    background-color: black;
+    border: 2px solid white; }
+
+.inputsClaros {
+  border: 1px solid #212121;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px; }
 
 .contenedorSwipe {
   height: 100vh;
