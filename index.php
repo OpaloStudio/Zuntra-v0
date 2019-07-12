@@ -103,6 +103,16 @@ session_start();
 			include('controladores/controlador.inbox.php');
 			break;
 
+			case '11':
+			//Cambiar contrasenas
+			include('controladores/controlador.cambiar.php');
+			break;
+
+			case '12':
+			//Recuperar contrasenas
+			include('controladores/controlador.recuperar.php');
+			break;
+
 			case 'default':
 			
 			break;
@@ -172,9 +182,20 @@ elseif(isset($_GET['page'])){
 		//chat
 		include('vistas/modulos/chat.php');
 		break;
+
 		case '10':
 		//Panel de chats
 		include('vistas/modulos/inbox.php');
+		break;
+
+		case '11':
+		//Cambiar contrasena
+		include('vistas/modulos/cambiar.php');
+		break;
+
+		case '12':
+		//Recuperar contrasena
+		include('vistas/modulos/recuperar.php');
 		break;
 
 
