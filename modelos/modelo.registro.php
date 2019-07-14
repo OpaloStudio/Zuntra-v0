@@ -21,9 +21,10 @@ $result = $conexion->query($sql);
 if($result->num_rows > 0){
     $status = 0; //Registrado
 } else{
+    
     $sql2 = "INSERT INTO usuarios (nombre, telefono, correo, cumpleanos, contrasena) VALUES ('$nombre', '$telefono', '$email', NULL, '$password')";
-    $result2 = $conexion->query($sql2);
-    if($result2 == $conexion->query($sql2)){
+    
+    if($conexion->query($sql2)){
         $status = '1';
     } else{
         $status = '997';//Error al registrar al usuario
