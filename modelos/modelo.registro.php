@@ -1,26 +1,36 @@
 <?php
 
-include ("modelo.conexion.php");
-$status = 999;
+$conexion = mysqli_connect("zuntrapopclub.com", "zuntrapo_user", ".Pinshicontra", "zuntrapo_bd");
+if ($conexion->connect_error) {
+  die("La conexion falló: " . $conexion->connect_error);
+}
 
-$email = $_POST['email'];
-$password=password_hash($_POST['password'], PASSWORD_DEFAULT);
+
+$status = '999';
+
 $nombre = $_POST['nombre'];
-$fecha_nacimiento = $_POST['fecha_nacimiento'];
-$id_escuela = $_POST['id_escuela'];
-$enterado = $_POST['enterado'];
+$telefono = $_POST['telefono'];
+$email = $_POST['email'];
+$cumple = $_POST['cumple'];
+$password = $_POST['password'];
 
-$sql = "SELECT email FROM usuarios WHERE email = '$email'";
+$sql = "SELECT correo FROM usuarios WHERE correo = '$email'";
 $result = $conexion->query($sql);
+
+
 if($result->num_rows > 0){
     $status = 0; //Registrado
-}
-else{
-    $sql = "INSERT INTO usuarios(email, password, nombre, fecha_nacimiento, id_escuela, enterado)
-    VALUES ('$email', '$password', '$nombre', '$fecha_nacimiento', '$id_escuela', '$enterado')";
-    if($result = $conexion->query($sql)){
-        $status = 1;
+} else{
+    $sql = "INSERT INTO 'usuarios' ('nombre', 'telefono', 'correo', 'cumpleanos', 'contrasena' , 'fotoPerfil', 'idTipoSexo', 'idTipoCita', 'idBusco', 'biografia', 'idTipoETS', 'idTipoUsuario') VALUES ('$nombre', '$telefono', '$email', '$cumple', '$password', NULL, NULL, NULL, NULL, NULL, NULL, NULL)";
+
+    if($conexion->query($sql)){
+        $status = '1';
+    } else{
+        $status = '997';//Error al registrar al usuario
     }
+
 }
 
 echo $status;
+
+?>
