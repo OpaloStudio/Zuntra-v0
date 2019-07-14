@@ -14,16 +14,16 @@ $email = $_POST['email'];
 $cumple = $_POST['cumple'];
 $password = $_POST['password'];
 
-$sql = "SELECT correo FROM usuarios WHERE correo = '$email'";
+$sql = "SELECT correo FROM usuarios WHERE correo = '$email' ";
 $result = $conexion->query($sql);
 
 
 if($result->num_rows > 0){
     $status = 0; //Registrado
 } else{
-    $sql = "INSERT INTO 'usuarios' ('nombre', 'telefono', 'correo', 'cumpleanos', 'contrasena' , 'fotoPerfil', 'idTipoSexo', 'idTipoCita', 'idBusco', 'biografia', 'idTipoETS', 'idTipoUsuario') VALUES ('$nombre', '$telefono', '$email', '$cumple', '$password', NULL, NULL, NULL, NULL, NULL, NULL, NULL)";
-
-    if($conexion->query($sql)){
+    $sql2 = "INSERT INTO usuarios (nombre, telefono, correo, cumpleanos, contrasena) VALUES ('$nombre', '$telefono', '$email', NULL, '$password')";
+    $result2 = $conexion->query($sql2);
+    if($result2 == $conexion->query($sql2)){
         $status = '1';
     } else{
         $status = '997';//Error al registrar al usuario
