@@ -12,7 +12,7 @@ $nombre = $_POST['nombre'];
 $telefono = $_POST['telefono'];
 $email = $_POST['email'];
 $cumple = $_POST['cumple'];
-$password = $_POST['password'];
+$password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
 $sql = "SELECT correo FROM usuarios WHERE correo = '$email' ";
 $result = $conexion->query($sql);
