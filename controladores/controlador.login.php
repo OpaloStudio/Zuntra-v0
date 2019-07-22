@@ -46,7 +46,7 @@
                     break;
 
                     case 1:
-                        alert("Sesión Iniciada Correctamente");
+                        //alert("Sesión Iniciada Correctamente");
                         window.location.href = '?page=8';
                     break;
                 }

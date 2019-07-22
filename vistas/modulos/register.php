@@ -1,5 +1,7 @@
 <div class="contenedorRegister">
   <form>
+  
+
     <div class="form-group">
       <label for="nombre">Nombre</label>
       <input type="text" class="form-control inputsClaros" id="nombre">
@@ -30,9 +32,9 @@
       <input type="password" class="form-control inputsClaros" id="password2">
     </div>
     <div class="zonaBtnRegistro">
-      <button type="submit" class="btn btnRegistro">Registrarse</button>
+    <button type="submit" class="btn btnRegistro" id="botonRegistrar" onclick="registrar()" >Registrarse</button>
     </div>
-    <button type="submit" class="btn btn-primary" id="botonRegistrar" onclick="registrar()" >Registrarse</button>
+    
 
 
 
