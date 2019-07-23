@@ -27,31 +27,32 @@
 </div>
     <div class="form-group">
       <label for="exampleFormControlSelect1">Sexo</label>
-      <select class="form-control inputOscuro" id="exampleFormControlSelect1">
-      <option selected>-Elige tu sexo-</option>
-        <option>Hombre</option>
-        <option>Mujer</option>
-        <option>Trans</option>
+      <select class="form-control inputOscuro" id="tipoSexo">
+        <option value = "0" selected>-Elige tu sexo-</option>
+        <option value = "1" >Hombre</option>
+        <option value = "2" >Mujer</option>
+        <option value = "3" >Trans</option>
       </select>
     </div>
 
   <div class="form-group">
       <label for="exampleFormControlSelect1">¿Qué buscas?</label>
-      <select class="form-control inputOscuro" id="exampleFormControlSelect1">
-      <option selected>-Elige a alguien-</option>
-        <option>Nadie</option>
-        <option>Juanito</option>
-        <option>Lola</option>
+      <select class="form-control inputOscuro" id="busco">
+        <option value = "0" selected>-Elige una opción-</option>
+        <option value = "1" >Hombre</option>
+        <option value = "2" >Mujer</option>
+        <option value = "3" >Trans</option>
       </select>
     </div>
 
     <div class="form-group">
       <label for="exampleFormControlSelect1">Tipo de cita</label>
-      <select class="form-control inputOscuro" id="exampleFormControlSelect1">
-      <option selected>-Elige tu cita-</option>
-        <option>Hombre</option>
-        <option>Mujer</option>
-        <option>Trans</option>
+      <select class="form-control inputOscuro" id="tipoCita">
+        <option value = "0" selected>-Elige tu cita-</option>
+        <option value = "1" >Amigos</option>
+        <option value = "2" >Chat</option>
+        <option value = "3" >Citas</option>
+        <option value = "4" >Relación para este momento</option>
       </select>
     </div>
 
@@ -71,10 +72,14 @@
   <div class="form-group">
       <label for="ets">¿Tienes ETS?</label>
       <select class="form-control inputOscuro" id="ets">
-      <option selected>-Elige una opción-</option>
-        <option>Nadie</option>
-        <option>Juanito</option>
-        <option>Lola</option>
+        <option value = "0" selected>-Elige una opción-</option>
+        <option value = "1" >Negativo</option>
+        <option value = "2" >VIH</option>
+        <option value = "3" >Clamidia</option>
+        <option value = "4" >Herpes Genital</option>
+        <option value = "5" >Gonorrea</option>
+        <option value = "6" >Sifilis</option>
+        <option value = "7" >Otra</option>
       </select>
     </div>
 
@@ -87,7 +92,7 @@
         <option>Lola</option>
       </select>
     </div>
-    <button type="button" class="btn btnOscuro" onclick="irSwipe()">Iniciar</button>
+    <button type="button" class="btn btnOscuro" id = "btnActualizar" onclick="irSwipe()">Iniciar</button>
 
   </form>
 </div>
