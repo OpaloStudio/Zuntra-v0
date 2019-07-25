@@ -17,9 +17,11 @@
 
 
   </nav>
+  
 
   <div class="row imgSwipe">
     <div class="col-12">
+    
     <div class="divNombre">
 
     
@@ -70,16 +72,27 @@
     </div>
   </div>
 </div>
-    <h2>Rodrigo Rosas</h2>
+
+    <h2 id = 'nombreSwipe' >Rodrigo Rosas</h2>
     <h6>24 años - citas</h6>
     </div>
     </div>
   </div>
+  <div class="row">
+      <div class="col-6">
+<i class="fas fa-arrow-circle-left"></i>
+      <a onclick='noMatch()'>Nel</a></div>
+      <div class="col-6">
+<i class="fas fa-arrow-circle-right"></i>
+      <a onclick='match()'>Simón</a></div>
+  </div>
 
   <div class="row bioSwipe">
     <div class="col-12">
-    <p class="descripcion">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia perspiciatis beatae nobis sed possimus ad culpa animi fugiat maiores! Veniam explicabo vero veritatis.</p>
+    <p class="descripcion" id = 'bioSwipe'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia perspiciatis beatae nobis sed possimus ad culpa animi fugiat maiores! Veniam explicabo vero veritatis.</p>
     </div>
   </div>
+
+
 
 </div>
