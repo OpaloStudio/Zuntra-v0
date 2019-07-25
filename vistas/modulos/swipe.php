@@ -67,7 +67,7 @@
       </div>
       </form>
       <div class="divSubmit">
-        <button type="button" class="btn btnBloquear">Bloquear</button>
+        <button type="button" class="btn btnBloquear" onclick = 'bloqueo()' >Bloquear</button>
       </div>
     </div>
   </div>
