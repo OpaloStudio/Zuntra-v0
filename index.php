@@ -118,6 +118,11 @@ session_start();
 			include('controladores/controlador.home.php');
 			break;
 
+			case '14':
+			//Home
+			include('controladores/controlador.escaner.php');
+			break;
+
 			case 'default':
 			
 			break;
@@ -207,6 +212,12 @@ elseif(isset($_GET['page'])){
 		//Recuperar contrasena
 		include('vistas/modulos/home.php');
 		break;
+
+		case '14':
+		//Recuperar contrasena
+		include('vistas/modulos/escaner.php');
+		break;
+
 
 
 	}

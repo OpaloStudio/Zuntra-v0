@@ -565,4 +565,14 @@ label {
   width: 80%;
   margin-top: 10%; }
 
+.zonaEscaner {
+  height: 60vh; }
+
+.zonaAbajo {
+  height: 40vh;
+  background-color: #212121;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
 /*# sourceMappingURL=app.css.map */
