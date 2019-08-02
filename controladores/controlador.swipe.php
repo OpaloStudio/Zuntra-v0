@@ -16,6 +16,7 @@ if(isset($_SESSION['loggedin'])){
 <script>
     var sesion = <?php echo $idsesion; ?>;
     var perfiles;
+    var perfilesID = new Array();
     var perfilesNombre = new Array();
     var perfilesBio = new Array();
     var indiceSwipe;
@@ -26,6 +27,7 @@ if(isset($_SESSION['loggedin'])){
 
     function swipeInicial(){
         perfiles = null;
+        perfilesID = [];
         perfilesNombre = [];
         perfilesBio = [];
         indiceSwipe = 0;
@@ -46,6 +48,7 @@ if(isset($_SESSION['loggedin'])){
                     for(var i = 0; i<perfiles.length; i++){
                         perfilesNombre.push(perfiles[i].nombre);
                         perfilesBio.push(perfiles[i].biografia);
+                        perfilesID.push(perfiles[i].idUser);
                     }
 
                     console.log(perfilesNombre);
@@ -83,6 +86,42 @@ if(isset($_SESSION['loggedin'])){
     function noMatch(){
         console.log("se agregó a " + perfilesNombre[indiceSwipe] + " a la lista mala :C");
         rellenarSwipe();
+    }
+
+    function bloqueo(){
+        var bloqueador = sesion;
+        var bloqueado = perfilesID[indiceSwipe];
+        //var razones = document.getElementById('nombre').value;
+        
+        console.log(bloqueador);
+        console.log(bloqueado);
+
+        /*
+        $.ajax({
+            url: "modelos/modelo.bloqueo.php",
+            type: "POST",
+            data: ({
+                bloqueador:bloqueador,
+                bloqueado:bloqueado
+            }),
+            success: function(msg) {
+
+                console.log(msg);
+
+                switch(msg){
+
+                case 1:
+                    alert("Usuario Bloqueado Exitosamente");
+                break;
+
+                case 997:
+                    alert("Ha ocurrido un error interno, inténtalo más tarde.");
+                break;
+                }
+            },
+            dataType: "json"
+        });
+        */
     }
 
 </script>
