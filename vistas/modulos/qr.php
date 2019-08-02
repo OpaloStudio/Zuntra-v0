@@ -1,6 +1,6 @@
 <div class="contenedorQr">
 <div class="divEditar"><i class="far fa-edit"></i></div>
-  <img class="imgQr" src="vistas/img/pix3.png"><br>
+  <img class="imgQr" src="vistas/img/pix3.png" id="img64"><br>
   <div class="row">
   <hr>
   <div class="col-4 flecQr"><p>Reservación<br>3/5</p></div>
