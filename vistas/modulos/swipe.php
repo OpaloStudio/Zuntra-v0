@@ -78,14 +78,17 @@
     </div>
     </div>
   </div>
-  <div class="row">
-      <div class="col-6">
-<i class="fas fa-arrow-circle-left"></i>
-      <a onclick='noMatch()'>Nel</a></div>
-      <div class="col-6">
-<i class="fas fa-arrow-circle-right"></i>
-      <a onclick='match()'>Simón</a></div>
-  </div>
+  <span class="barritaBtn">
+      <div class="btnEleccion" id="simon">
+      <i class="fas fa-thumbs-up" onclick='noMatch()'></i>
+      </div>
+      <div class="btnEleccion" id="nelson">
+      <i class="fas fa-thumbs-down" onclick='match()'></i>
+      </div>
+      <div class="btnEleccion" id="mensajeYA">
+      <i class="fas fa-paper-plane avion" ></i>
+      </div>
+  </span>
 
   <div class="row bioSwipe">
     <div class="col-12">

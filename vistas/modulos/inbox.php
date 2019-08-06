@@ -22,8 +22,8 @@
         <div class="imgSala"></div>
       </div>
       <div class="col-9">
-        <h5>Rodrigo Rosas</h5>
-        <p>On tas?</p>
+        <h5 class="leNombre">Rodrigo Rosas</h5>
+        <p class="leMensaje">On tas?</p>
       </div>
     </div>
     </div>
@@ -34,8 +34,8 @@
         <div class="imgSala"></div>
       </div>
       <div class="col-9">
-        <h5>Rodrigo Rosas</h5>
-        <p>On tas?</p>
+      <h5 class="leNombre">Rodrigo Rosas</h5>
+        <p class="leMensaje">On tas?</p>
       </div>
     </div>
     </div>
@@ -46,8 +46,8 @@
         <div class="imgSala"></div>
       </div>
       <div class="col-9">
-        <h5>Rodrigo Rosas</h5>
-        <p>On tas?</p>
+      <h5 class="leNombre">Rodrigo Rosas</h5>
+        <p class="leMensaje">On tas?</p>
       </div>
     </div>
     </div>
