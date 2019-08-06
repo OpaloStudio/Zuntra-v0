@@ -7,6 +7,32 @@
     height: 10vh
     background-color: #212121
 
+//zona de las imagenes cochinas
+
+.imgCochinas
+    height: 40vh
+    background-color: #212121
+    margin-top: -40vh
+    display: none
+
+.divCerrar
+    background-color: transparent
+    height: 6vh
+    display: flex
+    justify-content: center
+
+
+.fa-times
+    font-size: 25px 
+    cursor: pointer
+
+.centradito
+    background-color: #212121
+    width: 50px
+    margin-top: -6vh
+    +redondeado(15px 15px 0px 0px)
+
+
 //zona de los mensajes
 
 .divMensajes
@@ -14,19 +40,31 @@
 
 .mnsjOtro
     background-color: #DEC9A1
-    height: 70px
-    width: 80vw
+    height: 100%
+    width: 90vw
     margin: 20px 20px 20px 20px
     +redondeado(30px 30px 30px 0px)
-    padding: 5px
+    display: flex
+    justify-content: flex-start
+    align-items: center
+   
 
 .mnsjYo
     background-color: rgba(222,201,161,0.58)
-    height: 70px
-    width: 80vw
+    height: 100%
+    width: 90vw
     margin: 20px 20px 20px 20px
     +redondeado(30px 30px 0px 30px)
-    padding: 5px
+    display: flex
+    justify-content: flex-end
+    align-items: center
+    
+
+.mensajeYO
+    padding: 10px 10px 0px 10px
+
+.mensajeEL
+    padding: 10px 10px 0px 10px
 
 
 .imgSala
@@ -51,3 +89,53 @@
     right: 0
     position: fixed
     margin-right: 10px
+
+// Zona de escritura y carga de imagenes
+
+.zonaEscribir
+    background-color: #212121
+    height: 10vh
+    width: 100%
+    position: fixed
+    bottom: 0
+
+.zonaInput
+    display: flex
+    align-items: center
+    justify-content: center
+    height: 10vh
+    
+
+.inputChat
+    width: 95%
+    +redondeado(15px)
+
+.btnRedondo
+    +redondeado(20px)
+    background-color: #DEC9A1
+    cursor: pointer
+    margin-left: -35px
+    height: 40px
+    width: 40px
+    display: flex
+    align-items: center
+    justify-content: center
+
+.zonaRedondo
+    display: flex
+    align-items: center
+    justify-content: center
+    
+
+.fa-paper-plane
+    color: white
+    font-size: 20px
+    margin-left: -2px
+
+.fa-images
+    z-index: 99
+    color: #DEC9A1
+    font-size: 20px
+    position: absolute
+    cursor: pointer
+    margin-left: 35%

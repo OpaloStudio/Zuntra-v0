@@ -27,28 +27,62 @@
   height: 10vh;
   background-color: #212121; }
 
+.imgCochinas {
+  height: 40vh;
+  background-color: #212121;
+  margin-top: -40vh;
+  display: none; }
+
+.divCerrar {
+  background-color: transparent;
+  height: 6vh;
+  display: flex;
+  justify-content: center; }
+
+.fa-times {
+  font-size: 25px;
+  cursor: pointer; }
+
+.centradito {
+  background-color: #212121;
+  width: 50px;
+  margin-top: -6vh;
+  -webkit-border-radius: 15px 15px 0px 0px;
+  -moz-border-radius: 15px 15px 0px 0px;
+  border-radius: 15px 15px 0px 0px; }
+
 .divMensajes {
   margin-top: 12vh; }
 
 .mnsjOtro {
   background-color: #DEC9A1;
-  height: 70px;
-  width: 80vw;
+  height: 100%;
+  width: 90vw;
   margin: 20px 20px 20px 20px;
   -webkit-border-radius: 30px 30px 30px 0px;
   -moz-border-radius: 30px 30px 30px 0px;
   border-radius: 30px 30px 30px 0px;
-  padding: 5px; }
+  display: flex;
+  justify-content: flex-start;
+  align-items: center; }
 
 .mnsjYo {
   background-color: rgba(222, 201, 161, 0.58);
-  height: 70px;
-  width: 80vw;
+  height: 100%;
+  width: 90vw;
   margin: 20px 20px 20px 20px;
   -webkit-border-radius: 30px 30px 0px 30px;
   -moz-border-radius: 30px 30px 0px 30px;
   border-radius: 30px 30px 0px 30px;
-  padding: 5px; }
+  display: flex;
+  justify-content: flex-end;
+  align-items: center; }
+
+.mensajeYO {
+  padding: 10px 10px 0px 10px; }
+
+.mensajeEL {
+  padding: 10px 10px 0px 10px; }
 
 .imgSala {
   height: 60px;
@@ -76,6 +110,56 @@
   right: 0;
   position: fixed;
   margin-right: 10px; }
+
+.zonaEscribir {
+  background-color: #212121;
+  height: 10vh;
+  width: 100%;
+  position: fixed;
+  bottom: 0; }
+
+.zonaInput {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 10vh; }
+
+.inputChat {
+  width: 95%;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  border-radius: 15px; }
+
+.btnRedondo {
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+  background-color: #DEC9A1;
+  cursor: pointer;
+  margin-left: -35px;
+  height: 40px;
+  width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+
+.zonaRedondo {
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+
+.fa-paper-plane {
+  color: white;
+  font-size: 20px;
+  margin-left: -2px; }
+
+.fa-images {
+  z-index: 99;
+  color: #DEC9A1;
+  font-size: 20px;
+  position: absolute;
+  cursor: pointer;
+  margin-left: 35%; }
 
 .contenedorHome {
   height: 100vh;
@@ -127,6 +211,31 @@
 .navInbox {
   height: 10vh;
   background-color: #212121; }
+
+.iconosInbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%; }
+
+.cosito {
+  margin-left: 10px; }
+
+.inputSearch {
+  height: 40px;
+  border: none;
+  -webkit-border-radius: 18px 0px 0px 18px;
+  -moz-border-radius: 18px 0px 0px 18px;
+  border-radius: 18px 0px 0px 18px; }
+
+.inputSearchIcon {
+  background-color: white;
+  color: #DEC9A1;
+  height: 40px;
+  border: none;
+  -webkit-border-radius: 0px 18px 18px 0px;
+  -moz-border-radius: 0px 18px 18px 0px;
+  border-radius: 0px 18px 18px 0px; }
 
 .divMensajes {
   margin-top: 12vh; }
