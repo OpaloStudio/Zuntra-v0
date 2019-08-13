@@ -9,40 +9,37 @@
   <div class="divMensajes" >
   
     <div class="mnsjOtro">
-    <div class="row">
-      <div class="col-3">
-        <div class="imgSala"></div>
-      </div>
-      <div class="col-9">
-        <h5>Rodrigo Rosas</h5>
-        <p>On tas?</p>
-      </div>
-    </div>
+        <p class="mensajeEL">On tas?</p>
     </div>
 
-    <div class="mnsjYo">
-    <div class="row">
-      <div class="col-3">
-        <div class="imgSala"></div>
-      </div>
-      <div class="col-9">
-        <h5>Alex Vales</h5>
-        <p>En la barra</p>
-      </div>
-    </div>
+    <div class="mnsjYo ">
+        <p class="mensajeYO ">En la barra </p>
     </div>
 
     <div class="mnsjOtro">
-    <div class="row">
-      <div class="col-3">
-        <div class="imgSala"></div>
-      </div>
-      <div class="col-9">
-        <h5>Rodrigo Rosas</h5>
-        <p>Te pago el Uber</p>
-      </div>
-    </div>
-    </div>
+        <p class="mensajeEL">Te pago el Uber Lorem ipsum dolor sit amet consectetur, adipisicing elit. Saepe suscipit delectus ex mollitia error laboriosam quos? Aut sit vitae provident eum quis perferendis eius distinctio? Ducimus iure laboriosam sint deserunt!</p>
+  </div>
+
+  
+  <div class="zonaEscribir">
+  <div class="imgCochinas">
+  <div class="divCerrar">
+  <div class="centradito">
+    <i class="fas fa-times" onclick="cerrarCochinadas()"></i>
+  </div>
+  </div>
+  </div>
+  <div class="row">
+  <div class="col-10 zonaInput">
+  <input type="text" class="inputChat"  >
+  <i class="far fa-images" onclick="mostrarCochinadas()"></i>
+  </div>
+  <div class="col-2 zonaRedondo">
+  <span class="btnRedondo">
+  <i class="far fa-paper-plane"></i>
+  </span>
+  </div>
+  </div>
   </div>
 
 </div>
