@@ -19,7 +19,9 @@ if(isset($_SESSION['loggedin'])){
     var perfilesID = new Array();
     var perfilesNombre = new Array();
     var perfilesBio = new Array();
+    var perfilesBloqueados = new Array();
     var indiceSwipe;
+    var indiceBloqueos;
 
     $(document).ready(function () {
         swipeInicial();
@@ -30,7 +32,9 @@ if(isset($_SESSION['loggedin'])){
         perfilesID = [];
         perfilesNombre = [];
         perfilesBio = [];
+        perfilesBloqueados = [];
         indiceSwipe = 0;
+        indiceBloqueos = 0;
         $.ajax({
             url: "modelos/modelo.swipe.php",
             type: "POST",
@@ -46,13 +50,37 @@ if(isset($_SESSION['loggedin'])){
                     console.log(perfiles);
 
                     for(var i = 0; i<perfiles.length; i++){
-                        perfilesNombre.push(perfiles[i].nombre);
-                        perfilesBio.push(perfiles[i].biografia);
-                        perfilesID.push(perfiles[i].idUser);
+
+                        if(perfiles[i].idBloqueado != null){
+                            perfilesBloqueados.push(perfiles[i].idBloqueado);
+                        }
                     }
+
+                    indiceBloqueo = perfilesBloqueados.length;
+
+                    for(var a = 0; a < perfiles.length; a++){
+                        var marcadorBloqueo = 0;
+
+                        for(var b = 0; b<perfilesBloqueados.length; b++){
+                            if(perfiles[a].idUser != perfilesBloqueados[b]){
+                                marcadorBloqueo++;
+                            } else{
+                                console.log(perfiles[a].nombre + ' Bloqueado');
+                            }
+                        }
+                        if((marcadorBloqueo == indiceBloqueo) && (perfiles[a].nombre != null)){
+                            perfilesNombre.push(perfiles[a].nombre);
+                            perfilesBio.push(perfiles[a].biografia);
+                            perfilesID.push(perfiles[a].idUser);
+                            console.log(perfiles[a].nombre + ' Adentro');
+                        }
+                    }
+                    
+                    
 
                     console.log(perfilesNombre);
                     console.log(perfilesBio);
+                    console.log(perfilesBloqueados);
 
                     console.log(perfilesNombre[indiceSwipe]);
                     console.log(perfilesBio[indiceSwipe]);
@@ -68,7 +96,7 @@ if(isset($_SESSION['loggedin'])){
     }
     function rellenarSwipe(){
         
-        if(indiceSwipe<perfiles.length-1){
+        if(indiceSwipe<perfilesNombre.length-1){
             indiceSwipe++;
         }else {
             alert("No hay más perfiles");
@@ -89,20 +117,42 @@ if(isset($_SESSION['loggedin'])){
     }
 
     function bloqueo(){
+        var txt = '';
         var bloqueador = sesion;
         var bloqueado = perfilesID[indiceSwipe];
+        var otraRazon = document.getElementById("razon").value;
         //var razones = document.getElementById('nombre').value;
+
+        if($("#c1").prop('checked')){
+            txt = txt + ' ' + 'No especificar,';
+        }
+        if($("#c2").prop('checked')){
+            txt = txt + ' ' + 'Comportamiento fuera de lugar,';
+        }
+        if($("#c3").prop('checked')){
+            txt = txt + ' ' + 'Es muy insistente,';
+        }
+        if($("#c4").prop('checked')){
+            txt = txt + ' ' + 'Hay una relación pasada,';
+        }
+        if(otraRazon != ""){
+            txt = txt + ' ' + otraRazon + ",";
+        }
+
+        var motivo = '[' + txt.slice(0, -1) + ' ]';
         
+        console.log(motivo);
         console.log(bloqueador);
         console.log(bloqueado);
-
-        /*
+        
+        
         $.ajax({
             url: "modelos/modelo.bloqueo.php",
             type: "POST",
             data: ({
                 bloqueador:bloqueador,
-                bloqueado:bloqueado
+                bloqueado:bloqueado,
+                motivo:motivo
             }),
             success: function(msg) {
 
@@ -121,7 +171,7 @@ if(isset($_SESSION['loggedin'])){
             },
             dataType: "json"
         });
-        */
+        
     }
 
 </script>

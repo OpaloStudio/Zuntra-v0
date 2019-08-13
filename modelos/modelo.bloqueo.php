@@ -10,8 +10,9 @@ $status = '999';
 
 $bloqueador = $_POST['bloqueador'];
 $bloqueado = $_POST['bloqueado'];
+$motivo = $_POST['motivo'];
 
-$sql = "INSERT INTO bloqueos (nombre, telefono, correo, cumpleanos, contrasena, idTipoUsuario) VALUES ('$nombre', '$telefono', '$email', NULL, '$password', '5')";
+$sql = "INSERT INTO bloqueos (idBloqueador, idBloqueado, motivo) VALUES ('$bloqueador', '$bloqueado', '$motivo')";
 
 if($conexion->query($sql)){
     $status = '1';
