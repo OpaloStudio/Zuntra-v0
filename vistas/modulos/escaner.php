@@ -3,6 +3,7 @@
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#rechazada">
   Launch demo modal
 </button>
+<video id="preview" class = "scanner"></video>
 <!-- Modal Bueno -->
 <div class="modal fade" id="aprobada" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">

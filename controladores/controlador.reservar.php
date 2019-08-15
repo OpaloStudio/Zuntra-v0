@@ -41,7 +41,13 @@ $(function () {
             
             });
 
-            aeqr = document.getElementById("qrjs");
+            var qrlisto = document.getElementById("qrjs");
+            
+            qrlisto.onload = function() {
+                basechida = document.getElementById("qrjs").src;
+                console.log(basechida);
+                reservacionAdb(basechida);
+            }
         }
 
         generarQR();
@@ -72,12 +78,7 @@ function generarReservacion(){
    
    qrcode.makeCode(txt1);
 
-    setTimeout( function(){
-        basechida = document.getElementById("qrjs").src;
-        console.log(qrcode);
-        console.log(basechida);
-        reservacionAdb(basechida);
-    }, 500 );
+    
 
 }
 
