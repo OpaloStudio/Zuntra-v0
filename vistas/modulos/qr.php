@@ -1,6 +1,34 @@
 <div class="contenedorQr">
-<div class="divEditar"><i class="far fa-edit"></i></div>
-  <img class="imgQr" src="vistas/img/pix3.png" id="img64"><br>
+<div class="divEditar"><i class="far fa-edit"></i></div><br><br>
+
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+  <ol class="carousel-indicators">
+    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+  </ol>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+    <img class="imgQr d-block " src="vistas/img/pix3.png" id="img64">
+    </div>
+    <div class="carousel-item">
+    <img class="imgQr d-block " src="vistas/img/pix3.png" id="img64">
+    </div>
+    <div class="carousel-item">
+    <img class="imgQr d-block " src="vistas/img/pix3.png" id="img64">
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+  <span><i class="fa fa-angle-left" aria-hidden="true"></i></span>
+    <span class="sr-only" >Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+  <span><i class="fa fa-angle-right" aria-hidden="true"></i></span>
+    <span class="sr-only" id="flechaDer">Next</span>
+  </a>
+</div>
+
+  <!--img class="imgQr" src="vistas/img/pix3.png" id="img64"-->
   <div class="row">
   <hr>
   <div class="col-4 flecQr"><p>Reservación<br>3/5</p></div>
@@ -23,4 +51,5 @@
     <button type="submit" class="btn btnOscuro btnDescargar">Descargar Imágenes (xx)</button>
     <button type="submit" class="btn btnOscuro btnShare"><i class="fas fa-share"></i></button>
   </div>
+  <br><br><br>
 </div>

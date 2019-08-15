@@ -59,4 +59,8 @@ function irSwipe(){
     */
 }
 
+function mostrarEts(){
+    $('.divEts').toggleClass( "aparecer" );
+}
+
 </script>

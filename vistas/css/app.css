@@ -319,7 +319,9 @@
   height: 100vh; }
 
 .imgQr {
-  height: 100px; }
+  height: 250px;
+  padding-top: 25px;
+  padding-bottom: 25px; }
 
 hr {
   height: 2px;
@@ -336,6 +338,22 @@ hr {
   text-align: left;
   font-size: 12px;
   padding: 0px 30px 0px 30px; }
+
+.fa-angle-left {
+  color: black;
+  margin-left: -100px;
+  font-size: 20px; }
+
+.fa-angle-right {
+  color: black;
+  margin-left: 100px;
+  font-size: 20px; }
+
+.carousel-indicators li {
+  background-color: black; }
+
+.carousel-indicators .active {
+  background-color: #DEC9A1; }
 
 .btnDescargar {
   background-color: #DEC9A1;
@@ -421,6 +439,13 @@ hr {
   display: flex;
   justify-content: center; }
 
+/* Small devices (portrait tablets and large phones, 600px and up) */
+/* Medium devices (landscape tablets, 768px and up) */
+.reservarBack {
+  margin-top: 10%; }
+
+/* Large devices (laptops/desktops, 992px and up) */
+/* Extra large devices (large laptops and desktops, 1200px and up) */
 .contenedorSwipe {
   height: 100vh;
   width: 100vw; }
@@ -592,6 +617,17 @@ label {
 
 .fondito {
   height: 100%; }
+
+.formPerfil {
+  padding-top: 20px;
+  padding-left: 20px;
+  padding-right: 20px; }
+
+.divEts {
+  display: none; }
+
+.aparecer {
+  display: block; }
 
 .switch {
   font-size: 1rem;
