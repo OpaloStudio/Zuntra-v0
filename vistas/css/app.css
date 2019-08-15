@@ -421,6 +421,13 @@ hr {
   display: flex;
   justify-content: center; }
 
+/* Small devices (portrait tablets and large phones, 600px and up) */
+/* Medium devices (landscape tablets, 768px and up) */
+.reservarBack {
+  margin-top: 10%; }
+
+/* Large devices (laptops/desktops, 992px and up) */
+/* Extra large devices (large laptops and desktops, 1200px and up) */
 .contenedorSwipe {
   height: 100vh;
   width: 100vw; }

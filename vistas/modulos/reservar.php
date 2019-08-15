@@ -26,6 +26,11 @@
     </div>
 
     <div class="form-group">
+      <label class="negro" for="telefonoReservacion">Teléfono</label>
+      <input type="text" class="form-control inputsClaros" id="telefonoReservacion">
+    </div>
+
+    <div class="form-group">
     <label class="negro" >Fecha y Hora</label>
       <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
         <input type="text" id = 'fechaReservacion'class="form-control datetimepicker-input inputsClaros" data-target="#datetimepicker1" />
