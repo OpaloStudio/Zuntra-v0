@@ -6,16 +6,11 @@
     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
     <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
     <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
   </ol>
-  <div class="carousel-inner">
+  <div class="carousel-inner" id = "elCarrusel">
     <div class="carousel-item active">
-    <img class="imgQr d-block " src="vistas/img/pix3.png" id="img64">
-    </div>
-    <div class="carousel-item">
-    <img class="imgQr d-block " src="vistas/img/pix3.png" id="img64">
-    </div>
-    <div class="carousel-item">
-    <img class="imgQr d-block " src="vistas/img/pix3.png" id="img64">
+    <img class="imgQr d-block " src="vistas/img/pix3.png" id="img64primero">
     </div>
   </div>
   <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">

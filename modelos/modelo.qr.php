@@ -6,15 +6,30 @@ if ($conexion->connect_error) {
 }
 
 $session = $_POST['session'];
+$telefono = $_SESSION['userPhone'];
 $status = '999';
 
-$sql = "SELECT * FROM qr WHERE idRes='$session'";
+$sql = "SELECT idQr FROM reservaciones WHERE telefono='$telefono'";
 $result = $conexion->query($sql);
-$row_cnt = $result->num_rows;
-$final = array();
+
+
+$arregloIDqr = array();
 
 while($row = mysqli_fetch_array($result)){
-	array_push($final, $row);
+	array_push($arregloIDqr, (int)$row[0]);
+}
+
+$final = array();
+
+for($i = 0; $i < sizeof($arregloIDqr); $i++){
+	
+	$sql2 = "SELECT imgQr FROM qr WHERE idQr='$arregloIDqr[$i]'";
+	$result2 = $conexion->query($sql2);
+
+	while($row = mysqli_fetch_array($result2)){
+		array_push($final, $row);
+	}
+
 }
 
 if(sizeof($final) == 0){

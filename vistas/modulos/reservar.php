@@ -42,7 +42,7 @@
 
     <div class="form-group">
       <label class="negro" for="numero">Número de Personas</label>
-      <input type="number" class="form-control inputsClaros" id="personasReservacion">
+      <input type="number" class="form-control inputsClaros" id="personasReservacion" onkeyup = 'generarQRmultiples()'>
     </div>
     <div class="zonaBtnReservar">
       <button type="button" class="btn btnReservar" onclick='generarReservacion()'>Reservar</button>
@@ -58,5 +58,5 @@
   </dl>
 
   </form>
-  <div id="qrcode" style="display: none;"></div>
+  <div id="losCuErres" style="display: none;"></div>
 </div>
