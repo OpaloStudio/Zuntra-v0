@@ -134,7 +134,7 @@ function generarReservacion(){
        var textoNuevo = fechaReserva.normalize('NFD');
     
        //Se une todo en una cadena para que no cause problemas a la hora de generar el código QR
-       var txt1 = "RP: "+ rpReserva +"\nTipo Reservacion: "+ tipoReserva +"\nNombre: "+ nombreReserva +"\Telefono: "+ telefonoReserva +"\nFecha y Hora: "+ fechaReserva +"\nQR: 0" + stringNumeroQR + " / 0" + stringNumeroPersonas;
+       var txt1 = "RP: "+ rpReserva +"\nTipo Reservacion: "+ tipoReserva +"\nNombre: "+ nombreReserva +"\nTelefono: "+ telefonoReserva +"\nFecha y Hora: "+ fechaReserva +"\nQR: 0" + stringNumeroQR + " / 0" + stringNumeroPersonas;
        console.log(txt1);
 
        arrayVarQRs[x].makeCode(txt1);
@@ -182,9 +182,8 @@ function reservacionAdb(){
                 switch(msg){
     
                     case 1:
-                        alert("QR almacenado");
+                        //alert("QR almacenado");
                         indicadorDeCompletado++;
-                        //window.location.href = '?page=6';
                     break;
                     
                     case 997:
@@ -194,6 +193,7 @@ function reservacionAdb(){
 
                 if(indicadorDeCompletado == arrayBasesString.length){
                     alert("Reservación Exitosa");
+                    window.location.href = '?page=6';
                 } else{
                     console.log("Indicador completado: " +indicadorDeCompletado);
                     console.log("Tamaño del arreglo: " + arrayBasesString.length);
