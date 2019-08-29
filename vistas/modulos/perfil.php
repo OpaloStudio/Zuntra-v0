@@ -2,27 +2,27 @@
 
   <form class="formPerfil">
   <div class="custom-file">
-  <input type="file" class="custom-file-input" id="customFile">
+  <input type="file" name = "foto1" class="custom-file-input" id="customFile1">
   <label class="custom-file-label" for="customFile">Choose file</label>
 </div>
 
 <div class="custom-file">
-  <input type="file" class="custom-file-input" id="customFile">
+  <input type="file" name = "foto2" class="custom-file-input" id="customFile2">
   <label class="custom-file-label" for="customFile">Choose file</label>
 </div>
 
 <div class="custom-file">
-  <input type="file" class="custom-file-input" id="customFile">
+  <input type="file" name = "foto3" class="custom-file-input" id="customFile3">
   <label class="custom-file-label" for="customFile">Choose file</label>
 </div>
 
 <div class="custom-file">
-  <input type="file" class="custom-file-input" id="customFile">
+  <input type="file" name = "foto4" class="custom-file-input" id="customFile4">
   <label class="custom-file-label" for="customFile">Choose file</label>
 </div>
 
 <div class="custom-file">
-  <input type="file" class="custom-file-input" id="customFile">
+  <input type="file" name = "foto5" class="custom-file-input" id="customFile5">
   <label class="custom-file-label" for="customFile">Choose file</label>
 </div>
     <div class="form-group">

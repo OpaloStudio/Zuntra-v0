@@ -1,4 +1,62 @@
+<?php
+
+    if(isset($_GET['usuario'])){
+        $user = $_GET['usuario'];
+        $reservacion = $_GET['reservacion'];
+        $tipoLink = $_GET['log'];
+        //echo $idsesion;
+
+    }else{
+        $user = 0;
+        $reservacion = 0;
+        $tipoLink = $_GET['log'];
+    }
+
+    if(isset($_SESSION['loggedin'])){
+        $idsesion = $_SESSION['userId'];
+        $userType = $_SESSION['userType'];
+        $userName = $_SESSION['username'];
+        //echo $idsesion;
+
+    }else{
+        $idsesion = '0';
+        //echo $idsesion;
+    }
+
+?>
+
 <script>
+    var tipoLink = "<?php echo $tipoLink; ?>";
+    var nuevoLink;
+    
+    $( document ).ready(function() {
+        
+        switch(tipoLink){
+            case "invitados":
+                var usuarioReservacion = <?php echo $user; ?>;
+                var idReservacion = <?php echo $reservacion; ?>;
+                nuevoLink = "?page=6&usuario="+usuarioReservacion+"&reservacion="+idReservacion;
+            break;
+
+            case "swipe":
+                nuevoLink = "?page=8";
+            break;
+
+            case "perfil":
+                nuevoLink = "?page=7";
+            break;
+
+            case "inbox":
+                nuevoLink = "?page=10";
+            break;
+
+            case "chat":
+                nuevoLink = "?page=9";
+            break;
+        
+        }
+
+    });
     function validaLogin(){
 		if(document.getElementById('emailLogin').value){
 			if(validateEmail(document.getElementById('emailLogin').value)==true && document.getElementById('passwordLogin').value !=''){
@@ -47,7 +105,7 @@
 
                     case 1:
                         //alert("Sesión Iniciada Correctamente");
-                        window.location.href = '?page=8';
+                        window.location.href = nuevoLink;
                     break;
                 }
 
