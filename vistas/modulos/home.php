@@ -19,5 +19,6 @@ establecimiento </p>
 <i class="fas fa-arrow-circle-right"></i>
       <a id="linkSwipe">Login</a></div>
     </div>
+    <button type="submit" id = "btnAdd" class="btn btnOscuro" style display="none" >Añadir</button>
 
 </div>
