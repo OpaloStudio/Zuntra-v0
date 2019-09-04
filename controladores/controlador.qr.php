@@ -1,9 +1,12 @@
 <?php
 
-$tipo = $_GET['tipo'];
+$user = $_GET['usuario'];
+$reservacion = $_GET['reservacion'];
 
 if(isset($_SESSION['loggedin'])){
     $idsesion = $_SESSION['userId'];
+    $userType = $_SESSION['userType'];
+    $userName = $_SESSION['username'];
     //echo $idsesion;
     
 }else{
@@ -15,70 +18,207 @@ if(isset($_SESSION['loggedin'])){
 
 <script type="text/javascript">
 
-    var img64 = new Array();
+    var qrcode;
 
+    //Información de Usuario
+    var idUser = <?php echo $idsesion; ?>;
+    var nombreUser = String("<?php echo $userName; ?>");
+
+    //Información de Invitación
+    var usuarioReservacion = <?php echo $user; ?>;
+    var idReservacion = <?php echo $reservacion; ?>;
+    var personasTotales;
+
+    //Información de los invitados de la DB
+    var invitados;
+
+    //Nombre del creador de la reservación
+    var nombreReservacion;
+
+    //Numero del nuevo invitado
+    var nuevoInvitado;
+
+    //Variable que elige la acción del Ajax
+    var opcion = 0;
+    
     $( document ).ready(function() {
+
         console.log( "ready!" );
-        var session = <?php echo $idsesion; ?>;
+
+        //Revisar que la sesión este iniciada
+
+        if(idUser != 0){
+            console.log("Sesión Iniciada");
+
+        } else{
+            console.log("Por Favor Inicia Sesión");
+            var linkReservacion = "?page=1&usuario="+usuarioReservacion+"&reservacion="+idReservacion+"&log=invitados";
+            window.location.href = linkReservacion;
+        }
+
+
+        console.log(idUser);
+        console.log(usuarioReservacion);
+        console.log(idReservacion);
+
+        opcion = 1;
+
+        console.log(opcion);
 
         $.ajax({
             url: "modelos/modelo.qr.php",
             type: "POST",
             data: ({
-                session:session
+                idUser:idUser,
+                usuarioReservacion:usuarioReservacion,
+                idReservacion:idReservacion,
+                opcion:opcion
             }),
             success: function(msg) {
                 console.log(msg);
                 if (msg == 'false') {
                     alert("Ha ocurrido un error interno, inténtalo más tarde.");
                 } else {
-                    img64 = msg;
-                
-                    rellenarInfoReserva(img64);
+
+                    invitados = msg;
+                    var idxInvitados = 0;
+
+                    nombreReservacion = invitados[0].nombreInvitado;
+                    nuevoInvitado = invitados.length+1;
+                    personasTotales = invitados[0].personasTotales;
+
+                    var infoReserva = invitados.length+ "/" + personasTotales;
+                    document.getElementById('infoReserva').innerText = infoReserva;
+                    document.getElementById('numeroReserva').innerText = idReservacion;
+
+                    console.log(infoReserva);
+                    console.log(typeof infoReserva);
+
+                    for(var i = 0; i < invitados.length; i++){
+
+                        var node = document.createElement("LI");  
+                        var textnode = document.createTextNode(invitados[i].nombreInvitado);
+                        node.appendChild(textnode); 
+                        document.getElementById("listaInvitados").appendChild(node);
+
+                        var node2 = document.createElement("LI");  
+                        var textnode2 = document.createTextNode(invitados[i].scan);
+                        node2.appendChild(textnode2); 
+                        document.getElementById("listaScan").appendChild(node2);
+
+                        if(idUser == invitados[i].idUser){
+                            $("#img64primero").attr("src",invitados[i].invitadoQR);
+                            document.getElementById('btnQR').disabled = true;
+                        } else {
+                            idxInvitados++;
+                        }
+
+                    }
+
+                    if(invitados.length == personasTotales){
+
+                        alert("Ya se aceptaron todas las invitaciones");
+                        document.getElementById('btnQR').disabled = true;
+
+                    }
+
+
+
+                    console.log(idxInvitados);
+
+                    
                 } 
             },
             dataType: "json"
         });
+
+        generarQR();
     });
 
-    function rellenarInfoReserva(){
+    function generarQR(){
 
-        var string64 = new Array();
+        qrcode = new QRCode(document.getElementById('idQR'), {
+            width: 300,
+            height: 300,
+            colorDark : "#000000",
+            colorLight : "#ffffff",
+            correctLevel : QRCode.CorrectLevel.H,
+            // ==== Logo
+            logo:"vistas/img/pix1.png", // Relative address, relative to `easy.qrcode.min.js`
+            //logo:"http://127.0.0.1:8020/easy-qrcodejs/demo/logo.png", 
+            logoWidth:120, // widht. default is automatic width
+            logoHeight:120, // height. default is automatic height
+            //logoBgColor:'#fffff', // Logo backgroud color, Invalid when `logBgTransparent` is true; default is '#ffffff'
+            logoBgTransparent: false // Whether use transparent image, default is false
+        });
 
-        for(var y = 0; y < img64.length; y++){
+        var targetQR = document.getElementById("qrjs");
 
-            string64.push(String(img64[y].imgQr));
-            console.log(string64[y]);
-
+        targetQR.onload = function() {
+            console.log("Se cargó el QR");
+            basechida = document.getElementById("qrjs").src;
+            //console.log(basechida);
+            aceptarInvitacion(basechida);
+        
         }
-        var arrayBase64 = new Array();
 
-        $("#img64primero").attr("src",string64[0]);
-
-        for(var i = 1; i < string64.length; i++){
-
-            var newDiv = document.createElement("DIV");
-            document.getElementById("elCarrusel").appendChild(newDiv); 
-
-            var divBase64 = "divBase64" + i ;
-
-            newDiv.setAttribute("id", divBase64);
-            newDiv.setAttribute("class", "carousel-item");
-            
-            var newImg = document.createElement("IMG");
-            document.getElementById(divBase64).appendChild(newImg);
-            
-            var imgBase64 = "imgBase64" + i ;
-
-            newImg.setAttribute("id", imgBase64);
-            newImg.setAttribute("class", "imgQr d-block ");
-
-            var stringBase64 = "#" + imgBase64;
-            console.log(stringBase64);
-
-            $(stringBase64).attr("src",string64[i]);
-
-        }
     }
 
+    function invitacionQR(){
+    
+        //Se une todo en una cadena para que no cause problemas a la hora de generar el código QR
+        var txt = "Invitación de: "+ nombreReservacion +"\nNúmero de Host: "+ usuarioReservacion +"\nNúmero de Reservación: "+ idReservacion +"\nInvitado: "+ nombreUser +"\nNúmero Invitado: "+ idUser +"\n00"+ nuevoInvitado;
+        console.log(txt);
+
+        qrcode.makeCode(txt);
+
+    }
+
+    function aceptarInvitacion(){
+
+        var baseString = String(basechida);
+        opcion = 2;
+
+        console.log(idUser);
+        console.log(nombreUser);
+        console.log(idReservacion);
+        console.log(baseString);
+        console.log(opcion);
+
+        $.ajax({
+            url: "modelos/modelo.qr.php",
+            type: "POST",
+            data: ({
+                idUser:idUser,
+                nombreUser:nombreUser,
+                idReservacion:idReservacion,
+                personasTotales:personasTotales,
+                baseString:baseString,
+                opcion:opcion
+            }),
+            success: function(msg) {
+                console.log(msg);
+                console.log(typeof msg);
+
+                switch(msg){
+
+                    case '1':
+                        alert("Invitación Aceptada");
+                        location.reload();
+                    break;
+
+                    case '999':
+                        alert("Ha ocurrido un error interno, inténtalo más tarde.");
+                    break;
+
+                }
+
+            },
+            dataType: "json"
+        });
+    }
+
+    
+
 </script>
+<script type="text/javascript" src="vistas/js/easy.qrcode.min.js" charset="utf-8"></script>

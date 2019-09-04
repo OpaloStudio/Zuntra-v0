@@ -5,37 +5,67 @@ if ($conexion->connect_error) {
   die("La conexion falló: " . $conexion->connect_error);
 }
 
-$session = $_POST['session'];
-$telefono = $_SESSION['userPhone'];
-$status = '999';
+$idUser = $_POST['idUser'];
+$idReservacion = $_POST['idReservacion'];
 
-$sql = "SELECT idQr FROM reservaciones WHERE telefono='$telefono'";
-$result = $conexion->query($sql);
+//Variable especificas de opcion 1
+$usuarioReservacion = $_POST['usuarioReservacion'];
+$opcion = $_POST['opcion'];
+
+//Variable especificas de opcion 2
+$nombreUser = $_POST['nombreUser'];
+$baseString = $_POST['baseString'];
+$personasTotales = $_POST['personasTotales'];
+
+$final = '999';
+
+switch($opcion){
+
+	case 1:
+
+		$sql = "SELECT * FROM invitados WHERE idRes='$idReservacion'";
+		$result = $conexion->query($sql);
 
 
-$arregloIDqr = array();
+		$final = array();
 
-while($row = mysqli_fetch_array($result)){
-	array_push($arregloIDqr, (int)$row[0]);
-}
+		while($row = mysqli_fetch_array($result)){
+			array_push($final, $row);
+		}
 
-$final = array();
 
-for($i = 0; $i < sizeof($arregloIDqr); $i++){
+		if(sizeof($final) == 0){
+			$final = false;
+		}
+
+	break;
 	
-	$sql2 = "SELECT imgQr FROM qr WHERE idQr='$arregloIDqr[$i]'";
-	$result2 = $conexion->query($sql2);
+	case 2:
 
-	while($row = mysqli_fetch_array($result2)){
-		array_push($final, $row);
-	}
+		$sql2 = "INSERT INTO invitados (idUser, nombreInvitado, idRes, personasTotales, invitadoQR) VALUES ('$idUser', '$nombreUser', '$idReservacion', '$personasTotales', '$baseString')";
+		
+		if($conexion->query($sql2)){
 
-}
+			$final = '1';
+	
+		} else{
 
-if(sizeof($final) == 0){
-	$final = false;
+			$final = '998';//Error
+
+		}
+    break;
+
 }
 
 echo json_encode($final);
 
 ?>
+
+
+
+
+
+
+
+
+

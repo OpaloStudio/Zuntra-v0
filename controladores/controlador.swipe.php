@@ -24,6 +24,15 @@ if(isset($_SESSION['loggedin'])){
     var indiceBloqueos;
 
     $(document).ready(function () {
+
+        if(sesion != 0){
+            console.log("Sesión Iniciada");
+
+        } else{
+            console.log("Por Favor Inicia Sesión");
+            var linkSwipe = "?page=1&log=swipe";
+            window.location.href = linkSwipe;
+        }
         swipeInicial();
     });
 

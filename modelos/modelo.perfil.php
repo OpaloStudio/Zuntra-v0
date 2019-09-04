@@ -5,6 +5,7 @@ if ($conexion->connect_error) {
   die("La conexion falló: " . $conexion->connect_error);
 }
 
+
 $userId = $_SESSION['userId'];
 $status = '999';
 
@@ -13,7 +14,6 @@ $tipoCita = $_POST['tipoCita'];
 $busco = $_POST['busco'];
 $biografia = $_POST['biografia'];
 $tipoETS = $_POST['tipoETS'];
-
 
 $sql="UPDATE usuarios SET idTIpoSexo='$tipoSexo', idTipoCita='$tipoCita', idBusco='$busco', biografia='$biografia', idTipoETS='$tipoETS' WHERE idUser='$userId'";
 
@@ -25,9 +25,34 @@ if($conexion->query($sql)){
     $_SESSION['userETS'] = $tipoETS;
     $status = '1';
 } else{
-    $status = '997';//Error al actualizar info
+    $status = '998';//Error al actualizar info
+}
+
+$nombresImg = array();
+$targetPaths = array();
+$idFotos = array();
+$fotos = array();
+$carpetaDestino = "../vistas/img/usuarios/".(string)$userId."/";
+mkdir($carpetaDestino);
+
+for($x=1; $x<=5; $x++){
+  $nombresImg[$x] = (string)$userId."-".(string)$x.".jpg";
+  $targetPaths[$x] = $carpetaDestino. $nombresImg[$x];
+  $idFotos[$x] = "fotoPerfil".(string)$x;
+  $fotos[$x] = $_FILES[$idFotos[$x]];
+
+  if(move_uploaded_file($fotos[$x]['tmp_name'], $targetPaths[$x])){
+  
+    //Update picture name in the database
+    $status = $x;
+  } else {
+    $status = 999999;
+  }
+
+
 }
 
 echo $status;
+
 
 ?>

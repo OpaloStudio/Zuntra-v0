@@ -24,6 +24,9 @@ session_start();
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
     <link href="vistas/css/app.css" media="all" rel="stylesheet" type="text/css" />
+	<link href="vistas/js/plugins/fileinput/css/fileinput.css" media="all" rel="stylesheet" type="text/css"/>
+	<link href="vistas/js/plugins/fileinput/themes/explorer-fas/theme.css" media="all" rel="stylesheet" type="text/css"/>
+	<link rel="manifest" href="manifest.json">
 	
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/css/tempusdominus-bootstrap-4.min.css" />
 
@@ -37,6 +40,9 @@ session_start();
     <script src="vistas/js/jquery.nicescroll.min.js"></script>
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/js/tempusdominus-bootstrap-4.min.js"></script>
+<script src="vistas/js/plugins/fileinput/js/plugins/sortable.js" type="text/javascript"></script>
+    <script src="vistas/js/plugins/fileinput/js/fileinput.js" type="text/javascript"></script>
+    <script src="vistas/js/plugins/fileinput/themes/explorer-fas/theme.js" type="text/javascript"></script>
 
 
 

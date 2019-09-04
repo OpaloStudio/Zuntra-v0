@@ -7,12 +7,14 @@ if ($conexion->connect_error) {
 
 $idTipoRes = $_POST['idTipoRes'];
 $numPersonas = $_POST['numPersonas'];
-$nombre = $_POST['nombre'];
-$idTipoUsuario = $_POST['idTipoUsuario'];
+$idUser = $_POST['session'];
+$nombreUser = $_POST['nombreUser'];
 $telefono = $_POST['telefono'];
+$linkReservacion = $_POST['stringlink'];
+$idRp = $_POST['rpReserva'];
+
 $baseString = $_POST['baseString'];
-$session = $_POST['session'];
-$qrIndividual = $_POST['qrIndividual'];
+
 
 
 $status = '999';
@@ -21,49 +23,36 @@ $status = '999';
 
 
 
-$sql = "INSERT INTO reservaciones (idTipoRes, numPersonas, activa, nombre, idQr, idTipoUsuario, telefono) VALUES ('$idTipoRes', '$numPersonas', '0', '$nombre', NULL, '$idTipoUsuario', '$telefono')";
+$sql = "INSERT INTO reservaciones (idTipoRes, numPersonas, activa, idUser, nombre, telefono, invitacion, idRp) VALUES ('$idTipoRes', '$numPersonas', '0', '$idUser', '$nombreUser', '$telefono', NULL, '$idRp')";
 
 if($conexion->query($sql)){
   
-  $sql2 = "SELECT idRes FROM reservaciones WHERE idQr IS NULL AND telefono='$telefono'";
+  $sql2 = "SELECT idRes FROM reservaciones WHERE idUser='$idUser' AND telefono='$telefono' AND idRp='$idRp' AND activa='0'";
   $result2 = $conexion->query($sql2);
 
-  $reservacionID = array();
   while($row = mysqli_fetch_array($result2)){
     $reservacionID = (int)$row[0];
   }
+
+  //echo $reservacionID;
   
   if($reservacionID != 0){
+
+    //$nuevoLink = (string)$linkReservacion.(string)$reservacionID;
+    $nuevoLink = "?page=6&usuario=".(string)$idUser."&reservacion=".(string)$reservacionID;
     
-    $sql3 = "INSERT INTO qr (imgQr, scan, numRes, idRes) VALUES ('$baseString', '0', '$qrIndividual', '$reservacionID')";
+    $sql3 = "INSERT INTO invitados (idUser, nombreInvitado, idRes, personasTotales, invitadoQR) VALUES ('$idUser', '$nombreUser', '$reservacionID', '$numPersonas', '$baseString')";
 
     if($conexion->query($sql3)){
 
-      $sql4 = "SELECT idQr FROM qr WHERE imgQr='$baseString' AND scan='0' AND numRes='$qrIndividual' AND idRes='$reservacionID'";
-      $result4 = $conexion->query($sql4);
+      $sql4="UPDATE reservaciones SET invitacion='$nuevoLink' WHERE idRes='$reservacionID'";
 
-      while($row = mysqli_fetch_array($result4)){
-        $cuErreID = (int)$row[0];
-      }
+      if($conexion->query($sql4)){
 
-      if($cuErreID != 0){
+        $status = $nuevoLink;
 
-        $sql5="UPDATE reservaciones SET idQr='$cuErreID', activa='1' WHERE idRes='$reservacionID'";
-        
-        if($conexion->query($sql5)){
-          
-          $status = '1';//Exito
-          
-        } else{
-          
-          $status = '995';//Error en el quinto SQL
-          
-        }
-        
       } else{
-        
         $status = '996';//Error en el cuarto SQL
-
       }
 
     } else{
@@ -83,6 +72,6 @@ if($conexion->query($sql)){
 
 }
 
-echo $status;
+echo json_encode($status);
 
 ?>

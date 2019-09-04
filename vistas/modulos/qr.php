@@ -3,10 +3,6 @@
 
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
   <ol class="carousel-indicators">
-    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
   </ol>
   <div class="carousel-inner" id = "elCarrusel">
     <div class="carousel-item active">
@@ -26,9 +22,33 @@
   <!--img class="imgQr" src="vistas/img/pix3.png" id="img64"-->
   <div class="row">
   <hr>
-  <div class="col-4 flecQr"><p>Reservación<br>3/5</p></div>
+  <div class="col-4 flecQr">
+    <p>Disponibles:</p>
+    <p id = "infoReserva" ></p>
+
+  </div>
   <div class="col-4 flecQr borde"><p>Sábado<br>12/06/19 - 10:30pm</p></div>
-  <div class="col-4 flecQr borde"><p>Nº de reservación<br>000105</p></div>
+  <div class="col-4 flecQr borde">
+    <p>Nº de reservación:</p>
+    <p id = "numeroReserva" ></p>
+  </div>
+  <hr>
+  </div>
+  <div class="row">
+  <hr>
+  <div class="col-4 flecQr">
+    <p>Invitados:</p><br>
+    <ul id="listaInvitados" style="list-style-type:disc;">
+    </ul>
+  </div>
+  <div class="col-4 flecQr borde">
+    <p>--------<br></p>
+  </div>
+  <div class="col-4 flecQr borde">
+    <p>Scan:</p><br>
+    <ul id="listaScan" style="list-style-type:none;">
+    </ul>
+  </div>
   <hr>
   </div>
 
@@ -43,8 +63,9 @@
   <dd>-No valida en eventos especiales</dd> 
   </dl>
   <div class="zonaBtn">
-    <button type="submit" class="btn btnOscuro btnDescargar">Descargar Imágenes (xx)</button>
+    <button type="submit" class="btn btnOscuro btnDescargar" id="btnQR" onclick="invitacionQR()">Aceptar</button>
     <button type="submit" class="btn btnOscuro btnShare"><i class="fas fa-share"></i></button>
   </div>
   <br><br><br>
+  <div id="idQR" style="display: none;"></div>
 </div>
