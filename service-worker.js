@@ -2,7 +2,6 @@ const cacheName = 'static-shell-v1';
 const resourcesToPrecache = [
     '/',
     'vistas/modulos/home.php',
-    'vistas/modulos/_escaner.php',
     'vistas/modulos/cambiar.php',
     'vistas/modulos/chat.php',
     'vistas/modulos/escaner.php',
@@ -16,7 +15,6 @@ const resourcesToPrecache = [
     'vistas/modulos/register.php',
     'vistas/modulos/reservar.php',
     'vistas/modulos/swipe.php'
-​
 ];
 ​
 self.addEventListener('install', function(event) {
