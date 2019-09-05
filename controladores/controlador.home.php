@@ -17,14 +17,15 @@ if(isset($_SESSION['loggedin'])){
 var idUser = <?php echo $idsesion; ?>;
 
 $( document ).ready(function() {
+    console.log(idUser);
     if(idUser != 0){
         console.log("Sesión Iniciada");
         $("#linkSwipe").attr("href","?page=8");
         $("#linkReservar").attr("href","?page=4");
     } else{
         console.log("Por Favor Inicia Sesión");
-        $("#linkSwipe").attr("href","?page=1");
-        $("#linkReservar").attr("href","?page=4");
+        $("#linkSwipe").attr("href","?page=1&log=swipe");
+        $("#linkReservar").attr("href","?page=4&log=reservar");
     }
     if(!('serviceWorker' in navigator)){
         console.log('Service Worker not supported');
@@ -36,26 +37,34 @@ $( document ).ready(function() {
         console.log('SW register! Scoper is:', registration.scope);
     }); //.cath a registration error
     //Manifest
+
     let deferredPrompt;
-    window.addEventListener('beforeinstallprompt',(e)=>{
-        //Prevent Chrome 67 and earlier from automatically 
-        //Showing the prompt
-        e.preventDefault();
-        //Stash the event so it can be triggered later.
-        deferredPrompt = e;
-        //Update UI notify the user they can add to homescreen.
-        btnAdd.style.display = 'block';
+    const addBtn = document.getElementById('btnAdd')
+    addBtn.style.display = 'none';  
 
-    });
+    window.addEventListener('beforeinstallprompt', (e) => {
+      // Prevent Chrome 67 and earlier from automatically showing the prompt
+      e.preventDefault();
+      // Stash the event so it can be triggered later.
+      deferredPrompt = e;
+      // Update UI to notify the user they can add to home screen
+      addBtn.style.display = 'block';   
 
-    btnAdd,addEventListener('click', (e)=> {
+      addBtn.addEventListener('click', (e) => {
+        // hide our user interface that shows our A2HS button
+        addBtn.style.display = 'none';
+        // Show the prompt
         deferredPrompt.prompt();
+        // Wait for the user to respond to the prompt
         deferredPrompt.userChoice.then((choiceResult) => {
-            if(choiceResult.outcome === 'accepted') {
-                console.log('User accepted the A2HS prompt');
+            if (choiceResult.outcome === 'accepted') {
+              console.log('User accepted the A2HS prompt');
+            } else {
+              console.log('User dismissed the A2HS prompt');
             }
             deferredPrompt = null;
-        });
+          });
+      });
     });
 });
 

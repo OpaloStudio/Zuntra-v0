@@ -30,6 +30,7 @@
     var nuevoLink;
     
     $( document ).ready(function() {
+        console.log(tipoLink);
         
         switch(tipoLink){
             case "invitados":
@@ -53,6 +54,12 @@
             case "chat":
                 nuevoLink = "?page=9";
             break;
+
+            case "reservar":
+                nuevoLink = "?page=2";
+            break;
+
+            console.log(nuevoLink);
         
         }
 
