@@ -5,7 +5,7 @@
   "background_color": "#0b151d",
   "display": "standalone",
   "orientation": "portrait",
-  "start_url": "http://localhost:8888/zuntrApp/",
+  "start_url": "./",
   "icons": [
     {
       "src": "vistas/img/icons/icons/icon-72x72.png",

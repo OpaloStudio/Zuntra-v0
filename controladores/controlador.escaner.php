@@ -2,7 +2,7 @@
 <script type="text/javascript" src="vistas/js/script.js"></script>
 <script>
     document.addEventListener("DOMContentLoaded", event => {
-      let scanner = new Instascan.Scanner({ video: document.getElementById('preview') });
+      let scanner = new Instascan.Scanner({ video: document.getElementById('preview'), mirror: false });
 
       Instascan.Camera.getCameras().then(cameras => {
         scanner.camera = cameras[cameras.length - 1];
@@ -11,6 +11,13 @@
   
       scanner.addListener('scan', content => {
         console.log(content);
+        if (content == "cover") {
+          console.log("Esto es un cover");
+        } else if(content == "cortesia") {
+          console.log("Esto es una cortesía");
+        } else {
+
+        
         var name = "Nombre: ";
         var Phone = "Telefono: ";
         var cuErre = "QR: "
@@ -65,7 +72,7 @@
             },
             dataType: "json"
         });
-
+        }
       });
   
     });

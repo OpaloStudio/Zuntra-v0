@@ -20,5 +20,5 @@ establecimiento </p>
       <a id="linkSwipe">Login</a></div>
     </div>
     <button type="submit" id = "btnAdd" class="btn btnOscuro" style display="none" >Añadir</button>
-
+    <a href="?page=14">Ir a la cámara</a>
 </div>
