@@ -342,20 +342,24 @@
   height: 100vh; }
 
 .divEditar {
+  width: 100vw;
+  height: 100%; }
+
+.fa-edit {
   color: #DEC9A1;
   font-size: 30px;
-  position: fixed;
-  top: 25px;
-  right: 40px;
-  cursor: pointer; }
+  cursor: pointer;
+  margin: 1rem;
+  display: flex;
+  justify-content: flex-end; }
 
 .contenedorQr {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  width: 100vw;
-  height: 100vh; }
+  width: 100%;
+  height: 100%; }
 
 .imgQr {
   height: 250px;
