@@ -1,14 +1,16 @@
 <div class="contenedorFormulario fondito">
 
+
   <form class="formPerfil">
+  <a href="?page=8"><i class="fas fa-arrow-left"></i></a><br><br>
     <div class="row zonaCuadros form-group">
 
-      <div class="col-6 flex1">
+      <div class="col-6 ">
           <input type="file" class="hideInput" id="customFile1" onchange="openFile(event)">
           <label  for="customFile1"><img id="foto1" src="vistas/img/cuadroCarga.svg"> </label>
       </div>
 
-      <div class="col-6 flex1">
+      <div class="col-6 ">
             <input type="file" class="hideInput" id="customFile2" onchange="openFile2(event)">
             <label for="customFile2"><img id="foto2" src="vistas/img/cuadroCarga.svg"> </label>
         </div>
