@@ -1,7 +1,20 @@
 <div class="contenedorHome">
 
   <div class="row">
-    <div class="col-12 slidePromo" onclick="irPromos()"></div>
+    <div class="co-12 slidePromo" >
+    <div class="divVideo">
+    <img class="logoLog" src="vistas/img/otros/logoBlanco.png">
+    <div class="btnsHome">
+    <button class="btnOscuro btnCustom" id="margini" onclick="irPromos()">&nbsp;&nbsp;&nbsp;Promos&nbsp;&nbsp;&nbsp;</button>
+    <button class="btnOscuro btnCustom"  onclick="irPromos()">&nbsp;&nbsp;&nbsp;Eventos&nbsp;&nbsp;&nbsp;</button>
+    </div>
+  </div>
+    
+    <video autoplay="autoplay" loop="loop" id="video_background" preload="auto" muted>
+  <source src="vistas/img/otros/video.mp4" type="video/mp4" />
+</video>
+
+</div>
   </div>
   <div class="row">
       <div class="col-6 slideReservar">
@@ -9,16 +22,16 @@
       <p class="pHome">Reservaciones para 
 Viernes, Sábado y Domingo. 
 Valida solo hasta las 11:30 pm </p>
-<i class="fas fa-arrow-circle-left"></i>
-      <a id="linkReservar" >Reservar</a></div>
+<a id="linkReservar" ><i class="fas fa-arrow-circle-left"></i></a>
+  </div>
       <div class="col-6 slideSwipe">
       <h4 class="tituloHome">Conoce gente nueva en Zuntra</h4>
       <p class="pHome">El modo búsqueda 
 solo funciona dentro del 
 establecimiento </p>
-<i class="fas fa-arrow-circle-right"></i>
-      <a id="linkSwipe">Login</a></div>
+<a id="linkSwipe"><i class="fas fa-arrow-circle-right"></i></a>
     </div>
-    <button type="submit" id = "btnAdd" class="btn btnOscuro" style="display: none;" >Añadir</button>
-
+    </div>
+    <button type="button" id="btnAdd" class="btn btnOscuro" >Añadir</button>
+    <a href="?page=14">Ir a la cámara</a>
 </div>

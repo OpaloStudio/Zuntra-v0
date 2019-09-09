@@ -1,10 +1,19 @@
 <div class="zonaEscaner">
 
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#rechazada">
-  Launch demo modal
-</button>
-<video id="preview" class = "scanner"></video>
+<!--
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#rechazada">
+    Launch demo modal
+  </button>
+-->
+<video id="preview" class="scanner"></video>
 <!-- Modal Bueno -->
+
+
+
+</div>
+
+<!-- zona de abajo -->
+<div class="zonaAbajo">
 <div class="modal fade" id="aprobada" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -44,11 +53,5 @@
     </div>
   </div>
 </div>
-
-
-</div>
-
-<!-- zona de abajo -->
-<div class="zonaAbajo">
 <button type="submit" class="btn btnRegistro" id="botonRegistrar" onclick="" >Cerrar Sesión</button>
 </div>

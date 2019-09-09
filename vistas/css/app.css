@@ -166,12 +166,47 @@
   width: 100vw; }
 
 .slidePromo {
-  height: 50vh;
-  background-image: url("../img/promo1.jpg");
-  background-size: 100% auto;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-color: black; }
+  height: 50vh; }
+
+.divVideo {
+  height: 100%;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; }
+
+.btnsHome {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between; }
+
+#margini {
+  margin-right: 2rem; }
+
+.btnCustom {
+  width: 100% !important; }
+
+#video_background {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -1000;
+  overflow: hidden; }
+
+#video_pattern {
+  background: #fff;
+  position: fixed;
+  opacity: 0.8;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: 1; }
 
 .slideReservar {
   height: 50vh;
@@ -298,25 +333,43 @@
     background-color: #DEC9A1;
     border: 2px solid white; }
 
+.logoLog {
+  height: 30vh;
+  margin-top: -5rem; }
+
 .contenedorPromos {
   width: 100%;
-  height: 100vh; }
+  height: 100%; }
+
+.zonaPromos {
+  height: 100%;
+  width: 100%; }
+
+.divPromo {
+  width: 100%; }
+
+.promo {
+  width: 100%; }
 
 .divEditar {
+  width: 100vw;
+  height: 100%; }
+
+.fa-edit {
   color: #DEC9A1;
   font-size: 30px;
-  position: fixed;
-  top: 25px;
-  right: 40px;
-  cursor: pointer; }
+  cursor: pointer;
+  margin: 1rem;
+  display: flex;
+  justify-content: flex-end; }
 
 .contenedorQr {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  width: 100vw;
-  height: 100vh; }
+  width: 100%;
+  height: 100%; }
 
 .imgQr {
   height: 250px;
@@ -583,6 +636,10 @@ label {
   width: 100%;
   margin-top: -5vh; }
 
+.divBtnSwipe {
+  width: 100%;
+  height: 100%; }
+
 .btnEleccion {
   height: 40px;
   width: 40px;
@@ -616,7 +673,56 @@ label {
   background-color: #DEC9A1; }
 
 .fondito {
+  height: 110%;
+  width: 100%; }
+
+#foto1 {
+  height: 100%;
+  width: 100%; }
+
+#foto2 {
+  height: 100%;
+  width: 100%; }
+
+#foto3 {
+  height: 60%;
+  width: 60%; }
+
+#foto4 {
+  height: 60%;
+  width: 60%; }
+
+#foto5 {
+  height: 60%;
+  width: 60%; }
+
+.custom-file {
+  background-color: yellow; }
+
+.zonaCuadros {
+  height: 20vh;
+  width: 90vw; }
+
+.flex1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 100%; }
+
+.flexAbajo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 110%; }
+
+.hideInput {
+  width: 0.1px !important;
+  height: 0.1px !important;
+  opacity: 0 !important;
+  overflow: hidden !important;
+  position: absolute !important;
+  z-index: -3 !important; }
 
 .formPerfil {
   padding-top: 20px;
@@ -757,7 +863,11 @@ label {
   margin-top: 10%; }
 
 .zonaEscaner {
-  height: 60vh; }
+  height: 60vh;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
 
 .zonaAbajo {
   height: 40vh;
@@ -768,5 +878,9 @@ label {
 
 .fa-minus-circle {
   color: black; }
+
+video {
+  width: 100%;
+  height: 100%; }
 
 /*# sourceMappingURL=app.css.map */

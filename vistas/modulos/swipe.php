@@ -2,10 +2,14 @@
 
 
   <nav class="navbar fixed-top navbar-dark navSwipe" style="background-color: rgb(33, 33, 33,0.41);">
-    <div class="iconos">
+      <div class="iconos">
+      <a href="?page=13"><i class="fas fa-arrow-left"></i></a>
       <a href="?page=7"> <i class="fas fa-user-circle"></i></a>
       <a href="?page=10"><i class="fas fa-comments"></i></a>
+      <!--<img class="logoSwipe" src="vistas/img/otros/logoBlanco.png">-->
     </div>
+
+
     <button class="btn btnPuntos " type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
       aria-expanded="false">
       <i class="fas fa-ellipsis-h"></i>
@@ -67,7 +71,7 @@
       </div>
       </form>
       <div class="divSubmit">
-        <button type="button" class="btn btnBloquear" onclick = 'bloqueo()' >Bloquear</button>
+        <button type="button" class="btn btnBloquear" onclick='bloqueo()' >Bloquear</button>
       </div>
     </div>
   </div>
@@ -79,11 +83,11 @@
     </div>
   </div>
   <span class="barritaBtn">
-      <div class="btnEleccion" id="simon">
-      <i class="fas fa-thumbs-up" onclick='noMatch()'></i>
-      </div>
       <div class="btnEleccion" id="nelson">
-      <i class="fas fa-thumbs-down" onclick='match()'></i>
+      <i class="fas fa-thumbs-down" onclick='noMatch()'></i>
+      </div>
+      <div class="btnEleccion" id="simon">
+      <i class="fas fa-thumbs-up" onclick='match()'></i>
       </div>
       <div class="btnEleccion" id="mensajeYA">
       <i class="fas fa-paper-plane avion" ></i>
