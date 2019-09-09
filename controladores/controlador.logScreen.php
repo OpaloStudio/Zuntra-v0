@@ -35,7 +35,7 @@ $( document ).ready(function() {
         case "invitados":
             var usuarioReservacion = <?php echo $user; ?>;
             var idReservacion = <?php echo $reservacion; ?>;
-            nuevoLink = "?page=4&usuario="+usuarioReservacion+"&reservacion="+idReservacion+"&log=invitados";
+            nuevoLink = "?page=4&usuario="+usuarioReservacion+"&reservacion="+idReservacion;
         break;
 
         case "swipe":
@@ -64,7 +64,13 @@ $( document ).ready(function() {
 });
 
 function irLogin(){
-    window.location.href = nuevoLink;
+    var newLink = nuevoLink+"&log=invitados"
+    window.location.href = newLink;
+}
+
+function irGuest(){
+    var newLink = nuevoLink+"&log=guest"
+    window.location.href = newLink;
 }
 
 function irRegistro(){

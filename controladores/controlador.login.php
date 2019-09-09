@@ -7,8 +7,8 @@
         //echo $idsesion;
 
     }else{
-        $user = 0;
-        $reservacion = 0;
+        $user = $_GET['usuario'];
+        $reservacion = $_GET['reservacion'];
         $tipoLink = $_GET['log'];
     }
 
@@ -30,13 +30,33 @@
     var nuevoLink;
     
     $( document ).ready(function() {
+        
         console.log(tipoLink);
         
         switch(tipoLink){
+            case "guest":
+                var usuarioReservacion = <?php echo $user; ?>;
+                var idReservacion = <?php echo $reservacion; ?>;
+
+                divNombre.style.display = 'block';
+                divTelefono.style.display = 'block';
+                btnGuest.style.display = 'block';
+
+                divEmail.style.display = 'none';
+                divPass.style.display = 'none';
+                buttonLogin.style.display = 'none';
+
+                nuevoLink = "?page=6&usuario="+usuarioReservacion+"&reservacion="+idReservacion+"&log=guest"
+
+            break;
+
             case "invitados":
                 var usuarioReservacion = <?php echo $user; ?>;
                 var idReservacion = <?php echo $reservacion; ?>;
-                nuevoLink = "?page=6&usuario="+usuarioReservacion+"&reservacion="+idReservacion;
+
+
+                nuevoLink = "?page=6&usuario="+usuarioReservacion+"&reservacion="+idReservacion+"&log=invitados"
+
             break;
 
             case "swipe":
@@ -119,5 +139,15 @@
             },
             dataType: "json"
         });
+    }
+
+    function guestLogIn(){
+        document.getElementById('btnGuest').disabled = true;
+        var nameGuest = document.getElementById('nameGuest').value;
+        var celGuest = document.getElementById('phoneGuest').value;
+
+        var newLink = nuevoLink+"&telefono="+celGuest+"&nombre="+nameGuest;
+
+        window.location.href = newLink;
     }
 </script>

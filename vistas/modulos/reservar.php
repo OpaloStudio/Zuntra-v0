@@ -20,12 +20,12 @@
       </select>
     </div>
 
-    <div class="form-group">
+    <div class="form-group" id="nombreDiv">
       <label class="negro" for="nombre">Nombre</label>
       <input type="text" class="form-control inputsClaros" id="nombreReservacion">
     </div>
 
-    <div class="form-group">
+    <div class="form-group" id="telefonoDiv">
       <label class="negro" for="telefonoReservacion">Teléfono</label>
       <input type="text" class="form-control inputsClaros" id="telefonoReservacion">
     </div>
