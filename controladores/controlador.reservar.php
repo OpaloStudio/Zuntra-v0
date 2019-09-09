@@ -80,7 +80,7 @@ function generarReservacion(){
     var textoNuevo = fechaReserva.normalize('NFD');
     
     //Se une todo en una cadena para que no cause problemas a la hora de generar el código QR
-    var txt1 = "RP: "+ rpReserva +"\nTipo Reservacion: "+ tipoReserva +"\nNombre: "+ nombreReserva +"\nTelefono: "+ telefonoReserva +"\nFecha y Hora: "+ fechaReserva +"\nCódigo: "+ session;
+    var txt1 = "RP: "+ rpReserva +"\nTipo Reservacion: "+ tipoReserva +"\nFecha y Hora: "+ fechaReserva +"\nTelefono: "+ telefonoReserva +"\n\nNombre: "+ nombreReserva +"\nCódigo: "+ session;
     console.log(txt1);
 
     qrcode.makeCode(txt1);
