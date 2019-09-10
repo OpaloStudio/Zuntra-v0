@@ -27,22 +27,6 @@ $(document).ready(function () {
         window.location.href = linkSwipe;
     }
 
-    $("#customFile1").fileinput({
-        showUpload: false,
-    });
-    $("#customFile2").fileinput({
-        showUpload: false,
-    });
-    $("#customFile3").fileinput({
-        showUpload: false,
-    });
-    $("#customFile4").fileinput({
-        showUpload: false,
-    });
-    $("#customFile5").fileinput({
-        showUpload: false,
-    });
-
     option = 1;
     var info;
 
