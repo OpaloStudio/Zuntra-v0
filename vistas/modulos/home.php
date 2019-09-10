@@ -1,4 +1,4 @@
-<div class="contenedorHome">
+<div class="container-fluid">
 
   <div class="row">
     <div class="co-12 slidePromo" >
@@ -16,6 +16,7 @@
 
 </div>
   </div>
+
   <div class="row">
       <div class="col-6 slideReservar">
       <h4 class="tituloHome">Reserva tu lugar y no te pierdas de la fiesta</h4>
@@ -32,6 +33,28 @@ establecimiento </p>
 <a id="linkSwipe"><i class="fas fa-arrow-circle-right"></i></a>
     </div>
     </div>
-    <button type="button" id="btnAdd" class="btn btnOscuro" >Añadir</button>
+    <!--<button type="button" id="btnAdd" class="btn btnOscuro" >Añadir</button>-->
     <a href="?page=14">Ir a la cámara</a>
+    <!-- Modal -->
+<div class="modal fade" id="agregar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Agrega la App de Zuntra a tu pantalla de inicio</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+     Te recomendamos aregarla ya que podrás disfrutar una mejor experiencia.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+        <button type="button" id="btnAdd" class="btn btnOscuro" >Añadir</button>
+      </div>
+    </div>
+  </div>
 </div>
+
+</div>
+

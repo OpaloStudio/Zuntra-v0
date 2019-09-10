@@ -1,35 +1,37 @@
-<div class="contenedorFormulario fondito">
+<div class="container-fluid fondito">
 
 
   <form class="formPerfil">
   <a href="?page=8"><i class="fas fa-arrow-left"></i></a><br><br>
-    <div class="row zonaCuadros form-group">
 
-      <div class="col-6 ">
-          <input type="file" class="hideInput" id="customFile1" onchange="openFile(event)">
-          <label  for="customFile1"><img id="foto1" src="vistas/img/cuadroCarga.svg"> </label>
-      </div>
 
-      <div class="col-6 ">
-            <input type="file" class="hideInput" id="customFile2" onchange="openFile2(event)">
-            <label for="customFile2"><img id="foto2" src="vistas/img/cuadroCarga.svg"> </label>
-        </div>
-           
-    </div>
-        <div class="flexAbajo form-group">
+  <div class="row  ">
 
+<div class="col-6 flex1">
+    <input type="file" class="hideInput" id="customFile1" onchange="openFile(event)">
+    <label  for="customFile1"><img id="foto1" src="vistas/img/cuadroCarga.svg"> </label>
+</div>
+
+<div class="col-6 flex1">
+      <input type="file" class="hideInput" id="customFile2" onchange="openFile2(event)">
+      <label for="customFile2"><img id="foto2" src="vistas/img/cuadroCarga.svg"> </label>
+  </div>
+     
+</div>
+        <div class="row">
+        <div class="col-4 flex1">
         <input type="file" class="hideInput" id="customFile3" onchange="openFile3(event)">
             <label for="customFile3"><img id="foto3" src="vistas/img/cuadroCarga.svg"> </label>
-
-          
+</div>
+<div class="col-4 flex1">
             <input type="file" class="hideInput" id="customFile4" onchange="openFile4(event)">
             <label for="customFile4"><img id="foto4" src="vistas/img/cuadroCarga.svg"> </label>
-          
+            </div>
 
-         
+            <div class="col-4 flex1">
             <input type="file" class="hideInput" id="customFile5" onchange="openFile5(event)">
             <label for="customFile5"><img id="foto5" src="vistas/img/cuadroCarga.svg"> </label>
-          
+            </div>
 
         </div>
    
