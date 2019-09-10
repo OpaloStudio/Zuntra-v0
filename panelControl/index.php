@@ -66,32 +66,32 @@ session_start();
 
 			case '2':
 			//Perfil
-			include('controladores/controlador.reservar.php');
+			include('controladores/controlador.dashboard.php');
 			break;
 
 			case '3':
 			//Nueva publicación
-			include('controladores/controlador.promos.php');
+			include('controladores/controlador.rps.php');
 			break;
 
 			case '4':
 			//Publicación
-			include('controladores/controlador.login.php');
+			include('controladores/controlador.usuarios.php');
 			break;
 
 			case '5':
 			//Buscador
-			include('controladores/controlador.register.php');
+			include('controladores/controlador.reservaciones.php');
 			break;
 
 			case '6':
 			//Panel de publicaciones
-			include('controladores/controlador.qr.php');
+			include('controladores/controlador.pulseras.php');
 			break;
 
 			case '7':
 			//Panel de publicaciones
-			include('controladores/controlador.perfil.php');
+			include('controladores/controlador.configuracion.php');
 			break;
 
 			case '8':
@@ -137,7 +137,7 @@ session_start();
 	}
 	else{
 		//Aquí se incluyen todos los controladores del index.
-		include('controladores/controlador.home.php');
+		include('controladores/controlador.barra.php');
 	}
 
 	?>
@@ -161,32 +161,32 @@ elseif(isset($_GET['page'])){
 
 		case '2':
 		//vista del calendario
-		include('vistas/modulos/reservar.php');
+		include('vistas/modulos/dashboard.php');
 		break;
 
 		case '3':
 		//vista de las bitacoras
-		include('vistas/modulos/promos.php');
+		include('vistas/modulos/rps.php');
 		break;
 
 		case '4':
 		//vista de evaluaciones
-		include('vistas/modulos/login.php');
+		include('vistas/modulos/usuarios.php');
 		break;
 
 		case '5':
 		//vista de documentos
-		include('vistas/modulos/register.php');
+		include('vistas/modulos/reservaciones.php');
 		break;
 
 		case '6':
 		//vista de informacion
-		include('vistas/modulos/qr.php');
+		include('vistas/modulos/pulseras.php');
 		break;
 
 		case '7':
 		//vista de administrar
-		include('vistas/modulos/perfil.php');
+		include('vistas/modulos/configuracion.php');
 		break;
 
 		case '8':
@@ -229,7 +229,7 @@ elseif(isset($_GET['page'])){
 	}
 }
 else{
-	include('vistas/modulos/home.php');
+	include('vistas/modulos/barra.php');
 	
 
 }
