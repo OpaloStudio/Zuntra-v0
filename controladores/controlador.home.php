@@ -19,6 +19,11 @@ var idUser = <?php echo $idsesion; ?>;
 
 $( document ).ready(function() {
     console.log(idUser);
+    /*function mensajito(){
+            $('#agregar').modal('toggle')
+}setTimeout(mensajito,3000);*/
+    
+    
     if(idUser != 0){
         console.log("Sesión Iniciada");
         $("#linkSwipe").attr("href","?page=8");
@@ -41,15 +46,21 @@ $( document ).ready(function() {
 
     let deferredPrompt;
     const addBtn = document.getElementById('btnAdd')
+
+    
     //addBtn.style.display = 'none';  
 
+    //window.addEventListener('beforeinstallprompt', (e) => {
     window.addEventListener('beforeinstallprompt', (e) => {
       // Prevent Chrome 67 and earlier from automatically showing the prompt
-      e.preventDefault();
+      //e.preventDefault();
       // Stash the event so it can be triggered later.
       deferredPrompt = e;
       // Update UI to notify the user they can add to home screen
+      showInstallPromotion();
       addBtn.style.display = 'block';   
+
+      
 
       addBtn.addEventListener('click', (e) => {
         // hide our user interface that shows our A2HS button
@@ -67,11 +78,20 @@ $( document ).ready(function() {
           });
       });
     });
+
+
+    
+
 });
 
 function irPromos(){
     window.location.href = '?page=3';
 }
+
+function showInstallPromotion(){
+    $('#agregar').modal('toggle');
+}
+
 
 
 </script>
