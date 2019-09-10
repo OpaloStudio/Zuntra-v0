@@ -52,16 +52,20 @@ switch($option){
         $status = '998';//Error al actualizar info
     } 
 
+    $carpetaDestino = "../vistas/img/usuarios/".(string)$userId."/";
+    $carpetaDestinoFinal = (string)$carpetaDestino."perfil/";
+    array_map('unlink', array_filter((array) glob((string)$carpetaDestinoFinal)));
+
     $nombresImg = array();
     $targetPaths = array();
     $idFotos = array();
     $fotos = array();
-    $carpetaDestino = "../vistas/img/usuarios/".(string)$userId."/";
     mkdir($carpetaDestino); 
+    mkdir($carpetaDestinoFinal); 
 
     for($x=1; $x<=5; $x++){
       $nombresImg[$x] = (string)$userId."-".(string)$x.".jpg";
-      $targetPaths[$x] = $carpetaDestino. $nombresImg[$x];
+      $targetPaths[$x] = $carpetaDestinoFinal. $nombresImg[$x];
       $idFotos[$x] = "fotoPerfil".(string)$x;
       $fotos[$x] = $_FILES[$idFotos[$x]]; 
 
