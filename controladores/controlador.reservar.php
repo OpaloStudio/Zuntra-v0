@@ -6,6 +6,7 @@ if(isset($_SESSION['loggedin'])){
     $idsesion = $_SESSION['userId'];
     $userType = $_SESSION['userType'];
     $userName = $_SESSION['username'];
+    $userPhone = $_SESSION['userPhone'];
     //echo $idsesion;
     
 }else{
@@ -20,11 +21,12 @@ $(function () {
     $('#datetimepicker1').datetimepicker();
 });
     var session = <?php echo $idsesion; ?>;
+    var nombreReserva = String("<?php echo $userName; ?>");
+    var telefonoReserva = <?php echo $userPhone; ?>;
+
     var numPersonasReserva;
     var rpReserva;
     var tipoReserva;
-    var nombreReserva;
-    var telefonoReserva;
     var fechaReserva;
     var qrcode;
     var basechida;
@@ -32,6 +34,10 @@ $(function () {
 
     $( document ).ready(function() {
         console.log( "Usuario: " +  session );
+
+        telefonoDiv.style.display = 'none';
+        nombreDiv.style.display = 'none';
+
         generarQR();
 
     });
@@ -69,8 +75,6 @@ function generarReservacion(){
     
     rpReserva = document.getElementById('selectorRP').value;
     tipoReserva = document.getElementById('tipoReserva').value;
-    nombreReserva = document.getElementById('nombreReservacion').value;
-    telefonoReserva = document.getElementById('telefonoReservacion').value;
     fechaReserva = document.getElementById('fechaReservacion').value;
     numPersonasReserva = document.getElementById('personasReservacion').value;
     
@@ -80,7 +84,7 @@ function generarReservacion(){
     var textoNuevo = fechaReserva.normalize('NFD');
     
     //Se une todo en una cadena para que no cause problemas a la hora de generar el código QR
-    var txt1 = "RP: "+ rpReserva +"\nTipo Reservacion: "+ tipoReserva +"\nNombre: "+ nombreReserva +"\nTelefono: "+ telefonoReserva +"\nFecha y Hora: "+ fechaReserva +"\nCódigo: "+ session;
+    var txt1 = "RP: "+ rpReserva +"\nTipo Reservacion: "+ tipoReserva +"\nFecha y Hora: "+ fechaReserva +"\nTelefono: "+ telefonoReserva +"\n\nNombre: "+ nombreReserva +"\nCódigo: "+ session;
     console.log(txt1);
 
     qrcode.makeCode(txt1);

@@ -3,26 +3,41 @@
 $user = $_GET['usuario'];
 $reservacion = $_GET['reservacion'];
 
+
 if(isset($_SESSION['loggedin'])){
     $idsesion = $_SESSION['userId'];
     $userType = $_SESSION['userType'];
     $userName = $_SESSION['username'];
+    
+    $tipoLink = $_GET['log'];
     //echo $idsesion;
     
 }else{
     $idsesion = '0';
+    $tipoLink = $_GET['log'];
     //echo $idsesion;
+}
+
+if(isset($_GET['nombre'])){
+    $nombreInvitado = $_GET['nombre'];
+    $telefonoInvitado = $_GET['telefono'];
+    
+}else{
+    $nombreInvitado = "Alguien";
+    $telefonoInvitado = 0;
 }
 
 ?>
 
 <script type="text/javascript">
 
+    var tipoLink = "<?php echo $tipoLink; ?>";
+
     var qrcode;
 
     //Información de Usuario
-    var idUser = <?php echo $idsesion; ?>;
-    var nombreUser = String("<?php echo $userName; ?>");
+    var idUser;
+    var nombreUser;
 
     //Información de Invitación
     var usuarioReservacion = <?php echo $user; ?>;
@@ -44,17 +59,30 @@ if(isset($_SESSION['loggedin'])){
     $( document ).ready(function() {
 
         console.log( "ready!" );
+        if(tipoLink != 'guest'){
 
-        //Revisar que la sesión este iniciada
+            idUser = <?php echo $idsesion; ?>;
+            nombreUser = String("<?php echo $userName; ?>");
 
-        if(idUser != 0){
-            console.log("Sesión Iniciada");
+            //Revisar que la sesión este iniciada
+    
+            if(idUser != 0){
+                console.log("Sesión Iniciada");
+    
+            } else{
+                console.log("Por Favor Inicia Sesión");
+                var linkReservacion = "?page=1&usuario="+usuarioReservacion+"&reservacion="+idReservacion+"&log=invitados";
+                window.location.href = linkReservacion;
+            }
 
-        } else{
-            console.log("Por Favor Inicia Sesión");
-            var linkReservacion = "?page=1&usuario="+usuarioReservacion+"&reservacion="+idReservacion+"&log=invitados";
-            window.location.href = linkReservacion;
+        } else {
+            console.log('Sesión de Invitados');
+
+            idUser = <?php echo $telefonoInvitado; ?>;
+            nombreUser = String("<?php echo $nombreInvitado; ?>");
+
         }
+
 
 
         console.log(idUser);
@@ -167,7 +195,7 @@ if(isset($_SESSION['loggedin'])){
     function invitacionQR(){
     
         //Se une todo en una cadena para que no cause problemas a la hora de generar el código QR
-        var txt = "Invitación de: "+ nombreReservacion +"\nNúmero de Host: "+ usuarioReservacion +"\nNúmero de Reservación: "+ idReservacion +"\nInvitado: "+ nombreUser +"\nNúmero Invitado: "+ idUser +"\n00"+ nuevoInvitado;
+        var txt = "Invitación de: "+ nombreReservacion +"\nNúmero de Host: "+ usuarioReservacion +"\nNúmero de Reservación: "+ idReservacion +"\nNombre: "+ nombreUser +"\nCódigo: "+ idUser;
         console.log(txt);
 
         qrcode.makeCode(txt);

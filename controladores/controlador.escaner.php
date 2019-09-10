@@ -10,38 +10,84 @@
       }).catch(e => console.error(e));
   
       scanner.addListener('scan', content => {
+        var option;
         console.log(content);
         if (content == "cover") {
-          console.log("Esto es un cover");
+          
+          option = 1;
+
+          $.ajax({
+            url: "modelos/modelo.escaner.php",
+            type: "POST",
+            data: ({
+                option:option
+            }),
+            success: function(msg) {
+                switch(msg){
+
+                    case 999:
+                        console.log('Error al procesar');
+                    break;
+
+                    case 1:
+                      console.log("Esto es un cover");
+                    break;
+                }
+
+            },
+            dataType: "json"
+          });
+
         } else if(content == "cortesia") {
-          console.log("Esto es una cortesía");
+          option = 2;
+
+          $.ajax({
+            url: "modelos/modelo.escaner.php",
+            type: "POST",
+            data: ({
+                option:option
+            }),
+            success: function(msg) {
+                switch(msg){
+
+                    case 998:
+                        console.log('Error al procesar');
+                    break;
+
+                    case 1:
+                      console.log("Esto es una cortesia");
+                    break;
+                }
+
+            },
+            dataType: "json"
+          });
+
         } else {
 
-        
+        option = 3;
         var name = "Nombre: ";
-        var Phone = "Telefono: ";
-        var cuErre = "QR: "
+        var code = "Código: ";
 
         var Z = content.slice(content.indexOf(name) + name.length);
-        var Y = content.slice(content.indexOf(Phone) + Phone.length);
-        var X = content.slice(content.indexOf(cuErre) + cuErre.length);
+        var codigo = content.slice(content.indexOf(code) + code.length);
 
-        var nombre = Z.slice(0,Z.indexOf("Telefono")-1);
-        var telefono = Y.slice(0,Y.indexOf("Fecha")-1);
-        var numPersonasIndividual = X.slice(2,X.indexOf("/")-1);
+        var nombre = Z.slice(0,Z.indexOf("Código")-1);
 
-        var W = X.slice(X.indexOf("/"), X.length);
+        console.log(nombre);
+        console.log(codigo);
 
-        var numPersonasTotal = W.slice(W.indexOf("00")+2,W.length);
+        console.log(nombre.length);
+        console.log(codigo.length);
 
+        
         $.ajax({
             url: "modelos/modelo.escaner.php",
             type: "POST",
             data: ({
                 nombre:nombre,
-                telefono:telefono,
-                numPersonasIndividual:numPersonasIndividual,
-                numPersonasTotal:numPersonasTotal
+                codigo:codigo,
+                option:option
             }),
             success: function(msg) {
                 console.log(msg);
@@ -72,6 +118,7 @@
             },
             dataType: "json"
         });
+        
         }
       });
   

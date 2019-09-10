@@ -14,10 +14,12 @@ if(isset($_SESSION['loggedin'])){
 ?>
 <script>
 var sesion = <?php echo $idsesion; ?>;
+var option;
 $(document).ready(function () {
 
     if(sesion != 0){
         console.log("Sesión Iniciada");
+        console.log(sesion);
 
     } else{
         console.log("Por Favor Inicia Sesión");
@@ -25,6 +27,36 @@ $(document).ready(function () {
         window.location.href = linkSwipe;
     }
 
+   
+
+    option = 1;
+    var info;
+
+    $.ajax({
+        url: "modelos/modelo.perfil.php",
+        type: "POST",
+        data: ({
+            sesion:sesion,
+            option:option
+        }),
+        success: function(msg) {
+            console.log(msg);
+            if (msg == 'false') {
+                alert("Ha ocurrido un error interno, inténtalo más tarde.");
+            } else {
+                info = msg;
+
+                $("#tipoSexo").val(info.idTIpoSexo);
+                $("#busco").val(info.idBusco);
+                $("#tipoCita").val(info.idTipoCita);
+                $("#biografia").val(info.biografia);
+                $("#ets").val(info.idTipoETS);
+          
+
+            } 
+        },
+        dataType: "json"
+    });
     
 
 });
@@ -38,6 +70,7 @@ function irSwipe(){
     data.append("tipoCita", document.getElementById('tipoCita').value);
     data.append("biografia", document.getElementById('biografia').value);
     data.append("tipoETS", document.getElementById('ets').value);
+    data.append("option", 2);
 
     console.log(data);
 
