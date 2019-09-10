@@ -27,8 +27,6 @@ $(document).ready(function () {
         window.location.href = linkSwipe;
     }
 
-   
-
     option = 1;
     var info;
 

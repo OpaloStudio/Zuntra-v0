@@ -64,7 +64,7 @@ $( document ).ready(function() {
 });
 
 function irLogin(){
-    var newLink = nuevoLink+"&log=invitados"
+    var newLink = nuevoLink;
     window.location.href = newLink;
 }
 

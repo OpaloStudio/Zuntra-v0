@@ -1,15 +1,12 @@
 <?php
+    $tipoLink = $_GET['log'];
 
-    if(isset($_GET['usuario'])){
+    if($tipoLink == 'guest'){
         $user = $_GET['usuario'];
         $reservacion = $_GET['reservacion'];
-        $tipoLink = $_GET['log'];
-        //echo $idsesion;
-
     }else{
-        $user = $_GET['usuario'];
-        $reservacion = $_GET['reservacion'];
-        $tipoLink = $_GET['log'];
+        $user = "No iniciado";
+        $reservacion = 0;
     }
 
     if(isset($_SESSION['loggedin'])){
@@ -35,7 +32,7 @@
         
         switch(tipoLink){
             case "guest":
-                var usuarioReservacion = <?php echo $user; ?>;
+                var usuarioReservacion = "<?php echo $user; ?>";
                 var idReservacion = <?php echo $reservacion; ?>;
 
                 divNombre.style.display = 'block';
@@ -51,7 +48,7 @@
             break;
 
             case "invitados":
-                var usuarioReservacion = <?php echo $user; ?>;
+                var usuarioReservacion = "<?php echo $user; ?>";
                 var idReservacion = <?php echo $reservacion; ?>;
 
 
