@@ -30,7 +30,15 @@ $(document).ready(function () {
         window.location.href = linkSwipe;
     }
 
+    $(".scrollZone").niceScroll({
+  cursorcolor:"#DEC9A1",
+  cursorwidth:"16px",
+  horizrailenabled: true,
 });
+
+});
+
+
 
 function mostrarCochinadas(){
     $('.imgCochinas').css("display","block");
