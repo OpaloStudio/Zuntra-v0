@@ -113,6 +113,7 @@ if(isset($_SESSION['loggedin'])){
 
         $("#nombreSwipe").text(perfilesNombre[indiceSwipe]);
         $("#bioSwipe").text(perfilesBio[indiceSwipe]);
+        
     }
 
     function match(){

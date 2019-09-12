@@ -52,32 +52,41 @@ switch($option){
         $status = '998';//Error al actualizar info
     } 
 
-    $carpetaDestino = "../vistas/img/usuarios/".(string)$userId."/";
-    $carpetaDestinoFinal = (string)$carpetaDestino."perfil/";
-    array_map('unlink', array_filter((array) glob((string)$carpetaDestinoFinal)));
-
+    
+    
     $nombresImg = array();
     $targetPaths = array();
     $idFotos = array();
     $fotos = array();
+    $carpetaDestino = "../vistas/img/usuarios/".(string)$userId."/";
+    $carpetaDestinoFinal = (string)$carpetaDestino."perfil/";
     mkdir($carpetaDestino); 
     mkdir($carpetaDestinoFinal); 
-
+    
     for($x=1; $x<=5; $x++){
       $nombresImg[$x] = (string)$userId."-".(string)$x.".jpg";
       $targetPaths[$x] = $carpetaDestinoFinal. $nombresImg[$x];
       $idFotos[$x] = "fotoPerfil".(string)$x;
-      $fotos[$x] = $_FILES[$idFotos[$x]]; 
-
-      if(move_uploaded_file($fotos[$x]['tmp_name'], $targetPaths[$x])){
+      $fotos[$x] = $_FILES[$idFotos[$x]];
       
-        //Update picture name in the database
-        $status = $x;
-      } else {
-        $status = 999999;
-      } 
+      $pic = (string)$carpetaDestino."perfil/".(string)$userId."-".(string)$x.".jpg";
 
+      if(isset($fotos[$x])){
+        $status = 11111;
 
+        unlink($pic);
+
+        if(move_uploaded_file($fotos[$x]['tmp_name'], $targetPaths[$x])){
+      
+          //Update picture name in the database
+          $status = $x;
+        } else {
+          $status = 999999;
+        }
+
+      }
+
+       
     } 
 
     echo $status;
