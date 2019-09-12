@@ -33,29 +33,48 @@
         </div>
         <div class="scrollZone">
 
-          <div class="flex1">
+          <div class="flex1 ">
             <input type="file" class="hideInput" id="customFile1" onchange="openFile(event)">
             <label for="customFile1"><img id="cuadro1" src="vistas/img/cuadroCarga.svg"> </label>
           </div>
+          <div class="posX">
+               <i class="fas fa-times xBorrar" onclick="quitarCochinadas()"></i>
+            </div>
 
           <div class=" flex1">
             <input type="file" class="hideInput" id="customFile2" onchange="openFile2(event)">
             <label for="customFile2"><img id="cuadro2" src="vistas/img/cuadroCarga.svg"> </label>
           </div>
+          <div class="posX">
+               <i class="fas fa-times xBorrar" onclick="quitarCochinadas()"></i>
+            </div>
 
           <div class=" flex1">
             <input type="file" class="hideInput" id="customFile3" onchange="openFile3(event)">
             <label for="customFile3"><img id="cuadro3" src="vistas/img/cuadroCarga.svg"> </label>
           </div>
+          <div class="posX">
+               <i class="fas fa-times xBorrar" onclick="quitarCochinadas()"></i>
+            </div>
+
+
           <div class="flex1">
+
             <input type="file" class="hideInput" id="customFile4" onchange="openFile4(event)">
             <label for="customFile4"><img id="cuadro4" src="vistas/img/cuadroCarga.svg"> </label>
           </div>
+          <div class="posX">
+               <i class="fas fa-times xBorrar" onclick="quitarCochinadas()"></i>
+            </div>
 
           <div class=" flex1">
+
             <input type="file" class="hideInput" id="customFile5" onchange="openFile5(event)">
             <label for="customFile5"><img id="cuadro5" src="vistas/img/cuadroCarga.svg"> </label>
           </div>
+          <div class="posX">
+               <i class="fas fa-times xBorrar" onclick="quitarCochinadas()"></i>
+            </div>
 
         </div>
       </div>

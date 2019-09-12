@@ -55,7 +55,7 @@ var openFile = function(event) {
     var reader = new FileReader();
     reader.onload = function(){
       var dataURL = reader.result;
-      var output = document.getElementById('foto1');
+      var output = document.getElementById('cuadro1');
       output.src = dataURL;
       console.log(dataURL);
     };
@@ -68,7 +68,46 @@ var openFile = function(event) {
     var reader = new FileReader();
     reader.onload = function(){
       var dataURL = reader.result;
-      var output = document.getElementById('foto2');
+      var output = document.getElementById('cuadro2');
+      output.src = dataURL;
+      console.log(dataURL);
+    };
+    reader.readAsDataURL(input.files[0]);
+  };
+
+  var openFile3 = function(event) {
+    var input = event.target;
+
+    var reader = new FileReader();
+    reader.onload = function(){
+      var dataURL = reader.result;
+      var output = document.getElementById('cuadro3');
+      output.src = dataURL;
+      console.log(dataURL);
+    };
+    reader.readAsDataURL(input.files[0]);
+  };
+
+  var openFile4 = function(event) {
+    var input = event.target;
+
+    var reader = new FileReader();
+    reader.onload = function(){
+      var dataURL = reader.result;
+      var output = document.getElementById('cuadro4');
+      output.src = dataURL;
+      console.log(dataURL);
+    };
+    reader.readAsDataURL(input.files[0]);
+  };
+
+  var openFile5 = function(event) {
+    var input = event.target;
+
+    var reader = new FileReader();
+    reader.onload = function(){
+      var dataURL = reader.result;
+      var output = document.getElementById('cuadro5');
       output.src = dataURL;
       console.log(dataURL);
     };

@@ -202,6 +202,14 @@
   display: flex;
   flex-direction: row; }
 
+.xBorrar {
+  font-size: 30px !important;
+  margin-top: 3rem;
+  margin-left: -3rem !important; }
+
+.posX {
+  width: 100%; }
+
 body {
   overflow-x: hidden; }
 
