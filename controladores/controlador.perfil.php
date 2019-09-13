@@ -55,15 +55,20 @@ $(document).ready(function () {
                 $("#biografia").val(info.biografia);
                 $("#ets").val(info.idTipoETS);
 
-                file_data1 = "vistas/img/usuarios/"+sesion+"/perfil/"+sesion+"-1.jpg";
-                file_data2 = "vistas/img/usuarios/"+sesion+"/perfil/"+sesion+"-2.jpg";
-                file_data3 = "vistas/img/usuarios/"+sesion+"/perfil/"+sesion+"-3.jpg";
-                file_data4 = "vistas/img/usuarios/"+sesion+"/perfil/"+sesion+"-4.jpg";
-                file_data5 = "vistas/img/usuarios/"+sesion+"/perfil/"+sesion+"-5.jpg";
+                file_data1 = "vistas/img/usuarios/"+sesion+"/perfil/"+sesion+"-1.jpg"
+                file_data2 = "vistas/img/usuarios/"+sesion+"/perfil/"+sesion+"-2.jpg"
+                file_data3 = "vistas/img/usuarios/"+sesion+"/perfil/"+sesion+"-3.jpg"
+                file_data4 = "vistas/img/usuarios/"+sesion+"/perfil/"+sesion+"-4.jpg"
+                file_data5 = "vistas/img/usuarios/"+sesion+"/perfil/"+sesion+"-5.jpg"
+
+                
 
 
-          
-
+                document.getElementById("foto1").src = file_data1;
+                document.getElementById("foto2").src = file_data2;
+                document.getElementById("foto3").src = file_data3;
+                document.getElementById("foto4").src = file_data4;
+                document.getElementById("foto5").src = file_data5;
             } 
         },
         dataType: "json"
