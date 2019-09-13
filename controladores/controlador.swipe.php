@@ -93,9 +93,15 @@ if(isset($_SESSION['loggedin'])){
 
                     console.log(perfilesNombre[indiceSwipe]);
                     console.log(perfilesBio[indiceSwipe]);
+                    console.log(perfilesID[indiceSwipe]);
 
                     $("#nombreSwipe").text(perfilesNombre[indiceSwipe]);
                     $("#bioSwipe").text(perfilesBio[indiceSwipe]);
+                    $("#imgSwip1").attr("src","vistas/img/usuarios/"+perfilesID[indiceSwipe]+"/perfil/"+perfilesID[indiceSwipe]+"-1.jpg");
+                    $("#imgSwip2").attr("src","vistas/img/usuarios/"+perfilesID[indiceSwipe]+"/perfil/"+perfilesID[indiceSwipe]+"-2.jpg");
+                    $("#imgSwip3").attr("src","vistas/img/usuarios/"+perfilesID[indiceSwipe]+"/perfil/"+perfilesID[indiceSwipe]+"-3.jpg");
+                    $("#imgSwip4").attr("src","vistas/img/usuarios/"+perfilesID[indiceSwipe]+"/perfil/"+perfilesID[indiceSwipe]+"-4.jpg");
+                    $("#imgSwip5").attr("src","vistas/img/usuarios/"+perfilesID[indiceSwipe]+"/perfil/"+perfilesID[indiceSwipe]+"-5.jpg");
 
                     console.log(indiceSwipe);
                 } 
@@ -113,7 +119,15 @@ if(isset($_SESSION['loggedin'])){
 
         $("#nombreSwipe").text(perfilesNombre[indiceSwipe]);
         $("#bioSwipe").text(perfilesBio[indiceSwipe]);
+<<<<<<< HEAD
         
+=======
+        $("#imgSwip1").attr("src","vistas/img/usuarios/"+perfilesID[indiceSwipe]+"/perfil/"+perfilesID[indiceSwipe]+"-1.jpg");
+        $("#imgSwip2").attr("src","vistas/img/usuarios/"+perfilesID[indiceSwipe]+"/perfil/"+perfilesID[indiceSwipe]+"-2.jpg");
+        $("#imgSwip3").attr("src","vistas/img/usuarios/"+perfilesID[indiceSwipe]+"/perfil/"+perfilesID[indiceSwipe]+"-3.jpg");
+        $("#imgSwip4").attr("src","vistas/img/usuarios/"+perfilesID[indiceSwipe]+"/perfil/"+perfilesID[indiceSwipe]+"-4.jpg");
+        $("#imgSwip5").attr("src","vistas/img/usuarios/"+perfilesID[indiceSwipe]+"/perfil/"+perfilesID[indiceSwipe]+"-5.jpg");
+>>>>>>> Rob
     }
 
     function match(){

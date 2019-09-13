@@ -23,12 +23,48 @@
   </nav>
   
 
-  <div class="row imgSwipe">
-    <div class="col-12">
+  <div class=" carouselSwipe">
     
-    <div class="divNombre">
+  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+ 
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img class="d-block w-100 imgSwipe" id="imgSwip1" src="" alt="First slide">
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100 imgSwipe" id="imgSwip2" src="" alt="Second slide">
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100 imgSwipe" id="imgSwip3" src="" alt="Third slide">
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100 imgSwipe" id="imgSwip4" src="" alt="Third slide">
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100 imgSwipe" id="imgSwip5" src="" alt="Third slide">
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+</div>
 
-    
+    <div class="row">
+      <div class="col-12">
+      <div class="divNombre">
+      <h2 id = 'nombreSwipe' >Rodrigo Rosas</h2>
+      <h6>24 años - citas</h6>
+      </div>
+      </div>
+    </div>
+  
+
 
 <!-- Modal -->
 <div class="modal fade elModal" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -77,11 +113,6 @@
   </div>
 </div>
 
-    <h2 id = 'nombreSwipe' >Rodrigo Rosas</h2>
-    <h6>24 años - citas</h6>
-    </div>
-    </div>
-  </div>
   <span class="barritaBtn">
       <div class="btnEleccion" id="nelson">
       <i class="fas fa-thumbs-down" onclick='noMatch()'></i>
