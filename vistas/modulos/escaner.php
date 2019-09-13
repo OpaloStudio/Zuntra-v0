@@ -53,5 +53,9 @@
     </div>
   </div>
 </div>
-<button type="submit" class="btn btnRegistro" id="botonRegistrar" onclick="" >Cerrar Sesión</button>
+<div class="btnsEscaner">
+ 
+  <button type="submit" class=" btnExtra" id="btnTiempo" onclick="" ><i class="fas fa-user-clock"></i></button><br>
+  <button type="submit" class="btn btnRegistro" id="btnCerrarSesion" onclick="" >Cerrar Sesión</button>
+</div>
 </div>
