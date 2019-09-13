@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container-fluid ">
 
   <div class="row">
     <div class="co-12 slidePromo" >
@@ -34,7 +34,9 @@ establecimiento </p>
     </div>
     </div>
     <!--<button type="button" id="btnAdd" class="btn btnOscuro" >Añadir</button>-->
-    <a href="?page=14">Ir a la cámara</a>
+    <div class="divAcceso">
+      <a href="?page=14"><img class="miniLogo" src="vistas/img/favicon/favicon.png"></a>
+    </div>
     <!-- Modal -->
 <div class="modal fade" id="agregar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">

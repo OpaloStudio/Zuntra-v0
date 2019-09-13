@@ -136,6 +136,17 @@ if(isset($_SESSION['loggedin'])){
         rellenarSwipe();
     }
 
+    function logout(){
+    $.ajax({
+        url: "modelos/modelo.cerrarSesion.php",
+        type: "POST",
+        success: function(msg) {
+            location.reload();		
+        },
+        dataType: "json"
+    });
+}
+
     function bloqueo(){
         var txt = '';
         var bloqueador = sesion;

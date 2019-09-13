@@ -217,6 +217,19 @@ body {
   height: 100vh;
   width: 100vw; }
 
+.divAcceso {
+  background-color: #212121;
+  width: 100vw;
+  margin-left: -1rem;
+  display: flex;
+  justify-content: center;
+  align-content: center; }
+
+.miniLogo {
+  height: 2rem;
+  margin-top: 2px;
+  margin-bottom: 2px; }
+
 .slidePromo {
   height: 50vh; }
 

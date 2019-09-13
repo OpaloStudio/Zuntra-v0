@@ -16,6 +16,7 @@
     </button>
     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
       <button type="button" class="btn btnModal center" data-toggle="modal" data-target="#exampleModal">Bloquear</button>
+      <button type="button" class="btn btnModal center" data-toggle="modal" data-target="#exampleModal" onclick="logout()">Cerrar Sesión</button>
 
     </div>
 
