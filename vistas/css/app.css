@@ -217,6 +217,19 @@ body {
   height: 100vh;
   width: 100vw; }
 
+.divAcceso {
+  background-color: #212121;
+  width: 100vw;
+  margin-left: -1rem;
+  display: flex;
+  justify-content: center;
+  align-content: center; }
+
+.miniLogo {
+  height: 2rem;
+  margin-top: 2px;
+  margin-bottom: 2px; }
+
 .slidePromo {
   height: 50vh; }
 
@@ -954,8 +967,32 @@ label {
 .fa-minus-circle {
   color: black; }
 
-video {
+.btnsEscaner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 30vh; }
+
+.btnExtra {
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+  color: white;
+  background-color: #DEC9A1;
+  font-size: 15px !important;
+  border: 2px solid white;
+  width: 5rem;
+  margin-left: 1.7rem; }
+  .btnExtra:hover {
+    color: #DEC9A1;
+    background-color: white;
+    border: 2px solid #DEC9A1; }
+
+.scanner {
   width: 100%;
   height: 100%; }
+
+.fa-lightbulb {
+  margin-left: 1px; }
 
 /*# sourceMappingURL=app.css.map */

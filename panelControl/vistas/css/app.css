@@ -1,3 +1,77 @@
+.barra {
+  background-color: #212121 !important;
+  height: 100vh;
+  width: 10%;
+  position: fixed;
+  left: 0;
+  top: 0; }
 
+.rps {
+  background-color: #E1E1E1;
+  height: 100vh; }
+
+.container-fluid {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 90%; }
+
+.dashboard {
+  background-color: #E1E1E1; }
+
+.cardNegra {
+  background-color: #212121;
+  color: #DEC9A1;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  border-radius: 15px;
+  height: 9rem;
+  width: 100%;
+  margin-top: 2rem; }
+
+.cardBlanca {
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  border-radius: 15px;
+  color: #DEC9A1;
+  height: 9rem;
+  width: 100%;
+  margin-top: 2rem; }
+
+.DashIzquierda {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.scrollIzquierda {
+  height: 100vh;
+  width: 50vw;
+  display: flex;
+  flex-direction: column;
+  padding: 0rem 2rem 2rem 2rem; }
+
+.DashDerecha {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.scrollDerecha {
+  height: 100vh;
+  width: 50vw;
+  display: flex;
+  flex-direction: column;
+  padding: 0rem 2rem 2rem 2rem; }
+
+.barra {
+  background-color: #212121 !important;
+  height: 100vh;
+  width: 10%;
+  position: fixed;
+  left: 0;
+  top: 0; }
 
 /*# sourceMappingURL=app.css.map */
