@@ -11,7 +11,9 @@ if(isset($_SESSION['loggedin'])){
     
 }else{
     $idsesion = '0';
-    //echo $idsesion;
+    $userType = '0';
+    $userName = '0';
+    $userPhone = '0';
 }
 
 ?>
@@ -31,12 +33,51 @@ $(function () {
     var qrcode;
     var basechida;
 
+    var option;
+
 
     $( document ).ready(function() {
         console.log( "Usuario: " +  session );
 
+        nombreUser = String("<?php echo $userName; ?>");
+        //Revisar que la sesión este iniciada
+
+        if(session != 0){
+            console.log("Sesión Iniciada");
+
+        } else{
+            console.log("Por Favor Inicia Sesión");
+            var linkReservacion = "?page=1&log=reserva";
+            window.location.href = linkReservacion;
+        }
+
         telefonoDiv.style.display = 'none';
         nombreDiv.style.display = 'none';
+
+        option = 1;
+
+        $.ajax({
+            url: "modelos/modelo.reservar.php",
+            type: "POST",
+            data: ({
+                session:session,
+                option:option
+            }),
+            success: function(msg) {
+                console.log(msg);
+
+                if(msg == null){
+                    console.log("Sin reservación existente")
+                }else{
+                    alert("Ya te encuentras en una reservación");
+                    window.location.href = "?page=6&usuario="+msg.userRes+"&reservacion="+msg.idRes;
+
+                }
+
+
+            },
+            dataType: "json"
+        });
 
         generarQR();
 
@@ -121,6 +162,8 @@ function reservacionAdb(){
 
     console.log(baseString);
 
+    option = 2;
+
     $.ajax({
         url: "modelos/modelo.reservar.php",
         type: "POST",
@@ -132,7 +175,8 @@ function reservacionAdb(){
             telefono:telefono,
             stringlink:stringlink,
             rpReserva:rpReserva,
-            baseString:baseString
+            baseString:baseString,
+            option:option
         }),
         success: function(msg) {
             console.log(msg);

@@ -45,8 +45,7 @@ const resourcesToPrecache = [
 'modelos/modelo.recuperar.php',
 'modelos/modelo.registro.php',
 'modelos/modelo.reservar.php',
-'modelos/modelo.swipe.php',
-'modelos/modelo.verificarFoto.php'
+'modelos/modelo.swipe.php'
 ];
 self.addEventListener('install', function(event) {
     //Precache files

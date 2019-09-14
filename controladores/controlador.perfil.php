@@ -15,11 +15,13 @@ if(isset($_SESSION['loggedin'])){
 <script>
 var sesion = <?php echo $idsesion; ?>;
 var option;
+var data = new FormData();
 var file_data1;
 var file_data2;
 var file_data3;
 var file_data4;
 var file_data5;
+var trigger;
 $(document).ready(function () {
 
     if(sesion != 0){
@@ -55,20 +57,31 @@ $(document).ready(function () {
                 $("#biografia").val(info.biografia);
                 $("#ets").val(info.idTipoETS);
 
-                file_data1 = "vistas/img/usuarios/"+sesion+"/perfil/"+sesion+"-1.jpg"
-                file_data2 = "vistas/img/usuarios/"+sesion+"/perfil/"+sesion+"-2.jpg"
-                file_data3 = "vistas/img/usuarios/"+sesion+"/perfil/"+sesion+"-3.jpg"
-                file_data4 = "vistas/img/usuarios/"+sesion+"/perfil/"+sesion+"-4.jpg"
-                file_data5 = "vistas/img/usuarios/"+sesion+"/perfil/"+sesion+"-5.jpg"
 
-                
+                if(info.fotoPerfil == 0){
+                  console.log("Sin fotos de prefil");
+                  trigger = false;
+                  
+                } else{
+                  trigger = true;
 
+                  console.log("Con fotos de perfil");
+
+                file_data1 = "vistas/img/usuarios/"+sesion+"/perfil/"+sesion+"-1.jpg";
+                file_data2 = "vistas/img/usuarios/"+sesion+"/perfil/"+sesion+"-2.jpg";
+                file_data3 = "vistas/img/usuarios/"+sesion+"/perfil/"+sesion+"-3.jpg";
+                file_data4 = "vistas/img/usuarios/"+sesion+"/perfil/"+sesion+"-4.jpg";
+                file_data5 = "vistas/img/usuarios/"+sesion+"/perfil/"+sesion+"-5.jpg";
 
                 document.getElementById("foto1").src = file_data1;
                 document.getElementById("foto2").src = file_data2;
                 document.getElementById("foto3").src = file_data3;
                 document.getElementById("foto4").src = file_data4;
                 document.getElementById("foto5").src = file_data5;
+
+                }
+
+
             } 
         },
         dataType: "json"
@@ -78,9 +91,6 @@ $(document).ready(function () {
 });
 
 function irSwipe(){
-
-    var data = new FormData();
-
     data.append("tipoSexo", document.getElementById('tipoSexo').value);
     data.append("busco", document.getElementById('busco').value);
     data.append("tipoCita", document.getElementById('tipoCita').value);
@@ -105,10 +115,39 @@ function irSwipe(){
 
     console.log(file_data2);
 
+    if(trigger == false){
 
-    document.getElementById("btnActualizar").disabled = true;
+      if(file_data1 == undefined || file_data2 == undefined || file_data3 == undefined || file_data4 == undefined || file_data5 == undefined){
 
-    $.ajax({
+        alert("Se necesita agregar todas las fotos");
+
+      } else{
+        
+        console.log("Todas las fotos agregadas");
+        document.getElementById("btnActualizar").disabled = true;
+        listo();
+      }
+      
+    } else{
+      
+      document.getElementById("btnActualizar").disabled = true;
+      listo();
+
+    }
+
+
+
+    //window.location.href = '?page=8';
+    /*
+    window.onbeforeunload = function() {
+        return "Dude, are you sure you want to leave? Think of the kittens!";
+    }
+    */
+}
+
+function listo(){
+  console.log("Todo Cool");
+  $.ajax({
         url: "modelos/modelo.perfil.php",
         type: "POST",
         dataType: "script",
@@ -136,14 +175,6 @@ function irSwipe(){
             }
         }
     });
-    
-
-    //window.location.href = '?page=8';
-    /*
-    window.onbeforeunload = function() {
-        return "Dude, are you sure you want to leave? Think of the kittens!";
-    }
-    */
 }
 
 function mostrarEts(){

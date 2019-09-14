@@ -6,7 +6,7 @@ if ($conexion->connect_error) {
 }
 
 
-$status = '999';
+$status = '9999';
 
 $option = $_POST['option'];
 
@@ -72,31 +72,55 @@ switch($option){
             $idRes = (int)$row[0];
         }   
 
+        
         $sql2 = "SELECT * FROM reservaciones WHERE idRes='$idRes' AND activa='1'";
         $result2 = $conexion->query($sql2); 
-
+        
         $arregloIDqr = array(); 
-
+        
         while($row = mysqli_fetch_array($result2)){
             array_push($arregloIDqr, $row);
         }   
+        
 
         if(sizeof($arregloIDqr) == 0){  
-        $status = "999"; //No hay publicaciones con esas características o no está activa
+        $status = "997"; //No hay publicaciones con esas características o no está activa
         } else{ 
         
             $sql3 = "UPDATE invitados SET scan='1' WHERE nombreInvitado='$nombre' AND idUser='$codigo' AND scan='0'";
             $result3 = $conexion->query($sql3); 
         
             if($conexion->query($sql3)){
-                $status = '1';
+
+                $sql4 = "SELECT * FROM usuarios WHERE idUser='$codigo'";
+                $result4 = $conexion->query($sql4);
+
+                while($row = mysqli_fetch_array($result4)){
+                    $status = $row;
+                }
+
+                if($status == null){
+
+                    $sql5 = "SELECT * FROM invitados WHERE idUser='$codigo'";
+                    $result5 = $conexion->query($sql5);
+
+                    while($row = mysqli_fetch_array($result5)){
+                        $status = $row;
+                    }
+
+                    if($status == null){
+                        $status = false;
+                    }
+                }
+                
+
             } else{
-                $status = '997';//Error al actualizar info
+                $status = '996';//Error al actualizar info
             }   
         
         }
 
-        echo $status;
+        echo json_encode($status);
 
     break;
 

@@ -220,6 +220,7 @@ if(isset($_GET['nombre'])){
                 idUser:idUser,
                 nombreUser:nombreUser,
                 idReservacion:idReservacion,
+                usuarioReservacion:usuarioReservacion,
                 personasTotales:personasTotales,
                 baseString:baseString,
                 opcion:opcion

@@ -25,6 +25,7 @@
       <div class="modal-body">
       <i class="far fa-thumbs-up"></i><br>
       <h5 class="modal-title" id="exampleModalLabel">Reservación Aprobada</h5>
+      <h5 class="modal-title" id="nombreQR"></h5>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

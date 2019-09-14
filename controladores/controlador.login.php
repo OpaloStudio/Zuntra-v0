@@ -72,7 +72,7 @@
                 nuevoLink = "?page=9";
             break;
 
-            case "reservar":
+            case "reserva":
                 nuevoLink = "?page=2";
             break;
 

@@ -91,29 +91,41 @@
             }),
             success: function(msg) {
                 console.log(msg);
+                console.log(typeof msg);
 
-                switch(msg){
+                if(typeof msg == "object"){
 
-                  case 1:
-                    $("#aprobada").modal("show");
-                  break;
+                  $("#aprobada").modal("show");
+                  $("#nombreQR").text("Nombre: "+msg.nombre);
 
-                  case 999:
-                    $("#rechazada").modal("show");
-                  break;
+                }else if(typeof msg == "string"){
 
-                  case 998:
-                    $("#rechazada").modal("show");
-                  break;
-
-                  case 997:
-                    $("#rechazada").modal("show");
-                  break;
-
-                  case 996:
-                    $("#rechazada").modal("show");
-                  break;
+                  console.log("string");
+                  
+                  switch(msg){
+  
+                    case "1":
+                      $("#aprobada").modal("show");
+                    break;
+  
+                    case "999":
+                      $("#rechazada").modal("show");
+                    break;
+  
+                    case "998":
+                      $("#rechazada").modal("show");
+                    break;
+  
+                    case "997":
+                      $("#rechazada").modal("show");
+                    break;
+  
+                    case "996":
+                      $("#rechazada").modal("show");
+                    break;
+                  }
                 }
+
 
             },
             dataType: "json"

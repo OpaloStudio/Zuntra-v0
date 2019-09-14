@@ -72,7 +72,6 @@ switch($option){
       $pic = (string)$carpetaDestino."perfil/".(string)$userId."-".(string)$x.".jpg";
 
       if(isset($fotos[$x])){
-        $status = 11111;
 
         unlink($pic);
 
@@ -87,6 +86,15 @@ switch($option){
       }
 
        
+    }
+
+    $sql2="UPDATE usuarios SET fotoPerfil='1' WHERE idUser='$userId'"; 
+
+    if($conexion->query($sql2)){
+        $_SESSION['userpicture'] = 1;
+        $status = '1';
+    } else{
+        $status = '999';//Error al actualizar info
     } 
 
     echo $status;
