@@ -16,6 +16,9 @@ if(isset($_SESSION['loggedin'])){
 <script>
 
 var sesion = <?php echo $idsesion; ?>;
+var data = new FormData();
+var picCochina;
+var numPic;
 console.log(sesion);
 
 $(document).ready(function () {
@@ -49,6 +52,7 @@ function cerrarCochinadas(){
 }
 
 
+
 var openFile = function(event) {
     var input = event.target;
 
@@ -58,6 +62,10 @@ var openFile = function(event) {
       var output = document.getElementById('cuadro1');
       output.src = dataURL;
       console.log(dataURL);
+
+      picCochina = $("#customFile1").prop("files")[0];
+      numPic = 1
+      dirtyPics(picCochina);
     };
     reader.readAsDataURL(input.files[0]);
   };
@@ -71,6 +79,10 @@ var openFile = function(event) {
       var output = document.getElementById('cuadro2');
       output.src = dataURL;
       console.log(dataURL);
+
+      picCochina = $("#customFile2").prop("files")[0];
+      numPic = 2
+      dirtyPics(picCochina);
     };
     reader.readAsDataURL(input.files[0]);
   };
@@ -84,6 +96,10 @@ var openFile = function(event) {
       var output = document.getElementById('cuadro3');
       output.src = dataURL;
       console.log(dataURL);
+
+      picCochina = $("#customFile3").prop("files")[0];
+      numPic = 3
+      dirtyPics(picCochina);
     };
     reader.readAsDataURL(input.files[0]);
   };
@@ -97,6 +113,10 @@ var openFile = function(event) {
       var output = document.getElementById('cuadro4');
       output.src = dataURL;
       console.log(dataURL);
+
+      picCochina = $("#customFile4").prop("files")[0];
+      numPic = 4
+      dirtyPics(picCochina);
     };
     reader.readAsDataURL(input.files[0]);
   };
@@ -110,8 +130,38 @@ var openFile = function(event) {
       var output = document.getElementById('cuadro5');
       output.src = dataURL;
       console.log(dataURL);
+
+      picCochina = $("#customFile5").prop("files")[0];
+      numPic = 5
+      dirtyPics(picCochina);
     };
     reader.readAsDataURL(input.files[0]);
   };
+
+function dirtyPics(){
+  var info = new FormData();
+  info.append("picNasty", picCochina);
+  info.append("numPic", numPic);
+  info.append("option", 2);
+
+  console.log(picCochina);
+  console.log(numPic);
+  console.log(info);
+
+  $.ajax({
+      url: "modelos/modelo.chat.php",
+      type: "POST",
+      dataType: "script",
+      cache: false,
+      contentType: false,
+      processData: false,
+      data: info, 
+      success: function(msg) {
+          console.log(msg);
+          
+      }
+  });
+
+}
 
 </script>
