@@ -38,7 +38,7 @@
             <label for="customFile1"><img id="cuadro1" src="vistas/img/cuadroCarga.svg"> </label>
           </div>
           <div class="posX">
-               <i class="fas fa-times xBorrar" onclick="quitarCochinadas()"></i>
+               <i class="fas fa-times xBorrar" id="noCochinadas1" onclick="quitarCochinadas(1)"></i>
             </div>
 
           <div class=" flex1">
@@ -46,7 +46,7 @@
             <label for="customFile2"><img id="cuadro2" src="vistas/img/cuadroCarga.svg"> </label>
           </div>
           <div class="posX">
-               <i class="fas fa-times xBorrar" onclick="quitarCochinadas()"></i>
+               <i class="fas fa-times xBorrar" id="noCochinadas2" onclick="quitarCochinadas(2)"></i>
             </div>
 
           <div class=" flex1">
@@ -54,7 +54,7 @@
             <label for="customFile3"><img id="cuadro3" src="vistas/img/cuadroCarga.svg"> </label>
           </div>
           <div class="posX">
-               <i class="fas fa-times xBorrar" onclick="quitarCochinadas()"></i>
+               <i class="fas fa-times xBorrar" id="noCochinadas3" onclick="quitarCochinadas(3)"></i>
             </div>
 
 
@@ -64,7 +64,7 @@
             <label for="customFile4"><img id="cuadro4" src="vistas/img/cuadroCarga.svg"> </label>
           </div>
           <div class="posX">
-               <i class="fas fa-times xBorrar" onclick="quitarCochinadas()"></i>
+               <i class="fas fa-times xBorrar" id="noCochinadas4" onclick="quitarCochinadas(4)"></i>
             </div>
 
           <div class=" flex1">
@@ -73,7 +73,7 @@
             <label for="customFile5"><img id="cuadro5" src="vistas/img/cuadroCarga.svg"> </label>
           </div>
           <div class="posX">
-               <i class="fas fa-times xBorrar" onclick="quitarCochinadas()"></i>
+               <i class="fas fa-times xBorrar" id="noCochinadas5" onclick="quitarCochinadas(5)"></i>
             </div>
 
         </div>

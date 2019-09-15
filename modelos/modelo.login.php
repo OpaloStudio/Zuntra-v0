@@ -22,6 +22,7 @@ else{
         $_SESSION['userCumple'] = $row['cumpleanos'];
         $_SESSION['userEmail'] = $row['correo'];
         $_SESSION['userpicture'] = $row['fotoPerfil'];
+        $_SESSION['userChat'] = $row['fotosNasty'];
         $_SESSION['userSexo'] = $row['idTIpoSexo'];
         $_SESSION['userCita'] = $row['idTipoCita'];
         $_SESSION['userBusco'] = $row['idBusco'];

@@ -4,10 +4,12 @@ $tipo = $_GET['tipo'];
 
 if(isset($_SESSION['loggedin'])){
     $idsesion = $_SESSION['userId'];
+    $nastyPics = $_SESSION['userChat'];
     echo $idsesion;
     
 }else{
     $idsesion = '0';
+    $nastyPics = '99999';
     echo $idsesion;
 }
 
@@ -16,9 +18,16 @@ if(isset($_SESSION['loggedin'])){
 <script>
 
 var sesion = <?php echo $idsesion; ?>;
+var nastyPics = '<?php echo $nastyPics; ?>';
 var data = new FormData();
 var picCochina;
 var numPic;
+var num;
+var set1;
+var set2;
+var set3;
+var set4;
+var set5;
 console.log(sesion);
 
 $(document).ready(function () {
@@ -37,9 +46,53 @@ $(document).ready(function () {
   cursorcolor:"#DEC9A1",
   cursorwidth:"16px",
   horizrailenabled: true,
-});
 
-});
+  });
+
+  console.log(nastyPics);
+  set1 = nastyPics.substring(0,1);
+  set2 = nastyPics.substring(1,2);
+  set3 = nastyPics.substring(2,3);
+  set4 = nastyPics.substring(3,4);
+  set5 = nastyPics.substring(4,5);
+
+  console.log(set1);
+  console.log(set2);
+  console.log(set3);
+  console.log(set4);
+  console.log(set5);
+
+  if(set1 == "1"){
+    
+    pic1 = "vistas/img/usuarios/"+sesion+"/chat/"+sesion+"-1.jpg";
+    document.getElementById("cuadro1").src = pic1;
+
+  }
+  if(set2 == "1"){
+
+    pic2 = "vistas/img/usuarios/"+sesion+"/chat/"+sesion+"-2.jpg";
+    document.getElementById("cuadro2").src = pic2;
+
+  }
+  if(set3 == "1"){
+
+    pic3 = "vistas/img/usuarios/"+sesion+"/chat/"+sesion+"-3.jpg";
+    document.getElementById("cuadro3").src = pic3;
+
+  }
+  if(set4 == "1"){
+
+    pic4 = "vistas/img/usuarios/"+sesion+"/chat/"+sesion+"-4.jpg";
+    document.getElementById("cuadro4").src = pic4;
+
+  }
+  if(set5 == "1"){
+
+    pic5 = "vistas/img/usuarios/"+sesion+"/chat/"+sesion+"-5.jpg";
+    document.getElementById("cuadro5").src = pic5;
+
+  }
+  });
 
 
 
@@ -161,6 +214,39 @@ function dirtyPics(){
           
       }
   });
+
+}  
+
+function quitarCochinadas(num){
+
+  var info2 = new FormData();
+  console.log(num);
+
+  info2.append("option", 3);
+  info2.append("num", num);
+
+  $.ajax({
+      url: "modelos/modelo.chat.php",
+      type: "POST",
+      dataType: "script",
+      cache: false,
+      contentType: false,
+      processData: false,
+      data: info2, 
+      success: function(msg) {
+          console.log(msg);
+
+          var defecto = "vistas/img/cuadroCarga.svg";
+          var destino = "cuadro"+num;
+
+          document.getElementById(destino).src = defecto;
+          
+          
+      }
+  });
+  
+
+
 
 }
 

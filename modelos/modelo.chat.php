@@ -12,6 +12,8 @@ $status = '999';
 $option = $_POST['option'];
 $numPic = $_POST['numPic'];
 
+$num = $_POST['num'];
+
 
 switch($option){
 
@@ -74,6 +76,7 @@ switch($option){
 
                 if($conexion->query($sql)){
                     $status = '1';
+                    $_SESSION['userChat'] = $newString;
                 } else{
                     $status = '998';//Error al actualizar info
                 } 
@@ -107,6 +110,7 @@ switch($option){
 
                 if($conexion->query($sql)){
                     $status = '1';
+                    $_SESSION['userChat'] = $newString;
                 } else{
                     $status = '998';//Error al actualizar info
                 } 
@@ -139,6 +143,7 @@ switch($option){
 
                 if($conexion->query($sql)){
                     $status = '1';
+                    $_SESSION['userChat'] = $newString;
                 } else{
                     $status = '998';//Error al actualizar info
                 } 
@@ -171,6 +176,7 @@ switch($option){
 
                 if($conexion->query($sql)){
                     $status = '1';
+                    $_SESSION['userChat'] = $newString;
                 } else{
                     $status = '998';//Error al actualizar info
                 } 
@@ -203,6 +209,7 @@ switch($option){
 
                 if($conexion->query($sql)){
                     $status = '1';
+                    $_SESSION['userChat'] = $newString;
                 } else{
                     $status = '998';//Error al actualizar info
                 } 
@@ -218,9 +225,75 @@ switch($option){
         break;
             
         }
-        
-        
-        
+  break;
+
+  case '3';
+
+    $sql = "SELECT fotosNasty FROM usuarios WHERE idUser='$userId'";
+    $result = $conexion->query($sql);
+
+    while($row = mysqli_fetch_array($result)){
+      $stringNasty = $row[0];
+    }
+
+    $nastyPic1 = substr($stringNasty,0,1);
+    $nastyPic2 = substr($stringNasty,1,1);
+    $nastyPic3 = substr($stringNasty,2,1);
+    $nastyPic4 = substr($stringNasty,3,1);
+    $nastyPic5 = substr($stringNasty,4,1);
+
+    
+    
+    $carpetaDestino = "../vistas/img/usuarios/".(string)$userId."/";
+    mkdir($carpetaDestino); 
+    $carpetaDestinoFinal = (string)$carpetaDestino."chat/";
+    mkdir($carpetaDestinoFinal); 
+    
+    $pic = (string)$carpetaDestinoFinal.(string)$userId."-".(string)$num.".jpg";
+
+    unlink($pic);
+
+    switch($num){
+
+        case '1';
+            $newString = "0".$nastyPic2.$nastyPic3.$nastyPic4.$nastyPic5;
+        break;
+            
+        case '2';
+            $newString = $nastyPic1."0".$nastyPic3.$nastyPic4.$nastyPic5;
+            
+        break;
+            
+        case '3';
+            
+            $newString = $nastyPic1.$nastyPic2."0".$nastyPic4.$nastyPic5;
+        break;
+
+        case '4';
+            $newString = $nastyPic1.$nastyPic2.$nastyPic3."0".$nastyPic5;
+        break;
+
+        case '5';
+            $newString = $nastyPic1.$nastyPic2.$nastyPic3.$nastyPic4."0";
+        break;
+
+    }
+
+
+
+    $sql="UPDATE usuarios SET fotosNasty='$newString' WHERE idUser='$userId'";
+
+    if($conexion->query($sql)){
+        $status = '1';
+        $_SESSION['userChat'] = $newString;
+    } else{
+        $status = '998';//Error al actualizar info
+    } 
+
+    echo $status;
+
+    
+
   break;
 }
 
