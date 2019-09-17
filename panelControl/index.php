@@ -23,7 +23,8 @@ session_start();
         crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
-    <link href="vistas/css/app.css" media="all" rel="stylesheet" type="text/css" />
+	<link href="vistas/css/app.css" media="all" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" href="https://unpkg.com/balloon-css/balloon.min.css">
 	
 	
 	
@@ -43,14 +44,15 @@ session_start();
     <?php
 	
 	//Los controladores que se utilizan en todas las páginas, se incluyen fuera del if de abajo.
-	
+	include('controladores/controlador.barra.php');
 	if(isset($_GET['id'])){
 		
 	}
 	elseif(isset($_GET['page'])){//Esta variable verifica que exista un id para la página visitada,
 						   //si no existe, es porque está en el index, entonces lo del index se incluye
 						   //en el else en el orden que deben aparecer las closas
-
+						   
+						  
 		switch($_GET['page']){
 
 			case '1':
@@ -131,7 +133,7 @@ session_start();
 	}
 	else{
 		//Aquí se incluyen todos los controladores del index.
-		include('controladores/controlador.barra.php');
+		include('controladores/controlador.logScreen.php');
 	}
 
 	?>
@@ -139,14 +141,14 @@ session_start();
 
 <body>
     <?php
-
+include('vistas/modulos/barra.php');
 if(isset($_GET['id'])){
 	
 }
 
 elseif(isset($_GET['page'])){
-
-	include('vistas/modulos/barra.php');
+	
+	
 
 	switch($_GET['page']){
 
@@ -220,13 +222,15 @@ elseif(isset($_GET['page'])){
 		include('vistas/modulos/escaner.php');
 		break;
 
-
+		case 'default':
+			
+		break;
 
 	}
 }
 else{
-	include('vistas/modulos/barra.php');
-	
+	//include('vistas/modulos/barra.php');
+	include('vistas/modulos/logScreen.php');
 
 }
 
