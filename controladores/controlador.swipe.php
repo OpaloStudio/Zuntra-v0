@@ -22,6 +22,7 @@ if(isset($_SESSION['loggedin'])){
     var perfilesBloqueados = new Array();
     var indiceSwipe;
     var indiceBloqueos;
+    var option;
 
     $(document).ready(function () {
 
@@ -44,11 +45,13 @@ if(isset($_SESSION['loggedin'])){
         perfilesBloqueados = [];
         indiceSwipe = 0;
         indiceBloqueos = 0;
+        option = 1;
         $.ajax({
             url: "modelos/modelo.swipe.php",
             type: "POST",
             data: ({
-                sesion:sesion
+                sesion:sesion,
+                option:option
             }),
             success: function(msg) {
                 console.log(msg);
@@ -134,6 +137,46 @@ if(isset($_SESSION['loggedin'])){
     function noMatch(){
         console.log("se agregó a " + perfilesNombre[indiceSwipe] + " a la lista mala :C");
         rellenarSwipe();
+    }
+
+    function iniciarMsg(){
+
+        console.log('hola');
+        
+        option = 2;
+        var like = perfilesID[indiceSwipe];
+        
+        console.log(sesion);
+        console.log(like);
+        
+
+
+        $.ajax({
+            url: "modelos/modelo.swipe.php",
+            type: "POST",
+            data: ({
+                sesion:sesion,
+                like:like,
+                option:option
+
+            }),
+            success: function(msg) {
+
+                console.log(msg);
+
+                if(msg == 997){
+                    alert("Error al crear sala");
+                }else if(msg == 998){
+                    alert("Error al crear sala");
+                }else if(msg != 0){
+                    alert("Sala ya existente");
+                    window.location.href = "?page=9&chat="+like+"&sala="+msg;
+                }
+
+            },
+            dataType: "json"
+        });
+        
     }
 
     function logout(){

@@ -122,7 +122,7 @@
       <i class="fas fa-thumbs-up" onclick='match()'></i>
       </div>
       <div class="btnEleccion" id="mensajeYA">
-      <i class="fas fa-paper-plane avion" ></i>
+      <i class="fas fa-paper-plane avion" onclick='iniciarMsg()'></i>
       </div>
   </span>
 

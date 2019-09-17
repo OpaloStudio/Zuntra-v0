@@ -13,12 +13,22 @@ if(isset($_SESSION['loggedin'])){
     echo $idsesion;
 }
 
+if($_GET['sala'] != 0){
+    $sala = $_GET['sala'];
+    $user2 = $_GET['chat'];
+}else{
+  $sala = 0;
+  $user2 = 0;
+}
+
 ?>
 
 <script>
 
 var sesion = <?php echo $idsesion; ?>;
 var nastyPics = '<?php echo $nastyPics; ?>';
+var user2 = <?php echo $user2; ?>;
+var sala = <?php echo $sala; ?>;
 var data = new FormData();
 var picCochina;
 var numPic;
@@ -43,58 +53,117 @@ $(document).ready(function () {
     }
 
     $(".scrollZone").niceScroll({
-  cursorcolor:"#DEC9A1",
-  cursorwidth:"16px",
-  horizrailenabled: true,
+    cursorcolor:"#DEC9A1",
+    cursorwidth:"16px",
+    horizrailenabled: true,
 
+    });
+
+    console.log(nastyPics);
+    set1 = nastyPics.substring(0,1);
+    set2 = nastyPics.substring(1,2);
+    set3 = nastyPics.substring(2,3);
+    set4 = nastyPics.substring(3,4);
+    set5 = nastyPics.substring(4,5);
+
+    console.log(set1);
+    console.log(set2);
+    console.log(set3);
+    console.log(set4);
+    console.log(set5);
+
+    if(set1 == "1"){
+
+      pic1 = "vistas/img/usuarios/"+sesion+"/chat/"+sesion+"-1.jpg";
+      document.getElementById("cuadro1").src = pic1;
+
+    }
+    if(set2 == "1"){
+
+      pic2 = "vistas/img/usuarios/"+sesion+"/chat/"+sesion+"-2.jpg";
+      document.getElementById("cuadro2").src = pic2;
+
+    }
+    if(set3 == "1"){
+
+      pic3 = "vistas/img/usuarios/"+sesion+"/chat/"+sesion+"-3.jpg";
+      document.getElementById("cuadro3").src = pic3;
+
+    }
+    if(set4 == "1"){
+
+      pic4 = "vistas/img/usuarios/"+sesion+"/chat/"+sesion+"-4.jpg";
+      document.getElementById("cuadro4").src = pic4;
+
+    }
+    if(set5 == "1"){
+
+      pic5 = "vistas/img/usuarios/"+sesion+"/chat/"+sesion+"-5.jpg";
+      document.getElementById("cuadro5").src = pic5;
+
+    }
+
+    cargaMsjs();
   });
 
-  console.log(nastyPics);
-  set1 = nastyPics.substring(0,1);
-  set2 = nastyPics.substring(1,2);
-  set3 = nastyPics.substring(2,3);
-  set4 = nastyPics.substring(3,4);
-  set5 = nastyPics.substring(4,5);
+function cargaMsjs(){
 
-  console.log(set1);
-  console.log(set2);
-  console.log(set3);
-  console.log(set4);
-  console.log(set5);
+  option = 1;
+  console.log(sala);
+  console.log(user2);
+  console.log(sesion);
 
-  if(set1 == "1"){
-    
-    pic1 = "vistas/img/usuarios/"+sesion+"/chat/"+sesion+"-1.jpg";
-    document.getElementById("cuadro1").src = pic1;
+  $.ajax({
+    url: "modelos/modelo.chat.php",
+    type: "POST",
+    data: ({
+        sesion:sesion,
+        user2:user2,
+        sala:sala,
+        option:option
+    }),
+    success: function(msg) {
+        console.log(msg);
+        console.log(msg.length);
+        
+        for(var i = 0; i < msg.length; i++){
+          console.log(msg[i].idTipoMensaje);
+          console.log(msg[i].idUsuario);
 
-  }
-  if(set2 == "1"){
+          if(msg[i].idTipoMensaje == 1){
 
-    pic2 = "vistas/img/usuarios/"+sesion+"/chat/"+sesion+"-2.jpg";
-    document.getElementById("cuadro2").src = pic2;
+            if(msg[i].idUsuario == sesion){
+              
+              var divYo = document.createElement("DIV");   // Create a <button> element
+              divYo.classList.add("mnsjYo");
+              document.getElementById("losMsj").appendChild(divYo); 
 
-  }
-  if(set3 == "1"){
+              var paraMi = document.createElement("P");   // Create a <button> element
+              paraMi.classList.add("mensajeYO");
+              paraMi.innerHTML = msg[i].mensaje;                   // Insert text
+              divYo.appendChild(paraMi); 
 
-    pic3 = "vistas/img/usuarios/"+sesion+"/chat/"+sesion+"-3.jpg";
-    document.getElementById("cuadro3").src = pic3;
+            } else if(msg[i].idUsuario == user2){
 
-  }
-  if(set4 == "1"){
+              var divTu = document.createElement("DIV");   // Create a <button> element
+              divTu.classList.add("mnsjOtro");
+              document.getElementById("losMsj").appendChild(divTu); 
 
-    pic4 = "vistas/img/usuarios/"+sesion+"/chat/"+sesion+"-4.jpg";
-    document.getElementById("cuadro4").src = pic4;
+              var paraTi = document.createElement("P");   // Create a <button> element
+              paraTi.classList.add("mensajeEL");
+              paraTi.innerHTML = msg[i].mensaje;                   // Insert text
+              
+              divTu.appendChild(paraTi); 
 
-  }
-  if(set5 == "1"){
+            }
 
-    pic5 = "vistas/img/usuarios/"+sesion+"/chat/"+sesion+"-5.jpg";
-    document.getElementById("cuadro5").src = pic5;
+          }
 
-  }
+        }
+    },
+    dataType: "json"
   });
-
-
+}
 
 function mostrarCochinadas(){
     $('.imgCochinas').css("display","block");

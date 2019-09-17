@@ -11,6 +11,7 @@ $status = '999';
 
 $option = $_POST['option'];
 $numPic = $_POST['numPic'];
+$sala = $_POST['sala'];
 
 $num = $_POST['num'];
 
@@ -18,18 +19,20 @@ $num = $_POST['num'];
 switch($option){
 
   case '1';
-    $sql = "SELECT * FROM usuarios WHERE idUser='$userId'";
+    $sql = "SELECT * FROM mensaje WHERE idSala='$sala'";
     $result = $conexion->query($sql);
 
-    while($row = mysqli_fetch_array($result)){
-      $infoUsr = $row;
-    }
+    $final = array();
 
-    if(sizeof($infoUsr) == 0){
-      $infoUsr = false;
+    while($row = mysqli_fetch_array($result)){
+			array_push($final, $row);
+		}
+
+    if(sizeof($final) == 0){
+      $final = false;
     }
     
-    echo json_encode($infoUsr);
+    echo json_encode($final);
 
   break;
 

@@ -6,20 +6,20 @@
     <div class="imgChat"></div>
   </nav>
 
-  <div class="divMensajes">
+  <div class="divMensajes" id="losMsj">
 
-    <div class="mnsjOtro">
+    <!-- <div class="mnsjOtro">
       <p class="mensajeEL">On tas?</p>
+    </div> -->
+
+    <div class="mnsjYo " id="johnny">
+      <!-- <p class="mensajeYO ">En la barra </p> -->
     </div>
 
-    <div class="mnsjYo ">
-      <p class="mensajeYO ">En la barra </p>
-    </div>
-
-    <div class="mnsjOtro">
-      <p class="mensajeEL">Te pago el Uber Lorem ipsum dolor sit amet consectetur, adipisicing elit. Saepe suscipit
+    <div class="mnsjOtro" id="tunas">
+      <!-- <p class="mensajeEL">Te pago el Uber Lorem ipsum dolor sit amet consectetur, adipisicing elit. Saepe suscipit
         delectus ex mollitia error laboriosam quos? Aut sit vitae provident eum quis perferendis eius distinctio?
-        Ducimus iure laboriosam sint deserunt!</p>
+        Ducimus iure laboriosam sint deserunt!</p> -->
     </div>
 
 
