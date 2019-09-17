@@ -10,16 +10,16 @@
   justify-content: space-around;
   flex-direction: column; }
 
-.nav-link {
+.linky {
   height: 100% !important;
   width: 100% !important;
   color: #DEC9A1 !important;
   font-size: 3rem; }
 
-.nav-link:hover {
+.linky:hover {
   transform: scale(2); }
 
-.active {
+.actived {
   transform: scale(2);
   background-color: #DEC9A1;
   color: #212121 !important; }
@@ -158,6 +158,64 @@
   border-radius: 20px;
   margin-top: -8rem; }
 
+.configuracion {
+  background-color: #E1E1E1;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 2rem; }
+
+.zonaCuadro {
+  background-color: white;
+  width: 80vw;
+  height: 90vh;
+  display: flex;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+  align-items: center;
+  flex-direction: column; }
+
+.navConfiguracion {
+  width: 90%;
+  margin-top: 2rem; }
+
+#nav-home-tab {
+  color: #212121; }
+
+#nav-home-tab:focus {
+  background-color: #212121;
+  color: #DEC9A1; }
+
+#nav-profile-tab {
+  color: #212121; }
+
+#nav-profile-tab:focus {
+  background-color: #212121;
+  color: #DEC9A1; }
+
+#nav-eventos-tab {
+  color: #212121; }
+
+#nav-eventos-tab:focus {
+  background-color: #212121;
+  color: #DEC9A1; }
+
+#nav-diseno-tab {
+  color: #212121; }
+
+#nav-diseno-tab:focus {
+  background-color: #212121;
+  color: #DEC9A1; }
+
+#nav-contact-tab {
+  color: #212121; }
+
+#nav-contact-tab:focus {
+  background-color: #212121;
+  color: #DEC9A1; }
+
 .barra {
   background-color: #212121 !important;
   height: 100vh;
@@ -170,16 +228,16 @@
   justify-content: space-around;
   flex-direction: column; }
 
-.nav-link {
+.linky {
   height: 100% !important;
   width: 100% !important;
   color: #DEC9A1 !important;
   font-size: 3rem; }
 
-.nav-link:hover {
+.linky:hover {
   transform: scale(2); }
 
-.active {
+.actived {
   transform: scale(2);
   background-color: #DEC9A1;
   color: #212121 !important; }
