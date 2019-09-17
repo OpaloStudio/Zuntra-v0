@@ -11,7 +11,7 @@
   </div>
     
     <video  autoplay="autoplay" loop="loop" id="video_background" preload="auto" muted>
-  <source src="vistas/img/otros/video.mp4" type="video/mp4" />
+  <source src="vistas/img/otros/zuntra.mp4" type="video/mp4" />
 </video>
 
 </div>

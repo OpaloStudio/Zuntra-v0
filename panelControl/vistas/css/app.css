@@ -1,7 +1,7 @@
 .barra {
   background-color: #212121 !important;
   height: 100vh;
-  width: 10%;
+  min-width: 10%;
   position: fixed;
   left: 0;
   top: 0; }
@@ -9,6 +9,36 @@
 .rps {
   background-color: #E1E1E1;
   height: 100vh; }
+
+.zonaRps {
+  height: 100vh; }
+
+.barraSearch {
+  margin-top: 2rem !important;
+  padding: 0rem 10rem 0rem 10rem !important; }
+
+.busquedaRp {
+  -webkit-border-radius: 20px !important;
+  -moz-border-radius: 20px !important;
+  border-radius: 20px !important; }
+
+.card-img {
+  object-fit: cover !important;
+  object-position: center center !important;
+  height: 9rem;
+  margin-top: -1px;
+  margin-left: -1px; }
+
+.flexRps {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding-bottom: 3rem; }
+
+.cardRp {
+  min-width: 30% !important;
+  margin-left: 2rem; }
 
 .container-fluid {
   position: fixed;
@@ -66,12 +96,85 @@
   flex-direction: column;
   padding: 0rem 2rem 2rem 2rem; }
 
+.reservaciones {
+  background-color: #E1E1E1;
+  height: 100vh; }
+
+.cardReservTotales {
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+  margin-top: 2rem;
+  width: 40vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #DEC9A1; }
+
+.zonaReservaciones {
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.cardTableReserv {
+  background-color: white;
+  width: 80vw;
+  height: 75vh;
+  padding-bottom: 3rem;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+  margin-top: -8rem; }
+
 .barra {
   background-color: #212121 !important;
   height: 100vh;
-  width: 10%;
+  min-width: 10%;
   position: fixed;
   left: 0;
   top: 0; }
+
+.usuarios {
+  background-color: #E1E1E1;
+  height: 100vh; }
+
+.headTabla {
+  background-color: #DEC9A1 !important;
+  color: white !important; }
+
+.divTabla {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%; }
+
+.cardTable {
+  background-color: white;
+  width: 80vw;
+  height: 85vh;
+  padding-bottom: 3rem;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px; }
+
+.searchUsuarios {
+  position: fixed;
+  height: 4rem;
+  background-color: white;
+  width: 80%;
+  padding: 1rem 5rem 1rem 5rem;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px; }
+
+.tablaUsuarios {
+  margin-top: 5rem;
+  width: 80%; }
+
+.flexTable {
+  display: flex;
+  justify-content: center;
+  align-items: center; }
 
 /*# sourceMappingURL=app.css.map */
