@@ -43,7 +43,7 @@
                         break;
                         
                         case 1:
-                            alert("Tu cuenta ha sido registrada exitosamente, revisa tu correo para encontrar el link de activación.");
+                            alert("Tu cuenta ha sido registrada exitosamente, ya puedes entrar a tu cuenta. Serás redirigido al inicio de sesión.");
                             window.location.href = '?page=1';
                         break;
 
