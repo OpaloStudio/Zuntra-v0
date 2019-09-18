@@ -112,7 +112,7 @@ $(document).ready(function () {
 
     }
     cargaMsjs();
-    setInterval(cargaMsjs, 5000);
+    setInterval(cargaMsjs, 10000);
     
   });
 
@@ -212,6 +212,7 @@ function enviarCochinadas(){
         console.log(msg);
         if(msg == 1){
           $("#msjChat").val("");
+          cargaMsjs();
         }
       },
       dataType: "json"
