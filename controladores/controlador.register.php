@@ -31,7 +31,8 @@
                     nombre:nombre,
                     telefono:telefono,
                     email:email,
-                    password:password
+                    password:password,
+                    cumple:cumple
                 }),
                 success: function(msg) {
                     console.log(msg);

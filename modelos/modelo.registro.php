@@ -12,6 +12,8 @@ $nombre = $_POST['nombre'];
 $telefono = $_POST['telefono'];
 $email = $_POST['email'];
 $cumple = $_POST['cumple'];
+$date = str_replace('/', '-', $cumple );
+$newDate = date("Y-m-d", strtotime($date));
 $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
 $sql = "SELECT correo FROM usuarios WHERE correo = '$email' ";
@@ -22,7 +24,7 @@ if($result->num_rows > 0){
     $status = 0; //Registrado
 } else{
     
-    $sql2 = "INSERT INTO usuarios (nombre, telefono, correo, cumpleanos, contrasena, idTipoUsuario) VALUES ('$nombre', '$telefono', '$email', NULL, '$password', '5')";
+    $sql2 = "INSERT INTO usuarios (nombre, telefono, correo, cumpleanos, contrasena, idTipoUsuario) VALUES ('$nombre', '$telefono', '$email', '$newDate', '$password', '5')";
     
     if($conexion->query($sql2)){
         $status = '1';
