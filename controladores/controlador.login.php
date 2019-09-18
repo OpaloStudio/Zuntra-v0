@@ -72,8 +72,12 @@
                 nuevoLink = "?page=9";
             break;
 
-            case "reservar":
+            case "reserva":
                 nuevoLink = "?page=2";
+            break;
+
+            default:
+                nuevoLink = "?page=13";
             break;
 
             console.log(nuevoLink);

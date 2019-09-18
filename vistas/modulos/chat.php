@@ -6,22 +6,24 @@
     <div class="imgChat"></div>
   </nav>
 
-  <div class="divMensajes">
+  <div class="divMensajes" id="losMsj">
 
-    <div class="mnsjOtro">
+  <div id="divAux">
+
+    <!-- <div class="mnsjOtro">
       <p class="mensajeEL">On tas?</p>
+    </div> -->
+
+    <div class="mnsjYo " id="johnny">
+      <!-- <p class="mensajeYO ">En la barra </p> -->
     </div>
 
-    <div class="mnsjYo ">
-      <p class="mensajeYO ">En la barra </p>
-    </div>
-
-    <div class="mnsjOtro">
-      <p class="mensajeEL">Te pago el Uber Lorem ipsum dolor sit amet consectetur, adipisicing elit. Saepe suscipit
+    <div class="mnsjOtro" id="tunas">
+      <!-- <p class="mensajeEL">Te pago el Uber Lorem ipsum dolor sit amet consectetur, adipisicing elit. Saepe suscipit
         delectus ex mollitia error laboriosam quos? Aut sit vitae provident eum quis perferendis eius distinctio?
-        Ducimus iure laboriosam sint deserunt!</p>
+        Ducimus iure laboriosam sint deserunt!</p> -->
     </div>
-
+    </div>
 
     <div class="zonaEscribir">
       <div class="imgCochinas">
@@ -38,7 +40,7 @@
             <label for="customFile1"><img id="cuadro1" src="vistas/img/cuadroCarga.svg"> </label>
           </div>
           <div class="posX">
-               <i class="fas fa-times xBorrar" onclick="quitarCochinadas()"></i>
+               <i class="fas fa-times xBorrar" id="noCochinadas1" onclick="quitarCochinadas(1)"></i>
             </div>
 
           <div class=" flex1">
@@ -46,7 +48,7 @@
             <label for="customFile2"><img id="cuadro2" src="vistas/img/cuadroCarga.svg"> </label>
           </div>
           <div class="posX">
-               <i class="fas fa-times xBorrar" onclick="quitarCochinadas()"></i>
+               <i class="fas fa-times xBorrar" id="noCochinadas2" onclick="quitarCochinadas(2)"></i>
             </div>
 
           <div class=" flex1">
@@ -54,7 +56,7 @@
             <label for="customFile3"><img id="cuadro3" src="vistas/img/cuadroCarga.svg"> </label>
           </div>
           <div class="posX">
-               <i class="fas fa-times xBorrar" onclick="quitarCochinadas()"></i>
+               <i class="fas fa-times xBorrar" id="noCochinadas3" onclick="quitarCochinadas(3)"></i>
             </div>
 
 
@@ -64,7 +66,7 @@
             <label for="customFile4"><img id="cuadro4" src="vistas/img/cuadroCarga.svg"> </label>
           </div>
           <div class="posX">
-               <i class="fas fa-times xBorrar" onclick="quitarCochinadas()"></i>
+               <i class="fas fa-times xBorrar" id="noCochinadas4" onclick="quitarCochinadas(4)"></i>
             </div>
 
           <div class=" flex1">
@@ -73,19 +75,19 @@
             <label for="customFile5"><img id="cuadro5" src="vistas/img/cuadroCarga.svg"> </label>
           </div>
           <div class="posX">
-               <i class="fas fa-times xBorrar" onclick="quitarCochinadas()"></i>
+               <i class="fas fa-times xBorrar" id="noCochinadas5" onclick="quitarCochinadas(5)"></i>
             </div>
 
         </div>
       </div>
       <div class="row">
         <div class="col-10 zonaInput">
-          <input type="text" class="inputChat">
+          <input type="text" class="inputChat" id="msjChat">
           <i class="far fa-images" onclick="mostrarCochinadas()"></i>
         </div>
         <div class="col-2 zonaRedondo">
           <span class="btnRedondo">
-            <i class="far fa-paper-plane"></i>
+            <i class="far fa-paper-plane" onclick="enviarCochinadas()"></i>
           </span>
         </div>
       </div>

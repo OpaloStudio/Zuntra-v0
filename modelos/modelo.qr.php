@@ -42,7 +42,7 @@ switch($opcion){
 	
 	case 2:
 
-		$sql2 = "INSERT INTO invitados (idUser, nombreInvitado, idRes, personasTotales, invitadoQR) VALUES ('$idUser', '$nombreUser', '$idReservacion', '$personasTotales', '$baseString')";
+		$sql2 = "INSERT INTO invitados (idUser, nombreInvitado, idRes, userRes, personasTotales, invitadoQR) VALUES ('$idUser', '$nombreUser', '$idReservacion', '$usuarioReservacion', '$personasTotales', '$baseString')";
 		
 		if($conexion->query($sql2)){
 

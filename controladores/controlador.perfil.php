@@ -15,6 +15,13 @@ if(isset($_SESSION['loggedin'])){
 <script>
 var sesion = <?php echo $idsesion; ?>;
 var option;
+var data = new FormData();
+var file_data1;
+var file_data2;
+var file_data3;
+var file_data4;
+var file_data5;
+var trigger;
 $(document).ready(function () {
 
     if(sesion != 0){
@@ -49,7 +56,31 @@ $(document).ready(function () {
                 $("#tipoCita").val(info.idTipoCita);
                 $("#biografia").val(info.biografia);
                 $("#ets").val(info.idTipoETS);
-          
+
+
+                if(info.fotoPerfil == 0){
+                  console.log("Sin fotos de prefil");
+                  trigger = false;
+                  
+                } else{
+                  trigger = true;
+
+                  console.log("Con fotos de perfil");
+
+                file_data1 = "vistas/img/usuarios/"+sesion+"/perfil/"+sesion+"-1.jpg";
+                file_data2 = "vistas/img/usuarios/"+sesion+"/perfil/"+sesion+"-2.jpg";
+                file_data3 = "vistas/img/usuarios/"+sesion+"/perfil/"+sesion+"-3.jpg";
+                file_data4 = "vistas/img/usuarios/"+sesion+"/perfil/"+sesion+"-4.jpg";
+                file_data5 = "vistas/img/usuarios/"+sesion+"/perfil/"+sesion+"-5.jpg";
+
+                document.getElementById("foto1").src = file_data1;
+                document.getElementById("foto2").src = file_data2;
+                document.getElementById("foto3").src = file_data3;
+                document.getElementById("foto4").src = file_data4;
+                document.getElementById("foto5").src = file_data5;
+
+                }
+
 
             } 
         },
@@ -60,9 +91,6 @@ $(document).ready(function () {
 });
 
 function irSwipe(){
-
-    var data = new FormData();
-
     data.append("tipoSexo", document.getElementById('tipoSexo').value);
     data.append("busco", document.getElementById('busco').value);
     data.append("tipoCita", document.getElementById('tipoCita').value);
@@ -71,12 +99,13 @@ function irSwipe(){
     data.append("option", 2);
 
     console.log(data);
+    console.log(file_data1);
 
-    var file_data1 = $("#customFile1").prop("files")[0];
-    var file_data2 = $("#customFile2").prop("files")[0];
-    var file_data3 = $("#customFile3").prop("files")[0];
-    var file_data4 = $("#customFile4").prop("files")[0];
-    var file_data5 = $("#customFile5").prop("files")[0];
+    file_data1 = $("#customFile1").prop("files")[0];
+    file_data2 = $("#customFile2").prop("files")[0];
+    file_data3 = $("#customFile3").prop("files")[0];
+    file_data4 = $("#customFile4").prop("files")[0];
+    file_data5 = $("#customFile5").prop("files")[0];
 
     data.append("fotoPerfil1", file_data1);
     data.append("fotoPerfil2", file_data2);
@@ -84,9 +113,41 @@ function irSwipe(){
     data.append("fotoPerfil4", file_data4);
     data.append("fotoPerfil5", file_data5);
 
-    document.getElementById("btnActualizar").disabled = true;
+    console.log(file_data2);
 
-    $.ajax({
+    if(trigger == false){
+
+      if(file_data1 == undefined || file_data2 == undefined || file_data3 == undefined || file_data4 == undefined || file_data5 == undefined){
+
+        alert("Se necesita agregar todas las fotos");
+
+      } else{
+        
+        console.log("Todas las fotos agregadas");
+        document.getElementById("btnActualizar").disabled = true;
+        listo();
+      }
+      
+    } else{
+      
+      document.getElementById("btnActualizar").disabled = true;
+      listo();
+
+    }
+
+
+
+    //window.location.href = '?page=8';
+    /*
+    window.onbeforeunload = function() {
+        return "Dude, are you sure you want to leave? Think of the kittens!";
+    }
+    */
+}
+
+function listo(){
+  console.log("Todo Cool");
+  $.ajax({
         url: "modelos/modelo.perfil.php",
         type: "POST",
         dataType: "script",
@@ -114,14 +175,6 @@ function irSwipe(){
             }
         }
     });
-    
-
-    //window.location.href = '?page=8';
-    /*
-    window.onbeforeunload = function() {
-        return "Dude, are you sure you want to leave? Think of the kittens!";
-    }
-    */
 }
 
 function mostrarEts(){

@@ -54,6 +54,10 @@ $( document ).ready(function() {
             nuevoLink = "?page=4&log=chat";
         break;
 
+        case "reserva":
+            nuevoLink = "?page=4&log=reserva";
+        break;
+
         default:
             nuevoLink = "?page=4";
         break;
