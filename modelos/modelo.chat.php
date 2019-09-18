@@ -11,7 +11,8 @@ $status = '999';
 
 $option = $_POST['option'];
 $numPic = $_POST['numPic'];
-$sala = $_POST['sala'];
+$sala   = $_POST['sala'];
+$mensaje = $_POST['mensaje'];
 
 $num = $_POST['num'];
 
@@ -297,6 +298,18 @@ switch($option){
 
     
 
+  break;
+
+  case '4';
+    $sql = "INSERT INTO mensaje (idUsuario, mensaje, idTipoMensaje, fecha, idSala) VALUES ('$userId', '$mensaje', '1', NULL, '$sala')";
+
+    if($conexion->query($sql)){
+      $status = '1';
+    }else{
+      $status = '998';
+    }
+
+    echo $status;
   break;
 }
 

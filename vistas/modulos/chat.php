@@ -8,6 +8,8 @@
 
   <div class="divMensajes" id="losMsj">
 
+  <div id="divAux">
+
     <!-- <div class="mnsjOtro">
       <p class="mensajeEL">On tas?</p>
     </div> -->
@@ -21,7 +23,7 @@
         delectus ex mollitia error laboriosam quos? Aut sit vitae provident eum quis perferendis eius distinctio?
         Ducimus iure laboriosam sint deserunt!</p> -->
     </div>
-
+    </div>
 
     <div class="zonaEscribir">
       <div class="imgCochinas">
@@ -80,12 +82,12 @@
       </div>
       <div class="row">
         <div class="col-10 zonaInput">
-          <input type="text" class="inputChat">
+          <input type="text" class="inputChat" id="msjChat">
           <i class="far fa-images" onclick="mostrarCochinadas()"></i>
         </div>
         <div class="col-2 zonaRedondo">
           <span class="btnRedondo">
-            <i class="far fa-paper-plane"></i>
+            <i class="far fa-paper-plane" onclick="enviarCochinadas()"></i>
           </span>
         </div>
       </div>

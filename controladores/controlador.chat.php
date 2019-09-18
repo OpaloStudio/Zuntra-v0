@@ -30,6 +30,8 @@ var nastyPics = '<?php echo $nastyPics; ?>';
 var user2 = <?php echo $user2; ?>;
 var sala = <?php echo $sala; ?>;
 var data = new FormData();
+var infoChat;
+var contLoop = 0;        
 var picCochina;
 var numPic;
 var num;
@@ -51,6 +53,13 @@ $(document).ready(function () {
         var linkSwipe = "?page=1&log=chat";
         window.location.href = linkSwipe;
     }
+
+    $('#msjChat').keypress(function(event){
+      var keycode = (event.keyCode ? event.keyCode : event.which);
+      if(keycode == '13'){
+        enviarCochinadas();
+      }
+    });
 
     $(".scrollZone").niceScroll({
     cursorcolor:"#DEC9A1",
@@ -102,11 +111,13 @@ $(document).ready(function () {
       document.getElementById("cuadro5").src = pic5;
 
     }
-
     cargaMsjs();
+    setInterval(cargaMsjs, 5000);
+    
   });
 
 function cargaMsjs(){
+
 
   option = 1;
   console.log(sala);
@@ -125,40 +136,46 @@ function cargaMsjs(){
     success: function(msg) {
         console.log(msg);
         console.log(msg.length);
-        
-        for(var i = 0; i < msg.length; i++){
-          console.log(msg[i].idTipoMensaje);
-          console.log(msg[i].idUsuario);
-
-          if(msg[i].idTipoMensaje == 1){
-
-            if(msg[i].idUsuario == sesion){
-              
-              var divYo = document.createElement("DIV");   // Create a <button> element
-              divYo.classList.add("mnsjYo");
-              document.getElementById("losMsj").appendChild(divYo); 
-
-              var paraMi = document.createElement("P");   // Create a <button> element
-              paraMi.classList.add("mensajeYO");
-              paraMi.innerHTML = msg[i].mensaje;                   // Insert text
-              divYo.appendChild(paraMi); 
-
-            } else if(msg[i].idUsuario == user2){
-
-              var divTu = document.createElement("DIV");   // Create a <button> element
-              divTu.classList.add("mnsjOtro");
-              document.getElementById("losMsj").appendChild(divTu); 
-
-              var paraTi = document.createElement("P");   // Create a <button> element
-              paraTi.classList.add("mensajeEL");
-              paraTi.innerHTML = msg[i].mensaje;                   // Insert text
-              
-              divTu.appendChild(paraTi); 
-
+        infoChat = msg;
+        if(contLoop != msg.length){
+          $('#divAux').html('');
+          contLoop = 0;
+          
+          for(var i = 0; i < msg.length; i++){
+            console.log("Loop: "+contLoop);
+            console.log("Num Msjs: "+msg.length);
+            console.log("Msjs: "+msg[i].mensaje);
+  
+            if(msg[i].idTipoMensaje == 1){
+  
+              if(msg[i].idUsuario == sesion){
+                
+                var divYo = document.createElement("DIV");   // Create a <button> element
+                divYo.classList.add("mnsjYo");
+                document.getElementById("divAux").appendChild(divYo); 
+  
+                var paraMi = document.createElement("P");   // Create a <button> element
+                paraMi.classList.add("mensajeYO");
+                paraMi.innerHTML = msg[i].mensaje;                   // Insert text
+                divYo.appendChild(paraMi); 
+  
+              } else if(msg[i].idUsuario == user2){
+  
+                var divTu = document.createElement("DIV");   // Create a <button> element
+                divTu.classList.add("mnsjOtro");
+                document.getElementById("divAux").appendChild(divTu); 
+  
+                var paraTi = document.createElement("P");   // Create a <button> element
+                paraTi.classList.add("mensajeEL");
+                paraTi.innerHTML = msg[i].mensaje;                   // Insert text
+                
+                divTu.appendChild(paraTi); 
+  
+              }
+  
             }
-
+            contLoop++;
           }
-
         }
     },
     dataType: "json"
@@ -171,6 +188,39 @@ function mostrarCochinadas(){
 
 function cerrarCochinadas(){
     $('.imgCochinas').css("display","none");
+}
+
+function enviarCochinadas(){
+  
+  if(document.getElementById("msjChat").value == ''){
+    console.log('No hay msj');
+  }else{
+    var mensaje = document.getElementById("msjChat").value;
+    option = 4;
+    console.log(mensaje);
+      $.ajax({
+      url: "modelos/modelo.chat.php",
+      type: "POST",
+      data: ({
+          sesion:sesion,
+          user2:user2,
+          sala:sala,
+          mensaje:mensaje,
+          option:option
+      }),
+      success: function(msg) {
+        console.log(msg);
+        if(msg == 1){
+          $("#msjChat").val("");
+        }
+      },
+      dataType: "json"
+    });
+
+    }
+
+
+
 }
 
 
