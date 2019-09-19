@@ -85,7 +85,11 @@ $( document ).ready(function() {
 });
 
 function irPromos(){
-    window.location.href = '?page=3';
+    window.location.href = '?page=3&voy=promo';
+}
+
+function irEventos(){
+    window.location.href = '?page=3&voy=evento';
 }
 
 function showInstallPromotion(){
