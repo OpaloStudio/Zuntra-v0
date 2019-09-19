@@ -24,8 +24,8 @@
       <input type="text" class="form-control inputOscuro" id="phoneGuest" placeholder="Telefono">
     </div>
    <br>
-    <button type="submit" id = "buttonLogin" onclick = "login()" class="btn btnOscuro">Submit</button>
-    <button type="submit" id = "btnGuest" onclick = "guestLogIn()" class="btn btnOscuro" style="display: none">Submit</button>
+    <button type="button" id = "buttonLogin" onclick = "login()" class="btn btnOscuro">Submit</button>
+    <button type="button" id = "btnGuest" onclick = "guestLogIn()" class="btn btnOscuro" style="display: none">Submit Invitado</button>
     <a href="?page=1" class="btn btn-primary" style="display: none" >atras</a>
   </form>
  

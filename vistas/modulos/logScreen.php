@@ -4,5 +4,5 @@
   </a>
   <button class="btnOscuro"  onclick="irLogin()">Login</button><br><br>
   <button class="btnOscuro"  onclick="irRegistro()">Registro</button><br><br>
-  <button class="btnOscuro"  onclick="irGuest()">Sesión de Invitado</button>
+  <button class="btnOscuro"  id="btnGuest" onclick="irGuest()">Sesión de Invitado</button>
 </div>
