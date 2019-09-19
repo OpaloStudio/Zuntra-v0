@@ -181,6 +181,19 @@ if(isset($_SESSION['loggedin'])){
   
     });
 
+    function logout(){
+    $.ajax({
+        url: "modelos/modelo.cerrarSesion.php",
+        type: "POST",
+        success: function(msg) {
+            var nuevoLink = "?page=13";
+            window.location.href = nuevoLink;
+            	
+        },
+        dataType: "json"
+    });
+}
+
   function filtro(){
     if(filtrado == false){
       filtrado = true;

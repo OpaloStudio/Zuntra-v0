@@ -57,6 +57,6 @@
 <div class="btnsEscaner">
  
   <button type="submit" class=" btnExtra" id="btnTiempo" onclick="filtro()" ><i class="fas fa-user-clock"></i></button><br>
-  <button type="submit" class="btn btnRegistro" id="btnCerrarSesion" onclick="" >Cerrar Sesión</button>
+  <button type="submit" class="btn btnRegistro" id="btnCerrarSesion" onclick="logout()" >Cerrar Sesión</button>
 </div>
 </div>
