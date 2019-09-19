@@ -1,4 +1,10 @@
 <div class="contenedorQr">
+<nav class="navbar fixed-top  ">
+    <div class="iconos">
+      <a href="?page=13"> <i class="fas fa-arrow-left colorcin"></i></a>
+      <h1 class=" divTitutlo text-center"></h1>
+    </div>
+  </nav>
 <div class="divEditar"><i class="far fa-edit"></i></div><br><br>
 
 <div class="divQr">
@@ -35,7 +41,7 @@
     <p>--------<br></p>
   </div>
   <div class="col-4 flecQr borde">
-    <p>Scan:</p><br>
+    <p>Escaneado:</p><br>
     <ul id="listaScan" style="list-style-type:none;">
     </ul>
   </div>

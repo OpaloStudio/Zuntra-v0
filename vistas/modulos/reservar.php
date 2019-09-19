@@ -1,4 +1,10 @@
 <div class="contenedorFormulario reservarBack">
+<nav class="navbar fixed-top  ">
+    <div class="iconos">
+      <a href="?page=13"> <i class="fas fa-arrow-left colorcin"></i></a>
+      <h1 class=" divTitutlo text-center"></h1>
+    </div>
+  </nav>
 <div class="dudas negro">Dudas ¿?</div>
   <form class="formReservar">
   <div class="form-group">
@@ -31,7 +37,7 @@
     </div>
 
     <div class="form-group">
-    <label class="negro" >Fecha y Hora</label>
+    <label class="negro" >Fecha</label>
       <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
         <input type="text" id = 'fechaReservacion'class="form-control datetimepicker-input inputsClaros" data-target="#datetimepicker1" />
         <div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">

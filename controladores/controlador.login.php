@@ -47,6 +47,21 @@
 
             break;
 
+            case "guestLS":
+                
+
+                divNombre.style.display = 'block';
+                divTelefono.style.display = 'block';
+                btnGuest.style.display = 'block';
+
+                divEmail.style.display = 'none';
+                divPass.style.display = 'none';
+                buttonLogin.style.display = 'none';
+
+            
+
+            break;
+
             case "invitados":
                 var usuarioReservacion = "<?php echo $user; ?>";
                 var idReservacion = <?php echo $reservacion; ?>;

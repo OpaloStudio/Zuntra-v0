@@ -502,6 +502,9 @@ hr {
 .zonaBtn {
   margin: 0px 5px 0px 5px; }
 
+#listaInvitados {
+  margin-left: -2rem; }
+
 .contenedorRegister {
   display: flex;
   justify-content: center;
@@ -526,6 +529,9 @@ hr {
   width: 100%;
   display: flex;
   justify-content: center; }
+
+.colorcin {
+  color: #212121 !important; }
 
 .reservarBack {
   background-color: white;

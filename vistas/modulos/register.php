@@ -1,4 +1,10 @@
 <div class="contenedorRegister">
+<nav class="navbar fixed-top  ">
+    <div class="iconos">
+      <a href="?page=1"> <i class="fas fa-arrow-left colorcin"></i></a>
+      <h1 class=" divTitutlo text-center"></h1>
+    </div>
+  </nav>
   <form>
   
 

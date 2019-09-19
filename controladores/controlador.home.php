@@ -31,7 +31,7 @@ $( document ).ready(function() {
     } else{
         console.log("Por Favor Inicia Sesión");
         $("#linkSwipe").attr("href","?page=1&log=swipe");
-        $("#linkReservar").attr("href","?page=4&log=reservar");
+        $("#linkReservar").attr("href","?page=1&log=reservar");
     }
     if(!('serviceWorker' in navigator)){
         console.log('Service Worker not supported');

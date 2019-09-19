@@ -73,7 +73,7 @@ function irLogin(){
 }
 
 function irGuest(){
-    var newLink = nuevoLink+"&log=guest"
+    var newLink = nuevoLink+"&log=guestLS"
     window.location.href = newLink;
 }
 

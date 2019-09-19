@@ -20,7 +20,10 @@ if(isset($_SESSION['loggedin'])){
 
 <script type="text/javascript">
 $(function () {
-    $('#datetimepicker1').datetimepicker();
+    $('#datetimepicker1').datetimepicker({
+            viewMode: 'years',
+            format: 'L'
+        });
 });
     var session = <?php echo $idsesion; ?>;
     var nombreReserva = String("<?php echo $userName; ?>");
