@@ -60,8 +60,9 @@
   </dl>
   <div class="zonaBtn">
     <button type="submit" class="btn btnOscuro btnDescargar" id="btnQR" onclick="invitacionQR()">Aceptar</button>
-    <button type="submit" class="btn btnOscuro btnShare"><i class="fas fa-share"></i></button>
+    <button type="button" class="btn btnOscuro btnShare" onclick="share()"><i class="fas fa-share"></i></button>
   </div>
   <br><br><br>
   <div id="idQR" style="display: none;"></div>
+  <p id="liga" hidden></p>
 </div>

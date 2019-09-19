@@ -202,6 +202,28 @@ if(isset($_GET['nombre'])){
 
     }
 
+    function share() {
+    var text = 'Add text to share with the URL';
+    if ('share' in navigator) {
+        navigator.share({
+            title: document.title,
+            text: text,
+            url: location.href,
+        })
+    } else {
+        // Here we use the WhatsApp API as fallback; remember to encode your text for URI
+        //location.href = 'https://api.whatsapp.com/send?text=' + encodeURIComponent(text + ' - ') + location.href
+    $('#liga').text(location.href);
+  
+    var $temp = $("<input>");
+  $("body").append($temp);
+  $temp.val($('#liga').text()).select();
+  document.execCommand("copy");
+  $temp.remove();
+
+    }
+}
+
     function aceptarInvitacion(){
 
         var baseString = String(basechida);
