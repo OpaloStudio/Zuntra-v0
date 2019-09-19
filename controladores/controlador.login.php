@@ -76,6 +76,10 @@
                 nuevoLink = "?page=2";
             break;
 
+            case "escaner":
+                nuevoLink = "?page=14";
+            break;
+
             default:
                 nuevoLink = "?page=13";
             break;
