@@ -9,7 +9,14 @@ if(isset($_SESSION['loggedin'])){
     $userPhone = $_SESSION['userPhone'];
     //echo $idsesion;
     
-}else{
+}else if($tipo == 'guestLS'){
+    $userName = $_GET['nombre'];
+    $idsesion = $_GET['telefono'];
+    $userPhone = '0';
+    $userType = '0';
+    $tipo = $_GET['tipo'];
+} else{
+    
     $idsesion = '0';
     $userType = '0';
     $userName = '0';
@@ -27,6 +34,7 @@ $(function () {
 });
     var session = <?php echo $idsesion; ?>;
     var nombreReserva = String("<?php echo $userName; ?>");
+    var tipo = String("<?php echo $tipo; ?>");
     var telefonoReserva = <?php echo $userPhone; ?>;
 
     var numPersonasReserva;
@@ -71,10 +79,12 @@ $(function () {
 
                 if(msg == null){
                     console.log("Sin reservación existente")
+                }else if(tipo == "guestLS"){
+                    alert("Ya te encuentras en una reservación");
+                    window.location.href = "?page=6&log=guest&usuario="+msg.userRes+"&reservacion="+msg.idRes+"&nombre="+nombreReserva+"&telefono="+session;
                 }else{
                     alert("Ya te encuentras en una reservación");
                     window.location.href = "?page=6&usuario="+msg.userRes+"&reservacion="+msg.idRes;
-
                 }
 
 

@@ -25,6 +25,7 @@
 <script>
     var tipoLink = "<?php echo $tipoLink; ?>";
     var nuevoLink;
+    var opciones;
     
     $( document ).ready(function() {
         
@@ -34,6 +35,7 @@
             case "guest":
                 var usuarioReservacion = "<?php echo $user; ?>";
                 var idReservacion = <?php echo $reservacion; ?>;
+                opciones = 1;
 
                 divNombre.style.display = 'block';
                 divTelefono.style.display = 'block';
@@ -48,7 +50,7 @@
             break;
 
             case "guestLS":
-                
+                opciones = 2;
 
                 divNombre.style.display = 'block';
                 divTelefono.style.display = 'block';
@@ -162,12 +164,27 @@
     }
 
     function guestLogIn(){
-        document.getElementById('btnGuest').disabled = true;
-        var nameGuest = document.getElementById('nameGuest').value;
-        var celGuest = document.getElementById('phoneGuest').value;
 
-        var newLink = nuevoLink+"&telefono="+celGuest+"&nombre="+nameGuest;
+        console.log(opciones);
 
-        window.location.href = newLink;
+        if(opciones == 1){
+            document.getElementById('btnGuest').disabled = true;
+            var nameGuest = document.getElementById('nameGuest').value;
+            var celGuest = document.getElementById('phoneGuest').value;
+
+            var newLink = nuevoLink+"&telefono="+celGuest+"&nombre="+nameGuest;
+
+            window.location.href = newLink;
+        }else if(opciones == 2){
+            document.getElementById('btnGuest').disabled = true;
+            var nameGuest = document.getElementById('nameGuest').value;
+            var celGuest = document.getElementById('phoneGuest').value;
+
+            var newLink = "?page=2&tipo=guestLS&telefono="+celGuest+"&nombre="+nameGuest;
+
+            window.location.href = newLink;
+            
+        }
+        
     }
 </script>

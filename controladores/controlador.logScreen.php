@@ -40,18 +40,22 @@ $( document ).ready(function() {
 
         case "swipe":
             nuevoLink = "?page=4&log=swipe";
+            btnGuest.style.display = 'none';
         break;
 
         case "perfil":
             nuevoLink = "?page=4&log=perfil";
+            btnGuest.style.display = 'none';
         break;
 
         case "inbox":
             nuevoLink = "?page=4&log=inbox";
+            btnGuest.style.display = 'none';
         break;
 
         case "chat":
             nuevoLink = "?page=4&log=chat";
+            btnGuest.style.display = 'none';
         break;
 
         case "reserva":
@@ -60,10 +64,12 @@ $( document ).ready(function() {
 
         case "escaner":
             nuevoLink = "?page=4&log=escaner";
+            btnGuest.style.display = 'none';
         break;
 
         default:
             nuevoLink = "?page=4";
+            btnGuest.style.display = 'none';
         break;
 
 

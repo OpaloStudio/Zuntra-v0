@@ -19,6 +19,7 @@ if(isset($_SESSION['loggedin'])){
 }
 
 if(isset($_GET['nombre'])){
+    $tipoLink = $_GET['log'];
     $nombreInvitado = $_GET['nombre'];
     $telefonoInvitado = $_GET['telefono'];
     
