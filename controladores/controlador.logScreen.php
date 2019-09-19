@@ -58,6 +58,10 @@ $( document ).ready(function() {
             nuevoLink = "?page=4&log=reserva";
         break;
 
+        case "escaner":
+            nuevoLink = "?page=4&log=escaner";
+        break;
+
         default:
             nuevoLink = "?page=4";
         break;

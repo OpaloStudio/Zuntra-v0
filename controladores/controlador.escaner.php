@@ -1,7 +1,45 @@
+<?php
 
+if(isset($_SESSION['loggedin'])){
+    $idsesion = $_SESSION['userId'];
+    $tipoUser = $_SESSION['userType'];
+    //echo $idsesion;
+    
+}else{
+    $idsesion = '0';
+    $tipoUser = '0';
+    //echo $idsesion;
+}
+
+?>
 <script type="text/javascript" src="vistas/js/script.js"></script>
 <script>
     var filtrado = false;
+    var sesion = <?php echo $idsesion; ?>;
+    var tipoUser = <?php echo $tipoUser; ?>;
+
+    $(document).ready(function () {
+
+      if(sesion != 0){
+          console.log("Sesión Iniciada");
+      
+      } else{
+          console.log("Por Favor Inicia Sesión");
+          var linkSwipe = "?page=1&log=escaner";
+          window.location.href = linkSwipe;
+      }
+
+      if(tipoUser == 7){
+        console.log("Cadenero");
+      
+      } else{
+          alert("No tienes acceso a esta sección");
+          var linkSwipe = "?page=13";
+          window.location.href = linkSwipe;
+      }
+
+    });
+
     document.addEventListener("DOMContentLoaded", event => {
       let scanner = new Instascan.Scanner({ video: document.getElementById('preview'), mirror: false });
 

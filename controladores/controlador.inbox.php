@@ -14,6 +14,12 @@ if(isset($_SESSION['loggedin'])){
 ?>
 <script>
 var sesion = <?php echo $idsesion; ?>;
+var info;
+var listaId = new Array();
+var sala = new Array();
+var nombres = new Array();
+var ultimosMsj = new Array();
+
 console.log(sesion);
 
 $(document).ready(function () {
@@ -28,9 +34,144 @@ $(document).ready(function () {
         window.location.href = linkSwipe;
     }
 
+    //Traer ID de los usuarios en los que tengas sala
+    $.ajax({
+        url: "modelos/modelo.index.php",
+        type: "POST",
+        data: ({
+            sesion:sesion
+        }),
+        success: function(msg) {
+            //console.log(msg);
+            info = msg;
+
+            for(var i = 0; i < info.length; i++){
+
+                sala.push(info[i].idSala);
+
+                if(info[i].usuario1 == sesion){
+
+                    listaId.push(info[i].usuario2);
+
+                }else if(info[i].usuario2 == sesion){
+
+                    listaId.push(info[i].usuario1);
+
+                }
+            }
+
+            console.log(listaId);
+            console.log(sala);
+            traerNombres();
+        },
+        dataType: "json"
+    });
+        
+
+    
+
 });
-function cambiar(){
-    window.location.href = '?page=9';
+
+function traerNombres(){
+
+    console.log(listaId.length);
+    var contador = 1;
+
+    for(var i = 0; i < listaId.length; i++){
+
+        var elId = listaId[i];
+
+        console.log(elId);
+
+        $.ajax({
+            url: "modelos/modelo.infoUsuario.php",
+            type: "POST",
+            data: ({
+                elId:elId
+            }),
+            success: function(msg) {
+                //console.log(msg);
+                console.log("Contador: "+contador);
+                console.log(msg);
+
+                nombres.push(msg);
+                if(contador == listaId.length){
+                    ultimoMsj();
+                }else{
+                    contador++;
+                }
+            },
+            dataType: "json"
+        });
+
+    }
+}
+
+function ultimoMsj(){
+    var contador2 = 1;
+
+    for(var i = 0; i < sala.length; i++){
+
+        var laSala = sala[i];
+
+        $.ajax({
+            url: "modelos/modelo.ultimoMsj.php",
+            type: "POST",
+            data: ({
+                laSala:laSala
+            }),
+            success: function(msg) {
+                //console.log(msg);
+
+                ultimosMsj.push(msg);
+
+                if(contador2 == sala.length){
+                    imprimirSalas();
+                }else{
+                    contador2++;
+                }
+            
+            },
+            dataType: "json"
+        });
+        
+
+    }
+    
+
+}
+
+function imprimirSalas(){
+    console.log(ultimosMsj.length);
+    console.log(nombres.length);
+    console.log(ultimosMsj);
+    console.log(nombres);
+    var content = "";
+
+    for(var i = 0; i < listaId.length; i++){
+        console.log(nombres[i]);
+        console.log(ultimosMsj[i]);
+
+        var lonk = "cambiar('?page=9&chat="+listaId[i]+"&sala="+sala[i]+"')";
+        console.log(lonk);
+        var link = String(lonk);
+        console.log(link);
+
+        content +=  "<div class='sala' onclick="+link+"><div class='row'><div class='col-3'><div class='imgSala'></div></div><div class='col-9'><h5 class='leNombre'>"
+                    +nombres[i]+
+                    "</h5><p class='leMensaje'>"
+                    +ultimosMsj[i]+
+                    "</p></div></div></div>"
+    }
+
+    $("#salas").html(String(content));
+
+}
+
+
+
+function cambiar(x){
+    window.location.href = x;
 
 }
 </script>

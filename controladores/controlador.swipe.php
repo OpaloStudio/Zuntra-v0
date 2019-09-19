@@ -184,7 +184,9 @@ if(isset($_SESSION['loggedin'])){
         url: "modelos/modelo.cerrarSesion.php",
         type: "POST",
         success: function(msg) {
-            location.reload();		
+            var nuevoLink = "?page=13";
+            window.location.href = nuevoLink;
+            	
         },
         dataType: "json"
     });
