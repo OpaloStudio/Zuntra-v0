@@ -22,6 +22,15 @@ if(isset($_SESSION['loggedin'])){
 
       if(sesion != 0){
           console.log("Sesión Iniciada");
+
+          if(tipoUser == 7){
+            console.log("Cadenero");
+        
+          } else{
+            alert("No tienes acceso a esta sección");
+            var linkSwipe = "?page=13";
+            window.location.href = linkSwipe;
+          }
       
       } else{
           console.log("Por Favor Inicia Sesión");
@@ -29,14 +38,7 @@ if(isset($_SESSION['loggedin'])){
           window.location.href = linkSwipe;
       }
 
-      if(tipoUser == 7){
-        console.log("Cadenero");
-      
-      } else{
-          alert("No tienes acceso a esta sección");
-          var linkSwipe = "?page=13";
-          window.location.href = linkSwipe;
-      }
+        
 
     });
 
