@@ -100,9 +100,9 @@
         <label for="chequeo">¿Cuando fué tu ultimo chequeo?</label>
         <select class="form-control inputOscuro" id="chequeo">
           <option selected>-Elige una opción-</option>
-          <option>Nadie</option>
-          <option>Juanito</option>
-          <option>Lola</option>
+          <option>1 més</option>
+          <option>6 meses</option>
+          <option>1 año</option>
         </select>
       </div>
     </div>
