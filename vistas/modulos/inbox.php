@@ -14,43 +14,8 @@
     
   </nav>
 
-  <div class="divMensajes" onclick="cambiar()">
+  <div class="divMensajes" id='salas'>
   
-    <div class="sala">
-    <div class="row">
-      <div class="col-3">
-        <div class="imgSala"></div>
-      </div>
-      <div class="col-9">
-        <h5 class="leNombre">Rodrigo Rosas</h5>
-        <p class="leMensaje">On tas?</p>
-      </div>
-    </div>
-    </div>
-
-    <div class="sala">
-    <div class="row">
-      <div class="col-3">
-        <div class="imgSala"></div>
-      </div>
-      <div class="col-9">
-      <h5 class="leNombre">Rodrigo Rosas</h5>
-        <p class="leMensaje">On tas?</p>
-      </div>
-    </div>
-    </div>
-
-    <div class="sala">
-    <div class="row">
-      <div class="col-3">
-        <div class="imgSala"></div>
-      </div>
-      <div class="col-9">
-      <h5 class="leNombre">Rodrigo Rosas</h5>
-        <p class="leMensaje">On tas?</p>
-      </div>
-    </div>
-    </div>
-  </div>
+    
 
 </div>
