@@ -37,7 +37,7 @@ switch($opcion){
 		if(sizeof($final) == 0){
 			$final = false;
 		}
-
+		echo json_encode($final);
 	break;
 	
 	case 2:
@@ -53,11 +53,26 @@ switch($opcion){
 			$final = '998';//Error
 
 		}
+		echo json_encode($final);
+	break;
+	
+	case 3:
+		$sql = "SELECT * FROM reservaciones WHERE idUser = '$idUser' AND idRes='$idReservacion' AND activa='1'";
+		$result = $conexion->query($sql);
+		
+		if($result->num_rows == 0){
+			$status = '999';
+		}
+		else{
+			$status = '1';
+		}
+
+		echo $status;
     break;
 
 }
 
-echo json_encode($final);
+
 
 ?>
 

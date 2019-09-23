@@ -248,6 +248,41 @@ if(isset($_GET['nombre'])){
         });
     }
 
+    function editarPublicacion(){
+        console.log(idUser);
+        console.log(idReservacion);
+        opcion = 3;
+
+        $.ajax({
+            url: "modelos/modelo.qr.php",
+            type: "POST",
+            data: ({
+                idUser:idUser,
+                idReservacion:idReservacion,
+                opcion:opcion
+            }),
+            success: function(msg) {
+                console.log(msg);
+                console.log(typeof msg);
+
+                switch(msg){
+
+                    case 1:
+                        var nuevoLink = "?page=15&usuario="+usuarioReservacion+"&reservacion="+idReservacion;
+                        window.location.href = nuevoLink;
+                    break;
+
+                    case 999:
+                        alert("Solo el creador de la reserva puede editarla.");
+                    break;
+
+                }
+
+            },
+            dataType: "json"
+        });
+    }
+
     
 
 </script>

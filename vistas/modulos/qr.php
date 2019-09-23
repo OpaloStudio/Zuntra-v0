@@ -4,8 +4,12 @@
       <a href="?page=13"> <i class="fas fa-arrow-left colorcin"></i></a>
       <h1 class=" divTitutlo text-center"></h1>
     </div>
-  </nav>
-<div class="divEditar"><i class="far fa-edit"></i></div><br><br>
+</nav>
+<div class="divEditar">
+  <i onclick="editarPublicacion()" class="far fa-edit"></i>
+  <button type="button"  onclick="editarPublicacion()">Edit</button>
+
+</div><br><br>
 
 <div class="divQr">
   

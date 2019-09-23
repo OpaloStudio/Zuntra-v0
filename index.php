@@ -129,6 +129,11 @@ session_start();
 			include('controladores/controlador.escaner.php');
 			break;
 
+			case '15':
+			//Home
+			include('controladores/controlador.editarReserva.php');
+			break;
+
 			case 'default':
 			
 			break;
@@ -222,6 +227,11 @@ elseif(isset($_GET['page'])){
 		case '14':
 		//Recuperar contrasena
 		include('vistas/modulos/escaner.php');
+		break;
+
+		case '15':
+		//Recuperar contrasena
+		include('vistas/modulos/editarReserva.php');
 		break;
 
 

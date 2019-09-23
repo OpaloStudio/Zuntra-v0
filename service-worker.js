@@ -43,9 +43,15 @@ const resourcesToPrecache = [
 'modelos/modelo.perfil.php',
 'modelos/modelo.qr.php',
 'modelos/modelo.recuperar.php',
-'modelos/modelo.registro.php',
+'modelos/modelo.registro.php', 
 'modelos/modelo.reservar.php',
-'modelos/modelo.swipe.php'
+'modelos/modelo.swipe.php',
+'modelos/modelo.chat.php',
+'modelos/modelo.index.php',
+'modelos/modelo.ultimoMsj.php',
+'modelos/modelo.infoUsuario.php',
+'modelos/modelo.verificarFoto.php',
+'modelos/modelo.cerrarSesion.php'
 ];
 self.addEventListener('install', function(event) {
     //Precache files

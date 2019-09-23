@@ -1,0 +1,137 @@
+<?php
+
+$tipo = $_GET['tipo'];
+$reserva = $_GET['reservacion'];
+
+if(isset($_SESSION['loggedin'])){
+    $idsesion = $_SESSION['userId'];
+    $userType = $_SESSION['userType'];
+    $userName = $_SESSION['username'];
+    $userPhone = $_SESSION['userPhone'];
+    //echo $idsesion;
+    
+}else{
+    
+    $idsesion = '0';
+    $userType = '0';
+    $userName = '0';
+    $userPhone = '0';
+}
+
+?>
+
+<script type="text/javascript">
+$(function () {
+    $('#datetimepicker1').datetimepicker({
+            viewMode: 'years',
+            format: 'L'
+        });
+});
+    var miSesion = <?php echo $idsesion; ?>;
+    var miNombre = String("<?php echo $userName; ?>");
+    var laReserva;
+
+    var numPersonasReserva;
+    var rpReserva;
+    var tipoReserva;
+    var fechaReserva;
+
+
+    $( document ).ready(function() {
+        console.log( "Usuario: " +  miSesion );
+
+        miNombre = String("<?php echo $userName; ?>");
+        //Revisar que la sesión este iniciada
+
+        if(miSesion != 0){
+            console.log("Sesión Iniciada");
+            laReserva = <?php echo $reserva; ?>;
+            console.log(laReserva);
+            console.log(typeof laReserva);
+
+        } else{
+            console.log("Por Favor Inicia Sesión");
+            var linkReservacion = '?page=1&usuario=16&reservacion=258&log=editar';
+            window.location.href = linkReservacion;
+        }
+
+        telefonoDiv.style.display = 'none';
+        nombreDiv.style.display = 'none';
+
+
+        $.ajax({
+            url: "modelos/modelo.reservaExistente.php",
+            type: "POST",
+            data: ({
+                miSesion:miSesion,
+                laReserva:laReserva
+            }),
+            success: function(msg) {
+                console.log(msg);
+
+                switch(msg){
+
+                    case 1:
+                        alert("Existe Reservacion");
+                    break;
+
+                    case 999:
+                        alert("Solo el creador de la reserva puede editarla.");
+                        window.location.href = '?page=2';
+                    break;
+
+                }
+
+
+            },
+            dataType: "json"
+        });
+
+    });
+
+    function generarReservacion(){
+
+        rpReserva = document.getElementById('selectorRP').value;
+        tipoReserva = document.getElementById('tipoReserva').value;
+        fechaReserva = document.getElementById('fechaReservacion').value;
+        numPersonasReserva = document.getElementById('personasReservacion').value;
+
+        console.log(rpReserva);
+        console.log(tipoReserva);
+        console.log(fechaReserva);
+        console.log(numPersonasReserva);
+
+        $.ajax({
+            url: "modelos/modelo.editarReserva.php",
+            type: "POST",
+            data: ({
+                rpReserva:rpReserva,
+                tipoReserva:tipoReserva,
+                fechaReserva:fechaReserva,
+                numPersonasReserva:numPersonasReserva,
+                laReserva:laReserva
+            }),
+            success: function(msg) {
+                console.log(msg);
+
+                switch(msg){
+
+                    case 1:
+                        alert("Reserva Actualizada");
+                        window.location.href = '?page=2';
+                    break;
+
+                    case 998:
+                        alert("Ha ocurrido un error interno, inténtalo más tarde.");
+                    break;
+
+                }
+
+
+            },
+            dataType: "json"
+        });
+
+    }
+</script>
+<script type="text/javascript" src="vistas/js/easy.qrcode.min.js" charset="utf-8"></script>

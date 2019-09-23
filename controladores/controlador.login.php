@@ -4,7 +4,12 @@
     if($tipoLink == 'guest'){
         $user = $_GET['usuario'];
         $reservacion = $_GET['reservacion'];
-    }else{
+
+    }else if($tipoLink == 'editar'){
+
+            $user = $_GET['usuario'];
+            $reservacion = $_GET['reservacion'];
+        } else{
         $user = "No iniciado";
         $reservacion = 0;
     }
@@ -95,6 +100,14 @@
 
             case "escaner":
                 nuevoLink = "?page=14";
+            break;
+
+            case "editar":
+                var usuarioReservacion = "<?php echo $user; ?>";
+                var idReservacion = <?php echo $reservacion; ?>;
+
+
+                nuevoLink = "?page=15&usuario="+usuarioReservacion+"&reservacion="+idReservacion;
             break;
 
             default:
