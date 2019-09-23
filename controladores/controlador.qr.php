@@ -35,6 +35,7 @@ if(isset($_GET['nombre'])){
     var tipoLink = "<?php echo $tipoLink; ?>";
 
     var qrcode;
+    var qrDescarga;
 
     //Información de Usuario
     var idUser;
@@ -137,6 +138,7 @@ if(isset($_GET['nombre'])){
 
                         if(idUser == invitados[i].idUser){
                             $("#img64primero").attr("src",invitados[i].invitadoQR);
+                            qrDescarga = invitados[i].invitadoQR;
                             document.getElementById('btnQR').disabled = true;
                         } else {
                             idxInvitados++;
@@ -248,7 +250,7 @@ if(isset($_GET['nombre'])){
         });
     }
 
-    function editarPublicacion(){
+    function editarReserva(){
         console.log(idUser);
         console.log(idReservacion);
         opcion = 3;
@@ -282,6 +284,16 @@ if(isset($_GET['nombre'])){
             dataType: "json"
         });
     }
+
+    function descargaImg(){
+
+        var url = qrDescarga.replace(/^data:image\/[^;]+/, 'data:application/octet-stream');
+
+
+        window.location.href = url;
+
+    }
+    
 
     
 

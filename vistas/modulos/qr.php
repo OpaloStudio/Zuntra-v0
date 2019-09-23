@@ -6,8 +6,8 @@
     </div>
 </nav>
 <div class="divEditar">
-  <i onclick="editarPublicacion()" class="far fa-edit"></i>
-  <button type="button"  onclick="editarPublicacion()">Edit</button>
+  <i onclick="editarReserva()" class="far fa-edit"></i>
+  <button type="button"  onclick="editarReserva()">Edit</button>
 
 </div><br><br>
 
@@ -64,7 +64,9 @@
   </dl>
   <div class="zonaBtn">
     <button type="submit" class="btn btnOscuro btnDescargar" id="btnQR" onclick="invitacionQR()">Aceptar</button>
+    <button type="submit" class="btn btnOscuro btnDescargar" id="bttnDwnld" onclick="descargaImg()">Descarga</button>
     <button type="submit" class="btn btnOscuro btnShare"><i class="fas fa-share"></i></button>
+    
   </div>
   <br><br><br>
   <div id="idQR" style="display: none;"></div>
