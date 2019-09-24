@@ -4,7 +4,12 @@
     if($tipoLink == 'guest'){
         $user = $_GET['usuario'];
         $reservacion = $_GET['reservacion'];
-    }else{
+
+    }else if($tipoLink == 'editar'){
+
+            $user = $_GET['usuario'];
+            $reservacion = $_GET['reservacion'];
+        } else{
         $user = "No iniciado";
         $reservacion = 0;
     }
@@ -86,7 +91,7 @@
             break;
 
             case "chat":
-                nuevoLink = "?page=9";
+                nuevoLink = "?page=10";
             break;
 
             case "reserva":
@@ -95,6 +100,14 @@
 
             case "escaner":
                 nuevoLink = "?page=14";
+            break;
+
+            case "editar":
+                var usuarioReservacion = "<?php echo $user; ?>";
+                var idReservacion = <?php echo $reservacion; ?>;
+
+
+                nuevoLink = "?page=15&usuario="+usuarioReservacion+"&reservacion="+idReservacion;
             break;
 
             default:
@@ -180,9 +193,36 @@
             var nameGuest = document.getElementById('nameGuest').value;
             var celGuest = document.getElementById('phoneGuest').value;
 
-            var newLink = "?page=2&tipo=guestLS&telefono="+celGuest+"&nombre="+nameGuest;
+            $.ajax({
+            url: "modelos/modelo.usuarioEnReserva.php",
+            type: "POST",
+            data: ({
+                nameGuest:nameGuest,
+                celGuest:celGuest
+            }),
+            success: function(msg) {
+                console.log(msg);
 
-            window.location.href = newLink;
+                switch(msg){
+
+                    case 1:
+                        alert("Existe Reservacion");
+                        var newLink = "?page=2&tipo=guestLS&telefono="+celGuest+"&nombre="+nameGuest;
+
+                        window.location.href = newLink;
+                    break;
+
+                    case 999:
+                        alert("No existe reserva con estos datos.");
+                        location.reload();
+                    break;
+
+                }
+
+
+            },
+            dataType: "json"
+        });
             
         }
         

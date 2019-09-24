@@ -40,7 +40,7 @@ const resourcesToPrecache = [
 'modelos/modelo.perfil.php',
 'modelos/modelo.qr.php',
 'modelos/modelo.recuperar.php',
-'modelos/modelo.registro.php',
+'modelos/modelo.registro.php', 
 'modelos/modelo.reservar.php',
 'modelos/modelo.swipe.php',
 'modelos/modelo.ultimoMsj.php',
