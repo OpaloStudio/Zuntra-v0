@@ -8,21 +8,21 @@
 
   <div class="divMensajes" id="losMsj">
 
-  <div id="divAux">
+    <div id="divAux">
 
-    <!-- <div class="mnsjOtro">
+      <!-- <div class="mnsjOtro">
       <p class="mensajeEL">On tas?</p>
     </div> -->
 
-    <div class="mnsjYo " id="johnny">
-      <!-- <p class="mensajeYO ">En la barra </p> -->
-    </div>
+      <div class="mnsjYo " id="johnny">
+        <!-- <p class="mensajeYO ">En la barra </p> -->
+      </div>
 
-    <div class="mnsjOtro" id="tunas">
-      <!-- <p class="mensajeEL">Te pago el Uber Lorem ipsum dolor sit amet consectetur, adipisicing elit. Saepe suscipit
+      <div class="mnsjOtro" id="tunas">
+        <!-- <p class="mensajeEL">Te pago el Uber Lorem ipsum dolor sit amet consectetur, adipisicing elit. Saepe suscipit
         delectus ex mollitia error laboriosam quos? Aut sit vitae provident eum quis perferendis eius distinctio?
         Ducimus iure laboriosam sint deserunt!</p> -->
-    </div>
+      </div>
     </div>
 
     <div class="zonaEscribir">
@@ -34,55 +34,74 @@
           </div>
         </div>
         <div class="scrollZone">
-        <canvas id="myCanvas" style="display: none"></canvas>
+          <canvas id="myCanvas" style="display: none"></canvas>
 
-          <div class="flex1 ">
-            <input type="file" class="hideInput" id="customFile1" onchange="openFile(event)">
-            <label for="customFile1"><img id="cuadro1" src="vistas/img/cuadroCarga.svg"> </label>
-            <button type="button" id = "snd1" onclick = "enviarFoto(1)">Enviar</button>
-          </div>
-          <div class="posX">
-               <i class="fas fa-times xBorrar" id="noCochinadas1" onclick="quitarCochinadas(1)"></i>
+          <div class="seccCochinada">
+            <div class="posX" id="pos1">
+              <i class="far fa-trash-alt xBorrar" id="noCochinadas1" onclick="quitarCochinadas(1)"></i>
             </div>
-
-          <div class=" flex1">
-            <input type="file" class="hideInput" id="customFile2" onchange="openFile2(event)">
-            <label for="customFile2"><img id="cuadro2" src="vistas/img/cuadroCarga.svg"> </label>
-            <button type="button" id = "snd2" onclick = "enviarFoto(2)">Enviar</button>
-          </div>
-          <div class="posX">
-               <i class="fas fa-times xBorrar" id="noCochinadas2" onclick="quitarCochinadas(2)"></i>
+            <div class="flex1">
+              <input type="file" class="hideInput" id="customFile1" onchange="openFile(event)">
+              <label for="customFile1"><img id="cuadro1" src="vistas/img/cuadroCarga.svg"> </label>
             </div>
-
-          <div class=" flex1">
-            <input type="file" class="hideInput" id="customFile3" onchange="openFile3(event)">
-            <label for="customFile3"><img id="cuadro3" src="vistas/img/cuadroCarga.svg"> </label>
-            <button type="button" id = "snd3" onclick = "enviarFoto(3)">Enviar</button>
+            <div class="posX" id="pos2">
+              <button type="button" class="enviarCochinada" id="snd1" onclick="enviarFoto(1)">Enviar</button>
+            </div><br>
           </div>
-          <div class="posX">
-               <i class="fas fa-times xBorrar" id="noCochinadas3" onclick="quitarCochinadas(3)"></i>
+
+          <div class="seccCochinada">
+            <div class="posX" id="pos1">
+              <i class="far fa-trash-alt xBorrar" id="noCochinadas2" onclick="quitarCochinadas(2)"></i>
             </div>
+            <div class=" flex1">
+              <input type="file" class="hideInput" id="customFile2" onchange="openFile2(event)">
+              <label for="customFile2"><img id="cuadro2" src="vistas/img/cuadroCarga.svg"> </label>
+            </div>
+            <div class="posX" id="pos2">
+              <button type="button" class="enviarCochinada" id="snd2" onclick="enviarFoto(2)">Enviar</button>
+            </div><br>
+          </div>
+
+          <div class="seccCochinada">
+            <div class="posX" id="pos1">
+              <i class="far fa-trash-alt xBorrar" id="noCochinadas3" onclick="quitarCochinadas(3)"></i>
+            </div>
+            <div class=" flex1">
+              <input type="file" class="hideInput" id="customFile3" onchange="openFile3(event)">
+              <label for="customFile3"><img id="cuadro3" src="vistas/img/cuadroCarga.svg"> </label>
+            </div>
+            <div class="posX" id="pos2">
+              <button type="button" class="enviarCochinada" id="snd3" onclick="enviarFoto(3)">Enviar</button>
+            </div><br>
+          </div>
 
 
+          <div class="seccCochinada">
+            <div class="posX" id="pos1">
+              <i class="far fa-trash-alt xBorrar" id="noCochinadas4" onclick="quitarCochinadas(4)"></i>
+            </div>
           <div class="flex1">
-
             <input type="file" class="hideInput" id="customFile4" onchange="openFile4(event)">
             <label for="customFile4"><img id="cuadro4" src="vistas/img/cuadroCarga.svg"> </label>
-            <button type="button" id = "snd4" onclick = "enviarFoto(4)">Enviar</button>
           </div>
-          <div class="posX">
-               <i class="fas fa-times xBorrar" id="noCochinadas4" onclick="quitarCochinadas(4)"></i>
+          <div class="posX" id="pos2">
+              <button type="button" class="enviarCochinada" id="snd4" onclick="enviarFoto(4)">Enviar</button>
+            </div><br>
+          </div>
+          
+          <div class="seccCochinada">
+            <div class="posX" id="pos1">
+              <i class="far fa-trash-alt xBorrar" id="noCochinadas5" onclick="quitarCochinadas(5)"></i>
             </div>
-
           <div class=" flex1">
-
             <input type="file" class="hideInput" id="customFile5" onchange="openFile5(event)">
             <label for="customFile5"><img id="cuadro5" src="vistas/img/cuadroCarga.svg"> </label>
-            <button type="button" id = "snd5" onclick = "enviarFoto(5)">Enviar</button>
           </div>
-          <div class="posX">
-               <i class="fas fa-times xBorrar" id="noCochinadas5" onclick="quitarCochinadas(5)"></i>
-            </div>
+          <div class="posX" id="pos2">
+              <button type="button" class="enviarCochinada" id="snd5" onclick="enviarFoto(5)">Enviar</button>
+            </div><br>
+          </div>
+          
 
         </div>
       </div>

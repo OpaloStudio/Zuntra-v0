@@ -64,7 +64,7 @@ $(document).ready(function () {
 
     $(".scrollZone").niceScroll({
     cursorcolor:"#DEC9A1",
-    cursorwidth:"16px",
+    cursorwidth:"2px",
     horizrailenabled: true,
 
     });

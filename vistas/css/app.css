@@ -170,49 +170,71 @@
   width: 10rem;
   object-fit: cover !important;
   object-position: center center !important;
-  padding: 1rem; }
+  padding: 0rem 1rem 1rem 1rem; }
 
 #cuadro2 {
   height: 10rem;
   width: 10rem;
   object-fit: cover !important;
   object-position: center center !important;
-  padding: 1rem; }
+  padding: 0rem 1rem 1rem 1rem; }
 
 #cuadro3 {
   height: 10rem;
   width: 10rem;
   object-fit: cover !important;
   object-position: center center !important;
-  padding: 1rem; }
+  padding: 0rem 1rem 1rem 1rem; }
 
 #cuadro4 {
   height: 10rem;
   width: 10rem;
   object-fit: cover !important;
   object-position: center center !important;
-  padding: 1rem; }
+  padding: 0rem 1rem 1rem 1rem; }
 
 #cuadro5 {
   height: 10rem;
   width: 10rem;
   object-fit: cover !important;
   object-position: center center !important;
-  padding: 1rem; }
+  padding: 0rem 1rem 1rem 1rem; }
 
 .scrollZone {
   width: 100%;
-  height: 80%;
+  height: 90%;
   display: flex;
   flex-direction: row; }
 
 .xBorrar {
+  padding-top: 5px !important;
   font-size: 30px !important;
-  margin-top: 3rem;
-  margin-left: -3rem !important; }
+  margin-left: -3px !important;
+  margin-bottom: 5px !important;
+  color: red !important; }
 
 .posX {
-  width: 100%; }
+  height: 100%;
+  display: flex;
+  justify-content: center; }
+
+.seccCochinada {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; }
+
+#pos1 {
+  width: 81%;
+  margin-left: 1rem;
+  margin-top: -5px; }
+
+#pos2 {
+  margin-top: -1.5rem !important; }
+
+.enviarCochinada {
+  width: 80%;
+  color: #DEC9A1;
+  background-color: transparent; }
 
 body {
   overflow-x: hidden; }
