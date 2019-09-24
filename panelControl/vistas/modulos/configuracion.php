@@ -15,7 +15,16 @@
             </div>
         </nav>
         <div class="tab-content" id="nav-tabContent">
-            <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">...</div>
+            <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+            <form class="newStaff">
+            <div class=" flex1">
+    <input type="file" class="hideInput" id="customFile1" name="pic1" onchange="openFile(event)">
+    <label  for="customFile1"><img id="foto1" src="vistas/img/cuadroCarga.svg"> </label>
+</div><h1>Hola</h1>
+            </form>
+            
+            </div>
+
             <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">...</div>
             <div class="tab-pane fade" id="nav-eventos" role="tabpanel" aria-labelledby="nav-eventos-tab">...</div>
             <div class="tab-pane fade" id="nav-diseno" role="tabpanel" aria-labelledby="nav-diseno-tab">...</div>

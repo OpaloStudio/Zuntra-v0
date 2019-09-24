@@ -216,6 +216,21 @@
   background-color: #212121;
   color: #DEC9A1; }
 
+.hideInput {
+  width: 0.1px !important;
+  height: 0.1px !important;
+  opacity: 0 !important;
+  overflow: hidden !important;
+  position: absolute !important;
+  z-index: -3 !important; }
+
+#foto1 {
+  height: 10rem;
+  width: 10rem;
+  object-fit: cover !important;
+  object-position: center center !important;
+  padding: 1rem; }
+
 .barra {
   background-color: #212121 !important;
   height: 100vh;
