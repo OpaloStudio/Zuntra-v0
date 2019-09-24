@@ -193,9 +193,36 @@
             var nameGuest = document.getElementById('nameGuest').value;
             var celGuest = document.getElementById('phoneGuest').value;
 
-            var newLink = "?page=2&tipo=guestLS&telefono="+celGuest+"&nombre="+nameGuest;
+            $.ajax({
+            url: "modelos/modelo.usuarioEnReserva.php",
+            type: "POST",
+            data: ({
+                nameGuest:nameGuest,
+                celGuest:celGuest
+            }),
+            success: function(msg) {
+                console.log(msg);
 
-            window.location.href = newLink;
+                switch(msg){
+
+                    case 1:
+                        alert("Existe Reservacion");
+                        var newLink = "?page=2&tipo=guestLS&telefono="+celGuest+"&nombre="+nameGuest;
+
+                        window.location.href = newLink;
+                    break;
+
+                    case 999:
+                        alert("No existe reserva con estos datos.");
+                        location.reload();
+                    break;
+
+                }
+
+
+            },
+            dataType: "json"
+        });
             
         }
         
