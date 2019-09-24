@@ -40,6 +40,7 @@ var set2;
 var set3;
 var set4;
 var set5;
+var tipoMsj;
 console.log(sesion);
 
 $(document).ready(function () {
@@ -173,6 +174,10 @@ function cargaMsjs(){
   
               }
   
+            } else if(msg[i].idTipoMensaje == 2){
+              console.log("Esto es una foto");
+              console.log(msg[i].mensaje);
+
             }
             contLoop++;
           }
@@ -197,6 +202,7 @@ function enviarCochinadas(){
   }else{
     var mensaje = document.getElementById("msjChat").value;
     option = 4;
+    tipoMsj = 1;
     console.log(mensaje);
       $.ajax({
       url: "modelos/modelo.chat.php",
@@ -206,6 +212,7 @@ function enviarCochinadas(){
           user2:user2,
           sala:sala,
           mensaje:mensaje,
+          tipoMsj:tipoMsj,
           option:option
       }),
       success: function(msg) {
@@ -219,8 +226,60 @@ function enviarCochinadas(){
     });
 
     }
+}
 
+function enviarFoto(x){
 
+  var imgID = "cuadro"+x;
+  var img = document.getElementById(imgID);
+  var imgSrc = img.src;
+  var img2 = sesion+"-"+x;
+
+  var n = imgSrc.indexOf(img2);
+  console.log(imgSrc);
+  console.log(img2);
+  console.log(n);
+  
+
+  if(n==-1){
+      console.log("No hay foto cargada.");
+  
+  } else {
+    console.log("adios");
+      
+    var c = document.getElementById("myCanvas");
+    var ctx = c.getContext("2d");
+  
+    ctx.drawImage(img, 10, 10);
+    var mensaje = c.toDataURL();
+    option = 4;
+    tipoMsj = 2;
+  
+    console.log(sesion);
+    console.log(mensaje);
+    
+      $.ajax({
+      url: "modelos/modelo.chat.php",
+      type: "POST",
+      data: ({
+            sesion:sesion,
+            user2:user2,
+            sala:sala,
+            mensaje:mensaje,
+            tipoMsj:tipoMsj,
+            option:option
+      }),
+      success: function(msg) {
+        console.log(msg);
+        if(msg == 1){
+          $("#msjChat").val("");
+          cargaMsjs();
+        }
+      },
+      dataType: "json"
+    });
+  }
+  
 
 }
 

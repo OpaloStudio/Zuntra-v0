@@ -91,7 +91,7 @@
             break;
 
             case "chat":
-                nuevoLink = "?page=9";
+                nuevoLink = "?page=10";
             break;
 
             case "reserva":

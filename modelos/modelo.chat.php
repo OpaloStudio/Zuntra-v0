@@ -301,7 +301,8 @@ switch($option){
   break;
 
   case '4';
-    $sql = "INSERT INTO mensaje (idUsuario, mensaje, idTipoMensaje, fecha, idSala) VALUES ('$userId', '$mensaje', '1', NULL, '$sala')";
+  $tipoMsj = $_POST['tipoMsj'];
+    $sql = "INSERT INTO mensaje (idUsuario, mensaje, idTipoMensaje, fecha, idSala) VALUES ('$userId', '$mensaje', '$tipoMsj', NULL, '$sala')";
 
     if($conexion->query($sql)){
       $status = '1';
