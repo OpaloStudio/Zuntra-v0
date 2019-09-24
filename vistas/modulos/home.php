@@ -5,8 +5,8 @@
     <div class="divVideo">
     <img class="logoLog" src="vistas/img/otros/logoBlanco.png">
     <div class="btnsHome">
-    <button class="btnOscuro btnCustom" id="margini" onclick="irPromos()">&nbsp;&nbsp;&nbsp;Promos&nbsp;&nbsp;&nbsp;</button>
-    <button class="btnOscuro btnCustom"  onclick="irEventos()">&nbsp;&nbsp;&nbsp;Eventos&nbsp;&nbsp;&nbsp;</button>
+    <button class="btnOscuro btnCustom menosRedondo" id="margini" onclick="irPromos()">&nbsp;&nbsp;&nbsp;Promos&nbsp;&nbsp;&nbsp;</button>
+    <button class="btnOscuro btnCustom menosRedondo"  onclick="irEventos()">&nbsp;&nbsp;&nbsp;Eventos&nbsp;&nbsp;&nbsp;</button>
     </div>
   </div>
     

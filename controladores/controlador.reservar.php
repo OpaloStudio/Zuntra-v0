@@ -28,8 +28,9 @@ if(isset($_SESSION['loggedin'])){
 <script type="text/javascript">
 $(function () {
     $('#datetimepicker1').datetimepicker({
-            viewMode: 'years',
-            format: 'L'
+            viewMode: 'months',
+            format: 'L',
+            daysOfWeekDisabled: [0, 1, 2, 3]
         });
 });
     var session = <?php echo $idsesion; ?>;

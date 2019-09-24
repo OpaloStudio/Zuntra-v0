@@ -250,6 +250,11 @@ body {
   flex-direction: row;
   justify-content: space-between; }
 
+.menosRedondo {
+  -webkit-border-radius: 7px !important;
+  -moz-border-radius: 7px !important;
+  border-radius: 7px !important; }
+
 #margini {
   margin-right: 2rem; }
 
