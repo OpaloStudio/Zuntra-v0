@@ -66,7 +66,7 @@
             <div class="posX" id="pos1">
               <i class="far fa-trash-alt xBorrar" id="noCochinadas3" onclick="quitarCochinadas(3)"></i>
             </div>
-            <div class=" flex1">
+            <div class=" flex1 ">
               <input type="file" class="hideInput" id="customFile3" onchange="openFile3(event)">
               <label for="customFile3"><img id="cuadro3" src="vistas/img/cuadroCarga.svg"> </label>
             </div>

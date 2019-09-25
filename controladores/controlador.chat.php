@@ -175,8 +175,32 @@ function cargaMsjs(){
               }
   
             } else if(msg[i].idTipoMensaje == 2){
-              console.log("Esto es una foto");
-              console.log(msg[i].mensaje);
+              //console.log("Esto es una foto");
+              //console.log(msg[i].mensaje);
+              if(msg[i].idUsuario == sesion){
+                
+                var divYo = document.createElement("DIV");   // Create a <button> element
+                divYo.classList.add("mnsjYo");
+                document.getElementById("divAux").appendChild(divYo); 
+  
+                var paraMi = document.createElement("IMG");   // Create a <button> element
+                paraMi.src = msg[i].mensaje;                   // Insert text
+                paraMi.classList.add("imagenYO");
+                divYo.appendChild(paraMi); 
+  
+              } else if(msg[i].idUsuario == user2){
+  
+                var divTu = document.createElement("DIV");   // Create a <button> element
+                divTu.classList.add("mnsjOtro");
+                document.getElementById("divAux").appendChild(divTu); 
+  
+                var paraTi = document.createElement("IMG");   // Create a <button> element
+                paraTi.classList.add("imagenEL");
+                paraTi.src = msg[i].mensaje;                   // Insert text
+                
+                divTu.appendChild(paraTi); 
+  
+              }
 
             }
             contLoop++;

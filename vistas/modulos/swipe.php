@@ -15,8 +15,8 @@
       <i class="fas fa-ellipsis-h"></i>
     </button>
     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-      <button type="button" class="btn btnModal center" data-toggle="modal" data-target="#exampleModal">Bloquear</button>
-      <button type="button" class="btn btnModal center" data-toggle="modal" data-target="#exampleModal" onclick="logout()">Cerrar Sesión</button>
+      <button type="button" class="btn btnModal center" data-toggle="modal" data-target="#exampleModal">Bloquear</button><br>
+      <button type="button" class="btn btnModal center"  onclick="logout()">Cerrar Sesión</button>
 
     </div>
 
@@ -59,7 +59,7 @@
     <div class="row">
       <div class="col-12">
       <div class="divNombre">
-      <h2 id = 'nombreSwipe' >Rodrigo Rosas</h2>
+      <h2 id = 'nombreSwipe' ></h2>
       <h6>24 años - citas</h6>
       </div>
       </div>
@@ -128,7 +128,7 @@
 
   <div class="row bioSwipe">
     <div class="col-12">
-    <p class="descripcion" id = 'bioSwipe'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia perspiciatis beatae nobis sed possimus ad culpa animi fugiat maiores! Veniam explicabo vero veritatis.</p>
+    <p class="descripcion" id = 'bioSwipe'></p>
     </div>
   </div>
 

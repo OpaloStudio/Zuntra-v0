@@ -88,6 +88,17 @@
 .mensajeEL {
   padding: 10px 10px 0px 10px; }
 
+.imagenYO {
+  width: 100px !important;
+  height: 100px !important;
+  object-fit: cover !important; }
+
+.imagenEL {
+  width: 100px !important;
+  height: 100px !important;
+  object-fit: cover !important;
+  object-position: center center !important; }
+
 .imgSala {
   height: 60px;
   width: 60px;
@@ -166,39 +177,39 @@
   margin-left: 35%; }
 
 #cuadro1 {
-  height: 10rem;
-  width: 10rem;
+  height: 8rem;
+  width: 8rem;
   object-fit: cover !important;
   object-position: center center !important;
-  padding: 0rem 1rem 1rem 1rem; }
+  margin: 0rem 1rem 1rem 1rem; }
 
 #cuadro2 {
-  height: 10rem;
-  width: 10rem;
+  height: 8rem;
+  width: 8rem;
   object-fit: cover !important;
   object-position: center center !important;
-  padding: 0rem 1rem 1rem 1rem; }
+  margin: 0rem 1rem 1rem 1rem; }
 
 #cuadro3 {
-  height: 10rem;
-  width: 10rem;
+  height: 8rem;
+  width: 8rem;
   object-fit: cover !important;
   object-position: center center !important;
-  padding: 0rem 1rem 1rem 1rem; }
+  margin: 0rem 1rem 1rem 1rem; }
 
 #cuadro4 {
-  height: 10rem;
-  width: 10rem;
+  height: 8rem;
+  width: 8rem;
   object-fit: cover !important;
   object-position: center center !important;
-  padding: 0rem 1rem 1rem 1rem; }
+  margin: 0rem 1rem 1rem 1rem; }
 
 #cuadro5 {
-  height: 10rem;
-  width: 10rem;
+  height: 8rem;
+  width: 8rem;
   object-fit: cover !important;
   object-position: center center !important;
-  padding: 0rem 1rem 1rem 1rem; }
+  margin: 0rem 1rem 1rem 1rem; }
 
 .scrollZone {
   width: 100%;
@@ -225,8 +236,7 @@
 
 #pos1 {
   width: 81%;
-  margin-left: 1rem;
-  margin-top: -5px; }
+  margin-left: 1rem; }
 
 #pos2 {
   margin-top: -1.5rem !important; }
@@ -327,6 +337,14 @@ body {
   background-repeat: no-repeat;
   background-position: center;
   background-color: black; }
+
+.fa-arrow-circle-right {
+  position: absolute;
+  bottom: 0; }
+
+.fa-arrow-circle-left {
+  position: absolute;
+  bottom: 0; }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (max-width: 600px) {

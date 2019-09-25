@@ -24,7 +24,7 @@
       <p class="pHome">Reservaciones para 
 Viernes, Sábado y Domingo. 
 Valida solo hasta las 11:30 pm </p>
-<i class="fas fa-arrow-circle-left"></i></a>
+<i class="fas fa-arrow-circle-right"></i></a>
   </div>
       <div class="col-6 slideSwipe">
       <a id="linkSwipe">
