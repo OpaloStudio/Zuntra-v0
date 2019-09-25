@@ -102,6 +102,10 @@
                 nuevoLink = "?page=14";
             break;
 
+            case "firstLog":
+                nuevoLink = "?page=7";
+            break;
+
             case "editar":
                 var usuarioReservacion = "<?php echo $user; ?>";
                 var idReservacion = <?php echo $reservacion; ?>;
