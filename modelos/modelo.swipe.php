@@ -96,6 +96,82 @@ switch($option){
 		echo $status;
 
 	break;
+
+	case '3';
+		$sql = "SELECT idSala FROM salaChat WHERE usuario1='$sesion' AND usuario2='$like'";
+		$result = $conexion->query($sql);
+
+		while($row = mysqli_fetch_array($result)){
+			$lista1 = $row[0];
+		}
+
+		if($lista1 == null){
+			//Quiere decir que no hay salas con donde el usuario 1 sea el que dio like
+			//por lo que se revisa si hay una sala donde sea usuario 2
+
+			$sql2 = "SELECT idSala FROM salaChat WHERE usuario1='$like' AND usuario2='$sesion'";
+			$result2 = $conexion->query($sql2);
+
+			while($row = mysqli_fetch_array($result2)){
+				$lista2 = $row[0];
+			}
+
+			if($lista2 == null){
+				//No hay sala con estos usuarios por lo tanto se crea
+
+				$sql3 = "INSERT INTO salaChat (usuario1, usuario2) VALUES ('$sesion', '$like')";
+
+				if($conexion->query($sql3)){
+
+					//Sala creada
+					$sql4 = "SELECT idSala FROM salaChat WHERE usuario1='$sesion' AND usuario2='$like'";
+
+					$result4 = $conexion->query($sql4);
+
+					while($row = mysqli_fetch_array($result4)){
+						$lista3 = $row[0];
+					}
+
+					if($lista3 == null){
+						$status = 9999999998;//Error al crear sala
+					} else {
+						$sql7 = "INSERT INTO mensaje (idUsuario, mensaje, idTipoMensaje, idSala) VALUES ('$sesion', '¡Hola! Quiero Platicar Contigo', '1', '$lista3')";
+						if($conexion->query($sql7)){
+							$status = 1;
+						}else{
+							$status = 998;
+						}
+					}
+
+				} else{
+					$status = 9999999997;//Error al crear sala
+				}
+
+			} else {
+				//Si hay sala donde el usuario2 sea el que dio like
+				
+				$sql6 = "INSERT INTO mensaje (idUsuario, mensaje, idTipoMensaje, idSala) VALUES ('$sesion', '¡Hola! Quiero Platicar Contigo', '1', '$lista2')";
+				if($conexion->query($sql6)){
+					$status = 1;
+				}else{
+					$status = 996;
+				}
+			}
+
+		} else {
+			//Si hay sala donde el usuario1 sea el que dio like
+
+			$sql5 = "INSERT INTO mensaje (idUsuario, mensaje, idTipoMensaje, idSala) VALUES ('$sesion', '¡Hola! Quiero Platicar Contigo', '1', '$lista1')";
+			if($conexion->query($sql5)){
+				$status = 1;
+			}else{
+				$status = 997;
+			}
+		}
+
+		echo $status;
+
+	break;
 }
 
 
