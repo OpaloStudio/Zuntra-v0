@@ -38,7 +38,7 @@
       <input type="password" class="form-control inputsClaros" id="password2">
     </div>
     <div class="zonaBtnRegistro">
-    <button type="submit" class="btn btnRegistro" id="botonRegistrar" onclick="registrar()" >Registrarse</button>
+    <button type="button" class="btn btnRegistro" id="botonRegistrar" onclick="registrar()" >Registrarse</button>
     </div>
     
 
