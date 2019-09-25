@@ -63,7 +63,7 @@ switch($option){
 
 				if($conexion->query($sql3)){
 
-					$status = '1'; //Sala creada
+					//Sala creada
 					$sql4 = "SELECT idSala FROM salaChat WHERE usuario1='$sesion' AND usuario2='$like'";
 
 					$result4 = $conexion->query($sql4);
@@ -73,13 +73,13 @@ switch($option){
 					}
 
 					if($lista3 == null){
-						$status = '997';//Error al crear sala
+						$status = 9999999998;//Error al crear sala
 					} else {
 						$status = $lista3;
 					}
 
 				} else{
-					$status = '998';//Error al crear sala
+					$status = 9999999997;//Error al crear sala
 				}
 
 			} else {

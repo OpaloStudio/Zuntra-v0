@@ -164,12 +164,11 @@ if(isset($_SESSION['loggedin'])){
 
                 console.log(msg);
 
-                if(msg == 997){
-                    alert("Error al crear sala");
-                }else if(msg == 998){
-                    alert("Error al crear sala");
+                if(msg == 9999999998){
+                    alert("Error al entrar a sala");
+                }else if(msg == 9999999997){
+                    alert("Error al entrar a sala");
                 }else if(msg != 0){
-                    alert("Sala ya existente");
                     window.location.href = "?page=9&chat="+like+"&sala="+msg;
                 }
 
