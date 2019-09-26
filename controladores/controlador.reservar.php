@@ -194,7 +194,8 @@ function reservacionAdb(){
             stringlink:stringlink,
             rpReserva:rpReserva,
             baseString:baseString,
-            option:option
+            option:option,
+            fechaReserva:fechaReserva
         }),
         success: function(msg) {
             console.log(msg);

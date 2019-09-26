@@ -12,6 +12,9 @@ $nombreUser = $_POST['nombreUser'];
 $telefono = $_POST['telefono'];
 $linkReservacion = $_POST['stringlink'];
 $idRp = $_POST['rpReserva'];
+$fechaReserva = $_POST['fechaReserva'];
+
+$newDate = date("Y-m-d", strtotime($fechaReserva));
 
 $baseString = $_POST['baseString'];
 
@@ -40,7 +43,7 @@ switch($option){
 
   case '2';
 
-    $sql = "INSERT INTO reservaciones (idTipoRes, numPersonas, activa, idUser, nombre, telefono, invitacion, idRp) VALUES ('$idTipoRes', '$numPersonas', '0', '$idUser', '$nombreUser', '$telefono', NULL, '$idRp')";
+    $sql = "INSERT INTO reservaciones (idTipoRes, numPersonas, activa, idUser, nombre, fecha, telefono, invitacion, idRp) VALUES ('$idTipoRes', '$numPersonas', '0', '$idUser', '$nombreUser', '$newDate', '$telefono', NULL, '$idRp')";
 
     if($conexion->query($sql)){
 
