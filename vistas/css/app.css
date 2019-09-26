@@ -89,15 +89,29 @@
   padding: 10px 10px 0px 10px; }
 
 .imagenYO {
-  width: 100px !important;
   height: 100px !important;
-  object-fit: cover !important; }
+  width: 100px !important; }
+
+#myCanvas {
+  object-fit: cover;
+  object-position: center center; }
+
+.imgFit {
+  object-fit: cover !important;
+  object-position: center center !important;
+  margin: 10px 10px 10px 10px;
+  cursor: pointer !important; }
+
+.previewImg {
+  width: 100vw !important;
+  height: 100vh !important; }
 
 .imagenEL {
-  width: 100px !important;
   height: 100px !important;
-  object-fit: cover !important;
-  object-position: center center !important; }
+  -webkit-border-radius: 50px 30px 30px 0px;
+  -moz-border-radius: 50px 30px 30px 0px;
+  border-radius: 50px 30px 30px 0px;
+  margin-bottom: 10px; }
 
 .imgSala {
   height: 60px;

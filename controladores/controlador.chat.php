@@ -62,6 +62,8 @@ $(document).ready(function () {
       }
     });
 
+    
+
     $(".scrollZone").niceScroll({
     cursorcolor:"#DEC9A1",
     cursorwidth:"2px",
@@ -75,6 +77,8 @@ $(document).ready(function () {
     set3 = nastyPics.substring(2,3);
     set4 = nastyPics.substring(3,4);
     set5 = nastyPics.substring(4,5);
+
+    
 
     console.log(set1);
     console.log(set2);
@@ -177,16 +181,29 @@ function cargaMsjs(){
             } else if(msg[i].idTipoMensaje == 2){
               //console.log("Esto es una foto");
               //console.log(msg[i].mensaje);
+              console.log("el id " +i);
               if(msg[i].idUsuario == sesion){
                 
-                var divYo = document.createElement("DIV");   // Create a <button> element
+                var divYo = document.createElement("DIV");   // Create a <div> element
                 divYo.classList.add("mnsjYo");
                 document.getElementById("divAux").appendChild(divYo); 
+
+                var paraMi = document.createElement("IMG");   // Create a <image> element
+                //paraMi.classList.add("imagenYO");
+                //paraMi.classList.add("imgFit");
+                //paraMi.src = msg[i].mensaje; 
+                //divYo.append(paraMi);
+                //const algo = document.getElementsByClassName('imgFit');
+                //alert(algo);
+                divYo.innerHTML = '<img src="'+msg[i].mensaje+'" class="imagenYO imgFit">';
+
   
-                var paraMi = document.createElement("IMG");   // Create a <button> element
-                paraMi.src = msg[i].mensaje;                   // Insert text
-                paraMi.classList.add("imagenYO");
-                divYo.appendChild(paraMi); 
+                //$('.imgFit').attr('onClick', 'notify('+popo+')');
+                //$('.imgFit').addClass('imagenYO');
+                //paraMi.src = msg[i].mensaje;    
+                //var data64 = msg[i].mensaje;        
+                //document.getElementsByClassName('mnsjYo').innerHTML = '<img src="' + data64 + '" />';            // Insert text
+                //divYo.append(paraMi); 
   
               } else if(msg[i].idUsuario == user2){
   
@@ -196,8 +213,8 @@ function cargaMsjs(){
   
                 var paraTi = document.createElement("IMG");   // Create a <button> element
                 paraTi.classList.add("imagenEL");
+                paraMi.classList.add("imgFit");
                 paraTi.src = msg[i].mensaje;                   // Insert text
-                
                 divTu.appendChild(paraTi); 
   
               }
@@ -209,6 +226,16 @@ function cargaMsjs(){
     },
     dataType: "json"
   });
+}
+
+
+
+
+function notify(data) {
+  console.log(infoChat);
+  console.log(data);
+  $('.previewImg').attr("src", infoChat[2].mensaje );
+  $('#exampleModal').modal('toggle');
 }
 
 function mostrarCochinadas(){
@@ -273,8 +300,10 @@ function enviarFoto(x){
       
     var c = document.getElementById("myCanvas");
     var ctx = c.getContext("2d");
-  
-    ctx.drawImage(img, 10, 10);
+    ctx.canvas.width = 500;
+    ctx.canvas.height = 500;
+    ctx.drawImage(img, 0, 0,500,500);
+    //ctx.drawImage(img, 0, 0, img.width , img.height);
     var mensaje = c.toDataURL();
     option = 4;
     tipoMsj = 2;

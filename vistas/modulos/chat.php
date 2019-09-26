@@ -1,11 +1,12 @@
 <div class="contenedorChat">
   <nav class="navbar fixed-top navbar-dark navInbox">
     <div class="iconos">
-      <a href="?page=8"> <i class="fas fa-arrow-left"></i></a>
+      <a href="?page=10"> <i class="fas fa-arrow-left"></i></a>
     </div>
     <div class="imgChat"></div>
   </nav>
 
+    
   <div class="divMensajes" id="losMsj">
 
     <div id="divAux">
@@ -13,7 +14,6 @@
       <!-- <div class="mnsjOtro">
       <p class="mensajeEL">On tas?</p>
     </div> -->
-
       <div class="mnsjYo " id="johnny">
         <!-- <p class="mensajeYO ">En la barra </p> -->
       </div>
@@ -23,6 +23,9 @@
         delectus ex mollitia error laboriosam quos? Aut sit vitae provident eum quis perferendis eius distinctio?
         Ducimus iure laboriosam sint deserunt!</p> -->
       </div>
+
+      
+
     </div>
 
     <div class="zonaEscribir">
@@ -117,5 +120,24 @@
         </div>
       </div>
     </div>
-
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <img src="" class="previewImg">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+   
   </div>
