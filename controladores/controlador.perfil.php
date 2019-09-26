@@ -159,11 +159,12 @@ function listo(){
             console.log(msg);
             switch(msg){
 
-                case 1:
+                case '1':
                     alert("Tus Datos Se Han Actualizado Correctamente");
+                    location.reload();
                 break;
 
-                case 997:
+                case '997':
                     alert("Ha ocurrido un error interno, inténtalo más tarde.");
                     document.getElementById("botonRbtnActualizaregistrar").disabled = false;
                 break;
