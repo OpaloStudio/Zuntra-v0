@@ -195,7 +195,7 @@ function cargaMsjs(){
                 //divYo.append(paraMi);
                 //const algo = document.getElementsByClassName('imgFit');
                 //alert(algo);
-                divYo.innerHTML = '<img src="'+msg[i].mensaje+'" class="imagenYO imgFit">';
+                divYo.innerHTML = '<img src="'+msg[i].mensaje+'" class="imagenYO imgFit" onclick="notify('+i+')">';
 
   
                 //$('.imgFit').attr('onClick', 'notify('+popo+')');
@@ -212,10 +212,11 @@ function cargaMsjs(){
                 document.getElementById("divAux").appendChild(divTu); 
   
                 var paraTi = document.createElement("IMG");   // Create a <button> element
-                paraTi.classList.add("imagenEL");
-                paraMi.classList.add("imgFit");
-                paraTi.src = msg[i].mensaje;                   // Insert text
-                divTu.appendChild(paraTi); 
+                divTu.innerHTML = '<img src="'+msg[i].mensaje+'" class="imagenEL imgFit" onclick="notify('+i+')">';
+                //paraTi.classList.add("imagenEL");
+                //paraMi.classList.add("imgFit");
+                //paraTi.src = msg[i].mensaje;                   // Insert text
+                //divTu.appendChild(paraTi); 
   
               }
 
@@ -232,9 +233,10 @@ function cargaMsjs(){
 
 
 function notify(data) {
-  console.log(infoChat);
+  //console.log(infoChat);
   console.log(data);
-  $('.previewImg').attr("src", infoChat[2].mensaje );
+  //$('.previewImg').attr("src", data.src );
+  $('.previewImg').attr("src", infoChat[data].mensaje );
   $('#exampleModal').modal('toggle');
 }
 
@@ -300,9 +302,11 @@ function enviarFoto(x){
       
     var c = document.getElementById("myCanvas");
     var ctx = c.getContext("2d");
-    ctx.canvas.width = 500;
-    ctx.canvas.height = 500;
-    ctx.drawImage(img, 0, 0,500,500);
+    ctx.canvas.width = window.innerWidth;
+    ctx.canvas.height = window.innerHeight;
+    //ctx.canvas.width = 500;
+    //ctx.canvas.height = 500;
+    ctx.drawImage(img, 0, 0,window.innerWidth,window.innerHeight);
     //ctx.drawImage(img, 0, 0, img.width , img.height);
     var mensaje = c.toDataURL();
     option = 4;
