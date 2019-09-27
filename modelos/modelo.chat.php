@@ -5,94 +5,313 @@ if ($conexion->connect_error) {
   die("La conexion falló: " . $conexion->connect_error);
 }
 
+
 $userId = $_SESSION['userId'];
 $status = '999';
 
 $option = $_POST['option'];
+$numPic = $_POST['numPic'];
+$sala   = $_POST['sala'];
+$mensaje = $_POST['mensaje'];
 
-$tipoSexo = $_POST['tipoSexo'];
-$tipoCita = $_POST['tipoCita'];
-$busco = $_POST['busco'];
-$biografia = $_POST['biografia'];
-$tipoETS = $_POST['tipoETS'];
+$num = $_POST['num'];
 
 
 switch($option){
 
-    case '1':
-        $sql = "SELECT * FROM usuarios WHERE idUser='$userId'";
-        $result = $conexion->query($sql);
+  case '1';
+    $sql = "SELECT * FROM mensaje WHERE idSala='$sala'";
+    $result = $conexion->query($sql);
 
-        while($row = mysqli_fetch_array($result)){
-            $infoUsr = $row;
-        }
+    $final = array();
 
-        if(sizeof($infoUsr) == 0){
-            $infoUsr = false;
-        }
+    while($row = mysqli_fetch_array($result)){
+			array_push($final, $row);
+		}
 
-        echo json_encode($infoUsr);
+    if(sizeof($final) == 0){
+      $final = false;
+    }
+    
+    echo json_encode($final);
 
-    break;
+  break;
 
-    case '2':
-        $sql="UPDATE usuarios SET idTIpoSexo='$tipoSexo', idTipoCita='$tipoCita', idBusco='$busco', biografia='$biografia', idTipoETS='$tipoETS' WHERE idUser='$userId'";
 
-        if($conexion->query($sql)){
-            $_SESSION['userSexo'] = $tipoSexo;
-            $_SESSION['userCita'] = $tipoCita;
-            $_SESSION['userBusco'] = $busco;
-            $_SESSION['userBio'] = $biografia;
-            $_SESSION['userETS'] = $tipoETS;
-            $status = '1';
-        } else{
-            $status = '998';//Error al actualizar info
-        }
+  case '2';
 
-        //Fotos
+    $sql = "SELECT fotosNasty FROM usuarios WHERE idUser='$userId'";
+    $result = $conexion->query($sql);
 
-        $nombresImg = array();
-        $targetPaths = array();
-        $idFotos = array();
-        $fotos = array();
-        $carpetaDestino = "../vistas/img/usuarios/".(string)$userId."/";
-        $carpetaDestinoFinal = (string)$carpetaDestino."perfil/";
-        mkdir($carpetaDestino); 
-        mkdir($carpetaDestinoFinal);
+    while($row = mysqli_fetch_array($result)){
+      $stringNasty = $row[0];
+    }
 
-        for($x=1; $x<=5; $x++){
-            $nombresImg[$x] = (string)$userId."-".(string)$x.".jpg";
-            $targetPaths[$x] = $carpetaDestinoFinal. $nombresImg[$x];
-            $idFotos[$x] = "fotoPerfil".(string)$x;
-            $fotos[$x] = $_FILES[$idFotos[$x]];
+    $nastyPic1 = substr($stringNasty,0,1);
+    $nastyPic2 = substr($stringNasty,1,1);
+    $nastyPic3 = substr($stringNasty,2,1);
+    $nastyPic4 = substr($stringNasty,3,1);
+    $nastyPic5 = substr($stringNasty,4,1);
+      
+    
+    $carpetaDestino = "../vistas/img/usuarios/".(string)$userId."/";
+    mkdir($carpetaDestino); 
+    $carpetaDestinoFinal = (string)$carpetaDestino."chat/";
+    mkdir($carpetaDestinoFinal); 
 
-            $pic = (string)$carpetaDestino."perfil/".(string)$userId."-".(string)$x.".jpg";
+    switch($numPic){
 
-            if(isset($fotos[$x])){
+        case '1';
 
-                unlink($pic);
+            $nombresImg = (string)$userId."-1.jpg";
+            $targetPath = $carpetaDestinoFinal. $nombresImg;
+            $foto = $_FILES['picNasty'];
 
-                if(move_uploaded_file($fotos[$x]['tmp_name'], $targetPaths[$x])){
+            $pic = $targetPath;
+        
+            if(isset($foto)){
+            
+              unlink($pic);
+            
+              if(move_uploaded_file($foto['tmp_name'], $targetPath)){
 
-                    //Update picture name in the database
-                    $status = $x;
-                } else {
-                    $status = 999999;
-                }
+                $newString = "1".$nastyPic2.$nastyPic3.$nastyPic4.$nastyPic5;
+                $sql="UPDATE usuarios SET fotosNasty='$newString' WHERE idUser='$userId'";
+
+                if($conexion->query($sql)){
+                    $status = '1';
+                    $_SESSION['userChat'] = $newString;
+                } else{
+                    $status = '998';//Error al actualizar info
+                } 
+
+
+              } else {
+                $status = 999999;
+              }
+          
             }
+
+            echo $status;
+
+        break;
+            
+        case '2';
+            $nombresImg = (string)$userId."-2.jpg";
+            $targetPath = $carpetaDestinoFinal. $nombresImg;
+            $foto = $_FILES['picNasty'];
+
+            $pic = $targetPath;
+            
+            if(isset($foto)){
+            
+              unlink($pic);
+            
+              if(move_uploaded_file($foto['tmp_name'], $targetPath)){
+
+                $newString = $nastyPic1."1".$nastyPic3.$nastyPic4.$nastyPic5;
+                $sql="UPDATE usuarios SET fotosNasty='$newString' WHERE idUser='$userId'";
+
+                if($conexion->query($sql)){
+                    $status = '1';
+                    $_SESSION['userChat'] = $newString;
+                } else{
+                    $status = '998';//Error al actualizar info
+                } 
+
+
+              } else {
+                $status = 999999;
+              }
+          
+            }
+
+            echo $status;
+        break;
+            
+        case '3';
+            $nombresImg = (string)$userId."-3.jpg";
+            $targetPath = $carpetaDestinoFinal. $nombresImg;
+            $foto = $_FILES['picNasty'];
+
+            $pic = $targetPath;
+            
+            if(isset($foto)){
+            
+              unlink($pic);
+            
+              if(move_uploaded_file($foto['tmp_name'], $targetPath)){
+
+                $newString = $nastyPic1.$nastyPic2."1".$nastyPic4.$nastyPic5;
+                $sql="UPDATE usuarios SET fotosNasty='$newString' WHERE idUser='$userId'";
+
+                if($conexion->query($sql)){
+                    $status = '1';
+                    $_SESSION['userChat'] = $newString;
+                } else{
+                    $status = '998';//Error al actualizar info
+                } 
+
+
+              } else {
+                $status = 999999;
+              }
+          
+            }
+
+            echo $status;
+        break;
+            
+        case '4';
+            $nombresImg = (string)$userId."-4.jpg";
+            $targetPath = $carpetaDestinoFinal. $nombresImg;
+            $foto = $_FILES['picNasty'];
+
+            $pic = $targetPath;
+            
+            if(isset($foto)){
+            
+              unlink($pic);
+            
+              if(move_uploaded_file($foto['tmp_name'], $targetPath)){
+
+                $newString = $nastyPic1.$nastyPic2.$nastyPic3."1".$nastyPic5;
+                $sql="UPDATE usuarios SET fotosNasty='$newString' WHERE idUser='$userId'";
+
+                if($conexion->query($sql)){
+                    $status = '1';
+                    $_SESSION['userChat'] = $newString;
+                } else{
+                    $status = '998';//Error al actualizar info
+                } 
+
+
+              } else {
+                $status = 999999;
+              }
+          
+            }
+
+            echo $status;
+        break;
+            
+        case '5';
+            $nombresImg = (string)$userId."-5.jpg";
+            $targetPath = $carpetaDestinoFinal. $nombresImg;
+            $foto = $_FILES['picNasty'];
+
+            $pic = $targetPath;
+            
+            if(isset($foto)){
+            
+              unlink($pic);
+            
+              if(move_uploaded_file($foto['tmp_name'], $targetPath)){
+
+                $newString = $nastyPic1.$nastyPic2.$nastyPic3.$nastyPic4."1";
+                $sql="UPDATE usuarios SET fotosNasty='$newString' WHERE idUser='$userId'";
+
+                if($conexion->query($sql)){
+                    $status = '1';
+                    $_SESSION['userChat'] = $newString;
+                } else{
+                    $status = '998';//Error al actualizar info
+                } 
+
+
+              } else {
+                $status = 999999;
+              }
+          
+            }
+
+            echo $status;
+        break;
+            
         }
+  break;
 
-        $sql2="UPDATE usuarios SET fotoPerfil='1' WHERE idUser='$userId'";
+  case '3';
 
-        if($conexion->query($sql2)){
-            $_SESSION['userpicture'] = 1;
-            $status = '1';
-        } else {
-            $status = '999';//Error al actualizar info
-        }
+    $sql = "SELECT fotosNasty FROM usuarios WHERE idUser='$userId'";
+    $result = $conexion->query($sql);
 
-        echo $status;
-    break;
+    while($row = mysqli_fetch_array($result)){
+      $stringNasty = $row[0];
+    }
+
+    $nastyPic1 = substr($stringNasty,0,1);
+    $nastyPic2 = substr($stringNasty,1,1);
+    $nastyPic3 = substr($stringNasty,2,1);
+    $nastyPic4 = substr($stringNasty,3,1);
+    $nastyPic5 = substr($stringNasty,4,1);
+
+    
+    
+    $carpetaDestino = "../vistas/img/usuarios/".(string)$userId."/";
+    mkdir($carpetaDestino); 
+    $carpetaDestinoFinal = (string)$carpetaDestino."chat/";
+    mkdir($carpetaDestinoFinal); 
+    
+    $pic = (string)$carpetaDestinoFinal.(string)$userId."-".(string)$num.".jpg";
+
+    unlink($pic);
+
+    switch($num){
+
+        case '1';
+            $newString = "0".$nastyPic2.$nastyPic3.$nastyPic4.$nastyPic5;
+        break;
+            
+        case '2';
+            $newString = $nastyPic1."0".$nastyPic3.$nastyPic4.$nastyPic5;
+            
+        break;
+            
+        case '3';
+            
+            $newString = $nastyPic1.$nastyPic2."0".$nastyPic4.$nastyPic5;
+        break;
+
+        case '4';
+            $newString = $nastyPic1.$nastyPic2.$nastyPic3."0".$nastyPic5;
+        break;
+
+        case '5';
+            $newString = $nastyPic1.$nastyPic2.$nastyPic3.$nastyPic4."0";
+        break;
+
+    }
+
+
+
+    $sql="UPDATE usuarios SET fotosNasty='$newString' WHERE idUser='$userId'";
+
+    if($conexion->query($sql)){
+        $status = '1';
+        $_SESSION['userChat'] = $newString;
+    } else{
+        $status = '998';//Error al actualizar info
+    } 
+
+    echo $status;
+
+    
+
+  break;
+
+  case '4';
+  $tipoMsj = $_POST['tipoMsj'];
+    $sql = "INSERT INTO mensaje (idUsuario, mensaje, idTipoMensaje, fecha, idSala) VALUES ('$userId', '$mensaje', '$tipoMsj', NULL, '$sala')";
+
+    if($conexion->query($sql)){
+      $status = '1';
+    }else{
+      $status = '998';
+    }
+
+    echo $status;
+  break;
 }
 
 ?>
