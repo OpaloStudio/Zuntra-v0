@@ -13,6 +13,7 @@ $option = $_POST['option'];
 $numPic = $_POST['numPic'];
 $sala   = $_POST['sala'];
 $mensaje = $_POST['mensaje'];
+$dateTime = $_POST['dateTime'];
 
 $num = $_POST['num'];
 
@@ -302,7 +303,7 @@ switch($option){
 
   case '4';
   $tipoMsj = $_POST['tipoMsj'];
-    $sql = "INSERT INTO mensaje (idUsuario, mensaje, idTipoMensaje, fecha, idSala) VALUES ('$userId', '$mensaje', '$tipoMsj', NULL, '$sala')";
+    $sql = "INSERT INTO mensaje (idUsuario, mensaje, idTipoMensaje, fecha, idSala) VALUES ('$userId', '$mensaje', '$tipoMsj', '$dateTime', '$sala')";
 
     if($conexion->query($sql)){
       $status = '1';
