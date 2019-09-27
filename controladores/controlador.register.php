@@ -22,48 +22,53 @@
         console.log(cumple);
         console.log(password);
         console.log(password2);
+        console.log("Espacios de telefono: "+telefono.length);
 
-        document.getElementById("botonRegistrar").disabled = true;
-        if(password == password2){
-            $.ajax({
-                url: "modelos/modelo.registro.php",
-                type: "POST",
-                data: ({
-                    nombre:nombre,
-                    telefono:telefono,
-                    email:email,
-                    password:password,
-                    cumple:cumple
-                }),
-                success: function(msg) {
-                    console.log(msg);
-                    switch(msg){
-                        case 0:
-                            alert("El correo electrónico que introduciste ya está en uso, intenta con otro.");
-                            document.getElementById("botonRegistrar").disabled = false;
-                        break;
-                        
-                        case 1:
-                            alert("Tu cuenta ha sido registrada exitosamente, ya puedes entrar a tu cuenta. Serás redirigido al inicio de sesión.");
-                            window.location.href = '?page=1';
-                        break;
+        if(telefono.length == 10){
 
-                        case 'default':
-                            alert("Ha ocurrido un error interno, inténtalo más tarde.");
-                            document.getElementById("botonRegistrar").disabled = false;
-                            console.log(msg);
-                        break;
-                    }
-                },
-                dataType: "json"
-            });
+            if(password == password2){
+                document.getElementById("botonRegistrar").disabled = true;
+                $.ajax({
+                    url: "modelos/modelo.registro.php",
+                    type: "POST",
+                    data: ({
+                        nombre:nombre,
+                        telefono:telefono,
+                        email:email,
+                        password:password,
+                        cumple:cumple
+                    }),
+                    success: function(msg) {
+                        console.log(msg);
+                        switch(msg){
+                            case 0:
+                                alert("El correo electrónico que introduciste ya está en uso, intenta con otro.");
+                                document.getElementById("botonRegistrar").disabled = false;
+                            break;
+                            
+                            case 1:
+                                alert("Tu cuenta ha sido registrada exitosamente, ya puedes entrar a tu cuenta. Serás redirigido al inicio de sesión.");
+                                window.location.href = '?page=1&log=firstLog';
+                            break;
+    
+                            case 'default':
+                                alert("Ha ocurrido un error interno, inténtalo más tarde.");
+                                document.getElementById("botonRegistrar").disabled = false;
+                                console.log(msg);
+                            break;
+                        }
+                    },
+                    dataType: "json"
+                });
+            }else{
+                alert('El password que introduciste no coincide.');
+            }
+        }else{
+            alert('El número tiene que ser de 10 dígitos');
         }
-        else{
-            alert('El password que introduciste no coincide.');
-        }
 
-        window.onbeforeunload = function() {
+        /* window.onbeforeunload = function() {
             return "Dude, are you sure you want to leave? Think of the kittens!";
-        }
+        } */
     }
 </script>

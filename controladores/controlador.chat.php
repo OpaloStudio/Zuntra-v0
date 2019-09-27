@@ -249,7 +249,11 @@ function cerrarCochinadas(){
 }
 
 function enviarCochinadas(){
-  
+  var today = new Date();
+  var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+  var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+  var dateTime = date+' '+time;
+
   if(document.getElementById("msjChat").value == ''){
     console.log('No hay msj');
   }else{
@@ -266,7 +270,8 @@ function enviarCochinadas(){
           sala:sala,
           mensaje:mensaje,
           tipoMsj:tipoMsj,
-          option:option
+          option:option,
+          dateTime:dateTime
       }),
       success: function(msg) {
         console.log(msg);

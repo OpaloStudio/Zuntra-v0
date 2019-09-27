@@ -130,8 +130,35 @@ if(isset($_SESSION['loggedin'])){
     }
 
     function match(){
+        var like = perfilesID[indiceSwipe];
+        option = 3;
         console.log("se agregó a " + perfilesNombre[indiceSwipe] + " a la lista buena :D");
-        rellenarSwipe();
+        console.log(sesion);
+        console.log(like);
+
+        $.ajax({
+            url: "modelos/modelo.swipe.php",
+            type: "POST",
+            data: ({
+                sesion:sesion,
+                like:like,
+                option:option
+
+            }),
+            success: function(msg) {
+
+                console.log(msg);
+                if(msg != 1){
+                    alert("Error al enviar mensaje");
+                }else{
+                    alert("Se envió un mensaje al usuario, revisa tu inbox para seguir la conversación");
+                    rellenarSwipe();
+                }
+
+            },
+            dataType: "json"
+        });
+        
     }
 
     function noMatch(){
@@ -164,12 +191,11 @@ if(isset($_SESSION['loggedin'])){
 
                 console.log(msg);
 
-                if(msg == 997){
-                    alert("Error al crear sala");
-                }else if(msg == 998){
-                    alert("Error al crear sala");
+                if(msg == 9999999998){
+                    alert("Error al entrar a sala");
+                }else if(msg == 9999999997){
+                    alert("Error al entrar a sala");
                 }else if(msg != 0){
-                    alert("Sala ya existente");
                     window.location.href = "?page=9&chat="+like+"&sala="+msg;
                 }
 

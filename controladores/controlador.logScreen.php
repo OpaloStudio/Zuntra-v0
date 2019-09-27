@@ -67,6 +67,11 @@ $( document ).ready(function() {
             btnGuest.style.display = 'none';
         break;
 
+        case "firstLog":
+            nuevoLink = "?page=4&log=firstLog";
+            btnGuest.style.display = 'none';
+        break;
+
         case "editar":
             var usuarioReservacion = <?php echo $user; ?>;
             var idReservacion = <?php echo $reservacion; ?>;

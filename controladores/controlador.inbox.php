@@ -121,9 +121,16 @@ function ultimoMsj(){
                 laSala:laSala
             }),
             success: function(msg) {
-                //console.log(msg);
+                console.log("mensaje: "+msg);
 
-                ultimosMsj.push(msg);
+                if(msg==null){
+                    ultimosMsj.push(" ");
+                }else if(msg.indexOf("data:image/png;base64") != -1){
+                    ultimosMsj.push("Image");
+                }else{
+                    ultimosMsj.push(msg);
+                }
+                
 
                 if(contador2 == sala.length){
                     imprimirSalas();
