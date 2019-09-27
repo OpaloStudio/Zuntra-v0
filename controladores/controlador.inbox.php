@@ -125,6 +125,8 @@ function ultimoMsj(){
 
                 if(msg==null){
                     ultimosMsj.push(" ");
+                }else if(msg.indexOf("data:image/png;base64") != -1){
+                    ultimosMsj.push("Image");
                 }else{
                     ultimosMsj.push(msg);
                 }
