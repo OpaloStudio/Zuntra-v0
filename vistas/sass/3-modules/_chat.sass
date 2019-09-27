@@ -71,18 +71,35 @@
     padding: 10px 10px 0px 10px
 
 .imagenYO
-    width: 100px !important
     height: 100px !important
+    width: 100px !important
+    +redondeado(30px 30px 0px 30px)
+    
+
+#myCanvas
+    object-fit: cover
+    object-position: center center
+
+.imgFit
     object-fit: cover !important 
-    //object-position: center center AFter
-    //margin: 10px 10px 10px 10px
+    object-position: center center !important
+    margin: 10px 10px 10px 10px
+    cursor: pointer !important
+
+.previewImg
+    width: 100% !important
+    height: 100% !important
+
+.elModal
+    width: 100% !important
+    height: 100% !important
 
 .imagenEL
-    width: 100px !important
+    //width: 100px !important
     height: 100px !important
-    object-fit: cover !important
-    object-position: center center !important
-    //margin: 10px 10px 10px 10px
+    +redondeado(30px 30px 30px 0px)
+    margin-bottom: 10px
+    
 
 .imgSala
     height: 60px
