@@ -13,8 +13,10 @@
     </div>
     
   </nav>
-
-  <div class="divMensajes" id='salas'>
+  <div class="divMensajes" id='salas'><br><br><br><br><br><br>
+  <div class="container popopop">
+  <div class="loader">Loading...</div>
+  </div>
   
     
 

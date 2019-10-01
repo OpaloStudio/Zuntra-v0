@@ -15,7 +15,6 @@ const resourcesToPrecache = [
 'vistas/modulos/reservar.php',
 'vistas/modulos/swipe.php',
 'controladores/controlador.cambiar.php',
-'controladores/controlador.chat.php',
 'controladores/controlador.escaner.php',
 'controladores/controlador.home.php',
 'controladores/controlador.inbox.php',
@@ -30,7 +29,6 @@ const resourcesToPrecache = [
 'controladores/controlador.swipe.php',
 'modelos/modelo.bloqueo.php',
 'modelos/modelo.cerrarSesion.php',
-'modelos/modelo.chat.php',
 'modelos/modelo.conexion.php',
 'modelos/modelo.escaner.php',
 'modelos/modelo.evaluaciones.php',
@@ -55,6 +53,7 @@ self.addEventListener('install', function(event) {
         })
     );
 });
+
 self.addEventListener('fetch', function(event) {
   event.respondWith(
     fetch(event.request).catch(function() {
@@ -62,3 +61,16 @@ self.addEventListener('fetch', function(event) {
     })
   );
 });
+
+
+/*
+
+
+self.addEventListener('fetch', function(event) {
+  event.respondWith(
+    caches.match(event.request).then(function(response) {
+      return response || fetch(event.request);
+    })
+  );
+});
+*/
