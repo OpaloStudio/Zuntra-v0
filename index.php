@@ -134,6 +134,16 @@ session_start();
 			include('controladores/controlador.editarReserva.php');
 			break;
 
+			case '16':
+			//Home
+			include('controladores/controlador.misReservas.php');
+			break;
+
+			case '17':
+			//Home
+			include('controladores/controlador.screenReservas.php');
+			break;
+
 			case 'default':
 			
 			break;
@@ -232,6 +242,16 @@ elseif(isset($_GET['page'])){
 		case '15':
 		//Recuperar contrasena
 		include('vistas/modulos/editarReserva.php');
+		break;
+
+		case '16':
+		//Recuperar contrasena
+		include('vistas/modulos/misReservas.php');
+		break;
+
+		case '17':
+		//Recuperar contrasena
+		include('vistas/modulos/screenReservas.php');
 		break;
 
 

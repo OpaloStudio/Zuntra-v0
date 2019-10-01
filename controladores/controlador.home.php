@@ -27,7 +27,7 @@ $( document ).ready(function() {
     if(idUser != 0){
         console.log("Sesión Iniciada");
         $("#linkSwipe").attr("href","?page=8");
-        $("#linkReservar").attr("href","?page=2");
+        $("#linkReservar").attr("href","?page=17");
     } else{
         console.log("Por Favor Inicia Sesión");
         $("#linkSwipe").attr("href","?page=1&log=swipe");
