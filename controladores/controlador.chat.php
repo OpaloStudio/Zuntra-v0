@@ -71,6 +71,11 @@ $(document).ready(function () {
 
     });
 
+    var miImagen = document.getElementById('miImg');
+    var urlImg = "url('vistas/img/usuarios/"+user2+"/perfil/"+user2+"-1.jpg')";
+    console.log(urlImg);
+    miImagen.style.backgroundImage = urlImg;
+
     console.log(nastyPics);
     set1 = nastyPics.substring(0,1);
     set2 = nastyPics.substring(1,2);
