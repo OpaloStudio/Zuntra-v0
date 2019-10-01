@@ -30,11 +30,15 @@ switch($option){
 
   case '1';
 
-    $sql = "SELECT * FROM invitados WHERE idUser='$idUser'";
+    $sql = "SELECT invitacion FROM reservaciones WHERE idUser='$idUser'";
     $result = $conexion->query($sql);
     
     while($row = mysqli_fetch_array($result)){
-      $final = $row;
+      $final = $row[0];
+    }
+
+    if(sizeof($final) == 0){
+      $final = false;
     }
 
     echo json_encode($final);

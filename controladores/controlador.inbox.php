@@ -4,11 +4,11 @@ $tipo = $_GET['tipo'];
 
 if(isset($_SESSION['loggedin'])){
     $idsesion = $_SESSION['userId'];
-    echo $idsesion;
+    //echo $idsesion;
     
 }else{
     $idsesion = '0';
-    echo $idsesion;
+    //echo $idsesion;
 }
 
 ?>
@@ -153,6 +153,7 @@ function imprimirSalas(){
     console.log(nombres.length);
     console.log(ultimosMsj);
     console.log(nombres);
+    console.log(listaId);
     var content = "";
 
     for(var i = 0; i < listaId.length; i++){
@@ -164,7 +165,9 @@ function imprimirSalas(){
         var link = String(lonk);
         console.log(link);
 
-        content +=  "<div class='sala' onclick="+link+"><div class='row'><div class='col-3'><div class='imgSala'></div></div><div class='col-9'><h5 class='leNombre'>"
+        content +=  "<div class='sala' onclick="+link+"><div class='row'><div class='col-3'><div class='imgSala' id='idsala"
+                    +i+
+                    "'></div></div><div class='col-9'><h5 class='leNombre'>"
                     +nombres[i]+
                     "</h5><p class='leMensaje'>"
                     +ultimosMsj[i]+
@@ -172,6 +175,17 @@ function imprimirSalas(){
     }
 
     $("#salas").html(String(content));
+    
+    for(var i = 0; i < listaId.length; i++){
+
+        var aidi = "idsala"+i;
+        console.log(aidi);
+        var imagenChat = document.getElementById(aidi);
+        var urlImg = "url('vistas/img/usuarios/"+listaId[i]+"/perfil/"+listaId[i]+"-1.jpg')";
+        console.log(urlImg);
+        imagenChat.style.backgroundImage = urlImg;
+        
+    }
 
 }
 

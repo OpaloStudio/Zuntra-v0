@@ -78,14 +78,14 @@ $(function () {
             success: function(msg) {
                 console.log(msg);
 
-                if(msg == null){
+                if(msg == false){
                     console.log("Sin reservación existente")
                 }else if(tipo == "guestLS"){
                     alert("Ya te encuentras en una reservación");
                     window.location.href = "?page=6&log=guest&usuario="+msg.userRes+"&reservacion="+msg.idRes+"&nombre="+nombreReserva+"&telefono="+session;
                 }else{
                     alert("Ya te encuentras en una reservación");
-                    window.location.href = "?page=6&usuario="+msg.userRes+"&reservacion="+msg.idRes;
+                    window.location.href = msg;
                 }
 
 

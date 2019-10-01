@@ -95,7 +95,7 @@
             break;
 
             case "reserva":
-                nuevoLink = "?page=2";
+                nuevoLink = "?page=17";
             break;
 
             case "escaner":

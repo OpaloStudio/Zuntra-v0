@@ -1142,4 +1142,42 @@ label {
 .fa-lightbulb {
   margin-left: 1px; }
 
+.navReservas {
+  height: 10vh; }
+
+.iconosReservas {
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center; }
+
+#flechaReservas {
+  color: #212121; }
+
+.dorado {
+  color: #DEC9A1; }
+
+.zonaReservaciones {
+  height: 100vh; }
+
+.moverAbajo {
+  padding-top: 12vh; }
+
+.cardReserva {
+  border: 1px solid #212121;
+  width: 20vw;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  border-radius: 15px;
+  display: flex;
+  justify-content: space-between;
+  padding-left: 1rem;
+  padding-right: 1rem; }
+
+.miReserva {
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
 /*# sourceMappingURL=app.css.map */

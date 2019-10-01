@@ -3,7 +3,7 @@
     <div class="iconos">
       <a href="?page=10"> <i class="fas fa-arrow-left"></i></a>
     </div>
-    <div class="imgChat"></div>
+    <div class="imgChat" id="miImg"></div>
   </nav>
 
     
