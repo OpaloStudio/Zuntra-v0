@@ -14,16 +14,13 @@
   <h2 class="dorado text-center moverAbajo">Mis Reservaciones</h2>
 
   <h5 class="dorado text-center moverAbajo">Mi Reserva</h5>
-  <div class="miReserva">
+  <div class="miReserva" id="reservaMia">
 
-  <div class="cardReserva ">
-<span  class="dorado">Fecha</span><span class="dorado">20 personas</span>
-  </div>
 
   </div>
 
   <h5 class="dorado text-center moverAbajo">Mis invitaciones</h5>
-  <div class="misInvitaciones">
+  <div class="misInvitaciones" id="invitMias">
   </div>
     
 
