@@ -1,7 +1,7 @@
 <div class="contenedorInbox">
   <nav class="navbar fixed-top  navReservas">
     <div class="iconosReservas">
-      <a href="?page=8"> <i class="fas fa-arrow-left" id="flechaReservas"></i></a>
+      <a href="?page=17"> <i class="fas fa-arrow-left" id="flechaReservas"></i></a>
       <button type="button" class="btn btnDudas dorado" data-toggle="modal" data-target="#modalDudas">¿Dudas?</button>
       
 
@@ -15,7 +15,7 @@
 
   <h5 class="dorado text-center moverAbajo">Mi Reserva</h5>
   <div class="miReserva" id="reservaMia">
-
+  
 
   </div>
 
