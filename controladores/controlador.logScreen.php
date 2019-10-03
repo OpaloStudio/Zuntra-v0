@@ -60,6 +60,7 @@ $( document ).ready(function() {
 
         case "reserva":
             nuevoLink = "?page=4&log=reserva";
+            btnGuest.style.display = 'block';
         break;
 
         case "escaner":
@@ -70,6 +71,16 @@ $( document ).ready(function() {
         case "firstLog":
             nuevoLink = "?page=4&log=firstLog";
             btnGuest.style.display = 'none';
+        break;
+
+        case "scrRes":
+            nuevoLink = "?page=4&log=scrRes";
+            btnGuest.style.display = 'block';
+        break;
+
+        case "listaRes":
+            nuevoLink = "?page=4&log=listaRes";
+            btnGuest.style.display = 'block';
         break;
 
         case "editar":

@@ -1,9 +1,24 @@
 <?php
+
     if(isset($_SESSION['loggedin'])){
         $idsesion = $_SESSION['userId'];
+        $userType = $_SESSION['userType'];
+        
+
     }else{
-        $idsesion = '0';
+        $tipoLink = $_GET['tipo'];
+        if($tipoLink == "guestLS"){
+            $idsesion = $_GET['telefono'];
+            $userType = '6';
+            
+        }else{
+            $idsesion = '0';
+            $userType = '0';
+        
+        }
+        
     }
+
 ?>
 
 <script>
@@ -23,10 +38,27 @@
 
     $( document ).ready(function() {
 
-        miSesion = <?php echo $idsesion; ?>;
+        var miSesion = <?php echo $idsesion; ?>;
+        var userType = <?php echo $userType; ?>;
+        console.log(miSesion);
+        console.log(userType);
+
+        if(userType == 0){
+
+            console.log("Por Favor Inicia Sesión");
+            var linkSwipe = "?page=1&log=listaRes";
+            window.location.href = linkSwipe;
+
+        } else if(userType == 6){
+            console.log("Sesión de Invitado");
+
+        } else{
+            console.log("Sesión Iniciada");
+        }
+
+    
         opcion = 1;
 
-        console.log(miSesion);
 
         $.ajax({
           url: "modelos/modelo.misReservas.php",

@@ -22,7 +22,7 @@ switch($opcion){
 
 
         if(sizeof($idRes) == 0){
-            $idRes = false;
+            $final = false;
         }else {
             $final = array();
         
