@@ -40,7 +40,7 @@
                         "panelControl": panelControl
                     },
                     success: function(response) {
-                        alert(response);
+                        //alert(response);
                         if(response != "0")
                             alert("Usuario creado correctamento");
                         else
