@@ -102,7 +102,7 @@
                 </div>
 <!-- Zona de administrar staff-->
                 <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-                <div class="zonaRps">
+                <div class="zonaRps2">
         <div class="wrap flexRps2">
 
         <div class="card cardNegra cardRp mb-3" style="max-width: 540px;">
