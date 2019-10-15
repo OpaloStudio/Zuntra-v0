@@ -12,7 +12,7 @@ var pagina_actual = 1;
 
 var usuario;    //Variables que almacenara todos los usuarios
 
-$( document ).ready(function() {
+$(document).ready(function() {
     $(".cardTable").niceScroll({cursorcolor:"#DEC9A1"});
     $('#3').addClass('actived'); 
 
@@ -141,6 +141,8 @@ function buscarUsuarioNombre(me) {
 function crearPaginas() {
     paginas_creadas = Math.ceil(total_usuarios / 10);
     $("#paginacionUsuarios li:not(:first):not(:last)").remove();
+    $("#paginacionUsuarios li").removeClass("active");
+    pagina_actual = 1;
     for(var i = 0; i < total_usuarios / total_paginas && i < total_paginas; i++) {
         $("<li class='page-item'><a class='page-link' href='#'>" + (i + 1) + "</a></li>").insertBefore($("#paginacionUsuariosNext"));
         pagina_ultima = i + 1;
