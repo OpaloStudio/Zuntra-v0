@@ -32,9 +32,9 @@
                             <input type="number" class="form-control inputsClaros" id="telefono">
                         </div>
                         <div class="form-group">
-                            <label class="negro" for="exampleFormControlSelect1">Puesto</label>
+                            <label class="negro" for="puesto">Puesto</label>
                             <select class="form-control inputsClaros" id="puesto">
-                                <option selected value='0'>-Selecciona uno-</option>
+                                <option selected value='0' disabled>-Selecciona uno-</option>
                                 <option value='1'>RP </option>
                                 <option value='2'>Mesero </option>
                                 <option value='3'>Capitán </option>
@@ -43,38 +43,31 @@
                             </select>
                         </div>
 
-                       <div class="zoneRadios">
-                       <label class="negro" for="exampleFormControlSelect1">Acceso a Scanner</label><br>
+                        <div class="zoneRadios">
+                            <label class="negro">Acceso a Scanner</label><br>
                             <div class="form-check form-check-inline">
-                            
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
-                                    value="option1">
-                                <label class="form-check-label" for="inlineRadio1">Sí</label>
+                                <input class="form-check-input" name="scanner" type="radio" id="scannerSi" value="1">
+                                <label class="form-check-label" for="scannerSi">Sí</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
-                                    value="option2">
-                                <label class="form-check-label" for="inlineRadio2">No</label>
+                                <input class="form-check-input" name="scanner" type="radio" id="scannerNo" value="0" checked>
+                                <label class="form-check-label" for="scannerNo">No</label>
                             </div>
-                       </div><br>
-                       <div class="zoneRadios">
-                       <label class="negro" for="exampleFormControlSelect1">Acceso a Panel de Control</label><br>
+                        </div><br>
+                        <div class="zoneRadios">
+                            <label class="negro">Acceso a Panel de Control</label><br>
                             <div class="form-check form-check-inline">
-                            
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
-                                    value="option1">
-                                <label class="form-check-label" for="inlineRadio1">Sí</label>
+                                <input class="form-check-input" name="controlPane" type="radio" id="controlPaneSi" value="1">
+                                <label class="form-check-label" for="controlPaneSi">Sí</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
-                                    value="option2">
-                                <label class="form-check-label" for="inlineRadio2">No</label>
+                                <input class="form-check-input" name="controlPane" type="radio" id="controlPaneNo" value="0" checked>
+                                <label class="form-check-label" for="controlPaneNo">No</label>
                             </div>
                        </div>
 
                         <div class="zonaBtnRegistro">
-                            <button type="button" class="btn btnRegistro" id="botonRegistrar"
-                                onclick="registrar()">Agregar</button>
+                            <button type="button" class="btn btnRegistro" id="botonRegistrar" onclick="btnRegistrar()">Agregar</button>
                         </div>
                     </form>
 
