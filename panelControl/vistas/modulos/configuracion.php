@@ -43,8 +43,30 @@
                             </select>
                         </div>
 
-                        <div class="zoneRadios">
-                            <label class="negro">Acceso a Scanner</label><br>
+                        <div class="form-group">
+                            <label for="mail">Email</label>
+                            <input type="email" class="form-control inputsClaros" id="mail">
+                        </div>
+                        <div class="form-group">
+                            <label>Cumpleaños</label>
+                            <div class="input-group date" id="cumpleanos" data-target-input="nearest">
+                                <input type="text" id="cumpleaños" class="form-control datetimepicker-input inputsClaros" data-target="#datetimepicker4" />
+                                <div class="input-group-append" data-target="#datetimepicker4" data-toggle="datetimepicker">
+                                    <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Contraseña</label>
+                            <input type="password" class="form-control inputsClaros" id="password">
+                        </div>
+                        <div class="form-group">
+                            <label for="password2">Repetir Contraseña</label>
+                            <input type="password" class="form-control inputsClaros" id="password2">
+                        </div>
+
+                       <div class="zoneRadios">
+                            <label class="negro" for="exampleFormControlSelect1">Acceso a Scanner</label><br>
                             <div class="form-check form-check-inline">
                                 <input class="form-check-input" name="scanner" type="radio" id="scannerSi" value="1">
                                 <label class="form-check-label" for="scannerSi">Sí</label>
@@ -67,13 +89,82 @@
                        </div>
 
                         <div class="zonaBtnRegistro">
-                            <button type="button" class="btn btnRegistro" id="botonRegistrar" onclick="btnRegistrar()">Agregar</button>
+                            <button type="button" class="btn btnRegistro" id="botonRegistrar" enabled="true" onclick="btnRegistrar()">Agregar</button>
                         </div>
                     </form>
 
                 </div>
+<!-- Zona de administrar staff-->
+                <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                <div class="zonaRps">
+        <div class="wrap flexRps2">
 
-                <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">...</div>
+        <div class="card cardNegra cardRp mb-3" style="max-width: 540px;">
+                            <div class="row no-gutters">
+                                <div class="col-md-4">
+                                    <img src="vistas/img/perfil.jpg" class="card-img" alt="profile-pic">
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Nombre Monito</h5>
+                                        <p class="card-text">30/50
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card cardNegra cardRp mb-3" style="max-width: 540px;">
+                            <div class="row no-gutters">
+                                <div class="col-md-4">
+                                    <img src="vistas/img/logo.png" class="card-img" alt="profile-pic">
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Nombre Monito</h5>
+                                        <p class="card-text">30/50
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card cardNegra cardRp mb-3" style="max-width: 540px;">
+                            <div class="row no-gutters">
+                                <div class="col-md-4">
+                                    <img src="vistas/img/logo.png" class="card-img" alt="profile-pic">
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Nombre Monito</h5>
+                                        <p class="card-text">30/50
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card cardNegra cardRp mb-3" style="max-width: 540px;">
+                            <div class="row no-gutters">
+                                <div class="col-md-4">
+                                    <img src="vistas/img/logo.png" class="card-img" alt="profile-pic">
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Nombre Monito</h5>
+                                        <p class="card-text">30/50
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                       
+                        
+        
+        </div>
+    </div>
+                </div>
+
                 <div class="tab-pane fade" id="nav-eventos" role="tabpanel" aria-labelledby="nav-eventos-tab">...</div>
                 <div class="tab-pane fade" id="nav-diseno" role="tabpanel" aria-labelledby="nav-diseno-tab">...</div>
             </div>

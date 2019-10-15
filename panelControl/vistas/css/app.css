@@ -264,6 +264,12 @@
 .colorcin {
   color: #212121 !important; }
 
+.zonaRps {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: -35rem; }
+
 .barra {
   background-color: #212121 !important;
   height: 100vh;

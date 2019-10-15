@@ -86,7 +86,7 @@
                 
             }
             
-            imprimirCards(fechas, numPersonas, links, content2);
+            imprimirCards(fechas, numPersonas, links, content2, miSesion);
 
                 
             },
@@ -95,11 +95,12 @@
         
     });
     
-    function imprimirCards(fechas, numPersonas, links, content2){
+    function imprimirCards(fechas, numPersonas, links, content2, miSesion){
 
         console.log(fechas);
         console.log(numPersonas);
         console.log(links);
+        console.log(miSesion);
 
         opcion = 2;
 

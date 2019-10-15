@@ -7,6 +7,9 @@
     $nombre = $conexion->real_escape_string($_POST["nombre"]);
     $telefono = $conexion->real_escape_string($_POST["telefono"]);
     $puesto = $conexion->real_escape_string($_POST["puesto"]);
+    $mail = $conexion->real_escape_string($_POST["mail"]);
+    $password = $conexion->real_escape_string($_POST["password"]);
+    $cumpleanos = $conexion->real_escape_string($_POST["cumpleanos"]);
     $scanner = $conexion->real_escape_string($_POST["scanner"]);
     $panelControl = $conexion->real_escape_string($_POST["panelControl"]);
 
