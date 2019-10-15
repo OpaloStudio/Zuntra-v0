@@ -20,6 +20,7 @@ if(isset($_SESSION['loggedin'])){
     var perfilesNombre = new Array();
     var perfilesBio = new Array();
     var perfilesBloqueados = new Array();
+    var perfilesExtra = new Array();
     var indiceSwipe;
     var indiceBloqueos;
     var option;
@@ -84,6 +85,40 @@ if(isset($_SESSION['loggedin'])){
                             perfilesNombre.push(perfiles[a].nombre);
                             perfilesBio.push(perfiles[a].biografia);
                             perfilesID.push(perfiles[a].idUser);
+
+                            var fecha = new Date(perfiles[a].cumpleanos);
+                            var edad =  _calculateAge(fecha);
+                            var extra;
+
+                            function _calculateAge(birthday) { // birthday is a date
+                                var ageDifMs = Date.now() - birthday.getTime();
+                                var ageDate = new Date(ageDifMs); // miliseconds from epoch
+                                return Math.abs(ageDate.getUTCFullYear() - 1970);
+                            }
+                            console.log("Tipo Cita: "+perfiles[a].idTipoCita);
+                            switch(perfiles[a].idTipoCita){
+                                case '1':
+                                    extra = edad+" años - Amigos";
+                                break;
+
+                                case '2':
+                                    extra = edad+" años - Chat";
+                                break;
+
+                                case '3':
+                                    extra = edad+" años - Citas";
+                                break;
+                                case '4':
+                                    extra = edad+" años - Relación";
+                                break;
+
+                                default:
+                                    extra = "Sin Info Completa.";
+                                break;
+                            }
+                            console.log(extra);
+                            perfilesExtra.push(extra);
+
                             console.log(perfiles[a].nombre + ' Adentro');
                         }
                     }
@@ -98,8 +133,11 @@ if(isset($_SESSION['loggedin'])){
                     console.log(perfilesBio[indiceSwipe]);
                     console.log(perfilesID[indiceSwipe]);
 
+                    
+
                     $("#nombreSwipe").text(perfilesNombre[indiceSwipe]);
                     $("#bioSwipe").text(perfilesBio[indiceSwipe]);
+                    $("#extraInfo").text(perfilesExtra[indiceSwipe]);
                     $("#imgSwip1").attr("src","vistas/img/usuarios/"+perfilesID[indiceSwipe]+"/perfil/"+perfilesID[indiceSwipe]+"-1.jpg");
                     $("#imgSwip2").attr("src","vistas/img/usuarios/"+perfilesID[indiceSwipe]+"/perfil/"+perfilesID[indiceSwipe]+"-2.jpg");
                     $("#imgSwip3").attr("src","vistas/img/usuarios/"+perfilesID[indiceSwipe]+"/perfil/"+perfilesID[indiceSwipe]+"-3.jpg");
@@ -122,6 +160,7 @@ if(isset($_SESSION['loggedin'])){
 
         $("#nombreSwipe").text(perfilesNombre[indiceSwipe]);
         $("#bioSwipe").text(perfilesBio[indiceSwipe]);
+        $("#extraInfo").text(perfilesExtra[indiceSwipe]);
         $("#imgSwip1").attr("src","vistas/img/usuarios/"+perfilesID[indiceSwipe]+"/perfil/"+perfilesID[indiceSwipe]+"-1.jpg");
         $("#imgSwip2").attr("src","vistas/img/usuarios/"+perfilesID[indiceSwipe]+"/perfil/"+perfilesID[indiceSwipe]+"-2.jpg");
         $("#imgSwip3").attr("src","vistas/img/usuarios/"+perfilesID[indiceSwipe]+"/perfil/"+perfilesID[indiceSwipe]+"-3.jpg");

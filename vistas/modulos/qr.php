@@ -1,7 +1,7 @@
 <div class="contenedorQr">
 <nav class="navbar fixed-top  ">
     <div class="iconos">
-      <a href="?page=13"> <i class="fas fa-arrow-left colorcin"></i></a>
+      <a href="?page=17"> <i class="fas fa-arrow-left colorcin"></i></a>
       <h1 class=" divTitutlo text-center"></h1>
     </div>
 </nav>

@@ -60,7 +60,7 @@
       <div class="col-12">
       <div class="divNombre">
       <h2 id = 'nombreSwipe' ></h2>
-      <h6>24 años - citas</h6>
+      <h6 id = 'extraInfo'>24 años - citas</h6>
       </div>
       </div>
     </div>
