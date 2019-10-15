@@ -9,6 +9,17 @@
             <div class="table-responsive flexTable d-flex flex-column">
                 <table class="table table-hover tablaUsuarios" id="tablaUsuarios">
                     <thead class="headTabla">
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">ID</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Cumpleaños</th>
+                            <th scope="col">Correo</th>
+                            <th scope="col">Teléfono</th>
+                            <th scope="col">Sexo</th>
+                            <th scope="col">Busca</th>
+                            <th scope="col">Tipo de cita</th>
+                        </tr>
                     <tbody>
                     </tbody>
                 </table>
