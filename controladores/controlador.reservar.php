@@ -181,7 +181,7 @@ function reservacionAdb(){
 
                         if(msg != "996"){
 
-                            //window.location.href = msg;
+                            window.location.href = msg;
 
                         } else {
                             alert("Ha ocurrido un error interno, inténtalo más tarde.");

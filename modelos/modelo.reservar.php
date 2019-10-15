@@ -51,7 +51,7 @@ switch($option){
   case '2';
 
 
-    $sql = "INSERT INTO reservaciones (idTipoRes, numPersonas, activa, idUser, nombre, fecha, telefono, invitacion, idRp) VALUES ('$idTipoRes', '$numPersonas', '0', '$idUser', '$nombreUser', '$newDate', '$telefono', NULL, '$idRp')";
+    $sql = "INSERT INTO reservaciones (idTipoRes, numPersonas, activa, idUser, nombre, fecha, telefono, invitacion, idRp) VALUES ('$idTipoRes', '$numPersonas', '1', '$idUser', '$nombreUser', '$newDate', '$telefono', NULL, '$idRp')";
 
     if($conexion->query($sql)){
 
