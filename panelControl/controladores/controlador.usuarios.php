@@ -129,13 +129,13 @@ function obtenerUsuarios(ini, fin) {
 function buscarUsuarioNombre(me) {
     $("#tablaUsuarios tbody").empty();
     total_usuarios = 0;
-    for(var i = 0; usuario.length; i++) {
-        if(usuario[i].nombre.toLowerCase().includes(me.value)) {
+    for(var i = 0; i < usuario.length; i++) {
+        if(usuario[i].nombre.toLowerCase().includes(me.value.toLowerCase())) {
             $("#tablaUsuarios tbody").append("<tr><th scope='row'>" + (total_usuarios + 1) + "</th><td>" + usuario[i].idUser + "</td><td>" + usuario[i].nombre + "</td><td>" + usuario[i].cumpleanos + "</td><td>" + usuario[i].correo + "</td><td>" + usuario[i].telefono + "</td><td>" + usuario[i].tipoSexo + "</td><td>" + usuario[i].busco + "</td><td>" + usuario[i].tipoCita +"</td></tr>");
             total_usuarios++;
-            crearPaginas();
         }
     }
+    crearPaginas();
 }
 
 function crearPaginas() {
@@ -145,9 +145,9 @@ function crearPaginas() {
         $("<li class='page-item'><a class='page-link' href='#'>" + (i + 1) + "</a></li>").insertBefore($("#paginacionUsuariosNext"));
         pagina_ultima = i + 1;
     }
-    if(total_usuarios <= 1)
+    if(total_usuarios <= 10) {
         $("#paginacionUsuariosNext").addClass("disabled");
-    else
+    } else
         $("#paginacionUsuariosNext").removeClass("disabled");
     $("#paginacionUsuarios li").eq(pagina_primera).addClass("active");
 }
