@@ -166,6 +166,18 @@
   align-items: flex-start;
   padding-top: 2rem; }
 
+.zonaScroll {
+  width: 80vw;
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column; }
+
+.newStaff {
+  width: 60vw;
+  display: flex;
+  flex-direction: column; }
+
 .zonaCuadro {
   background-color: white;
   width: 80vw;
@@ -230,6 +242,27 @@
   object-fit: cover !important;
   object-position: center center !important;
   padding: 1rem; }
+
+.btnRegistro {
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+  color: white;
+  background-color: #DEC9A1;
+  font-size: 20px;
+  border: 2px solid white; }
+  .btnRegistro:hover {
+    color: white;
+    background-color: black;
+    border: 2px solid white; }
+
+.zonaBtnRegistro {
+  width: 100%;
+  display: flex;
+  justify-content: center; }
+
+.colorcin {
+  color: #212121 !important; }
 
 .barra {
   background-color: #212121 !important;
