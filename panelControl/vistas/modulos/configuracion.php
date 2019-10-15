@@ -35,67 +35,62 @@
                             <label class="negro" for="exampleFormControlSelect1">Puesto</label>
                             <select class="form-control inputsClaros" id="puesto">
                                 <option selected value='0'>-Selecciona uno-</option>
-                                <option value='1'>RP </option>
-                                <option value='2'>Mesero </option>
-                                <option value='3'>Capitán </option>
-                                <option value='3'>Cadenero </option>
-                                <option value='3'>Gerente </option>
+                                <option>RP </option>
+                                <option>Mesero </option>
+                                <option>Capitán </option>
+                                <option>Cadenero </option>
+                                <option>Gerente </option>
                             </select>
                         </div>
 
                         <div class="form-group">
-      <label for="mail">Email</label>
-      <input type="email" class="form-control inputsClaros" id="mail">
-    </div>
-    <div class="form-group">
-      <label>Cumpleaños</label>
-      <div class="input-group date" id="datetimepicker4" data-target-input="nearest">
-        <input type="text" id="cumpleaños" class="form-control datetimepicker-input inputsClaros" data-target="#datetimepicker4" />
-        <div class="input-group-append" data-target="#datetimepicker4" data-toggle="datetimepicker">
-          <div class="input-group-text"><i class="fa fa-calendar"></i></div>
-        </div>
-      </div>
-    </div>
-    <div class="form-group">
-      <label for="password">Contraseña</label>
-      <input type="password" class="form-control inputsClaros" id="password">
-    </div>
-    <div class="form-group">
-      <label for="password2">Repetir Contraseña</label>
-      <input type="password" class="form-control inputsClaros" id="password2">
-    </div>
+                            <label for="mail">Email</label>
+                            <input type="email" class="form-control inputsClaros" id="mail">
+                        </div>
+                        <div class="form-group">
+                            <label>Cumpleaños</label>
+                            <div class="input-group date" id="datetimepicker4" data-target-input="nearest">
+                                <input type="text" id="cumpleanos" class="form-control datetimepicker-input inputsClaros" data-target="#datetimepicker4" />
+                                <div class="input-group-append" data-target="#datetimepicker4" data-toggle="datetimepicker">
+                                    <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Contraseña</label>
+                            <input type="password" class="form-control inputsClaros" id="password">
+                        </div>
+                        <div class="form-group">
+                            <label for="password2">Repetir Contraseña</label>
+                            <input type="password" class="form-control inputsClaros" id="password2">
+                        </div>
 
                        <div class="zoneRadios">
-                       <label class="negro" for="exampleFormControlSelect1">Acceso a Scanner</label><br>
+                        <label class="negro">Acceso a Scanner</label><br>
                             <div class="form-check form-check-inline">
                             
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
-                                    value="option1">
-                                <label class="form-check-label" for="inlineRadio1">Sí</label>
+                                <input class="form-check-input" type="radio" name="scanner" id="scannerSi" value="1" checked>
+                                <label class="form-check-label" for="scannerSi">Sí</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
-                                    value="option2">
-                                <label class="form-check-label" for="inlineRadio2">No</label>
+                                <input class="form-check-input" type="radio" name="scanner" id="scannerNo" value="0">
+                                <label class="form-check-label" for="scannerNo">No</label>
                             </div>
                        </div><br>
                        <div class="zoneRadios">
-                       <label class="negro" for="exampleFormControlSelect1">Acceso a Panel de Control</label><br>
+                       <label class="negro">Acceso a Panel de Control</label><br>
                             <div class="form-check form-check-inline">
-                            
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
-                                    value="option1">
-                                <label class="form-check-label" for="inlineRadio1">Sí</label>
+                                <input class="form-check-input" type="radio" name="controlPane" id="controlPaneSi" value="1" checked>
+                                <label class="form-check-label" for="controlPaneSi">Sí</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
-                                    value="option2">
-                                <label class="form-check-label" for="inlineRadio2">No</label>
+                                <input class="form-check-input" type="radio" name="controlPane" id="controlPaneNo" value="0">
+                                <label class="form-check-label" for="controlPaneNo">No</label>
                             </div>
                        </div>
 
                         <div class="zonaBtnRegistro">
-                            <button type="button" class="btn btnRegistro" id="botonRegistrar" onclick="registrar()">Agregar</button>
+                            <button type="button" class="btn btnRegistro" id="botonRegistrar" onclick="btnRegistrar()">Agregar</button>
                         </div>
                     </form>
 
