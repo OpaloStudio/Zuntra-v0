@@ -1163,24 +1163,33 @@ label {
   color: #DEC9A1; }
 
 .zonaReservaciones {
-  height: 100vh; }
+  height: 100vh;
+  width: 100vw; }
 
 .moverAbajo {
   padding-top: 12vh; }
 
 .cardReserva {
   border: 1px solid #212121;
-  width: 20vw;
+  width: 15rem;
+  height: 2.5rem;
   -webkit-border-radius: 15px;
   -moz-border-radius: 15px;
   border-radius: 15px;
   display: flex;
   justify-content: space-between;
-  padding-left: 1rem;
-  padding-right: 1rem; }
+  padding: 0.5rem 1rem 0.5rem 1rem;
+  margin-bottom: 1rem; }
 
 .miReserva {
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+
+.misInvitaciones {
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center; }
 
