@@ -95,8 +95,7 @@
                        </div>
 
                         <div class="zonaBtnRegistro">
-                            <button type="button" class="btn btnRegistro" id="botonRegistrar"
-                                onclick="registrar()">Agregar</button>
+                            <button type="button" class="btn btnRegistro" id="botonRegistrar" onclick="registrar()">Agregar</button>
                         </div>
                     </form>
 
@@ -111,12 +110,22 @@
                                 <div class="col-md-4">
                                     <img src="vistas/img/perfil.jpg" class="card-img" alt="profile-pic">
                                 </div>
-                                <div class="col-md-8">
+                                <div class="col-md-6">
                                     <div class="card-body">
-                                        <h5 class="card-title">Nombre Monito</h5>
-                                        <p class="card-text">30/50
+                                        <h5 class="card-title text-center">Nombre Monito</h5>
+                                        <p class="card-text text-center">30/50
                                         </p>
                                     </div>
+                                </div>
+                                <div class="col-md-2 znBtns">
+                                   
+                                    <div class="editar">
+                                       <h5 class="dorado">Editar</h5>
+                                       </div>
+                                       <div class="eliminar">
+                                       <h5 class="dorado">Eliminar</h5>
+                                    </div>
+                                    
                                 </div>
                             </div>
                         </div>
@@ -124,43 +133,48 @@
                         <div class="card cardNegra cardRp mb-3" style="max-width: 540px;">
                             <div class="row no-gutters">
                                 <div class="col-md-4">
-                                    <img src="vistas/img/logo.png" class="card-img" alt="profile-pic">
+                                    <img src="vistas/img/perfil.jpg" class="card-img" alt="profile-pic">
                                 </div>
-                                <div class="col-md-8">
+                                <div class="col-md-6">
                                     <div class="card-body">
-                                        <h5 class="card-title">Nombre Monito</h5>
-                                        <p class="card-text">30/50
+                                        <h5 class="card-title text-center">Nombre Monito</h5>
+                                        <p class="card-text text-center">30/50
                                         </p>
                                     </div>
                                 </div>
+                                <div class="col-md-2 znBtns">
+                                   
+                                    <div class="editar">
+                                       <h5 class="dorado">Editar</h5>
+                                       </div>
+                                       <div class="eliminar">
+                                       <h5 class="dorado">Eliminar</h5>
+                                    </div>
+                                    
+                                </div>
                             </div>
-                        </div>
+                        </div> 
                         <div class="card cardNegra cardRp mb-3" style="max-width: 540px;">
                             <div class="row no-gutters">
                                 <div class="col-md-4">
-                                    <img src="vistas/img/logo.png" class="card-img" alt="profile-pic">
+                                    <img src="vistas/img/perfil.jpg" class="card-img" alt="profile-pic">
                                 </div>
-                                <div class="col-md-8">
+                                <div class="col-md-6">
                                     <div class="card-body">
-                                        <h5 class="card-title">Nombre Monito</h5>
-                                        <p class="card-text">30/50
+                                        <h5 class="card-title text-center">Nombre Monito</h5>
+                                        <p class="card-text text-center">30/50
                                         </p>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-
-                        <div class="card cardNegra cardRp mb-3" style="max-width: 540px;">
-                            <div class="row no-gutters">
-                                <div class="col-md-4">
-                                    <img src="vistas/img/logo.png" class="card-img" alt="profile-pic">
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Nombre Monito</h5>
-                                        <p class="card-text">30/50
-                                        </p>
+                                <div class="col-md-2 znBtns">
+                                   
+                                    <div class="editar">
+                                       <h5 class="dorado">Editar</h5>
+                                       </div>
+                                       <div class="eliminar">
+                                       <h5 class="dorado">Eliminar</h5>
                                     </div>
+                                    
                                 </div>
                             </div>
                         </div>
@@ -177,4 +191,46 @@
             </div>
         </div>
     </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="editarmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="eliminarModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
 </div>
