@@ -32,14 +32,14 @@
                             <input type="number" class="form-control inputsClaros" id="telefono">
                         </div>
                         <div class="form-group">
-                            <label class="negro" for="puesto">Puesto</label>
+                            <label class="negro" for="exampleFormControlSelect1">Puesto</label>
                             <select class="form-control inputsClaros" id="puesto">
-                                <option selected value='0' disabled>-Selecciona uno-</option>
-                                <option value='1'>RP </option>
-                                <option value='2'>Mesero </option>
-                                <option value='3'>Capitán </option>
-                                <option value='3'>Cadenero </option>
-                                <option value='3'>Gerente </option>
+                                <option selected value='0'>-Selecciona uno-</option>
+                                <option>RP </option>
+                                <option>Mesero </option>
+                                <option>Capitán </option>
+                                <option>Cadenero </option>
+                                <option>Gerente </option>
                             </select>
                         </div>
 
@@ -49,8 +49,8 @@
                         </div>
                         <div class="form-group">
                             <label>Cumpleaños</label>
-                            <div class="input-group date" id="cumpleanos" data-target-input="nearest">
-                                <input type="text" id="cumpleaños" class="form-control datetimepicker-input inputsClaros" data-target="#datetimepicker4" />
+                            <div class="input-group date" id="datetimepicker4" data-target-input="nearest">
+                                <input type="text" id="cumpleanos" class="form-control datetimepicker-input inputsClaros" data-target="#datetimepicker4" />
                                 <div class="input-group-append" data-target="#datetimepicker4" data-toggle="datetimepicker">
                                     <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                                 </div>
@@ -66,30 +66,31 @@
                         </div>
 
                        <div class="zoneRadios">
-                            <label class="negro" for="exampleFormControlSelect1">Acceso a Scanner</label><br>
+                        <label class="negro">Acceso a Scanner</label><br>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" name="scanner" type="radio" id="scannerSi" value="1">
+                            
+                                <input class="form-check-input" type="radio" name="scanner" id="scannerSi" value="1" checked>
                                 <label class="form-check-label" for="scannerSi">Sí</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" name="scanner" type="radio" id="scannerNo" value="0" checked>
+                                <input class="form-check-input" type="radio" name="scanner" id="scannerNo" value="0">
                                 <label class="form-check-label" for="scannerNo">No</label>
                             </div>
-                        </div><br>
-                        <div class="zoneRadios">
-                            <label class="negro">Acceso a Panel de Control</label><br>
+                       </div><br>
+                       <div class="zoneRadios">
+                       <label class="negro">Acceso a Panel de Control</label><br>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" name="controlPane" type="radio" id="controlPaneSi" value="1">
+                                <input class="form-check-input" type="radio" name="controlPane" id="controlPaneSi" value="1" checked>
                                 <label class="form-check-label" for="controlPaneSi">Sí</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" name="controlPane" type="radio" id="controlPaneNo" value="0" checked>
+                                <input class="form-check-input" type="radio" name="controlPane" id="controlPaneNo" value="0">
                                 <label class="form-check-label" for="controlPaneNo">No</label>
                             </div>
                        </div>
 
                         <div class="zonaBtnRegistro">
-                            <button type="button" class="btn btnRegistro" id="botonRegistrar" enabled="true" onclick="btnRegistrar()">Agregar</button>
+                            <button type="button" class="btn btnRegistro" id="botonRegistrar" onclick="btnRegistrar()">Agregar</button>
                         </div>
                     </form>
 
@@ -104,12 +105,22 @@
                                 <div class="col-md-4">
                                     <img src="vistas/img/perfil.jpg" class="card-img" alt="profile-pic">
                                 </div>
-                                <div class="col-md-8">
+                                <div class="col-md-6">
                                     <div class="card-body">
-                                        <h5 class="card-title">Nombre Monito</h5>
-                                        <p class="card-text">30/50
+                                        <h5 class="card-title text-center">Nombre Monito</h5>
+                                        <p class="card-text text-center">30/50
                                         </p>
                                     </div>
+                                </div>
+                                <div class="col-md-2 znBtns">
+                                   
+                                    <div class="editar">
+                                       <h5 class="dorado">Editar</h5>
+                                       </div>
+                                       <div class="eliminar">
+                                       <h5 class="dorado">Eliminar</h5>
+                                    </div>
+                                    
                                 </div>
                             </div>
                         </div>
@@ -117,43 +128,48 @@
                         <div class="card cardNegra cardRp mb-3" style="max-width: 540px;">
                             <div class="row no-gutters">
                                 <div class="col-md-4">
-                                    <img src="vistas/img/logo.png" class="card-img" alt="profile-pic">
+                                    <img src="vistas/img/perfil.jpg" class="card-img" alt="profile-pic">
                                 </div>
-                                <div class="col-md-8">
+                                <div class="col-md-6">
                                     <div class="card-body">
-                                        <h5 class="card-title">Nombre Monito</h5>
-                                        <p class="card-text">30/50
+                                        <h5 class="card-title text-center">Nombre Monito</h5>
+                                        <p class="card-text text-center">30/50
                                         </p>
                                     </div>
                                 </div>
+                                <div class="col-md-2 znBtns">
+                                   
+                                    <div class="editar">
+                                       <h5 class="dorado">Editar</h5>
+                                       </div>
+                                       <div class="eliminar">
+                                       <h5 class="dorado">Eliminar</h5>
+                                    </div>
+                                    
+                                </div>
                             </div>
-                        </div>
+                        </div> 
                         <div class="card cardNegra cardRp mb-3" style="max-width: 540px;">
                             <div class="row no-gutters">
                                 <div class="col-md-4">
-                                    <img src="vistas/img/logo.png" class="card-img" alt="profile-pic">
+                                    <img src="vistas/img/perfil.jpg" class="card-img" alt="profile-pic">
                                 </div>
-                                <div class="col-md-8">
+                                <div class="col-md-6">
                                     <div class="card-body">
-                                        <h5 class="card-title">Nombre Monito</h5>
-                                        <p class="card-text">30/50
+                                        <h5 class="card-title text-center">Nombre Monito</h5>
+                                        <p class="card-text text-center">30/50
                                         </p>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-
-                        <div class="card cardNegra cardRp mb-3" style="max-width: 540px;">
-                            <div class="row no-gutters">
-                                <div class="col-md-4">
-                                    <img src="vistas/img/logo.png" class="card-img" alt="profile-pic">
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Nombre Monito</h5>
-                                        <p class="card-text">30/50
-                                        </p>
+                                <div class="col-md-2 znBtns">
+                                   
+                                    <div class="editar">
+                                       <h5 class="dorado">Editar</h5>
+                                       </div>
+                                       <div class="eliminar">
+                                       <h5 class="dorado">Eliminar</h5>
                                     </div>
+                                    
                                 </div>
                             </div>
                         </div>
@@ -170,4 +186,46 @@
             </div>
         </div>
     </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="editarmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="eliminarModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
 </div>

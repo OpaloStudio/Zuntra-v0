@@ -1,4 +1,6 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', '1');
     $conexion = new mysqli("zuntrapopclub.com", "zuntrapo_user", ".Pinshicontra", "zuntrapo_bd");
     if ($conexion->connect_error) {
         die("La conexion falló: " . $conexion->connect_error);
@@ -13,5 +15,9 @@
     $scanner = $conexion->real_escape_string($_POST["scanner"]);
     $panelControl = $conexion->real_escape_string($_POST["panelControl"]);
 
-    $conxion->query("INSERT INTO ");
+    $result = $conexion->query("INSERT INTO usuarios (nombre, telefono, cumpleanos, correo, contrasena, scanner, panelControl, idTipoUsuario) SELECT '$nombre', '$telefono', '$cumpleanos', '$mail', '$password', $scanner, $panelControl, idTipoUsuario FROM tipoUsuario WHERE tipoUsuario LIKE '$puesto'");
+    if(!$result)
+        echo "0";
+    else
+        echo $conexion->insert_id;
  ?>

@@ -268,7 +268,27 @@
   width: 100%;
   display: flex;
   flex-wrap: wrap;
-  margin-top: -35rem; }
+  margin-top: -58rem; }
+
+.znBtns {
+  display: flex;
+  flex-direction: column; }
+
+.editar {
+  flex: 1;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer; }
+
+.eliminar {
+  flex: 1;
+  color: red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer; }
 
 .barra {
   background-color: #212121 !important;
