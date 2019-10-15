@@ -120,9 +120,9 @@
                                 <div class="col-md-2 znBtns">
                                    
                                     <div class="editar">
-                                       <h5 class="dorado">Editar</h5>
+                                       <h5 class="dorado" data-toggle="modal" data-target="#editarModal">Editar</h5>
                                        </div>
-                                       <div class="eliminar">
+                                       <div class="eliminar" data-toggle="modal" data-target="#eliminarModal">
                                        <h5 class="dorado">Eliminar</h5>
                                     </div>
                                     
@@ -194,22 +194,99 @@
 </div>
 
 <!-- Modal -->
-<div class="modal fade" id="editarmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="editarModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Editar Staff</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        ...
+      <form class="editarStaff">
+                        <div class=" flex1">
+                            <input type="file" class="hideInput" id="customFile1" name="pic1"
+                                onchange="openFile(event)">
+                            <label for="customFile1"><img id="foto1" src="vistas/img/cuadroCarga.svg"> </label>
+                        </div>
+                        <div class="form-group">
+                            <label for="nombre">Nombre</label>
+                            <input type="text" class="form-control inputsClaros" id="nombre">
+                        </div>
+                        <div class="form-group">
+                            <label for="telefono">Teléfono</label>
+                            <input type="number" class="form-control inputsClaros" id="telefono">
+                        </div>
+                        <div class="form-group">
+                            <label class="negro" for="exampleFormControlSelect1">Puesto</label>
+                            <select class="form-control inputsClaros" id="puesto">
+                                <option selected value='0'>-Selecciona uno-</option>
+                                <option value='1'>RP </option>
+                                <option value='2'>Mesero </option>
+                                <option value='3'>Capitán </option>
+                                <option value='3'>Cadenero </option>
+                                <option value='3'>Gerente </option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+      <label for="mail">Email</label>
+      <input type="email" class="form-control inputsClaros" id="mail">
+    </div>
+    <div class="form-group">
+      <label>Cumpleaños</label>
+      <div class="input-group date" id="datetimepicker4" data-target-input="nearest">
+        <input type="text" id="cumpleaños" class="form-control datetimepicker-input inputsClaros" data-target="#datetimepicker4" />
+        <div class="input-group-append" data-target="#datetimepicker4" data-toggle="datetimepicker">
+          <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+        </div>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+    </div>
+    <div class="form-group">
+      <label for="password">Contraseña</label>
+      <input type="password" class="form-control inputsClaros" id="password">
+    </div>
+    <div class="form-group">
+      <label for="password2">Repetir Contraseña</label>
+      <input type="password" class="form-control inputsClaros" id="password2">
+    </div>
+
+                       <div class="zoneRadios">
+                       <label class="negro" for="exampleFormControlSelect1">Acceso a Scanner</label><br>
+                            <div class="form-check form-check-inline">
+                            
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
+                                    value="option1">
+                                <label class="form-check-label" for="inlineRadio1">Sí</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
+                                    value="option2">
+                                <label class="form-check-label" for="inlineRadio2">No</label>
+                            </div>
+                       </div><br>
+                       <div class="zoneRadios">
+                       <label class="negro" for="exampleFormControlSelect1">Acceso a Panel de Control</label><br>
+                            <div class="form-check form-check-inline">
+                            
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
+                                    value="option1">
+                                <label class="form-check-label" for="inlineRadio1">Sí</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
+                                    value="option2">
+                                <label class="form-check-label" for="inlineRadio2">No</label>
+                            </div>
+                       </div>
+
+                        <div class="zonaBtnRegistro">
+                            <button type="button" class="btn btnRegistro" id="botonRegistrar" onclick="actualizarStaff()">Actualizar</button>
+                        </div>
+                    </form>
       </div>
+      
     </div>
   </div>
 </div>
@@ -219,17 +296,17 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Eliminar Staff</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        ...
+        ¿Realmente deseas eliminar a esta persona?
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+        <button type="button" class="btn btn-danger">Eliminar</button>
       </div>
     </div>
   </div>
