@@ -13,44 +13,41 @@ $option = $_POST['option'];
 $nombre = $_POST['nombre'];
 $codigo = $_POST['codigo'];
 
+$dia1 = $_POST['dia1'];
+$dia2 = $_POST['dia2'];
+
+
+
 switch($option){
 
     case '1';
 
-        $sql = "SELECT cover FROM qr WHERE idQr='1'";
-        $result = $conexion->query($sql); 
+    $sql = "SELECT cover FROM qr WHERE fecha='$dia1' AND fecha2='$dia2'";
+    $result = $conexion->query($sql); 
 
-        while($row = mysqli_fetch_array($result)){  
-            $numCover = (int)$row[0];
-        } 
-        
-        $newCover = (int)$numCover + 1;
+    while($row = mysqli_fetch_array($result)){  
+        $numCover = (int)$row[0];
+    } 
 
-        $sql2 = "UPDATE qr SET cover='$newCover' WHERE idQr='1'";
-        $result2 = $conexion->query($sql2); 
-        
-        if($conexion->query($sql2)){
+    if($numCover == null){
+        //No hay entrada en db por lo que se crea
+
+        $sql3 = "INSERT INTO qr (fecha, fecha2, cover, cortesia) VALUES ('$dia1', '$dia2', 1, 0)";
+
+        if($conexion->query($sql3)){
+            //Se creó
             $status = '1';
         } else{
-            $status = '999';//No es cover
+            $status = '997';//No se creó
         }
-
+        
         echo $status;
+    } else{
+        //Si hay por lo tanto se actualiza
 
-    break;
+        $newCover = (int)$numCover + 1;
 
-    case '2';
-
-        $sql = "SELECT cortesia FROM qr WHERE idQr='1'";
-        $result = $conexion->query($sql); 
-
-        while($row = mysqli_fetch_array($result)){  
-            $numCortesia = (int)$row[0];
-        } 
-
-        $newCortesia = (int)$numCortesia + 1;
-
-        $sql2 = "UPDATE qr SET cortesia='$newCortesia' WHERE idQr='1'";
+        $sql2 = "UPDATE qr SET cover='$newCover' WHERE fecha='$dia1' AND fecha2='$dia2'";
         $result2 = $conexion->query($sql2); 
 
         if($conexion->query($sql2)){
@@ -60,6 +57,49 @@ switch($option){
         }
 
         echo $status;
+    }
+
+    break;
+
+    case '2';
+
+        $sql = "SELECT cortesia FROM qr WHERE fecha='$dia1' AND fecha2='$dia2'";
+        $result = $conexion->query($sql); 
+
+        while($row = mysqli_fetch_array($result)){  
+            $numCortesia = (int)$row[0];
+        } 
+
+        if($numCortesia == null){
+            //No hay entrada en db por lo que se crea
+
+            $sql3 = "INSERT INTO qr (fecha, fecha2, cover, cortesia) VALUES ('$dia1', '$dia2', 0, 1)";
+
+            if($conexion->query($sql3)){
+                //Se creó
+                $status = '1';
+            } else{
+                $status = '997';//No se creó
+            }
+
+            echo $status;
+        } else{
+            //Si hay por lo tanto se actualiza
+
+            $newCortesia = (int)$numCortesia + 1;
+    
+            $sql2 = "UPDATE qr SET cortesia='$newCortesia' WHERE fecha='$dia1' AND fecha2='$dia2'";
+            $result2 = $conexion->query($sql2); 
+    
+            if($conexion->query($sql2)){
+                $status = '1';
+            } else{
+                $status = '998';//No es cortesia
+            }
+    
+            echo $status;
+        }
+
 
     break;
 

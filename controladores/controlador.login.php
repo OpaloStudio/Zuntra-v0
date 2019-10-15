@@ -106,6 +106,14 @@
                 nuevoLink = "?page=7";
             break;
 
+            case "scrRes":
+                nuevoLink = "?page=17";
+            break;
+
+            case "listaRes":
+                nuevoLink = "?page=16";
+            break;
+
             case "editar":
                 var usuarioReservacion = "<?php echo $user; ?>";
                 var idReservacion = <?php echo $reservacion; ?>;
@@ -197,36 +205,8 @@
             var nameGuest = document.getElementById('nameGuest').value;
             var celGuest = document.getElementById('phoneGuest').value;
 
-            $.ajax({
-            url: "modelos/modelo.usuarioEnReserva.php",
-            type: "POST",
-            data: ({
-                nameGuest:nameGuest,
-                celGuest:celGuest
-            }),
-            success: function(msg) {
-                console.log(msg);
-
-                switch(msg){
-
-                    case 1:
-                        alert("Existe Reservacion");
-                        var newLink = "?page=2&tipo=guestLS&telefono="+celGuest+"&nombre="+nameGuest;
-
-                        window.location.href = newLink;
-                    break;
-
-                    case 999:
-                        alert("No existe reserva con estos datos.");
-                        location.reload();
-                    break;
-
-                }
-
-
-            },
-            dataType: "json"
-        });
+            var newLink = "?page=17&tipo=guestLS&telefono="+celGuest+"&nombre="+nameGuest;
+            window.location.href = newLink;
             
         }
         

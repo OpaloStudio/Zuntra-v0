@@ -167,6 +167,10 @@ if(isset($_GET['nombre'])){
     });
 
     function generarQR(){
+        var numLogoQR = Math.floor((Math.random() * 6) + 1);
+
+        var logoQR = "vistas/img/imgsQr/pix"+numLogoQR+".png"
+        console.log(logoQR);
 
         qrcode = new QRCode(document.getElementById('idQR'), {
             width: 300,
@@ -175,7 +179,7 @@ if(isset($_GET['nombre'])){
             colorLight : "#ffffff",
             correctLevel : QRCode.CorrectLevel.H,
             // ==== Logo
-            logo:"vistas/img/pix1.png", // Relative address, relative to `easy.qrcode.min.js`
+            logo:logoQR, // Relative address, relative to `easy.qrcode.min.js`
             //logo:"http://127.0.0.1:8020/easy-qrcodejs/demo/logo.png", 
             logoWidth:120, // widht. default is automatic width
             logoHeight:120, // height. default is automatic height
