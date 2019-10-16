@@ -113,27 +113,32 @@
           }),
             success: function(msg) {
             console.log(msg);
+            content1 = "";
 
                 if(msg == false){
                     console.log("no haz creado reserva");
                     content1 = "<h4>Sin reserva creada</h4>"
                 }else {
 
-                    miFecha = msg[0].fecha;
-                    misPersonas = msg[0].numPersonas;
-                    miLink = msg[0].invitacion;
-    
-                    console.log(miFecha);
-                    console.log(misPersonas);
-                    console.log(miLink);
+                    
+                    for(var i = 0; i < msg.length; i++){
 
-                    content1 = "<div class='cardReserva' onclick=cambiar('"
+                        miFecha = msg[i].fecha;
+                        misPersonas = msg[i].numPersonas;
+                        miLink = msg[i].invitacion;
+        
+                        console.log(miFecha);
+                        console.log(misPersonas);
+                        console.log(miLink);
+        
+                        content1 += "<div class='cardReserva' onclick=cambiar('"
                                 +miLink+
                                 "')><span  class='dorado'>"
                                 +miFecha+
                                 "</span><span class='dorado'>"
                                 +misPersonas+
-                                " personas</span></div>";                
+                                " personas</span></div>";
+                    }            
                 }
                 if(fechas.length != 0){
 

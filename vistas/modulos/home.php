@@ -50,10 +50,10 @@ establecimiento </p>
         </button>
       </div>
       <div class="modal-body">
-     Te recomendamos aregarla ya que podrás disfrutar una mejor experiencia.
+     Te invitamos a instalar la App para una mejor experiencia, <br>(No pesa nada). 
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Luego</button>
         <button type="button" id="btnAdd" class="btn btnOscuro" >Añadir</button>
       </div>
     </div>

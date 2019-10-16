@@ -11,17 +11,18 @@
   </nav>
 
   <div class="zonaReservaciones" >
-  <h2 class="dorado text-center moverAbajo">Mis Reservaciones</h2>
+  <h2 class="dorado text-center moverAbajo">Mis Reservaciones</h2><br>
 
-  <h5 class="dorado text-center moverAbajo">Mi Reserva</h5>
+  <h3 class="dorado text-center ">Mi Reserva</h3>
   <div class="miReserva" id="reservaMia">
   
 
   </div>
-
-  <h5 class="dorado text-center moverAbajo">Mis invitaciones</h5>
+<br><br>
+  <h3 class="dorado text-center ">Mis invitaciones</h3>
   <div class="misInvitaciones" id="invitMias">
   </div>
+  <br>
     
 
 </div>

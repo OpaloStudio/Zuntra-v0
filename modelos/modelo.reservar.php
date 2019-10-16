@@ -26,11 +26,14 @@ $status = '999';
 
 
 
+
+
+
 switch($option){
 
   case '1';
 
-    $sql = "SELECT invitacion FROM reservaciones WHERE idUser='$idUser'";
+    $sql = "SELECT invitacion FROM reservaciones WHERE idUser='$idUser' AND fecha='$newDate'";
     $result = $conexion->query($sql);
     
     while($row = mysqli_fetch_array($result)){
@@ -46,6 +49,7 @@ switch($option){
   break;
 
   case '2';
+
 
     $sql = "INSERT INTO reservaciones (idTipoRes, numPersonas, activa, idUser, nombre, fecha, telefono, invitacion, idRp) VALUES ('$idTipoRes', '$numPersonas', '0', '$idUser', '$nombreUser', '$newDate', '$telefono', NULL, '$idRp')";
 

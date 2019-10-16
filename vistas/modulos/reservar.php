@@ -2,10 +2,10 @@
 <nav class="navbar fixed-top  ">
     <div class="iconos">
       <a href="?page=13"> <i class="fas fa-arrow-left colorcin"></i></a>
-      <h1 class=" divTitutlo text-center"></h1>
+      <button type="button" class="btn btnDudas dorado dudu" data-toggle="modal" data-target="#modalDudas">¿Dudas?</button>
     </div>
   </nav>
-<div class="dudas negro">Dudas ¿?</div>
+  
   <form class="formReservar">
   <div class="form-group">
       <label class="negro" for="exampleFormControlSelect1">¿Con quién quieres reservar?</label>
@@ -65,4 +65,26 @@
 
   </form>
   <div id="idQR" style="display: none;"></div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="modalDudas" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Que pez
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
 </div>

@@ -25,7 +25,7 @@
         if(nombre != "" && telefono !="" && puesto != "" && scanner != "" && panelControl != "" && mail != "" && cumpleanos != "" && password != "") {
             if(password == password2) {
                 aux = cumpleanos.split("/");
-                cumpleanos = aux[2] + "-" + aux[1] + "-" + aux[0];
+                cumpleanos = aux[2] + "-" + aux[0] + "-" + aux[1];
                 $.ajax({
                     type: "post",
                     url: "modelos/modelo.configuracion.php",
@@ -40,10 +40,12 @@
                         "panelControl": panelControl
                     },
                     success: function(response) {
-                        if(response != "0")
-                            alert("Usuario creado correctamento");
+                        if(response == "0")
+                            alert("Error: El Usuario no pudo ser creado");
+                        else if(response == "-1")
+                            alert("Error: El usuario ya existe en la base de datos");
                         else
-                            alert("Error: El usuario no pudo ser creado");
+                            alert("Fue creado correctamente");
                     }
                 });
             } else

@@ -7,7 +7,7 @@
 </nav>
 <div class="divEditar">
   <i onclick="editarReserva()" class="far fa-edit"></i>
-  <button type="button"  onclick="editarReserva()">Edit</button>
+
 
 </div><br><br>
 

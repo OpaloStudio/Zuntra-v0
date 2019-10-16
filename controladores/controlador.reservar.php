@@ -7,7 +7,6 @@ if(isset($_SESSION['loggedin'])){
     $userType = $_SESSION['userType'];
     $userName = $_SESSION['username'];
     $userPhone = $_SESSION['userPhone'];
-    //echo $idsesion;
     
 }else if($tipo == 'guestLS'){
     $userName = $_GET['nombre'];
@@ -66,33 +65,6 @@ $(function () {
         telefonoDiv.style.display = 'none';
         nombreDiv.style.display = 'none';
 
-        option = 1;
-
-        $.ajax({
-            url: "modelos/modelo.reservar.php",
-            type: "POST",
-            data: ({
-                session:session,
-                option:option
-            }),
-            success: function(msg) {
-                console.log(msg);
-
-                if(msg == false){
-                    console.log("Sin reservación existente")
-                }else if(tipo == "guestLS"){
-                    alert("Ya te encuentras en una reservación");
-                    window.location.href = "?page=6&log=guest&usuario="+msg.userRes+"&reservacion="+msg.idRes+"&nombre="+nombreReserva+"&telefono="+session;
-                }else{
-                    alert("Ya te encuentras en una reservación");
-                    window.location.href = msg;
-                }
-
-
-            },
-            dataType: "json"
-        });
-
         generarQR();
 
     });
@@ -124,7 +96,7 @@ $(function () {
             console.log("Se cargó el QR");
             basechida = document.getElementById("qrjs").src;
             console.log(basechida);
-            reservacionAdb(basechida);
+            reservaExist(basechida);
 
         }
 
@@ -231,8 +203,39 @@ function reservacionAdb(){
         dataType: "json"
     });
 
-    
-
 }
+ function reservaExist(basechida){
+
+    fechaReserva = document.getElementById('fechaReservacion').value;
+    //var newFecha = fechaReserva.substring(6)+"-"+fechaReserva.substring(3, 5)+"-"+fechaReserva.substring(0,2);
+    console.log(session);
+    console.log(fechaReserva);
+    //console.log(newFecha);
+    option = 1;
+    
+    $.ajax({
+      url: "modelos/modelo.reservar.php",
+      type: "POST",
+      data: ({
+          session:session,
+          fechaReserva:fechaReserva,
+          option:option
+      }),
+        success: function(msg) {
+        console.log(msg);
+
+        if(msg == false){
+            console.log("No hay reserva registrada en esa fecha");
+            reservacionAdb(basechida);
+        }else{
+            alert("Ya existe una reserva en esa fecha");
+        }
+        
+            
+        },
+        dataType: "json"
+    });
+ }
+
 </script>
 <script type="text/javascript" src="vistas/js/easy.qrcode.min.js" charset="utf-8"></script>
