@@ -237,5 +237,25 @@ function reservacionAdb(){
     });
  }
 
+ function changeTipoStaff(me) {
+    var staff = me.value;
+    $.ajax({
+        type: "post",
+        url: "modelos/modelo.reservar.php",
+        data: {
+            "option": "3",
+            "staff": staff
+        },
+        success: function(response) {
+            alert(response);
+            var usuarios = JSON.parse(response);
+            $("#selectorRP").empty();
+            $("#selectorRP").append("<option selected disabled>-Elige a alguien-</option>");
+            for(var i = 0; i < usuarios.length; i++)
+                $("#selectorRP").append("<option>" + usuarios[i].nombre + "</option>");
+        }
+    });
+ }
+
 </script>
 <script type="text/javascript" src="vistas/js/easy.qrcode.min.js" charset="utf-8"></script>

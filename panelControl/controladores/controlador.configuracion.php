@@ -132,7 +132,7 @@
                         if(response == "0")
                             alert("Error: El Usuario no pudo ser creado");
                         else if(response == "-1")
-                            alert("Error: El usuario ya existe en la base de datos");
+                            alert("Error: El correo electronico ya esta en uso");
                         else
                             alert("Fue creado correctamente");
                     }
@@ -185,7 +185,7 @@
                     if(response == "0")
                         alert("Error: El Usuario no pudo ser creado");
                     else if(response == "-1")
-                        alert("Error: El correo ya existe en la base de datos");
+                        alert("Error: El correo ya esta en uso");
                     else
                         alert("Fue creado correctamente");
                 }
