@@ -27,8 +27,9 @@
             },
             success: function(response) {
                 var usuarios = JSON.parse(response);
+                $("#rps").empty();
                 for(var i = 0; i < usuarios.length; i++)
-                    $("#rps").append('<div class="card cardNegra cardRp mb-3" style="max-width: 540px;" id="usuario' + usuarios[i].idUser + '"><div class="row no-gutters"><div class="col-md-4"><img src="vistas/img/perfil.jpg" class="card-img" alt="profile-pic"></div><div class="col-md-6"><div class="card-body"><h5 class="card-title text-center">' + usuarios[i].nombre + '</h5><p class="card-text text-center">30/50</p></div></div><div class="col-md-2 znBtns"><div class="editar"><h5 class="dorado" data-toggle="modal" data-target="#editarModal" onclick="editarModal(this)">Editar</h5></div><div class="eliminar" data-toggle="modal" data-target="#eliminarModal"><h5 class="dorado">Eliminar</h5></div></div></div></div>');
+                    $("#rps").append('<div class="card cardNegra cardRp mb-3" style="max-width: 540px;" id="usuario' + usuarios[i].idUser + '"><div class="row no-gutters"><div class="col-md-4"><img src="vistas/img/perfil.jpg" class="card-img" alt="profile-pic"></div><div class="col-md-6"><div class="card-body"><h5 class="card-title text-center">' + usuarios[i].nombre + '</h5><p class="card-text text-center">30/50</p></div></div><div class="col-md-2 znBtns"><div class="editar"><h5 class="dorado" data-toggle="modal" data-target="#editarModal" onclick="editarModal(this)">Editar</h5></div><div class="eliminar" data-toggle="modal" data-target="#eliminarModal"><h5 class="dorado" onclick="btnEliminarVerificar(this)">Eliminar</h5></div></div></div></div>');
             }
         });
     }
@@ -68,6 +69,32 @@
                     else
                         $("#epanelControlNo").prop("checked", true);
                 }
+            }
+        });
+    }
+
+    function btnEliminarVerificar(me) {
+        var idUser = $(me).parent().parent().parent().parent().attr("id").split("usuario")[1];
+        var nombre = $(me).parent().parent().siblings(".col-md-6").find("div").find("h5").text();
+        $("#idUserEliminar").val(idUser);
+        $("#eliminarUsuarioNombre").text(nombre);
+    }
+
+    function btnEliminarUsuario() {
+        var idUser = $("#idUserEliminar").val();
+        $.ajax({
+            type: "post",
+            url: "modelos/modelo.configuracion.php",
+            data: {
+                "eliminar": "1",
+                "idUser": idUser
+            },
+            success: function(response) {
+                if(response != "0") {
+                    adminStaff();
+                    alert("Usuario eliminado correctamente");
+                } else
+                    alert("Error: El usuario no pudo ser eliminado");
             }
         });
     }
@@ -147,7 +174,7 @@
                 if(password == password2)
                     datos.password = password;
                 else
-                    alert("Error: Las contraseñas no coiciden");
+                    alert("Error: Las contraseñas no coinciden");
             }
             $.ajax({
                 type: "post",
@@ -158,7 +185,7 @@
                     if(response == "0")
                         alert("Error: El Usuario no pudo ser creado");
                     else if(response == "-1")
-                        alert("Error: El usuario ya existe en la base de datos");
+                        alert("Error: El correo ya existe en la base de datos");
                     else
                         alert("Fue creado correctamente");
                 }

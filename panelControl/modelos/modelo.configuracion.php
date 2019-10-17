@@ -99,8 +99,14 @@
             if($conexion->query($sql2))
                 echo "1";
             else
-                echo "$sql2";
+                echo "0";
         }
+    } else if(isset($_POST["eliminar"])) {
+        $idUser = $_POST["idUser"];
+        if($conexion->query("DELETE FROM usuarios WHERE idUser = $idUser"))
+            echo "1";
+        else
+            echo "0";
     }
 
     $conexion->close();

@@ -263,23 +263,24 @@
     </div>
 </div>
 
-<!-- Modal -->
+<!-- Modal eliminar -->
 <div class="modal fade" id="eliminarModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Eliminar Staff</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        ¿Realmente deseas eliminar a esta persona?
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
-        <button type="button" class="btn btn-danger">Eliminar</button>
-      </div>
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Eliminar Staff</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <input type="hidden" value="" id="idUserEliminar">
+                ¿Realmente deseas eliminar a <b id="eliminarUsuarioNombre"></b>?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                <button type="button" class="btn btn-danger" onclick="btnEliminarUsuario()" data-dismiss="modal">Eliminar</button>
+            </div>
+        </div>
     </div>
-  </div>
 </div>
