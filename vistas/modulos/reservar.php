@@ -7,24 +7,30 @@
   </nav>
   
   <form class="formReservar">
+    <div class="form-group">
+      <label class="negro" for="tipoStaff">Cargo de staff</label>
+      <select class="form-control inputsClaros" id="tipoStaff" onchange="changeTipoStaff(this)">
+        <option selected disabled>-Elige el cargo de Staff-</option>
+        <option>Gerencia</option>
+        <option>RP</option>
+        <option>Mesero</option>
+        <option>Cadenero</option>
+        <option>Capitán</option>
+      </select>
+    </div>
   <div class="form-group">
-      <label class="negro" for="exampleFormControlSelect1">Elige una opción</label>
+      <label class="negro" for="selectorRP">¿Con quién quieres reservar?</label>
       <select class="form-control inputsClaros" id="selectorRP">
-      <option selected>-Elige a alguien-</option>
-        <option value='0'>Nadie</option>
-        <option value='1'>RP</option>
-        <option value='2'>Gerencia</option>
-        <option value='2'>Meseros</option>
-        <option value='2'>Capitanes</option>
+        <option selected disabled>-Elige a alguien-</option>
       </select>
     </div>
     <div class="form-group">
-      <label class="negro" for="exampleFormControlSelect1">¿Con quién quieres reservar?</label>
-      <select class="form-control inputsClaros" id="selectorRP">
-      <option selected>-Elige a alguien-</option>
-        <option value='0'>Nadie</option>
-        <option value='1'>Juanito</option>
-        <option value='2'>Lola</option>
+      <label class="negro" for="exampleFormControlSelect1">Tipo de Reservación</label>
+      <select class="form-control inputsClaros" id="tipoReserva">
+      <option selected value = '0'>-Elige el tipo de reservación-</option>
+        <option value = '1'>Reservación de cumpleaños</option>
+        <option value = '2'>Reservación Simple</option>
+        <option value = '3'>Reservación Grupo</option>
       </select>
     </div>
     <div class="form-group">

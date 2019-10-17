@@ -104,7 +104,17 @@ switch($option){
 
   break;
 
-
+  case '3':
+    $staff = $_POST["staff"];
+    $result = $conexion->query("SELECT idUser, nombre FROM usuarios, tipoUsuario WHERE tipoUsuario.tipoUsuario LIKE '$staff' AND usuarios.idTipoUsuario = tipoUsuario.idTipoUsuario");
+    if($result->num_rows > 0) {
+      $rows = array();
+      while($row = $result->fetch_assoc())
+        $rows[] = $row;
+      echo json_encode($rows);
+    } else
+      echo "0";
+    break;
 }
 
 
