@@ -55,7 +55,7 @@ switch($option){
 
     if($conexion->query($sql)){
 
-      $sql2 = "SELECT idRes FROM reservaciones WHERE idUser='$idUser' AND telefono='$telefono' AND idRp='$idRp' AND activa='0'";
+      $sql2 = "SELECT idRes FROM reservaciones WHERE idUser='$idUser' AND telefono='$telefono' AND idRp='$idRp' AND activa='1'";
       $result2 = $conexion->query($sql2);
     
       while($row = mysqli_fetch_array($result2)){
