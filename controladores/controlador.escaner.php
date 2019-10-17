@@ -70,7 +70,7 @@ if(isset($_SESSION['loggedin'])){
       console.log("horas: "+horas);
       console.log("Minutos: "+minutos);
 
-      var now = new Date(ano, mes, dia, horas, minutos);
+      var now = new Date(ano, mes, dia, 23, 30);
       
       var inicioGeneral = new Date(ano, mes, dia, 21, 30);
       var finD1 = new Date(ano, mes, dia, 23, 59);
@@ -96,7 +96,7 @@ if(isset($_SESSION['loggedin'])){
           console.log("Hoy es día 1");
 
           dia1 = formatDate(now);
-          dia2 = formatDate(now);
+          dia2 = formatDate2(now);
           
           console.log("Día 1 " + dia1);
           console.log("Día 2 " + dia2);
