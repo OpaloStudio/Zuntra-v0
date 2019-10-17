@@ -8,6 +8,17 @@
   
   <form class="formReservar">
   <div class="form-group">
+      <label class="negro" for="exampleFormControlSelect1">Elige una opción</label>
+      <select class="form-control inputsClaros" id="selectorRP">
+      <option selected>-Elige a alguien-</option>
+        <option value='0'>Nadie</option>
+        <option value='1'>RP</option>
+        <option value='2'>Gerencia</option>
+        <option value='2'>Meseros</option>
+        <option value='2'>Capitanes</option>
+      </select>
+    </div>
+    <div class="form-group">
       <label class="negro" for="exampleFormControlSelect1">¿Con quién quieres reservar?</label>
       <select class="form-control inputsClaros" id="selectorRP">
       <option selected>-Elige a alguien-</option>
