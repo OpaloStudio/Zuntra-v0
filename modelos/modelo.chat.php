@@ -83,7 +83,7 @@ switch($option){
                     $status = '1';
                     $_SESSION['userChat'] = $newString;
                 } else{
-                    $status = '998';//Error al actualizar info
+                    $status = '9998';//Error al actualizar info
                 } 
 
 
@@ -117,7 +117,7 @@ switch($option){
                     $status = '1';
                     $_SESSION['userChat'] = $newString;
                 } else{
-                    $status = '998';//Error al actualizar info
+                    $status = '9997';//Error al actualizar info
                 } 
 
 
@@ -150,7 +150,7 @@ switch($option){
                     $status = '1';
                     $_SESSION['userChat'] = $newString;
                 } else{
-                    $status = '998';//Error al actualizar info
+                    $status = '9996';//Error al actualizar info
                 } 
 
 
@@ -183,7 +183,7 @@ switch($option){
                     $status = '1';
                     $_SESSION['userChat'] = $newString;
                 } else{
-                    $status = '998';//Error al actualizar info
+                    $status = '9995';//Error al actualizar info
                 } 
 
 
@@ -216,7 +216,7 @@ switch($option){
                     $status = '1';
                     $_SESSION['userChat'] = $newString;
                 } else{
-                    $status = '998';//Error al actualizar info
+                    $status = '9994';//Error al actualizar info
                 } 
 
 
@@ -292,7 +292,7 @@ switch($option){
         $status = '1';
         $_SESSION['userChat'] = $newString;
     } else{
-        $status = '998';//Error al actualizar info
+        $status = '9993';//Error al actualizar info
     } 
 
     echo $status;
@@ -302,13 +302,13 @@ switch($option){
   break;
 
   case '4';
-  $tipoMsj = $_POST['tipoMsj'];
+    $tipoMsj = $_POST['tipoMsj'];
     $sql = "INSERT INTO mensaje (idUsuario, mensaje, idTipoMensaje, fecha, idSala) VALUES ('$userId', '$mensaje', '$tipoMsj', '$dateTime', '$sala')";
 
     if($conexion->query($sql)){
       $status = '1';
     }else{
-      $status = '998';
+      $status = '9992';
     }
 
     echo $status;
