@@ -104,7 +104,7 @@ $(function () {
 
 function generarReservacion(){
     
-    rpReserva = document.getElementById('selectorRP').value;
+    rpReserva = document.getElementById('selectorRP').value;alert(rpReserva);
     tipoReserva = document.getElementById('tipoReserva').value;
     fechaReserva = document.getElementById('fechaReservacion').value;
     numPersonasReserva = document.getElementById('personasReservacion').value;
@@ -247,12 +247,11 @@ function reservacionAdb(){
             "staff": staff
         },
         success: function(response) {
-            alert(response);
             var usuarios = JSON.parse(response);
             $("#selectorRP").empty();
             $("#selectorRP").append("<option selected disabled>-Elige a alguien-</option>");
             for(var i = 0; i < usuarios.length; i++)
-                $("#selectorRP").append("<option>" + usuarios[i].nombre + "</option>");
+                $("#selectorRP").append("<option value='" + usuarios[i].idUser + "'>" + usuarios[i].nombre + "</option>");
         }
     });
  }
