@@ -1,4 +1,4 @@
-<div class="contenedorFormulario reservarBack">
+<div class=" reservarBack">
 <nav class="navbar fixed-top  ">
     <div class="iconos">
       <a href="?page=13"> <i class="fas fa-arrow-left colorcin"></i></a>
