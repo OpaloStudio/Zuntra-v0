@@ -51,11 +51,11 @@ switch($option){
   case '2';
 
 
-    $sql = "INSERT INTO reservaciones (idTipoRes, numPersonas, activa, idUser, nombre, fecha, telefono, invitacion, idRp) VALUES ('$idTipoRes', '$numPersonas', '0', '$idUser', '$nombreUser', '$newDate', '$telefono', NULL, '$idRp')";
+    $sql = "INSERT INTO reservaciones (idTipoRes, numPersonas, activa, idUser, nombre, fecha, telefono, invitacion, idRp) VALUES ('$idTipoRes', '$numPersonas', '1', '$idUser', '$nombreUser', '$newDate', '$telefono', NULL, '$idRp')";
 
     if($conexion->query($sql)){
 
-      $sql2 = "SELECT idRes FROM reservaciones WHERE idUser='$idUser' AND telefono='$telefono' AND idRp='$idRp' AND activa='0'";
+      $sql2 = "SELECT idRes FROM reservaciones WHERE idUser='$idUser' AND telefono='$telefono' AND idRp='$idRp' AND activa='1'";
       $result2 = $conexion->query($sql2);
     
       while($row = mysqli_fetch_array($result2)){

@@ -161,17 +161,19 @@ function listo(){
 
                 case '1':
                     alert("Tus Datos Se Han Actualizado Correctamente");
-                    location.reload();
+                    window.location.href = "?page=8";
                 break;
 
                 case '997':
                     alert("Ha ocurrido un error interno, inténtalo más tarde.");
                     document.getElementById("botonRbtnActualizaregistrar").disabled = false;
+                    location.reload();
                 break;
                 
                 case "default":
                     alert("Ha ocurrido un error interno, inténtalo más tarde.");
                     document.getElementById("botonRbtnActualizaregistrar").disabled = false;
+                    location.reload();
                 break;
             }
         }

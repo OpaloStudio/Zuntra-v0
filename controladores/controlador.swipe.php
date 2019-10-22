@@ -303,6 +303,7 @@ if(isset($_SESSION['loggedin'])){
 
                 case 1:
                     alert("Usuario Bloqueado Exitosamente");
+                    location.reload();
                 break;
 
                 case 997:

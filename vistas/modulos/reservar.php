@@ -1,4 +1,4 @@
-<div class="contenedorFormulario reservarBack">
+<div class=" reservarBack">
 <nav class="navbar fixed-top  ">
     <div class="iconos">
       <a href="?page=13"> <i class="fas fa-arrow-left colorcin"></i></a>
@@ -24,15 +24,7 @@
         <option selected disabled>-Elige a alguien-</option>
       </select>
     </div>
-    <div class="form-group">
-      <label class="negro" for="exampleFormControlSelect1">Tipo de Reservación</label>
-      <select class="form-control inputsClaros" id="tipoReserva">
-      <option selected value = '0'>-Elige el tipo de reservación-</option>
-        <option value = '1'>Reservación de cumpleaños</option>
-        <option value = '2'>Reservación Simple</option>
-        <option value = '3'>Reservación Grupo</option>
-      </select>
-    </div>
+ 
     <div class="form-group">
       <label class="negro" for="exampleFormControlSelect1">Tipo de Reservación</label>
       <select class="form-control inputsClaros" id="tipoReserva">

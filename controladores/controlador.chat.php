@@ -66,8 +66,10 @@ $(document).ready(function () {
 
     $(".scrollZone").niceScroll({
     cursorcolor:"#DEC9A1",
-    cursorwidth:"2px",
+    cursorwidth:"5px",
     horizrailenabled: true,
+    emulatetouch: true,
+    autohidemode: true,
 
     });
 
@@ -298,10 +300,16 @@ function enviarFoto(x){
   var imgSrc = img.src;
   var img2 = sesion+"-"+x;
 
+  var today = new Date();
+  var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+  var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+  var dateTime = date+' '+time;
+
   var n = imgSrc.indexOf(img2);
   console.log(imgSrc);
   console.log(img2);
   console.log(n);
+  console.log("Datetime: "+dateTime);
   
 
   if(n==-1){
@@ -334,7 +342,8 @@ function enviarFoto(x){
             sala:sala,
             mensaje:mensaje,
             tipoMsj:tipoMsj,
-            option:option
+            option:option,
+            dateTime:dateTime
       }),
       success: function(msg) {
         console.log(msg);

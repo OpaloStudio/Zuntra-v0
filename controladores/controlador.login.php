@@ -1,17 +1,19 @@
 <?php
     $tipoLink = $_GET['log'];
 
-    if($tipoLink == 'guest'){
+    if($tipoLink == 'guest') {
         $user = $_GET['usuario'];
         $reservacion = $_GET['reservacion'];
 
-    }else if($tipoLink == 'editar'){
-
-            $user = $_GET['usuario'];
-            $reservacion = $_GET['reservacion'];
-        } else{
-        $user = "No iniciado";
-        $reservacion = 0;
+    } else if($tipoLink == 'editar') {
+        $user = $_GET['usuario'];
+        $reservacion = $_GET['reservacion'];
+    } else if($tipoLink == "invitados") {
+        $user = $_GET['usuario'];
+        $reservacion = $_GET['reservacion'];
+    } else {
+            $user = "No iniciado";
+            $reservacion = 0;
     }
 
     if(isset($_SESSION['loggedin'])){
@@ -50,7 +52,7 @@
                 divPass.style.display = 'none';
                 buttonLogin.style.display = 'none';
 
-                nuevoLink = "?page=6&usuario="+usuarioReservacion+"&reservacion="+idReservacion+"&log=guest"
+                nuevoLink = "?page=6&usuario="+usuarioReservacion+"&reservacion="+idReservacion+"&log=guest";
 
             break;
 
@@ -65,18 +67,27 @@
                 divPass.style.display = 'none';
                 buttonLogin.style.display = 'none';
 
+                nuevoLink = "?page=17";
+                break;
             
-
-            break;
-
             case "invitados":
+                opciones = 2;
+
                 var usuarioReservacion = "<?php echo $user; ?>";
                 var idReservacion = <?php echo $reservacion; ?>;
 
 
-                nuevoLink = "?page=6&usuario="+usuarioReservacion+"&reservacion="+idReservacion+"&log=invitados"
+                nuevoLink = "?page=6&usuario="+usuarioReservacion+"&reservacion="+idReservacion;
 
-            break;
+                divNombre.style.display = 'block';
+                divTelefono.style.display = 'block';
+                btnGuest.style.display = 'block';
+
+                divEmail.style.display = 'none';
+                divPass.style.display = 'none';
+                buttonLogin.style.display = 'none';
+
+                break;
 
             case "swipe":
                 nuevoLink = "?page=8";
@@ -161,6 +172,7 @@
             url: "modelos/modelo.login.php",
             type: "POST",
             data: ({
+                opcion: "1",
                 email: email,
                 password: password
             }),
@@ -197,18 +209,30 @@
             var nameGuest = document.getElementById('nameGuest').value;
             var celGuest = document.getElementById('phoneGuest').value;
 
-            var newLink = nuevoLink+"&telefono="+celGuest+"&nombre="+nameGuest;
-
-            window.location.href = newLink;
-        }else if(opciones == 2){
+            var newLink = nuevoLink+"&telefono="+celGuest+"&nombre="+nameGuest;alert(newLink);
+        } else if(opciones == 2){
             document.getElementById('btnGuest').disabled = true;
             var nameGuest = document.getElementById('nameGuest').value;
             var celGuest = document.getElementById('phoneGuest').value;
 
-            var newLink = "?page=17&tipo=guestLS&telefono="+celGuest+"&nombre="+nameGuest;
-            window.location.href = newLink;
-            
+            var newLink = nuevoLink + "&tipo=guestLS&telefono="+celGuest+"&nombre="+nameGuest;
         }
-        
+
+        $.ajax({
+            type: "post",
+            url: "modelos/modelo.login.php",
+            data: {
+                "opcion": "2",
+                "nombre": nameGuest,
+                "telefono": celGuest
+            },
+            success: function(response) {
+                var respuesta = parseInt(response);
+                if(respuesta == 0)
+                    alert("Error: No se pudo iniciar sesión");
+                else if(respuesta == 1)
+                    window.location.href = newLink;
+            }
+        });   
     }
 </script>
