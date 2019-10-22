@@ -40,7 +40,7 @@
   </div>
 
   <div class="row">
-    <div class="col-6 slideReservar">
+    <div iv class="col-6 slideReservar">
       <a id="linkReservar">
         <h4 class="tituloHome">Reserva tu lugar y no te pierdas de la fiesta</h4>
         <p class="pHome">Reservaciones para
