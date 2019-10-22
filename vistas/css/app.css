@@ -290,6 +290,27 @@ body {
 .slidePromo {
   height: 50vh; }
 
+#linkReservar {
+  text-decoration: none !important; }
+
+#linkSwipe {
+  text-decoration: none !important; }
+
+.btnComentarios {
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+  color: white;
+  background-color: #DEC9A1;
+  font-size: 20px;
+  border: 2px solid white;
+  width: 10rem !important;
+  margin-bottom: 20px; }
+  .btnComentarios:hover {
+    color: white;
+    background-color: black;
+    border: 2px solid white; }
+
 .divVideo {
   height: 100%;
   width: 100vw;
