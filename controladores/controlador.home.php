@@ -88,6 +88,10 @@ function irPromos(){
     window.location.href = '?page=3&voy=promo';
 }
 
+function irLogin(){
+    window.location.href = '?page=1&voy=index';
+}
+
 function irEventos(){
     window.location.href = '?page=3&voy=evento';
 }
@@ -95,7 +99,18 @@ function irEventos(){
 function showInstallPromotion(){
     $('#agregar').modal('toggle');
 }
-
+function logout(){
+    $.ajax({
+        url: "modelos/modelo.cerrarSesion.php",
+        type: "POST",
+        success: function(msg) {
+            var nuevoLink = "?page=13";
+            window.location.href = nuevoLink;
+            	
+        },
+        dataType: "json"
+    });
+}
 
 
 </script>

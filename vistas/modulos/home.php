@@ -1,5 +1,26 @@
 <div class="container-fluid ">
+<nav class="navbar fixed-top navbar-dark navSwipe" style="background-color: rgb(33, 33, 33,0.41);">
+      <div class="iconos">
+      <a href="?page=13"><i class="fas fa-arrow-left"></i></a>
+      <a href="?page=7"> <i class="fas fa-user-circle"></i></a>
+      <a href="?page=10"><i class="fas fa-comments"></i></a>
+      <!--<img class="logoSwipe" src="vistas/img/otros/logoBlanco.png">-->
+    </div>
 
+
+    <button class="btn btnPuntos " type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+      aria-expanded="false">
+      <i class="fas fa-ellipsis-h"></i>
+    </button>
+    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+    <button type="button" class="btn btnModal center"  onclick="irLogin()">Iniciar Sesión</button>
+      <button type="button" class="btn btnModal center" data-toggle="modal" data-target="#exampleModal">Comentarios</button><br>
+      <button type="button" class="btn btnModal center"  onclick="logout()">Cerrar Sesión</button>
+
+    </div>
+
+
+  </nav>
   <div class="row">
     <div class="co-12 slidePromo" >
     <div class="divVideo">
@@ -62,3 +83,31 @@ establecimiento </p>
 
 </div>
 
+<!-- Modal -->
+<div class="modal fade elModal" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-tittle dorado">Comentarios</h1>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <form>
+      <div class="content">
+  
+</div>
+        
+        <div class="form-group">
+    <label for="razon">Otra razón o queja</label>
+    <textarea class="form-control razon" id="razon" rows="3"></textarea>
+  </div>
+      </div>
+      </form>
+      <div class="divSubmit">
+        <button type="button" class="btn btnBloquear" onclick='bloqueo()' >Bloquear</button>
+      </div>
+    </div>
+  </div>
+</div>
