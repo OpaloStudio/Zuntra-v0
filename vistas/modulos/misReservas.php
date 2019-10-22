@@ -52,7 +52,7 @@
       <input type="number" class="form-control inputsClaros" id="telefonoDuda">
     </div>
             <div class="form-group">
-              <label class="dorado" for="razon">Duda</label>
+              <label class="negro" for="razon">Duda</label>
               <textarea class="form-control razon" id="razon" rows="5"></textarea>
             </div>
         </div>
@@ -61,10 +61,7 @@
         </div>
         </form>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
+     
     </div>
   </div>
 </div>
