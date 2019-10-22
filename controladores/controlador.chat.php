@@ -66,8 +66,10 @@ $(document).ready(function () {
 
     $(".scrollZone").niceScroll({
     cursorcolor:"#DEC9A1",
-    cursorwidth:"2px",
+    cursorwidth:"5px",
     horizrailenabled: true,
+    emulatetouch: true,
+    autohidemode: true,
 
     });
 
