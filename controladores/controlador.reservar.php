@@ -148,6 +148,9 @@ function reservacionAdb(){
     console.log(fechaReserva);
     console.log(telefono);
     console.log(stringlink);
+    if(rpReserva === "-Elige a alguien-"){
+        rpReserva = 0;
+    }
     console.log(rpReserva);
 
     console.log(baseString);
@@ -252,7 +255,7 @@ function reservacionAdb(){
             $("#selectorRP").empty();
             $("#selectorRP").append("<option selected disabled>-Elige a alguien-</option>");
             for(var i = 0; i < usuarios.length; i++)
-                $("#selectorRP").append("<option>" + usuarios[i].nombre + "</option>");
+                $("#selectorRP").append("<option value='"+usuarios[i].idUser+"'>" + usuarios[i].nombre + "</option>");
         }
     });
  }
