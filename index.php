@@ -42,7 +42,8 @@ session_start();
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/js/tempusdominus-bootstrap-4.min.js"></script>
 <script src="vistas/js/plugins/fileinput/js/plugins/sortable.js" type="text/javascript"></script>
     <script src="vistas/js/plugins/fileinput/js/fileinput.js" type="text/javascript"></script>
-    <script src="vistas/js/plugins/fileinput/themes/explorer-fas/theme.js" type="text/javascript"></script>
+	<script src="vistas/js/plugins/fileinput/themes/explorer-fas/theme.js" type="text/javascript"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.5.2/dom-to-image.min.js"></script>
 
 
 

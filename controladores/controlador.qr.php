@@ -139,7 +139,7 @@ if(isset($_GET['nombre'])){
                         if(idUser == invitados[i].idUser){
                             $("#img64primero").attr("src",invitados[i].invitadoQR);
                             qrDescarga = invitados[i].invitadoQR;
-                            document.getElementById('btnQR').disabled = true;
+                            $('#btnQR').hide();
                         } else {
                             idxInvitados++;
                         }
@@ -149,7 +149,7 @@ if(isset($_GET['nombre'])){
                     if(invitados.length == personasTotales){
 
                         alert("Ya se aceptaron todas las invitaciones");
-                        document.getElementById('btnQR').disabled = true;
+                        $('#btnQR').hide();
 
                     }
 
@@ -165,6 +165,8 @@ if(isset($_GET['nombre'])){
 
         generarQR();
     });
+
+
 
     function generarQR(){
         var numLogoQR = Math.floor((Math.random() * 6) + 1);
@@ -230,6 +232,8 @@ if(isset($_GET['nombre'])){
 
     }
 }
+
+
 
     function aceptarInvitacion(){
 
@@ -311,13 +315,23 @@ if(isset($_GET['nombre'])){
         });
     }
 
-    function descargaImg(){
+    function descargaImg2(){
 
         var url = qrDescarga.replace(/^data:image\/[^;]+/, 'data:application/octet-stream');
 
 
         window.location.href = url;
 
+    }
+
+    function descargaImg() {
+        domtoimage.toPng(document.getElementById('contentQR'), { bgColor: 'white' })
+                        .then(function (dataUrl) {
+                            let link = document.createElement('a')
+                            link.download = 'QrZuntra.png'
+                            link.href = dataUrl
+                            link.click()
+                        })
     }
     
 
