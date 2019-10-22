@@ -148,6 +148,9 @@ function reservacionAdb(){
     console.log(fechaReserva);
     console.log(telefono);
     console.log(stringlink);
+    if(rpReserva === "-Elige a alguien-"){
+        rpReserva = 0;
+    }
     console.log(rpReserva);
 
     console.log(baseString);
