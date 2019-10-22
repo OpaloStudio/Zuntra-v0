@@ -32,13 +32,34 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <h5 class="modal-title dorado" id="exampleModalLabel">¿Dudas?</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        Que pez
+      <form>
+      <div class="form-group">
+      <label class="negro" for="numero">Nombre</label>
+      <input type="text" class="form-control inputsClaros" id="nombreDuda">
+    </div>
+    <div class="form-group">
+      <label class="negro" for="numero">Correo</label>
+      <input type="mail" class="form-control inputsClaros" id="correoDuda">
+    </div>
+    <div class="form-group">
+      <label class="negro" for="numero">Teléfono</label>
+      <input type="number" class="form-control inputsClaros" id="telefonoDuda">
+    </div>
+            <div class="form-group">
+              <label class="dorado" for="razon">Duda</label>
+              <textarea class="form-control razon" id="razon" rows="5"></textarea>
+            </div>
+        </div>
+        <div class="divSubmit">
+          <button type="button" class="btn btnComentarios" onclick='bloqueo()'>Enviar </button>
+        </div>
+        </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
