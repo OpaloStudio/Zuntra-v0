@@ -13,7 +13,7 @@
 
 <div class="divQr">
   
-    <img class="imgQr d-block " src="vistas/img/pix3.png" id="img64primero">
+    <img class="imgQr d-block " src="vistas/img/icons/icnManifest/512x512.png" id="img64primero">
    
  
   
