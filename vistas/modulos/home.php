@@ -11,11 +11,9 @@
       <i class="fas fa-ellipsis-h"></i>
     </button>
     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-      <button type="button" class="btn btnModal center" onclick="irLogin()">Iniciar Sesión</button>
-      <button type="button" class="btn btnModal center" data-toggle="modal"
-        data-target="#exampleModal">Comentarios</button><br>
-      <button type="button" class="btn btnModal center" onclick="logout()">Cerrar Sesión</button>
-
+      <button type="button" class="btn btnModal center" onclick="irLogin()" id="homeIniciarSesion">Iniciar Sesión</button>
+      <button type="button" class="btn btnModal center" data-toggle="modal" data-target="#exampleModal" id="homeComentarios" hidden>Comentarios</button><br>
+      <button type="button" class="btn btnModal center" onclick="logout()" id="homeCerrarSesion" hidden>Cerrar Sesión</button>
     </div>
 
 

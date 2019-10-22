@@ -35,7 +35,8 @@ $( document ).ready(function() {
         case "invitados":
             var usuarioReservacion = <?php echo $user; ?>;
             var idReservacion = <?php echo $reservacion; ?>;
-            nuevoLink = "?page=4&usuario="+usuarioReservacion+"&reservacion="+idReservacion;
+            nuevoLink = "?page=4&usuario="+usuarioReservacion+"&reservacion="+idReservacion + "&log=invitados";
+            btnGuest.style.display = 'block';
         break;
 
         case "swipe":
@@ -106,7 +107,11 @@ function irLogin(){
 }
 
 function irGuest(){
-    var newLink = nuevoLink+"&log=guestLS"
+    var newLink;
+    if(nuevoLink.includes("log=invitados"))
+        newLink = nuevoLink;
+    else
+        newLink = nuevoLink + "&log=guestLS";
     window.location.href = newLink;
 }
 

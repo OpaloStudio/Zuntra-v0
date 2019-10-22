@@ -17,7 +17,7 @@ if(isset($_SESSION['loggedin'])){
 
 var idUser = <?php echo $idsesion; ?>;
 
-$( document ).ready(function() {
+$(document).ready(function() {
     console.log(idUser);
     /*function mensajito(){
             $('#agregar').modal('toggle')
@@ -28,6 +28,9 @@ $( document ).ready(function() {
         console.log("Sesión Iniciada");
         $("#linkSwipe").attr("href","?page=8");
         $("#linkReservar").attr("href","?page=17");
+        $("#homeComentarios").removeAttr("hidden");
+        $("#homeCerrarSesion").removeAttr("hidden");
+        $("#homeIniciarSesion").hide();
     } else{
         console.log("Por Favor Inicia Sesión");
         $("#linkSwipe").attr("href","?page=1&log=swipe");

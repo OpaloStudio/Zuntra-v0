@@ -14,6 +14,7 @@ if(isset($_SESSION['loggedin'])){
     
 }else{
     $idsesion = '0';
+    $userType = '0';
     $tipoLink = $_GET['log'];
     //echo $idsesion;
 }
@@ -40,6 +41,7 @@ if(isset($_GET['nombre'])){
     //Información de Usuario
     var idUser;
     var nombreUser;
+    var tipoUser = <?php echo $userType; ?>;
 
     //Información de Invitación
     var usuarioReservacion = <?php echo $user; ?>;
@@ -204,7 +206,7 @@ if(isset($_GET['nombre'])){
     function invitacionQR(){
     
         //Se une todo en una cadena para que no cause problemas a la hora de generar el código QR
-        var txt = "Invitación de: "+ nombreReservacion +"\nNúmero de Host: "+ usuarioReservacion +"\nNúmero de Reservación: "+ idReservacion +"\nNombre: "+ nombreUser +"\nCódigo: "+ idUser;
+        var txt = "Invitación de: "+ nombreReservacion +"\nNúmero de Host: "+ usuarioReservacion +"\nNúmero de Reservación: "+ idReservacion +"\nNombre: "+ nombreUser +"\nCódigo: "+ idUser + "\nTipo usuario: " + tipoUser;
         console.log(txt);
 
         qrcode.makeCode(txt);
@@ -238,7 +240,7 @@ if(isset($_GET['nombre'])){
     function aceptarInvitacion(){
 
         var baseString = String(basechida);
-        opcion = 2;
+        opcion = (tipoUser == 6) ? 3 : 2;alert(opcion);
 
         console.log(idUser);
         console.log(nombreUser);

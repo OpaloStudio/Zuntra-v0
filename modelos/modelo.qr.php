@@ -33,12 +33,15 @@ switch($opcion){
 			array_push($final, $row);
 		}
 
+		$result2 = $conexion->query("SELECT * FROM invitadosGuest WHERE idRes = $idReservacion");
+		while($row = mysqli_fetch_array($result2))
+			array_push($final, $row);
 
 		if(sizeof($final) == 0){
 			$final = false;
 		}
 		echo json_encode($final);
-	break;
+		break;
 	
 	case 2:
 
@@ -54,8 +57,21 @@ switch($opcion){
 
 		}
 		echo json_encode($final);
-	break;
+		break;
+
+	case 3:
+		$sql2 = "INSERT INTO invitadosGuest (idUser, nombreInvitado, idRes, userRes, personasTotales, invitadoQR) VALUES ('$idUser', '$nombreUser', $idReservacion, $usuarioReservacion, $personasTotales, '$baseString')";
+		if($conexion->query($sql2)){
+
+			$final = '1';
 	
+		} else{
+
+			$final = '998';//Error
+
+		}
+		echo json_encode($final);
+		break;
 	case 3:
 		$sql = "SELECT * FROM reservaciones WHERE idUser = '$idUser' AND idRes='$idReservacion' AND activa='1'";
 		$result = $conexion->query($sql);
@@ -68,8 +84,7 @@ switch($opcion){
 		}
 
 		echo $status;
-    break;
-
+    	break;
 }
 
 
