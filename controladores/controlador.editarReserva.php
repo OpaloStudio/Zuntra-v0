@@ -118,6 +118,10 @@ function changeTipoStaff2(me) {
         fechaReserva = document.getElementById('fechaReservacion').value;
         numPersonasReserva = document.getElementById('personasReservacion').value;
 
+        if(rpReserva === "-Elige a alguien-"){
+            rpReserva = 0;
+        }
+
         console.log(rpReserva);
         console.log(tipoReserva);
         console.log(fechaReserva);
