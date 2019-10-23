@@ -145,6 +145,11 @@ session_start();
 			include('controladores/controlador.screenReservas.php');
 			break;
 
+			case '18':
+			//recuperar contraseñas
+			include('controladores/controlador.contrasenas.php');
+			break;
+
 			case 'default':
 			
 			break;
@@ -253,6 +258,11 @@ elseif(isset($_GET['page'])){
 		case '17':
 		//Recuperar contrasena
 		include('vistas/modulos/screenReservas.php');
+		break;
+
+		case '18':
+		//Recuperar contrasena
+		include('vistas/modulos/contrasenas.php');
 		break;
 
 

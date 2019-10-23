@@ -99,6 +99,14 @@ $( document ).ready(function() {
     
 });
 
+function recoverPass(){
+    $(".btnOscuro").hide();
+    $(".linkPass").hide();
+    $(".labelin").show();
+    $("#emailRecover").show();
+    $("#btnCorreo").show();
+}
+
 function irLogin(){
     var newLink = nuevoLink;
     window.location.href = newLink;
