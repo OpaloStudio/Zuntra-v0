@@ -154,12 +154,8 @@ if(isset($_GET['nombre'])){
                         document.getElementById('btnQR').disabled = true;
 
                     }
-
-
-
-                    console.log(idxInvitados);
-
                     
+                    console.log(idxInvitados);                    
                 } 
             },
             dataType: "json"

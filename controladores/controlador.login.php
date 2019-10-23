@@ -8,7 +8,7 @@
     } else if($tipoLink == 'editar') {
         $user = $_GET['usuario'];
         $reservacion = $_GET['reservacion'];
-    } else if($tipoLink == "invitados") {
+    } else if($tipoLink == "invitados" || $tipoLink == "invitadosGuest") {
         $user = $_GET['usuario'];
         $reservacion = $_GET['reservacion'];
     } else {
@@ -70,7 +70,7 @@
                 nuevoLink = "?page=17";
                 break;
             
-            case "invitados":
+            case "invitadosGuest":
                 opciones = 2;
 
                 var usuarioReservacion = "<?php echo $user; ?>";
@@ -86,7 +86,14 @@
                 divEmail.style.display = 'none';
                 divPass.style.display = 'none';
                 buttonLogin.style.display = 'none';
+                break;
+            case "invitados":
+                opciones = 2;
 
+                var usuarioReservacion = "<?php echo $user; ?>";
+                var idReservacion = <?php echo $reservacion; ?>;
+
+                nuevoLink = "?page=6&usuario="+usuarioReservacion+"&reservacion="+idReservacion;
                 break;
 
             case "swipe":
@@ -167,7 +174,7 @@
     function login(){
         document.getElementById('buttonLogin').disabled = true;
         var email = document.getElementById('emailLogin').value;
-        var password = document.getElementById('passwordLogin').value;
+        var password = document.getElementById('passwordLogin').value;alert("Hola");
         $.ajax({
             url: "modelos/modelo.login.php",
             type: "POST",
