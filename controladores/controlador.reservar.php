@@ -51,6 +51,7 @@ $(function () {
         console.log( "Usuario: " +  session );
 
         nombreUser = String("<?php echo $userName; ?>");
+        $('#nombreReservacion').html(nombreUser);
         //Revisar que la sesión este iniciada
 
         if(session != 0){

@@ -7,6 +7,7 @@
   </nav>
   
   <form class="formReservar">
+    <h2 class="dorado text-center">Reservación de  <span class="dorado" id="nombreReservacion"></span></h2><br>
     <div class="form-group">
       <label class="negro" for="tipoStaff">Cargo de staff</label>
       <select class="form-control inputsClaros" id="tipoStaff" onchange="changeTipoStaff(this)">
