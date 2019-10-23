@@ -11,28 +11,28 @@
    </div>
 
 <div class="col-6 flex1">
-    <input type="file" class="hideInput" id="customFile1" name="pic1" onchange="openFile(event)">
+    <input type="file" class="hideInput" id="customFile1" name="pic1" onchange="openFile(event)" accept="image/x-png,image/gif,image/jpeg" >
     <label  for="customFile1"><img id="foto1" src="vistas/img/cuadroCarga.svg"> </label>
 </div>
 
 <div class="col-6 flex1">
-      <input type="file" class="hideInput" id="customFile2" name="pic2" onchange="openFile2(event)">
+      <input type="file" class="hideInput" id="customFile2" name="pic2" onchange="openFile2(event)" accept="image/x-png,image/gif,image/jpeg">
       <label for="customFile2"><img id="foto2" src="vistas/img/cuadroCarga.svg"> </label>
   </div>
      
 </div>
         <div class="row">
         <div class="col-4 flex1">
-        <input type="file" class="hideInput" id="customFile3" name="pic3" onchange="openFile3(event)">
+        <input type="file" class="hideInput" id="customFile3" name="pic3" onchange="openFile3(event)" accept="image/x-png,image/gif,image/jpeg">
             <label for="customFile3"><img id="foto3" src="vistas/img/cuadroCarga.svg"> </label>
 </div>
 <div class="col-4 flex1">
-            <input type="file" class="hideInput" id="customFile4" name="pic4" onchange="openFile4(event)">
+            <input type="file" class="hideInput" id="customFile4" name="pic4" onchange="openFile4(event)" accept="image/x-png,image/gif,image/jpeg">
             <label for="customFile4"><img id="foto4" src="vistas/img/cuadroCarga.svg"> </label>
             </div>
 
             <div class="col-4 flex1">
-            <input type="file" class="hideInput" id="customFile5" name="pic5" onchange="openFile5(event)">
+            <input type="file" class="hideInput" id="customFile5" name="pic5" onchange="openFile5(event)" accept="image/x-png,image/gif,image/jpeg">
             <label for="customFile5"><img id="foto5" src="vistas/img/cuadroCarga.svg"> </label>
             </div>
 
