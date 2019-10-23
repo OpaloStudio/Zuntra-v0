@@ -38,7 +38,7 @@ function changeTipoStaff2(me) {
             "staff": staff
         },
         success: function(response) {
-            alert(response);
+            //alert(response);
             var usuarios = JSON.parse(response);
             $("#selectorRP").empty();
             $("#selectorRP").append("<option selected disabled>-Elige a alguien-</option>");
@@ -92,7 +92,7 @@ function changeTipoStaff2(me) {
                 switch(msg){
 
                     case 1:
-                        alert("Existe Reservacion");
+                        alert("Reservación lista para edición");
                     break;
 
                     case 999:
