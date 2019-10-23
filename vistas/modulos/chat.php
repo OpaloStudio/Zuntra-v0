@@ -1,9 +1,11 @@
 <div class="contenedorChat">
   <nav class="navbar fixed-top navbar-dark navInbox">
-    <div class="iconos">
+    <div class="iconosChat">
       <a href="?page=10"> <i class="fas fa-arrow-left"></i></a>
+      <h3 class="nombri dorado"></h3>
+      
     </div>
-    <div class="imgChat" id="miImg"></div>
+    <div class="imgChat imgBonito" id="miImg"></div>
   </nav>
 
     
