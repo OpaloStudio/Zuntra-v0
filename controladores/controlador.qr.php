@@ -195,7 +195,7 @@ if(isset($_GET['nombre'])){
     function invitacionQR(){
     
         //Se une todo en una cadena para que no cause problemas a la hora de generar el código QR
-        var txt = "Invitación de: "+ nombreReservacion +"\nNúmero de Host: "+ usuarioReservacion +"\nNúmero de Reservación: "+ idReservacion +"\nNombre: "+ nombreUser +"\nCódigo: "+ idUser + "\nTipo usuario: " + tipoUser;
+        var txt = "idReservacion: " + idReservacion + "\nInvitación de: "+ nombreReservacion +"\nNúmero de Host: "+ usuarioReservacion +"\nNúmero de Reservación: "+ idReservacion +"\nNombre: "+ nombreUser +"\nCódigo: "+ idUser + "\nTipo usuario: " + tipoUser;
         console.log(txt);
 
         qrcode.makeCode(txt);
