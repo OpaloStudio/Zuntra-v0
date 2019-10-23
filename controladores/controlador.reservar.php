@@ -260,5 +260,51 @@ function reservacionAdb(){
     });
  }
 
+ function sendDudas(){
+
+var titulo = document.getElementById('tituloDuda').value;
+var comentario = document.getElementById('duda').value;
+var tipo = 2;
+
+
+    if(titulo.length > 0){
+        if(comentario.length > 0){
+            document.getElementById("btnEnviarDuda").disabled = true;
+            $.ajax({
+                url: "modelos/modelo.comentario.php",
+                type: "POST",
+                data: ({
+                    titulo:titulo,
+                    comentario:comentario,
+                    tipo:tipo,
+                }),
+                success: function(msg) {
+                    console.log(msg);
+                    switch(msg){
+                        case 1:
+                            alert("Gracias por enviarnos tus dudas. Te responderemos muy pronto.");
+                            document.getElementById("btnEnviarDuda").disabled = false;
+                            document.getElementById('tituloDuda').value = "";
+                            document.getElementById('duda').value = "";
+                        break;
+
+                        case 'default':
+                            alert("Ha ocurrido un error interno, inténtalo más tarde.");
+                            document.getElementById("btnEnviarDuda").disabled = false;
+                            console.log(msg);
+                        break;
+                    }
+                },
+                dataType: "json"
+            });
+        }else{
+            alert('Ingresa un comentario.');
+        }
+    }else{
+        alert('Ingresa un título.');
+    }
+
+}
+
 </script>
 <script type="text/javascript" src="vistas/js/easy.qrcode.min.js" charset="utf-8"></script>

@@ -101,16 +101,16 @@
         <div class="content">
           <form>
             <div class="form-group">
-              <label class="dorado" for="razon">Título</label>
-              <textarea class="form-control razon" id="razon" rows="1"></textarea>
+              <label class="dorado" for="tituloCom">Título</label>
+              <textarea class="form-control razon" id="tituloCom" rows="1"></textarea>
             </div>
             <div class="form-group">
-              <label class="dorado" for="razon">Comentario</label>
-              <textarea class="form-control razon" id="razon" rows="5"></textarea>
+              <label class="dorado" for="comentario">Comentario</label>
+              <textarea class="form-control razon" id="comentario" rows="5"></textarea>
             </div>
         </div>
         <div class="divSubmit">
-          <button type="button" class="btn btnComentarios" onclick='bloqueo()'>Enviar </button>
+          <button type="button" class="btn btnComentarios" id="btnEnviarComent" onclick='sendComentarios()'>Enviar</button>
         </div>
         </form>
       </div>

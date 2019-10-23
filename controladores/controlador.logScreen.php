@@ -64,6 +64,11 @@ $( document ).ready(function() {
             btnGuest.style.display = 'block';
         break;
 
+        case "index":
+            nuevoLink = "?page=4&log=index";
+            btnGuest.style.display = 'block';
+        break;
+
         case "escaner":
             nuevoLink = "?page=4&log=escaner";
             btnGuest.style.display = 'none';
