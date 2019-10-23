@@ -1,11 +1,8 @@
 <?php
-
-    if(isset($_SESSION['loggedin'])){
+    if(isset($_SESSION['loggedin'])) {
         $idsesion = $_SESSION['userId'];
         $userType = $_SESSION['userType'];
-        
-
-    }else{
+    }else {
         $tipoLink = $_GET['tipo'];
         if($tipoLink == "guestLS"){
             $idsesion = $_GET['telefono'];
@@ -18,7 +15,6 @@
         }
         
     }
-
 ?>
 
 <script>
@@ -44,21 +40,17 @@
         console.log(userType);
 
         if(userType == 0){
-
             console.log("Por Favor Inicia Sesión");
             var linkSwipe = "?page=1&log=listaRes";
             window.location.href = linkSwipe;
 
         } else if(userType == 6){
             console.log("Sesión de Invitado");
-
+            opcion = 3;
         } else{
             console.log("Sesión Iniciada");
+            opcion = 1;
         }
-
-    
-        opcion = 1;
-
 
         $.ajax({
           url: "modelos/modelo.misReservas.php",
@@ -72,18 +64,12 @@
             if(msg == false){
                 console.log("no haz aceptado reservas");
                 content2 = "<h4>Sin reservas aceptadas</h4>"
-
             } else {
-
-                for(var i = 0; i < msg.length; i++){
-                
+                for(var i = 0; i < msg.length; i++) {
                     fechas.push(msg[i].fecha);
                     numPersonas.push(msg[i].numPersonas);
                     links.push(msg[i].invitacion);
-                
                 }
-    
-                
             }
             
             imprimirCards(fechas, numPersonas, links, content2, miSesion);

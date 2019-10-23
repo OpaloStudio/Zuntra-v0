@@ -3,7 +3,6 @@
 $user = $_GET['usuario'];
 $reservacion = $_GET['reservacion'];
 
-
 if(isset($_SESSION['loggedin'])){
     $idsesion = $_SESSION['userId'];
     $userType = $_SESSION['userType'];
@@ -81,13 +80,9 @@ if(isset($_GET['nombre'])){
 
         } else {
             console.log('Sesión de Invitados');
-
             idUser = <?php echo $telefonoInvitado; ?>;
             nombreUser = String("<?php echo $nombreInvitado; ?>");
-
         }
-
-
 
         console.log(idUser);
         console.log(usuarioReservacion);
@@ -149,10 +144,8 @@ if(isset($_GET['nombre'])){
                     }
 
                     if(invitados.length == personasTotales){
-
                         alert("Ya se aceptaron todas las invitaciones");
                         $('#btnQR').hide();
-
                     }
                     
                     console.log(idxInvitados);                    
@@ -231,12 +224,9 @@ if(isset($_GET['nombre'])){
     }
 }
 
-
-
     function aceptarInvitacion(){
-
         var baseString = String(basechida);
-        opcion = (tipoUser == 6) ? 3 : 2;alert(opcion);
+        opcion = (tipoUser == 6) ? 3 : 2;
 
         console.log(idUser);
         console.log(nombreUser);

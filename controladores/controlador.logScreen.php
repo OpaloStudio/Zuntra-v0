@@ -35,7 +35,7 @@ $( document ).ready(function() {
         case "invitados":
             var usuarioReservacion = <?php echo $user; ?>;
             var idReservacion = <?php echo $reservacion; ?>;
-            nuevoLink = "?page=4&usuario="+usuarioReservacion+"&reservacion="+idReservacion;
+            nuevoLink = "?page=4&usuario="+usuarioReservacion+"&reservacion="+idReservacion + "&log=invitados";
             btnGuest.style.display = 'block';
         break;
 
@@ -95,19 +95,23 @@ $( document ).ready(function() {
             nuevoLink = "?page=4";
             btnGuest.style.display = 'none';
         break;
-
-
     }
     
 });
 
 function irLogin(){
-    var newLink = nuevoLink + "&log=invitados";
+    var newLink = nuevoLink;
     window.location.href = newLink;
 }
 
 function irGuest(){
-    var newLink = nuevoLink + "&log=invitadosGuest";
+    var newLink;
+    if(nuevoLink.includes("log=reserva"))
+        newLink = nuevoLink + "&log=guestLS";
+    else if(nuevoLink.includes("log=invitados"))
+        newLink = nuevoLink + "&log=invitadosGuest";
+    else
+        newLink = nuevoLink;
     window.location.href = newLink;
 }
 
