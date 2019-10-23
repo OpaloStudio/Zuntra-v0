@@ -55,6 +55,7 @@ function changeTipoStaff2(me) {
     var rpReserva;
     var tipoReserva;
     var fechaReserva;
+    var liveRP;
 
 
     $( document ).ready(function() {
@@ -89,23 +90,31 @@ function changeTipoStaff2(me) {
             success: function(msg) {
                 console.log(msg);
 
-                switch(msg){
+                if(msg == false){
+                    alert("Solo el creador de la reserva puede editarla.");
+                    window.location.href = '?page=2';
+                }else{
+                    alert("Existe Reservacion");
 
-                    case 1:
-                        alert("Existe Reservacion");
-                    break;
+                    console.log(msg[0].idRp);
+                    console.log(msg[0].idTipoRes);
+                    console.log(msg[0].fecha);
+                    console.log(msg[0].numPersonas);
 
-                    case 999:
-                        alert("Solo el creador de la reserva puede editarla.");
-                        window.location.href = '?page=2';
-                    break;
-
+                    //$("#opcion1").val(msg[0].idRp);
+                    //$("#opcion1").text("Hola");
+                    $("#tipoReserva").val(msg[0].idTipoRes);
+                    $("#fechaReservacion").val(msg[0].fecha);
+                    $("#personasReservacion").val(msg[0].numPersonas);
+                    
                 }
 
 
             },
             dataType: "json"
         });
+
+        
 
     });
 

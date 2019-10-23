@@ -21,7 +21,7 @@
   <div class="form-group">
       <label class="negro" for="selectorRP">¿Con quién quieres reservar?</label>
       <select class="form-control inputsClaros" id="selectorRP">
-        <option selected disabled>-Elige a alguien-</option>
+        <option id="opcion1" selected disabled>-Elige a alguien-</option>
       </select>
     </div>
  
