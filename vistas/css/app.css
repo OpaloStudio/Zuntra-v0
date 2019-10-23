@@ -626,6 +626,12 @@ body {
   margin-top: 3rem;
   margin-right: 2rem; }
 
+#btnQRDescargar {
+  display: none; }
+
+#btnQRShare {
+  display: none; }
+
 .contenedorQr {
   display: flex;
   justify-content: center;

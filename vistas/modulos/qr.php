@@ -65,9 +65,9 @@
     </dl>
 </div>
   <div class="zonaBtn">
-    <button type="submit" class="btn btnOscuro btnDescargar" id="btnQR" onclick="invitacionQR()">Aceptar</button>
-    <button type="submit" class="btn btnOscuro btnDescargar" id="btnQR" onclick="descargaImg()">Descargar<i class="fas fa-download"></i></button>
-    <button type="button" class="btn btnOscuro btnShare" onclick="share()"><i class="fas fa-share-alt"></i></button>
+    <button type="submit" class="btn btnOscuro btnDescargar" id="btnQRAceptar" onclick="invitacionQR()">Aceptar</button>
+    <button type="submit" class="btn btnOscuro btnDescargar" id="btnQRDescargar" onclick="descargaImg()">Descargar<i class="fas fa-download"></i></button>
+    <button type="button" class="btn btnOscuro btnShare" id="btnQRShare" onclick="share()"><i class="fas fa-share-alt"></i></button>
   </div>
   <br><br><br>
   <div id="idQR" style="display: none;"></div>
