@@ -4,10 +4,12 @@
 if(isset($_SESSION['loggedin'])){
     $idsesion = $_SESSION['userId'];
     $userName = $_SESSION['username'];
+    $userType = $_SESSION['userType'];
     //echo $idsesion;
     
 }else{
     $idsesion = '0';
+    $userType = '0';
     //echo $idsesion;
 }
 
@@ -16,22 +18,31 @@ if(isset($_SESSION['loggedin'])){
 <script>
 
 var idUser = <?php echo $idsesion; ?>;
+var tipoUser = <?php echo $userType; ?>;
 
 $(document).ready(function() {
     console.log(idUser);
+    console.log(tipoUser);
+    
     /*function mensajito(){
             $('#agregar').modal('toggle')
 }setTimeout(mensajito,3000);*/
     
-    
-    if(idUser != 0){
+if(tipoUser == 6){
+        $("#linkSwipe").attr("onclick","noInvitados()");
+        $("#linkReservar").attr("onclick","noInvitados()");
+        $("#homeCerrarSesion").removeAttr("hidden");
+        $("#homeIniciarSesion").hide();
+    }
+     else if(idUser != 0){
         console.log("Sesión Iniciada");
         $("#linkSwipe").attr("href","?page=8");
         $("#linkReservar").attr("href","?page=17");
         $("#homeComentarios").removeAttr("hidden");
         $("#homeCerrarSesion").removeAttr("hidden");
         $("#homeIniciarSesion").hide();
-    } else{
+    }
+    else if(idUser == 0){
         console.log("Por Favor Inicia Sesión");
         $("#linkSwipe").attr("href","?page=1&log=swipe");
         $("#linkReservar").attr("href","?page=1&log=reserva");
@@ -93,6 +104,10 @@ function irPromos(){
 
 function irLogin(){
     window.location.href = '?page=1&voy=index';
+}
+
+function noInvitados(){
+    alert("Solo Usuarios Registrados Pueden Accedera Esta Sección");
 }
 
 function irEventos(){

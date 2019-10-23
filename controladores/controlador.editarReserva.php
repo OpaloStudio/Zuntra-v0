@@ -27,11 +27,31 @@ $(function () {
             format: 'L'
         });
 });
+
+function changeTipoStaff2(me) {
+    var staff = me.value;
+    $.ajax({
+        type: "post",
+        url: "modelos/modelo.reservar.php",
+        data: {
+            "option": "3",
+            "staff": staff
+        },
+        success: function(response) {
+            alert(response);
+            var usuarios = JSON.parse(response);
+            $("#selectorRP").empty();
+            $("#selectorRP").append("<option selected disabled>-Elige a alguien-</option>");
+            for(var i = 0; i < usuarios.length; i++)
+                $("#selectorRP").append("<option value='"+usuarios[i].idUser+"'>" + usuarios[i].nombre + "</option>");
+        }
+    });
+ }
     var miSesion = <?php echo $idsesion; ?>;
     var miNombre = String("<?php echo $userName; ?>");
-    var laReserva;
-
+    
     var numPersonasReserva;
+    var laReserva;
     var rpReserva;
     var tipoReserva;
     var fechaReserva;
@@ -89,12 +109,18 @@ $(function () {
 
     });
 
+   
+
     function generarReservacion(){
 
         rpReserva = document.getElementById('selectorRP').value;
         tipoReserva = document.getElementById('tipoReserva').value;
         fechaReserva = document.getElementById('fechaReservacion').value;
         numPersonasReserva = document.getElementById('personasReservacion').value;
+
+        if(rpReserva === "-Elige a alguien-"){
+            rpReserva = 0;
+        }
 
         console.log(rpReserva);
         console.log(tipoReserva);
@@ -133,5 +159,7 @@ $(function () {
         });
 
     }
+
+   
 </script>
 <script type="text/javascript" src="vistas/js/easy.qrcode.min.js" charset="utf-8"></script>
