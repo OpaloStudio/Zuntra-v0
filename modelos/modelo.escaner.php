@@ -162,11 +162,10 @@ switch($option){
         break;
 
     case '4';
-        $sql = "SELECT idRes, idInvitado FROM invitadosGuest WHERE nombreInvitado='$nombre' AND idUser='$codigo' AND scan='0'";
+        $sql = "SELECT idRes FROM invitadosGuest WHERE nombreInvitado='$nombre' AND idUser='$codigo' AND scan='0'";
         $result = $conexion->query($sql);
         while($row = mysqli_fetch_array($result)){  
             $idRes = (int)$row[0];
-            $idInvitado = (int)$row[1];
         }   
 
         $sql2 = "SELECT * FROM reservaciones WHERE idRes='$idRes' AND activa='1'";
@@ -182,7 +181,7 @@ switch($option){
             $status = "997"; //No hay publicaciones con esas características o no está activa
         } else{ 
         
-            $sql3 = "UPDATE invitadosGuest SET scan='1' WHERE nombreInvitado='$nombre' AND idUser='$codigo' AND scan='0' AND idInvitado = $idInvitado";
+            $sql3 = "UPDATE invitadosGuest SET scan='1' WHERE nombreInvitado='$nombre' AND idUser='$codigo' AND scan='0'";
             $result3 = $conexion->query($sql3); 
         
             if($conexion->query($sql3)){
