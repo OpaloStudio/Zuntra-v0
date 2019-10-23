@@ -42,7 +42,10 @@ $(document).ready(function () {
             sesion:sesion
         }),
         success: function(msg) {
-            //console.log(msg);
+            // alert(JSON.stringify(msg));
+            if (msg == false){
+                $("#salas").html('<h1 class="dorado text-center">No tienes mensajes </h1>');
+            }
             info = msg;
 
             for(var i = 0; i < info.length; i++){

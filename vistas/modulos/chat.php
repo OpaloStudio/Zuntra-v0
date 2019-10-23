@@ -10,7 +10,7 @@
   <div class="divMensajes" id="losMsj">
 
     <div id="divAux">
-
+    <div class="loader">Loading...</div>
       <!-- <div class="mnsjOtro">
       <p class="mensajeEL">On tas?</p>
     </div> -->
