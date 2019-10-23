@@ -1,7 +1,6 @@
 const cacheName = 'static-shell-v1';
 const resourcesToPrecache = [
 'vistas/modulos/cambiar.php',
-'vistas/modulos/chat.php',
 'vistas/modulos/escaner.php',
 'vistas/modulos/home.php',
 'vistas/modulos/inbox.php',

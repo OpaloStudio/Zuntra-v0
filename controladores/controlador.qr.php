@@ -214,7 +214,7 @@ if(isset($_GET['nombre'])){
     }
 
     function share() {
-    var text = 'Add text to share with the URL';
+    var text = '¡Vamos a Zuntra! Únete a mi reservación: ';
     if ('share' in navigator) {
         navigator.share({
             title: document.title,
@@ -285,7 +285,7 @@ if(isset($_GET['nombre'])){
     function editarReserva(){
         console.log(idUser);
         console.log(idReservacion);
-        opcion = 3;
+        opcion = 4;
 
         $.ajax({
             url: "modelos/modelo.qr.php",
@@ -317,14 +317,7 @@ if(isset($_GET['nombre'])){
         });
     }
 
-    function descargaImg2(){
-
-        var url = qrDescarga.replace(/^data:image\/[^;]+/, 'data:application/octet-stream');
-
-
-        window.location.href = url;
-
-    }
+ 
 
     function descargaImg() {
         domtoimage.toPng(document.getElementById('contentQR'), { bgColor: 'white' })

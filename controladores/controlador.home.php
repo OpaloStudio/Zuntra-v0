@@ -104,7 +104,6 @@ function irPromos(){
 
 function irLogin(){
     window.location.href = '?page=1&voy=index';
-    alert("Solo Usuarios Registrados Pueden Crear Reservaciones");
 }
 
 function noInvitados(){

@@ -72,7 +72,7 @@ switch($opcion){
 		}
 		echo json_encode($final);
 		break;
-	case 3:
+	case 4:
 		$sql = "SELECT * FROM reservaciones WHERE idUser = '$idUser' AND idRes='$idReservacion' AND activa='1'";
 		$result = $conexion->query($sql);
 		
