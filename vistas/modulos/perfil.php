@@ -6,6 +6,9 @@
 
 
   <div class="row  ">
+   <div class="fullDiv">
+      <h1 class="text-center dorado">Edita tu perfil</h1>
+   </div>
 
 <div class="col-6 flex1">
     <input type="file" class="hideInput" id="customFile1" name="pic1" onchange="openFile(event)">
@@ -34,6 +37,8 @@
             </div>
 
         </div>
+        
+      <p class="text-center">(Las 5 imagenes son obligatorias)</p>
    
 
 

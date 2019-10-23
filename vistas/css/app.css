@@ -1,15 +1,16 @@
 @charset "UTF-8";
 .formularioLogin {
-  width: 100vw; }
+  width: 80vw; }
 
 .contenedorFormulario {
   display: flex;
   justify-content: center;
-  align-items: center;
+  flex-direction: column;
   width: 100vw;
   height: 100vh;
   background-color: #212121;
-  color: white; }
+  color: white;
+  padding-top: 10vh; }
 
 .inputOscuro {
   border: 1px solid white;
@@ -17,7 +18,17 @@
   -webkit-border-radius: 20px;
   -moz-border-radius: 20px;
   border-radius: 20px;
-  color: white; }
+  color: white;
+  margin-left: 1rem; }
+
+.logoLogin {
+  height: 25vh;
+  margin-top: -5rem;
+  padding: 0rem 2rem 0rem 2rem !important; }
+
+#buttonLogin {
+  margin-left: 5rem;
+  width: 10rem; }
 
 .contenedorChat {
   width: 100%;
@@ -588,6 +599,9 @@ body {
 #btnNewPass {
   height: 2.7rem;
   width: 8rem; }
+
+#barraLogScreen {
+  background-color: transparent !important; }
 
 .contenedorPromos {
   width: 100%;
@@ -1161,6 +1175,9 @@ label {
 
 .switch + .switch {
   margin-left: 1rem; }
+
+.fullDiv {
+  width: 100vw; }
 
 .textito {
   font-size: 12px;

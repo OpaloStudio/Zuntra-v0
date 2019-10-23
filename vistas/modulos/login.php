@@ -1,11 +1,15 @@
 <div class="contenedorFormulario">
 <nav class="navbar fixed-top navbar-dark navInbox">
     <div class="iconos">
-      <a href="?page=1"> <i class="fas fa-arrow-left"></i></a>
+      <a href="?page=1&log=reserva"> <i class="fas fa-arrow-left"></i></a>
       <h1 class=" divTitutlo text-center"></h1>
     </div>
   </nav>
+
+    <img class="logoLogin" src="vistas/img/logo.png">
+
   <form class="formularioLogin">
+  
     <div class="form-group" id="divEmail">
       <label class="blanco" for="emailLogin">Email</label>
       <input type="email" class="form-control inputOscuro" id="emailLogin" onkeyup = "validaLogin()" aria-describedby="emailHelp" placeholder="Enter email">
@@ -24,8 +28,8 @@
       <input type="text" class="form-control inputOscuro" id="phoneGuest" placeholder="Telefono">
     </div>
    <br>
-    <button type="button" id = "buttonLogin" onclick = "login()" class="btn btnOscuro">Submit</button>
-    <button type="button" id = "btnGuest" onclick = "guestLogIn()" class="btn btnOscuro" style="display: none">Submit Invitado</button>
+    <button type="button" id = "buttonLogin" onclick = "login()" class="btn btnOscuro">Iniciar Sesión</button>
+    <button type="button" id = "btnGuest" onclick = "guestLogIn()" class="btn btnOscuro" style="display: none">Iniciar Sesión Invitado</button>
     <a href="?page=1" class="btn btn-primary" style="display: none" >atras</a>
   </form>
  

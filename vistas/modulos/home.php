@@ -1,9 +1,6 @@
 <div class="container-fluid ">
-  <nav class="navbar fixed-top navbar-dark navSwipe" style="background-color: rgb(33, 33, 33,0.41);">
-    <div class="iconos">
-      <a href="?page=7"> <i class="fas fa-user-circle"></i></a>
-      <a href="?page=10"><i class="fas fa-comments"></i></a>
-    </div>
+  <nav class="navbar fixed-top navbar-dark navSwipe" style="background-color: rgb(0, 0, 0,0);">
+    
 
 
     <button class="btn btnPuntos " type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"

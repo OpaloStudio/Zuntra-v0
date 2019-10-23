@@ -17,6 +17,7 @@
         <option>Mesero</option>
         <option>Cadenero</option>
         <option>Capitán</option>
+        <option>Ninguno</option>
       </select>
     </div>
   <div class="form-group">

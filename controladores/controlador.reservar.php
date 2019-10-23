@@ -105,7 +105,7 @@ $(function () {
 
 function generarReservacion(){
     
-    rpReserva = document.getElementById('selectorRP').value;alert(rpReserva);
+    rpReserva = document.getElementById('selectorRP').value;//alert(rpReserva);
     tipoReserva = document.getElementById('tipoReserva').value;
     fechaReserva = document.getElementById('fechaReservacion').value;
     numPersonasReserva = document.getElementById('personasReservacion').value;
@@ -243,6 +243,10 @@ function reservacionAdb(){
 
  function changeTipoStaff(me) {
     var staff = me.value;
+    if (me.value == 'Ninguno'){
+        $("#selectorRP").empty();
+            $("#selectorRP").append("<option selected disabled>Ninguno</option>");
+    } else {
     $.ajax({
         type: "post",
         url: "modelos/modelo.reservar.php",
@@ -258,6 +262,7 @@ function reservacionAdb(){
                 $("#selectorRP").append("<option value='" + usuarios[i].idUser + "'>" + usuarios[i].nombre + "</option>");
         }
     });
+}
  }
 
  function sendDudas(){
