@@ -1,15 +1,16 @@
 @charset "UTF-8";
 .formularioLogin {
-  width: 100vw; }
+  width: 80vw; }
 
 .contenedorFormulario {
   display: flex;
   justify-content: center;
-  align-items: center;
+  flex-direction: column;
   width: 100vw;
   height: 100vh;
   background-color: #212121;
-  color: white; }
+  color: white;
+  padding-top: 10vh; }
 
 .inputOscuro {
   border: 1px solid white;
@@ -17,7 +18,17 @@
   -webkit-border-radius: 20px;
   -moz-border-radius: 20px;
   border-radius: 20px;
-  color: white; }
+  color: white;
+  margin-left: 1rem; }
+
+.logoLogin {
+  height: 25vh;
+  margin-top: -5rem;
+  padding: 0rem 2rem 0rem 2rem !important; }
+
+#buttonLogin {
+  margin-left: 5rem;
+  width: 10rem; }
 
 .contenedorChat {
   width: 100%;
@@ -50,6 +61,16 @@
   -webkit-border-radius: 15px 15px 0px 0px;
   -moz-border-radius: 15px 15px 0px 0px;
   border-radius: 15px 15px 0px 0px; }
+
+.iconosChat {
+  width: 100%;
+  height: 10vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center; }
+
+.nombri {
+  margin-left: 2rem; }
 
 .divMensajes {
   margin-top: 12vh; }
@@ -146,6 +167,10 @@
   right: 0;
   position: fixed;
   margin-right: 10px; }
+
+.imgBonito {
+  height: 50px;
+  width: 50px; }
 
 .zonaEscribir {
   background-color: #212121;
@@ -554,6 +579,44 @@ body {
   height: 30vh;
   margin-top: -5rem; }
 
+.linkPass {
+  color: white !important;
+  text-decoration: none !important;
+  margin-top: 2rem;
+  cursor: pointer; }
+
+.blanco {
+  color: white !important;
+  display: none;
+  padding-right: 1.5rem;
+  padding-left: 1.5rem;
+  margin-top: -6rem; }
+
+#emailRecover {
+  width: 300px;
+  display: none; }
+
+#btnCorreo {
+  height: 2.7rem;
+  width: 8rem;
+  display: none; }
+
+#newPassword {
+  width: 350px; }
+
+#newPassword2 {
+  width: 350px; }
+
+.blanquito {
+  color: white !important; }
+
+#btnNewPass {
+  height: 2.7rem;
+  width: 8rem; }
+
+#barraLogScreen {
+  background-color: transparent !important; }
+
 .contenedorPromos {
   width: 100%;
   height: 100%;
@@ -590,6 +653,12 @@ body {
   cursor: pointer;
   margin-top: 3rem;
   margin-right: 2rem; }
+
+#btnQRDescargar {
+  display: none; }
+
+#btnQRShare {
+  display: none; }
 
 .contenedorQr {
   display: flex;
@@ -1120,6 +1189,9 @@ label {
 
 .switch + .switch {
   margin-left: 1rem; }
+
+.fullDiv {
+  width: 100vw; }
 
 .textito {
   font-size: 12px;

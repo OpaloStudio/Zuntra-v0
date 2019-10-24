@@ -8,12 +8,12 @@
     } else if($tipoLink == 'editar') {
         $user = $_GET['usuario'];
         $reservacion = $_GET['reservacion'];
-    } else if($tipoLink == "invitados") {
+    } else if($tipoLink == "invitados" || $tipoLink == "invitadosGuest") {
         $user = $_GET['usuario'];
         $reservacion = $_GET['reservacion'];
     } else {
-            $user = "No iniciado";
-            $reservacion = 0;
+        $user = "No iniciado";
+        $reservacion = 0;
     }
 
     if(isset($_SESSION['loggedin'])){
@@ -41,7 +41,7 @@
         switch(tipoLink){
             case "guest":
                 var usuarioReservacion = "<?php echo $user; ?>";
-                var idReservacion = <?php echo $reservacion; ?>;
+                var idReservacion = "<?php echo $reservacion; ?>";
                 opciones = 1;
 
                 divNombre.style.display = 'block';
@@ -70,12 +70,11 @@
                 nuevoLink = "?page=17";
                 break;
             
-            case "invitados":
+            case "invitadosGuest":
                 opciones = 2;
 
                 var usuarioReservacion = "<?php echo $user; ?>";
-                var idReservacion = <?php echo $reservacion; ?>;
-
+                var idReservacion = "<?php echo $reservacion; ?>";
 
                 nuevoLink = "?page=6&usuario="+usuarioReservacion+"&reservacion="+idReservacion;
 
@@ -86,7 +85,14 @@
                 divEmail.style.display = 'none';
                 divPass.style.display = 'none';
                 buttonLogin.style.display = 'none';
+                break;
+            case "invitados":
+                opciones = 2;
 
+                var usuarioReservacion = "<?php echo $user; ?>";
+                var idReservacion = "<?php echo $reservacion; ?>";
+
+                nuevoLink = "?page=6&usuario="+usuarioReservacion+"&reservacion="+idReservacion;
                 break;
 
             case "swipe":
@@ -127,7 +133,7 @@
 
             case "editar":
                 var usuarioReservacion = "<?php echo $user; ?>";
-                var idReservacion = <?php echo $reservacion; ?>;
+                var idReservacion = "<?php echo $reservacion; ?>";
 
 
                 nuevoLink = "?page=15&usuario="+usuarioReservacion+"&reservacion="+idReservacion;
@@ -218,21 +224,28 @@
             var newLink = nuevoLink + "&tipo=guestLS&telefono="+celGuest+"&nombre="+nameGuest;
         }
 
-        $.ajax({
-            type: "post",
-            url: "modelos/modelo.login.php",
-            data: {
-                "opcion": "2",
-                "nombre": nameGuest,
-                "telefono": celGuest
-            },
-            success: function(response) {
-                var respuesta = parseInt(response);
-                if(respuesta == 0)
-                    alert("Error: No se pudo iniciar sesión");
-                else if(respuesta == 1)
-                    window.location.href = newLink;
-            }
-        });   
+        if(nameGuest != "" && celGuest != "") {
+            $.ajax({
+                type: "post",
+                url: "modelos/modelo.login.php",
+                data: {
+                    "opcion": "2",
+                    "nombre": nameGuest,
+                    "telefono": celGuest
+                },
+                success: function(response) {
+                    var respuesta = parseInt(response);
+                    if(respuesta == 0)
+                        alert("Error: No se pudo iniciar sesión");
+                    else if(respuesta == 1)
+                        window.location.href = newLink;
+                    
+                    document.getElementById('btnGuest').disabled = false;
+                }
+            });   
+        } else {
+            alert("Error: Los campos no deben estar vacios");
+            document.getElementById('btnGuest').disabled = false;
+        }
     }
 </script>

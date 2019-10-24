@@ -230,73 +230,77 @@ if(isset($_SESSION['loggedin'])){
             });
   
           } else {
-  
-          option = 3;
-          var name = "Nombre: ";
-          var code = "Código: ";
-  
-          var Z = content.slice(content.indexOf(name) + name.length);
-          var codigo = content.slice(content.indexOf(code) + code.length);
-  
-          var nombre = Z.slice(0,Z.indexOf("Código")-1);
-  
-          console.log(nombre);
-          console.log(codigo);
-  
-          console.log(nombre.length);
-          console.log(codigo.length);
-  
-          
-          $.ajax({
-              url: "modelos/modelo.escaner.php",
-              type: "POST",
-              data: ({
-                  nombre:nombre,
-                  codigo:codigo,
-                  option:option
-              }),
-              success: function(msg) {
-                  console.log(msg);
-                  console.log(typeof msg);
-  
-                  if(typeof msg == "object"){
-  
-                    $("#aprobada").modal("show");
-                    $("#nombreQR").text("Nombre: "+msg.nombre);
-  
-                  }else if(typeof msg == "string"){
-  
-                    console.log("string");
-                    
-                    switch(msg){
+            var name = "Nombre: ";
+            var code = "Código: ";
+            var type = "Tipo usuario: ";
     
-                      case "1":
-                        $("#aprobada").modal("show");
-                      break;
+            var Z = content.slice(content.indexOf(name) + name.length);
+            var nombre = Z.slice(0,Z.indexOf("Código") - 1);
+            
+            var Z = content.slice(content.indexOf(code) + code.length);
+            var codigo = Z.slice(0, Z.indexOf("Tipo usuario") - 1);
+            
+            var tipo = content.slice(content.indexOf(type) + type.length);
+            
+            option = (tipo == "6") ? 4 : 3;
+
+            console.log(nombre);
+            console.log(codigo);
+            console.log(tipo);
+
+            console.log(nombre.length);
+            console.log(codigo.length);
+            console.log(tipo.length);
+            
+            $.ajax({
+                url: "modelos/modelo.escaner.php",
+                type: "POST",
+                data: ({
+                    nombre:nombre,
+                    codigo:codigo,
+                    option:option
+                }),
+                success: function(msg) {
+                    console.log(msg);
+                    console.log(typeof msg);
     
-                      case "999":
-                        $("#rechazada").modal("show");
-                      break;
+                    if(typeof msg == "object"){
     
-                      case "998":
-                        $("#rechazada").modal("show");
-                      break;
+                      $("#aprobada").modal("show");
+                      $("#nombreQR").text("Nombre: "+msg.nombre);
     
-                      case "997":
-                        $("#rechazada").modal("show");
-                      break;
+                    } else if(typeof msg == "string") {
     
-                      case "996":
-                        $("#rechazada").modal("show");
-                      break;
+                      console.log("string");
+                      
+                      switch(msg){
+      
+                        case "1":
+                          $("#aprobada").modal("show");
+                        break;
+      
+                        case "999":
+                          $("#rechazada").modal("show");
+                        break;
+      
+                        case "998":
+                          $("#rechazada").modal("show");
+                        break;
+      
+                        case "997":
+                          $("#rechazada").modal("show");
+                        break;
+      
+                        case "996":
+                          $("#rechazada").modal("show");
+                        break;
+                      }
                     }
-                  }
-  
-  
-              },
-              dataType: "json"
-          });
-          
+    
+    
+                },
+                dataType: "json"
+            });  
           }
 
         } else{

@@ -38,7 +38,7 @@ function changeTipoStaff2(me) {
             "staff": staff
         },
         success: function(response) {
-            alert(response);
+            //alert(response);
             var usuarios = JSON.parse(response);
             $("#selectorRP").empty();
             $("#selectorRP").append("<option selected disabled>-Elige a alguien-</option>");

@@ -64,6 +64,11 @@ $( document ).ready(function() {
             btnGuest.style.display = 'block';
         break;
 
+        case "index":
+            nuevoLink = "?page=4&log=index";
+            btnGuest.style.display = 'block';
+        break;
+
         case "escaner":
             nuevoLink = "?page=4&log=escaner";
             btnGuest.style.display = 'none';
@@ -95,11 +100,17 @@ $( document ).ready(function() {
             nuevoLink = "?page=4";
             btnGuest.style.display = 'none';
         break;
-
-
     }
     
 });
+
+function recoverPass(){
+    $(".btnOscuro").hide();
+    $(".linkPass").hide();
+    $(".labelin").show();
+    $("#emailRecover").show();
+    $("#btnCorreo").show();
+}
 
 function irLogin(){
     var newLink = nuevoLink;
@@ -108,10 +119,12 @@ function irLogin(){
 
 function irGuest(){
     var newLink;
-    if(nuevoLink.includes("log=invitados"))
-        newLink = nuevoLink;
-    else
+    if(nuevoLink.includes("log=reserva"))
         newLink = nuevoLink + "&log=guestLS";
+    else if(nuevoLink.includes("log=invitados"))
+        newLink = nuevoLink + "&log=invitadosGuest";
+    else
+        newLink = nuevoLink;
     window.location.href = newLink;
 }
 

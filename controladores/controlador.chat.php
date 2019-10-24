@@ -16,6 +16,7 @@ if(isset($_SESSION['loggedin'])){
 if($_GET['sala'] != 0){
     $sala = $_GET['sala'];
     $user2 = $_GET['chat'];
+    $nombri = $_GET['nombri'];
 }else{
   $sala = 0;
   $user2 = 0;
@@ -29,6 +30,7 @@ var sesion = <?php echo $idsesion; ?>;
 var nastyPics = '<?php echo $nastyPics; ?>';
 var user2 = <?php echo $user2; ?>;
 var sala = <?php echo $sala; ?>;
+var nombri = '<?php echo $nombri; ?>';
 var data = new FormData();
 var infoChat;
 var contLoop = 0;        
@@ -45,9 +47,14 @@ console.log(sesion);
 
 $(document).ready(function () {
     console.log(sesion);
+    
 
     if(sesion != 0){
         console.log("Sesión Iniciada");
+        var palabra = nombri;
+        palabra = palabra.replace(/_/g, ' ');
+        $('.nombri').html(palabra);
+        //alert(nombri);
 
     } else{
         console.log("Por Favor Inicia Sesión");

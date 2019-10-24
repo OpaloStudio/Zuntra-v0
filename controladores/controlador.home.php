@@ -103,7 +103,7 @@ function irPromos(){
 }
 
 function irLogin(){
-    window.location.href = '?page=1&voy=index';
+    window.location.href = '?page=1&log=index';
 }
 
 function noInvitados(){
@@ -128,6 +128,52 @@ function logout(){
         },
         dataType: "json"
     });
+}
+
+function sendComentarios(){
+
+var titulo = document.getElementById('tituloCom').value;
+var comentario = document.getElementById('comentario').value;
+var tipo = 1;
+
+
+    if(titulo.length > 0){
+        if(comentario.length > 0){
+            document.getElementById("btnEnviarComent").disabled = true;
+            $.ajax({
+                url: "modelos/modelo.comentario.php",
+                type: "POST",
+                data: ({
+                    titulo:titulo,
+                    comentario:comentario,
+                    tipo:tipo,
+                }),
+                success: function(msg) {
+                    console.log(msg);
+                    switch(msg){
+                        case 1:
+                            alert("Gracias por enviarnos tu comentario.");
+                            document.getElementById("btnEnviarComent").disabled = false;
+                            document.getElementById('tituloCom').value = "";
+                            document.getElementById('comentario').value = "";
+                        break;
+
+                        case 'default':
+                            alert("Ha ocurrido un error interno, inténtalo más tarde.");
+                            document.getElementById("btnEnviarComent").disabled = false;
+                            console.log(msg);
+                        break;
+                    }
+                },
+                dataType: "json"
+            });
+        }else{
+            alert('Ingresa un comentario.');
+        }
+    }else{
+        alert('Ingresa un título.');
+    }
+
 }
 
 

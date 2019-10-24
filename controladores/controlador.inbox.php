@@ -162,8 +162,9 @@ function imprimirSalas(){
     for(var i = 0; i < listaId.length; i++){
         console.log(nombres[i]);
         console.log(ultimosMsj[i]);
-
-        var lonk = "cambiar('?page=9&chat="+listaId[i]+"&sala="+sala[i]+"')";
+        var palabra = nombres[i];
+        palabra = palabra.replace(/\s/g,"_");
+        var lonk = "cambiar('?page=9&chat="+listaId[i]+"&sala="+sala[i]+"&nombri="+palabra+"')";
         console.log(lonk);
         var link = String(lonk);
         console.log(link);

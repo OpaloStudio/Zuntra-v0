@@ -1,4 +1,6 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', '1');
     include ("modelo.conexion.php");
 
     $opcion = $_POST["opcion"];
@@ -29,7 +31,7 @@
                     $_SESSION['userSexo'] = $row['idTIpoSexo'];
                     $_SESSION['userCita'] = $row['idTipoCita'];
                     $_SESSION['userBusco'] = $row['idBusco'];
-                    $_SESSION['userBio'] = $row['biogrfia'];
+                    $_SESSION['userBio'] = $row['biografia'];
                     $_SESSION['userETS'] = $row['idTipoETS'];
                     $_SESSION['userType'] = $row['idTipoUsuario'];
                     
