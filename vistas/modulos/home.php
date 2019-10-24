@@ -1,9 +1,6 @@
 <div class="container-fluid ">
-  <nav class="navbar fixed-top navbar-dark navSwipe" style="background-color: rgb(33, 33, 33,0.41);">
-    <div class="iconos">
-      <a href="?page=7"> <i class="fas fa-user-circle"></i></a>
-      <a href="?page=10"><i class="fas fa-comments"></i></a>
-    </div>
+  <nav class="navbar fixed-top navbar-dark navSwipe" style="background-color: rgb(0, 0, 0,0);">
+    
 
 
     <button class="btn btnPuntos " type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
@@ -101,16 +98,16 @@
         <div class="content">
           <form>
             <div class="form-group">
-              <label class="dorado" for="razon">Título</label>
-              <textarea class="form-control razon" id="razon" rows="1"></textarea>
+              <label class="dorado" for="tituloCom">Título</label>
+              <textarea class="form-control razon" id="tituloCom" rows="1"></textarea>
             </div>
             <div class="form-group">
-              <label class="dorado" for="razon">Comentario</label>
-              <textarea class="form-control razon" id="razon" rows="5"></textarea>
+              <label class="dorado" for="comentario">Comentario</label>
+              <textarea class="form-control razon" id="comentario" rows="5"></textarea>
             </div>
         </div>
         <div class="divSubmit">
-          <button type="button" class="btn btnComentarios" onclick='bloqueo()'>Enviar </button>
+          <button type="button" class="btn btnComentarios" id="btnEnviarComent" onclick='sendComentarios()'>Enviar</button>
         </div>
         </form>
       </div>

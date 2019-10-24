@@ -49,6 +49,7 @@ if(isset($_GET['nombre'])){
 
     //Información de los invitados de la DB
     var invitados;
+    var losInvitados = [];
 
     //Nombre del creador de la reservación
     var nombreReservacion;
@@ -125,6 +126,8 @@ if(isset($_GET['nombre'])){
 
                         var node = document.createElement("LI");  
                         var textnode = document.createTextNode(invitados[i].nombreInvitado);
+                        losInvitados.push(invitados[i].nombreInvitado);
+                        //alert(losInvitados);
                         node.appendChild(textnode); 
                         document.getElementById("listaInvitados").appendChild(node);
 
@@ -136,7 +139,9 @@ if(isset($_GET['nombre'])){
                         if(idUser == invitados[i].idUser){
                             $("#img64primero").attr("src",invitados[i].invitadoQR);
                             qrDescarga = invitados[i].invitadoQR;
-                            $('#btnQR').hide();
+                            $('#btnQRAceptar').hide();
+                            $('#btnQRDescargar').show();
+                            $('#btnQRShare').show();
                         } else {
                             idxInvitados++;
                         }
@@ -145,7 +150,15 @@ if(isset($_GET['nombre'])){
 
                     if(invitados.length == personasTotales){
                         alert("Ya se aceptaron todas las invitaciones");
-                        $('#btnQR').hide();
+                        if (losInvitados.includes(nombreUser)) {
+                        $('#btnQRAceptar').hide();
+                        $('#btnQRDescargar').show();
+                        $('#btnQRShare').hide();
+                        } else {
+                        $('#btnQRAceptar').hide();
+                        $('#btnQRDescargar').hide();
+                        $('#btnQRShare').hide();
+                        }        
                     }
                     
                     console.log(idxInvitados);                    

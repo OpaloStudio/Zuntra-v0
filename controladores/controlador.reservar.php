@@ -105,7 +105,7 @@ $(function () {
 
 function generarReservacion(){
     
-    rpReserva = document.getElementById('selectorRP').value;alert(rpReserva);
+    rpReserva = document.getElementById('selectorRP').value;//alert(rpReserva);
     tipoReserva = document.getElementById('tipoReserva').value;
     fechaReserva = document.getElementById('fechaReservacion').value;
     numPersonasReserva = document.getElementById('personasReservacion').value;
@@ -243,6 +243,10 @@ function reservacionAdb(){
 
  function changeTipoStaff(me) {
     var staff = me.value;
+    if (me.value == 'Ninguno'){
+        $("#selectorRP").empty();
+            $("#selectorRP").append("<option selected disabled>Ninguno</option>");
+    } else {
     $.ajax({
         type: "post",
         url: "modelos/modelo.reservar.php",
@@ -258,7 +262,54 @@ function reservacionAdb(){
                 $("#selectorRP").append("<option value='" + usuarios[i].idUser + "'>" + usuarios[i].nombre + "</option>");
         }
     });
+}
  }
+
+ function sendDudas(){
+
+var titulo = document.getElementById('tituloDuda').value;
+var comentario = document.getElementById('duda').value;
+var tipo = 2;
+
+
+    if(titulo.length > 0){
+        if(comentario.length > 0){
+            document.getElementById("btnEnviarDuda").disabled = true;
+            $.ajax({
+                url: "modelos/modelo.comentario.php",
+                type: "POST",
+                data: ({
+                    titulo:titulo,
+                    comentario:comentario,
+                    tipo:tipo,
+                }),
+                success: function(msg) {
+                    console.log(msg);
+                    switch(msg){
+                        case 1:
+                            alert("Gracias por enviarnos tus dudas. Te responderemos muy pronto.");
+                            document.getElementById("btnEnviarDuda").disabled = false;
+                            document.getElementById('tituloDuda').value = "";
+                            document.getElementById('duda').value = "";
+                        break;
+
+                        case 'default':
+                            alert("Ha ocurrido un error interno, inténtalo más tarde.");
+                            document.getElementById("btnEnviarDuda").disabled = false;
+                            console.log(msg);
+                        break;
+                    }
+                },
+                dataType: "json"
+            });
+        }else{
+            alert('Ingresa un comentario.');
+        }
+    }else{
+        alert('Ingresa un título.');
+    }
+
+}
 
 </script>
 <script type="text/javascript" src="vistas/js/easy.qrcode.min.js" charset="utf-8"></script>

@@ -1,9 +1,11 @@
 <div class="contenedorChat">
   <nav class="navbar fixed-top navbar-dark navInbox">
-    <div class="iconos">
+    <div class="iconosChat">
       <a href="?page=10"> <i class="fas fa-arrow-left"></i></a>
+      <h3 class="nombri dorado"></h3>
+      
     </div>
-    <div class="imgChat" id="miImg"></div>
+    <div class="imgChat imgBonito" id="miImg"></div>
   </nav>
 
     
@@ -44,7 +46,7 @@
               <i class="far fa-trash-alt xBorrar" id="noCochinadas1" onclick="quitarCochinadas(1)"></i>
             </div>
             <div class="flex1">
-              <input type="file" class="hideInput" id="customFile1" onchange="openFile(event)">
+              <input type="file" class="hideInput" id="customFile1" onchange="openFile(event)" accept="image/x-png,image/gif,image/jpeg">
               <label for="customFile1"><img id="cuadro1" src="vistas/img/cuadroCarga.svg"> </label>
             </div>
             <div class="posX" id="pos2">
@@ -57,7 +59,7 @@
               <i class="far fa-trash-alt xBorrar" id="noCochinadas2" onclick="quitarCochinadas(2)"></i>
             </div>
             <div class=" flex1">
-              <input type="file" class="hideInput" id="customFile2" onchange="openFile2(event)">
+              <input type="file" class="hideInput" id="customFile2" onchange="openFile2(event)" accept="image/x-png,image/gif,image/jpeg">
               <label for="customFile2"><img id="cuadro2" src="vistas/img/cuadroCarga.svg"> </label>
             </div>
             <div class="posX" id="pos2">
@@ -70,7 +72,7 @@
               <i class="far fa-trash-alt xBorrar" id="noCochinadas3" onclick="quitarCochinadas(3)"></i>
             </div>
             <div class=" flex1 ">
-              <input type="file" class="hideInput" id="customFile3" onchange="openFile3(event)">
+              <input type="file" class="hideInput" id="customFile3" onchange="openFile3(event)" accept="image/x-png,image/gif,image/jpeg">
               <label for="customFile3"><img id="cuadro3" src="vistas/img/cuadroCarga.svg"> </label>
             </div>
             <div class="posX" id="pos2">
@@ -84,7 +86,7 @@
               <i class="far fa-trash-alt xBorrar" id="noCochinadas4" onclick="quitarCochinadas(4)"></i>
             </div>
           <div class="flex1">
-            <input type="file" class="hideInput" id="customFile4" onchange="openFile4(event)">
+            <input type="file" class="hideInput" id="customFile4" onchange="openFile4(event)" accept="image/x-png,image/gif,image/jpeg">
             <label for="customFile4"><img id="cuadro4" src="vistas/img/cuadroCarga.svg"> </label>
           </div>
           <div class="posX" id="pos2">
@@ -97,7 +99,7 @@
               <i class="far fa-trash-alt xBorrar" id="noCochinadas5" onclick="quitarCochinadas(5)"></i>
             </div>
           <div class=" flex1">
-            <input type="file" class="hideInput" id="customFile5" onchange="openFile5(event)">
+            <input type="file" class="hideInput" id="customFile5" onchange="openFile5(event)" accept="image/x-png,image/gif,image/jpeg">
             <label for="customFile5"><img id="cuadro5" src="vistas/img/cuadroCarga.svg"> </label>
           </div>
           <div class="posX" id="pos2">

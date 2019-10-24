@@ -63,7 +63,7 @@
                                 
                                 case 1:
                                     alert("Tu cuenta ha sido registrada exitosamente, ya puedes entrar a tu cuenta. Serás redirigido al inicio de sesión.");
-                                    window.location.href = '?page=1&log=firstLog';
+                                    window.location.href = '?page=4&log=firstLog';
                                 break;
         
                                 case 'default':

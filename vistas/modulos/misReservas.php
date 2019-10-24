@@ -40,24 +40,16 @@
       <div class="modal-body">
       <form>
       <div class="form-group">
-      <label class="negro" for="numero">Nombre</label>
-      <input type="text" class="form-control inputsClaros" id="nombreDuda">
-    </div>
-    <div class="form-group">
-      <label class="negro" for="numero">Correo</label>
-      <input type="mail" class="form-control inputsClaros" id="correoDuda">
-    </div>
-    <div class="form-group">
-      <label class="negro" for="numero">Teléfono</label>
-      <input type="number" class="form-control inputsClaros" id="telefonoDuda">
+      <label class="negro" for="tituloDuda">Título</label>
+      <input type="text" class="form-control inputsClaros" id="tituloDuda">
     </div>
             <div class="form-group">
-              <label class="negro" for="razon">Duda</label>
-              <textarea class="form-control razon" id="razon" rows="5"></textarea>
+              <label class="negro" for="duda">Duda</label>
+              <textarea class="form-control razon" id="duda" rows="5"></textarea>
             </div>
         </div>
         <div class="divSubmit">
-          <button type="button" class="btn btnComentarios" onclick='bloqueo()'>Enviar </button>
+          <button type="button" class="btn btnComentarios" id="btnEnviarDuda" onclick='sendDudas()'>Enviar </button>
         </div>
         </form>
       </div>
