@@ -76,7 +76,7 @@
 
     <div class="form-group">
       <label for="biografia">Cuentanos de ti</label>
-      <textarea class="form-control inputOscuro" id="biografia" rows="3"></textarea>
+      <textarea class="form-control inputOscuro" id="biografia" rows="3" maxlength="140"></textarea>
     </div>
 
     <div class="form-group">

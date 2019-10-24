@@ -157,6 +157,7 @@ function listo(){
         data: data, 
         success: function(msg) {
             console.log(msg);
+
             switch(msg){
 
                 case '1':
