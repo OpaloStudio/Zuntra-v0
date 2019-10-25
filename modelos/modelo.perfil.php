@@ -39,6 +39,8 @@ switch($option){
 
 
   case '2';
+
+
     $sql="UPDATE usuarios SET idTIpoSexo='$tipoSexo', idTipoCita='$tipoCita', idBusco='$busco', biografia='$biografia', idTipoETS='$tipoETS' WHERE idUser='$userId'"; 
 
     if($conexion->query($sql)){
@@ -51,8 +53,6 @@ switch($option){
     } else{
         $status = '998';//Error al actualizar info
     } 
-
-    
     
     $nombresImg = array();
     $targetPaths = array();

@@ -8,14 +8,17 @@ $status = '999';
 $sql = "SELECT * FROM reservaciones WHERE idUser = '$user' AND idRes='$reserva' AND activa='1'";
 $result = $conexion->query($sql);
 
-if($result->num_rows == 0){
-    $status = '999';
-}
-else{
-    $status = '1';
+$final = array();
+
+while($row = mysqli_fetch_array($result)){
+    array_push($final, $row);
 }
 
-echo $status;
+if(sizeof($final) == 0){
+    $final = false;
+}
+
+echo json_encode($final);
 
 
 ?>
