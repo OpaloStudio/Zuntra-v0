@@ -123,7 +123,6 @@ function obtenerUsuarios(ini, fin) {
     for(var i = ini; i < ini + fin && i < total_usuarios; i++)
         $("#tablaUsuarios tbody").append("<tr><th scope='row'>" + (i + 1) + "</th><td>" + usuario[i].idUser + "</td><td>" + usuario[i].nombre + "</td><td>" + usuario[i].cumpleanos + "</td><td>" + usuario[i].correo + "</td><td>" + usuario[i].telefono + "</td><td>" + usuario[i].tipoSexo + "</td><td>" + usuario[i].busco + "</td><td>" + usuario[i].tipoCita +"</td></tr>");
     $("#paginacionUsuarios li:not(:first):not(:last)").click(paginacionBotones);
-
 }
 
 function buscarUsuarioNombre(me) {
