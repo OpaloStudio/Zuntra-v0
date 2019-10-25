@@ -1,12 +1,10 @@
 <div class="container-fluid usuarios">
-    
-
     <div class="divTabla d-flex flex-column">
         <div class="cardTable">
             <div class="searchUsuarios">
                 <input class="form-control mr-sm-2 busquedaRp" type="search" placeholder="Search" aria-label="Search" onkeyup="buscarUsuarioNombre(this)">
             </div>
-            <div class="table-responsive flexTable d-flex flex-column">
+            <div class="table-responsive flexTable">
                 <table class="table table-hover tablaUsuarios" id="tablaUsuarios">
                     <thead class="headTabla">
                         <tr>

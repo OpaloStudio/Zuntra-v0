@@ -28,7 +28,7 @@ ini_set('display_errors', '1');
                 $conexion->close();
                 break;
             case '2':
-                $result1 = $conexion->query("SELECT COUNT(*) AS total FROM reservaciones");
+                $result1 = $conexion->query("SELECT SUM(numPersonas) AS total FROM reservaciones");
                 $result2 = $conexion->query("SELECT COUNT(*) AS total FROM invitados WHERE scan = 1");
                 $result3 = $conexion->query("SELECT COUNT(*) AS total FROM invitadosGuest WHERE scan = 1");
 
