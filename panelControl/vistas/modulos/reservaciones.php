@@ -2,7 +2,7 @@
     <div class="zonaReservaciones">
         <div class="card cardReservTotales">
             <h2>Reservaciones Totales</h2>
-            <h1 id="reservacionesTotales">345 / 543</h1>
+            <h1 id="reservacionesTotales">0 / 0</h1>
         </div>
     </div>
     <div class="divTabla d-flex flex-column">
