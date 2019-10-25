@@ -17,7 +17,18 @@ session_start();
     <meta name="keyword" content="">
 
     <title>Zuntra POP CLUB</title>
-    <link rel="icon" type="image/png" id="dinamico" href="vistas/img/favicon/favicon.png" />
+	<link rel="icon" type="image/png" id="dinamico" href="vistas/img/favicon/favicon.png" />
+	<link rel="apple-touch-icon" href="vistas/img/icons/icnManifest/152x152.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="vistas/img/icons/icnManifest/152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="vistas/img/icons/icnManifest/192x192.png">
+	<link rel="apple-touch-icon" sizes="167x167" href="vistas/img/icons/icnManifest/152x152.png">
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+
+<link href="vistas/img/icons/iphone.svg" sizes="1536x2048" rel="apple-touch-startup-image" />
+<link href="vistas/img/icons/iphone.svg" sizes="1125x2436" rel="apple-touch-startup-image" />
+<link href="vistas/img/icons/iphone.svg" sizes="1242x2208" rel="apple-touch-startup-image" />
+<link href="vistas/img/icons/iphone.svg" sizes="750x1334" rel="apple-touch-startup-image" />
+<link href="vistas/img/icons/iphone.svg" sizes="640x1136" rel="apple-touch-startup-image" />
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
         crossorigin="anonymous">
@@ -27,7 +38,7 @@ session_start();
 	<link href="vistas/js/plugins/fileinput/css/fileinput.css" media="all" rel="stylesheet" type="text/css"/>
 	<link href="vistas/js/plugins/fileinput/themes/explorer-fas/theme.css" media="all" rel="stylesheet" type="text/css"/>
 	<link rel="manifest" href="manifest.json">
-
+	
 	
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/css/tempusdominus-bootstrap-4.min.css" />
 
