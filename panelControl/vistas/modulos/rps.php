@@ -1,6 +1,18 @@
 <div class="container-fluid rps">
     <div class="barraSearch">
-        <input class="form-control mr-sm-2 busquedaRp" type="search" placeholder="Search" aria-label="Search">
+        <input class="form-control mr-sm-2 busquedaRp" type="search" placeholder="Search" aria-label="Search"><br>
+        <div class="form-group">
+      <label class="negro" for="tipoStaff">Cargo de staff</label>
+      <select class="form-control inputsClaros" id="tipoStaff" onchange="changeTipoStaff(this)">
+        <option selected disabled>-Elige el cargo de Staff-</option>
+        <option>Gerencia</option>
+        <option>RP</option>
+        <option>Mesero</option>
+        <option>Cadenero</option>
+        <option>Capitán</option>
+        <option>Ninguno</option>
+      </select>
+    </div>
     </div>
     <div class="zonaRps">
         <div class="wrap flexRps" id="rps">
