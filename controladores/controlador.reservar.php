@@ -132,9 +132,6 @@ function reservacionAdb(){
     var numPersonas = numPersonasReserva;
     var nombre = nombreReserva;
     var telefono = telefonoReserva;
-
-    
-
     
     //Aquí se crea el link
     var linkReservacion = "?page=6&usuario="+session+"&reservacion=";
@@ -245,24 +242,24 @@ function reservacionAdb(){
     var staff = me.value;
     if (me.value == 'Ninguno'){
         $("#selectorRP").empty();
-            $("#selectorRP").append("<option selected disabled>Ninguno</option>");
+            $("#selectorRP").append("<option selected disabled value='0'>Ninguno</option>");
     } else {
-    $.ajax({
-        type: "post",
-        url: "modelos/modelo.reservar.php",
-        data: {
-            "option": "3",
-            "staff": staff
-        },
-        success: function(response) {
-            var usuarios = JSON.parse(response);
-            $("#selectorRP").empty();
-            $("#selectorRP").append("<option selected disabled>-Elige a alguien-</option>");
-            for(var i = 0; i < usuarios.length; i++)
-                $("#selectorRP").append("<option value='" + usuarios[i].idUser + "'>" + usuarios[i].nombre + "</option>");
-        }
-    });
-}
+        $.ajax({
+            type: "post",
+            url: "modelos/modelo.reservar.php",
+            data: {
+                "option": "3",
+                "staff": staff
+            },
+            success: function(response) {
+                var usuarios = JSON.parse(response);
+                $("#selectorRP").empty();
+                $("#selectorRP").append("<option selected disabled>-Elige a alguien-</option>");
+                for(var i = 0; i < usuarios.length; i++)
+                    $("#selectorRP").append("<option value='" + usuarios[i].idUser + "'>" + usuarios[i].nombre + "</option>");
+            }
+        });
+    }
  }
 
  function sendDudas(){

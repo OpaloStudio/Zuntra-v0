@@ -20,14 +20,7 @@ $baseString = $_POST['baseString'];
 
 $option = $_POST['option'];
 
-
-
 $status = '999';
-
-
-
-
-
 
 switch($option){
 
@@ -49,7 +42,6 @@ switch($option){
   break;
 
   case '2';
-
 
     $sql = "INSERT INTO reservaciones (idTipoRes, numPersonas, activa, idUser, nombre, fecha, telefono, invitacion, idRp) VALUES ('$idTipoRes', '$numPersonas', '1', '$idUser', '$nombreUser', '$newDate', '$telefono', NULL, '$idRp')";
 

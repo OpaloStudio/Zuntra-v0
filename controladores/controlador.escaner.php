@@ -230,14 +230,13 @@ if(isset($_SESSION['loggedin'])){
             });
   
           } else {
-            var idRv = "idReservacion: "
+            var reser = "Número de Reservación: ";
             var name = "Nombre: ";
             var code = "Código: ";
             var type = "Tipo usuario: ";
-    
-            var Z = content.slice(content.indexOf(idRv) + idRv.length);
-            var idReservacion = Z.slice(0, Z.indexOf("idReservacion") - 1);
-            idReservacion = idReservacion.split("\n")[0];
+
+            var Z = content.slice(content.indexOf(reser) + reser.length);
+            var reservacion = Z.slice(0, Z.indexOf("Nombre") - 1);
 
             Z = content.slice(content.indexOf(name) + name.length);
             var nombre = Z.slice(0, Z.indexOf("Código") - 1);
@@ -249,12 +248,12 @@ if(isset($_SESSION['loggedin'])){
             
             option = (tipo == "6") ? 4 : 3;
 
-            console.log(idReservacion);
+            console.log(reservacion);
             console.log(nombre);
             console.log(codigo);
             console.log(tipo);
 
-            console.log(idReservacion.length);
+            console.log(reservacion.length);
             console.log(nombre.length);
             console.log(codigo.length);
             console.log(tipo.length);
@@ -263,7 +262,7 @@ if(isset($_SESSION['loggedin'])){
                 url: "modelos/modelo.escaner.php",
                 type: "POST",
                 data: ({
-                    idReservacion: idReservacion,
+                    idReservacion: reservacion,
                     nombre: nombre,
                     codigo: codigo,
                     option: option
