@@ -17,6 +17,32 @@
         });
     });
 
+    var openFile = function(event) {
+        var input = event.target;
+
+        var reader = new FileReader();
+        reader.onload = function() {
+            var dataURL = reader.result;
+            var output = document.getElementById('foto1');
+            output.src = dataURL;
+            console.log(dataURL);
+        };
+        reader.readAsDataURL(input.files[0]);
+    };
+
+    var openFile2 = function(event) {
+        var input = event.target;
+
+        var reader = new FileReader();
+        reader.onload = function() {
+            var dataURL = reader.result;
+            var output = document.getElementById('foto2');
+            output.src = dataURL;
+            console.log(dataURL);
+        };
+        reader.readAsDataURL(input.files[0]);
+    };
+
     function adminStaff() {
         //Cargar usuarios
         $.ajax({
@@ -28,8 +54,10 @@
             success: function(response) {
                 var usuarios = JSON.parse(response);
                 $("#rps").empty();
+                
                 for(var i = 0; i < usuarios.length; i++)
                     $("#rps").append('<div class="card cardNegra cardRp mb-3" style="max-width: 540px;" id="usuario' + usuarios[i].idUser + '"><div class="row no-gutters"><div class="col-md-4"><img src="vistas/img/perfil.jpg" class="card-img" alt="profile-pic"></div><div class="col-md-6"><div class="card-body"><h5 class="card-title text-center">' + usuarios[i].nombre + '</h5><p class="card-text text-center">30/50</p></div></div><div class="col-md-2 znBtns"><div class="editar"><h5 class="dorado" data-toggle="modal" data-target="#editarModal" onclick="editarModal(this)">Editar</h5></div><div class="eliminar" data-toggle="modal" data-target="#eliminarModal"><h5 class="dorado" onclick="btnEliminarVerificar(this)">Eliminar</h5></div></div></div></div>');
+                $(".zonaScroll").getNiceScroll().resize();
             }
         });
     }

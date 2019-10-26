@@ -14,9 +14,9 @@
                 <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
                     <form class="newStaff">
                         <div class=" flex1">
-                            <input type="file" class="hideInput" id="customFile1" name="pic1"
+                            <input type="file" class="hideInput" id="registroFoto" name="pic1"
                                 onchange="openFile(event)">
-                            <label for="customFile1"><img id="foto1" src="vistas/img/cuadroCarga.svg"> </label>
+                            <label for="registroFoto"><img id="foto1" src="vistas/img/cuadroCarga.svg"> </label>
                         </div>
                         <div class="form-group">
                             <label for="nombre">Nombre</label>
@@ -117,51 +117,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="card cardNegra cardRp mb-3" style="max-width: 540px;">
-                                <div class="row no-gutters">
-                                    <div class="col-md-4">
-                                        <img src="vistas/img/perfil.jpg" class="card-img" alt="profile-pic">
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="card-body">
-                                            <h5 class="card-title text-center">Nombre Monito</h5>
-                                            <p class="card-text text-center">30/50
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-2 znBtns">
-                                        <div class="editar">
-                                            <h5 class="dorado">Editar</h5>
-                                        </div>
-                                        <div class="eliminar">
-                                            <h5 class="dorado">Eliminar</h5>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div> 
-                            <div class="card cardNegra cardRp mb-3" style="max-width: 540px;">
-                                <div class="row no-gutters">
-                                    <div class="col-md-4">
-                                        <img src="vistas/img/perfil.jpg" class="card-img" alt="profile-pic">
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="card-body">
-                                            <h5 class="card-title text-center">Nombre Monito</h5>
-                                            <p class="card-text text-center">30/50
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-2 znBtns">
-                                        <div class="editar">
-                                            <h5 class="dorado">Editar</h5>
-                                        </div>
-                                        <div class="eliminar">
-                                            <h5 class="dorado">Eliminar</h5>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>                        
+                            </div>                  
                             -->
                         </div>
                     </div>
@@ -186,8 +142,8 @@
             <div class="modal-body">
                 <form class="editarStaff">
                     <div class=" flex1">
-                        <input type="file" class="hideInput" id="customFile1" name="pic1" onchange="openFile(event)">
-                        <label for="customFile1"><img id="foto1" src="vistas/img/cuadroCarga.svg"> </label>
+                        <input type="file" class="hideInput" id="editarFoto" name="pic1" onchange="openFile2(event)">
+                        <label for="editarFoto"><img id="foto2" src="vistas/img/cuadroCarga.svg"> </label>
                     </div>
                     <input type="hidden" value="" id="idUser">
                     <div class="form-group">
