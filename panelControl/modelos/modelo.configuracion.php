@@ -49,9 +49,10 @@
             if($conexion->query($sql2)) {
                 $userId = $conexion->insert_id;
                 $userDir = "../vistas/img/usuarios/".(string)$userId."/";
-
-                mkdir($userDir);
-                mkdir($userDir."perfil/");
+                error_reporting(E_ALL);
+                ini_set('display_errors', '1');
+                mkdir($userDir, 0777, true);
+                mkdir($userDir."perfil/", 0777, true);
 
                 $fileName = "perfil.".explode(".", $foto)[1];
                 unlink($userDir."perfil/".$fileName);
