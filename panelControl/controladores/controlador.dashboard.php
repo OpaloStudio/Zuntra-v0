@@ -70,7 +70,7 @@
             data: {
                 "opcion": "5"
             },
-            success: function(response) {alert(response);
+            success: function(response) {
                 var rps = JSON.parse(response);
                 rps.sort(function(a, b) {
                     return b.total - a.total;

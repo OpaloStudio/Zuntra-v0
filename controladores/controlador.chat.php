@@ -483,6 +483,7 @@ function dirtyPics(){
 
 function mostrarFotitos() {
   $('.scrollZone').show();
+  $(".scrollZone").getNiceScroll().resize();
   $('.btnMostrar').hide();
 }
 

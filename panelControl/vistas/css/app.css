@@ -249,6 +249,13 @@
   object-position: center center !important;
   padding: 1rem; }
 
+#foto2 {
+  height: 10rem;
+  width: 10rem;
+  object-fit: cover !important;
+  object-position: center center !important;
+  padding: 1rem; }
+
 .btnRegistro {
   -webkit-border-radius: 20px;
   -moz-border-radius: 20px;
