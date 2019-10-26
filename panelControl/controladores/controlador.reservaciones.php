@@ -131,10 +131,14 @@
     }
 
     function obtenerUsuarios(ini, fin) {
+        $(".cardTableReserv").remove();
+        $('<div class="cardTableReserv"><div class="searchUsuarios"><input class="form-control mr-sm-2 busquedaRp" type="search" placeholder="Search" aria-label="Search" onkeyup="buscarUsuarioNombre(this)"></div><div class="table-responsive flexTable"><table class="table table-hover tablaUsuarios" id="tablaUsuarios"><thead class="headTabla"><tr><th scope="col">#</th><th scope="col">Nombre de quién Reserva</th><th scope="col">Tipo de reservación</th><th scope="col">Reserva con</th><th scope="col">#Número de personas</th></tr></thead><tbody></tbody></table></div></div>').insertBefore("#paginacion");
+
         $("#tablaUsuarios tbody").empty();
         for(var i = ini; i < ini + fin && i < total_usuarios; i++)
             $("#tablaUsuarios tbody").append("<tr><th scope='row'>" + (i + 1) + "</th><td>" + usuario[i].usuario + "</td><td>" + usuario[i].tipoRes + "</td><td>" + usuario[i].staff + "</td><td>" + usuario[i].numPersonas + "</td></tr>");
         $("#paginacionUsuarios li:not(:first):not(:last)").click(paginacionBotones);
+        $(".cardTableReserv").niceScroll({cursorcolor:"#DEC9A1"});
     }
 
     function buscarUsuarioNombre(me) {

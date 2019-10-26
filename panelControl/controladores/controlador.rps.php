@@ -31,6 +31,8 @@
             },
             success: function(response) {
                 $("#rps").empty();
+                $(".zonaRps").remove();
+                $(".zonaZona").append('<div class="zonaRps"><div class="wrap flexRps" id="rps"></div></div>');
                 if(response != "0") {
                     usuarios = JSON.parse(response);
                     for(var i = 0; i < usuarios.length; i++)
@@ -39,6 +41,7 @@
                     $("#rps").append('<h1 class="dorado text-center"> No hay usuarios de cargo ' + me.value + '</h1>');
                     usuarios = new Array();
                 }
+                $(".zonaRps").niceScroll(".wrap",{cursorcolor:"#DEC9A1"});
             }
         });
     }
