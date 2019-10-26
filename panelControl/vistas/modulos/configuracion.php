@@ -162,7 +162,7 @@
                             <option value='Mesero'>Mesero </option>
                             <option value='Capitán'>Capitán </option>
                             <option value='Cadenero'>Cadenero </option>
-                            <option value='Gerente'>Gerente </option>
+                            <option value='Gerente'>Gerencia </option>
                         </select>
                     </div>
                     <div class="form-group">
