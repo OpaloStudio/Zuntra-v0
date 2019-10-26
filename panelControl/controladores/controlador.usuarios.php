@@ -119,11 +119,14 @@ function cargarUsuarios() {
 }
 
 function obtenerUsuarios(ini, fin) {
+    $(".cardTable").remove();
+    $('<div class="cardTable"><div class="searchUsuarios"><input class="form-control mr-sm-2 busquedaRp" type="search" placeholder="Search" aria-label="Search" onkeyup="buscarUsuarioNombre(this)"></div><div class="table-responsive flexTable"><table class="table table-hover tablaUsuarios" id="tablaUsuarios"><thead class="headTabla"><tr><th scope="col">#</th><th scope="col">ID</th><th scope="col">Nombre</th><th scope="col">Cumpleaños</th><th scope="col">Correo</th><th scope="col">Telefono</th><th scope="col">Sexo</th><th scope="col">Busca</th><th scope="col">Tipo de cita</th></tr><tbody></tbody></table></div></div>').insertBefore("#paginacion");
+
     $("#tablaUsuarios tbody").empty();
     for(var i = ini; i < ini + fin && i < total_usuarios; i++)
         $("#tablaUsuarios tbody").append("<tr><th scope='row'>" + (i + 1) + "</th><td>" + usuario[i].idUser + "</td><td>" + usuario[i].nombre + "</td><td>" + usuario[i].cumpleanos + "</td><td>" + usuario[i].correo + "</td><td>" + usuario[i].telefono + "</td><td>" + usuario[i].tipoSexo + "</td><td>" + usuario[i].busco + "</td><td>" + usuario[i].tipoCita +"</td></tr>");
     $("#paginacionUsuarios li:not(:first):not(:last)").click(paginacionBotones);
-
+    $(".cardTable").niceScroll({cursorcolor:"#DEC9A1"});
 }
 
 function buscarUsuarioNombre(me) {

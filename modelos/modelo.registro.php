@@ -23,7 +23,7 @@ if($result->num_rows > 0){
     $status = 0; //Registrado
 } else{
     
-    $sql2 = "INSERT INTO usuarios (nombre, telefono, correo, cumpleanos, contrasena, fotoPerfil, fotosNasty, idTipoUsuario) VALUES ('$nombre', '$telefono', '$email', '$newDate', '$password', 0, '00000', '1')";
+    $sql2 = "INSERT INTO usuarios (nombre, telefono, correo, cumpleanos, contrasena, fotoPerfil, fotosNasty, idTipoUsuario) VALUES ('$nombre', '$telefono', '$email', '$newDate', '$password', 0, '00000', '5')";
     
     if($conexion->query($sql2)){
         $status = '1';

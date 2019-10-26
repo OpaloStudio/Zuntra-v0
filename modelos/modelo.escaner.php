@@ -12,6 +12,7 @@ $option = $_POST['option'];
 
 $nombre = $_POST['nombre'];
 $codigo = $_POST['codigo'];
+$idReservacion = $_POST["idReservacion"];
 
 $dia1 = $_POST['dia1'];
 $dia2 = $_POST['dia2'];
@@ -104,7 +105,7 @@ switch($option){
     break;
 
     case '3';
-        $sql = "SELECT idRes FROM invitados WHERE nombreInvitado='$nombre' AND idUser='$codigo' AND scan='0'";
+        $sql = "SELECT idRes FROM invitados WHERE nombreInvitado='$nombre' AND idUser='$codigo' AND scan='0' AND idRes = $idReservacion";
         $result = $conexion->query($sql);   
 
         while($row = mysqli_fetch_array($result)){  
@@ -162,9 +163,9 @@ switch($option){
         break;
 
     case '4';
-        $sql = "SELECT idRes FROM invitadosGuest WHERE nombreInvitado='$nombre' AND idUser='$codigo' AND scan='0'";
+        $sql = "SELECT idRes FROM invitadosGuest WHERE nombreInvitado='$nombre' AND idUser='$codigo' AND scan='0' AND idRes = $idReservacion";
         $result = $conexion->query($sql);
-        while($row = mysqli_fetch_array($result)){  
+        while($row = mysqli_fetch_array($result)) {  
             $idRes = (int)$row[0];
         }   
 
@@ -173,14 +174,13 @@ switch($option){
         
         $arregloIDqr = array(); 
         
-        while($row = mysqli_fetch_array($result2)){
+        while($row = mysqli_fetch_array($result2)) {
             array_push($arregloIDqr, $row);
         }   
 
-        if(sizeof($arregloIDqr) == 0){  
+        if(sizeof($arregloIDqr) == 0) {
             $status = "997"; //No hay publicaciones con esas características o no está activa
-        } else{ 
-        
+        } else { 
             $sql3 = "UPDATE invitadosGuest SET scan='1' WHERE nombreInvitado='$nombre' AND idUser='$codigo' AND scan='0'";
             $result3 = $conexion->query($sql3); 
         

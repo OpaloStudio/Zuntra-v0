@@ -17,6 +17,32 @@
         });
     });
 
+    var openFile = function(event) {
+        var input = event.target;
+
+        var reader = new FileReader();
+        reader.onload = function() {
+            var dataURL = reader.result;
+            var output = document.getElementById('foto1');
+            output.src = dataURL;
+            console.log(dataURL);
+        };
+        reader.readAsDataURL(input.files[0]);
+    };
+
+    var openFile2 = function(event) {
+        var input = event.target;
+
+        var reader = new FileReader();
+        reader.onload = function() {
+            var dataURL = reader.result;
+            var output = document.getElementById('foto2');
+            output.src = dataURL;
+            console.log(dataURL);
+        };
+        reader.readAsDataURL(input.files[0]);
+    };
+
     function adminStaff() {
         //Cargar usuarios
         $.ajax({
@@ -28,8 +54,10 @@
             success: function(response) {
                 var usuarios = JSON.parse(response);
                 $("#rps").empty();
+                
                 for(var i = 0; i < usuarios.length; i++)
                     $("#rps").append('<div class="card cardNegra cardRp mb-3" style="max-width: 540px;" id="usuario' + usuarios[i].idUser + '"><div class="row no-gutters"><div class="col-md-4"><img src="vistas/img/perfil.jpg" class="card-img" alt="profile-pic"></div><div class="col-md-6"><div class="card-body"><h5 class="card-title text-center">' + usuarios[i].nombre + '</h5><p class="card-text text-center">30/50</p></div></div><div class="col-md-2 znBtns"><div class="editar"><h5 class="dorado" data-toggle="modal" data-target="#editarModal" onclick="editarModal(this)">Editar</h5></div><div class="eliminar" data-toggle="modal" data-target="#eliminarModal"><h5 class="dorado" onclick="btnEliminarVerificar(this)">Eliminar</h5></div></div></div></div>');
+                $(".zonaScroll").getNiceScroll().resize();
             }
         });
     }
@@ -100,6 +128,7 @@
     }
 
     function btnRegistrar() {
+        var foto = $("#registroFoto").prop("files")[0];
         var nombre = $("#nombre").val();
         var telefono = $("#telefono").val();
         var puesto = $("#puesto").val();
@@ -114,21 +143,26 @@
             if(password == password2) {
                 aux = cumpleanos.split("/");
                 cumpleanos = aux[2] + "-" + aux[0] + "-" + aux[1];
+
+                var datos = new FormData();
+                datos.append("registrar", "1");
+                datos.append("foto", foto);
+                datos.append("nombre", nombre);
+                datos.append("telefono", telefono);
+                datos.append("puesto", puesto);
+                datos.append("mail", mail);
+                datos.append("cumpleanos", cumpleanos);
+                datos.append("password", password);
+                datos.append("scanner", scanner);
+                datos.append("panelControl", panelControl);
+
                 $.ajax({
                     type: "post",
                     url: "modelos/modelo.configuracion.php",
-                    data: {
-                        "registrar": "1",
-                        "nombre": nombre,
-                        "telefono": telefono,
-                        "puesto": puesto,
-                        "mail": mail,
-                        "cumpleanos": cumpleanos,
-                        "password": password,
-                        "scanner": scanner,
-                        "panelControl": panelControl
-                    },
-                    success: function(response) {
+                    data: datos,
+                    contentType: false,
+                    processData: false,
+                    success: function(response) {alert(response);
                         if(response == "0")
                             alert("Error: El Usuario no pudo ser creado");
                         else if(response == "-1")

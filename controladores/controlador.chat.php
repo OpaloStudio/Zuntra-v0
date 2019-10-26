@@ -74,7 +74,7 @@ $(document).ready(function () {
     $(".scrollZone").niceScroll({
     cursorcolor:"#DEC9A1",
     cursorwidth:"5px",
-    horizrailenabled: true,
+    horizrailenabled: false,
     emulatetouch: true,
     autohidemode: true,
 
@@ -260,6 +260,8 @@ function mostrarCochinadas(){
 
 function cerrarCochinadas(){
     $('.imgCochinas').css("display","none");
+    $('.scrollZone').hide();
+    $('.btnMostrar').show();
 }
 
 function enviarCochinadas(){
@@ -478,6 +480,12 @@ function dirtyPics(){
   });
 
 }  
+
+function mostrarFotitos() {
+  $('.scrollZone').show();
+  $(".scrollZone").getNiceScroll().resize();
+  $('.btnMostrar').hide();
+}
 
 function quitarCochinadas(num){
 

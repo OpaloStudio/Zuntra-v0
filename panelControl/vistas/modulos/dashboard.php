@@ -6,28 +6,27 @@
                 <div class="scrollIzquierda">
                     <div class="wrap">
                         <div class="card cardBlanca">
-                            <div class="card-body">
-                                Total de Reservas
+                            <div class="card-body text-center">
+                                Total de Reservas<br><br>
+                                <p id="reservacionesTotales">0 / 0</p>
                             </div>
                         </div>
                         <div class="card cardBlanca">
-                            <div class="card-body">
-                                Reservaciones simples
+                            <div class="card-body text-center">
+                                Reservaciones simples<br><br>
+                                <p id="reservacionesSimples">0 / 0</p>
                             </div>
                         </div>
                         <div class="card cardBlanca">
-                            <div class="card-body">
-                                Reservaciones de Grupo
+                            <div class="card-body text-center">
+                                Reservaciones de Grupo<br><br>
+                                <p id="reservacionesGrupo">0 / 0</p>
                             </div>
                         </div>
                         <div class="card cardBlanca">
-                            <div class="card-body">
-                                Reservación de Cumpleaños
-                            </div>
-                        </div>
-                        <div class="card cardBlanca">
-                            <div class="card-body">
-                                This is some text within a card body.
+                            <div class="card-body text-center">
+                                Reservación de Cumpleaños<br><br>
+                                <p id="reservacionesCumple">0 / 0</p>
                             </div>
                         </div>
                         <br><br>
@@ -37,8 +36,8 @@
             </div>
             <div class="col-6 DashDerecha">
                 <div class="scrollIzquierda">
-                    <div class="wrap">
-
+                    <div class="wrap" id="rps">
+                        <!--
                         <div class="card cardNegra mb-3" style="max-width: 540px;">
                             <div class="row no-gutters">
                                 <div class="col-md-4">
@@ -113,7 +112,7 @@
                                 </div>
                             </div>
                         </div>
-
+                        -->
                     </div>
                 </div>
             </div>

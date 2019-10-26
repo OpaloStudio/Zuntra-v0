@@ -42,6 +42,9 @@
   background-color: #E1E1E1;
   height: 100vh; }
 
+.zonaAparece {
+  height: 100vh; }
+
 .zonaRps {
   height: 100vh; }
 
@@ -71,6 +74,29 @@
 .cardRp {
   min-width: 30% !important;
   margin-left: 2rem; }
+
+.dorado {
+  color: #DEC9A1; }
+
+.linkity {
+  text-decoration: none !important;
+  color: #DEC9A1 !important; }
+
+.cardReservTotales2 {
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+  margin-top: 2rem;
+  width: 36vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #DEC9A1; }
+
+.zonaReservaciones2 {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row; }
 
 .container-fluid {
   position: fixed;
@@ -130,7 +156,7 @@
 
 .reservaciones {
   background-color: #E1E1E1;
-  height: 100vh; }
+  height: 100%; }
 
 .cardReservTotales {
   -webkit-border-radius: 20px;
@@ -241,7 +267,21 @@
   width: 10rem;
   object-fit: cover !important;
   object-position: center center !important;
-  padding: 1rem; }
+  padding: 1rem;
+  cursor: pointer; }
+
+#foto2 {
+  height: 10rem;
+  width: 10rem;
+  object-fit: cover !important;
+  object-position: center center !important;
+  padding: 1rem;
+  cursor: pointer; }
+
+.divImgPerf {
+  width: 100%;
+  display: flex;
+  justify-content: center; }
 
 .btnRegistro {
   -webkit-border-radius: 20px;
