@@ -78,6 +78,10 @@
 .dorado {
   color: #DEC9A1; }
 
+.linkity {
+  text-decoration: none !important;
+  color: #DEC9A1 !important; }
+
 .container-fluid {
   position: fixed;
   top: 0;
