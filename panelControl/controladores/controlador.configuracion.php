@@ -151,7 +151,7 @@
                 datos.append("telefono", telefono);
                 datos.append("puesto", puesto);
                 datos.append("mail", mail);
-                datos.append("cunpleanos", cumpleanos);
+                datos.append("cumpleanos", cumpleanos);
                 datos.append("password", password);
                 datos.append("scanner", scanner);
                 datos.append("panelControl", panelControl);

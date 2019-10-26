@@ -59,7 +59,7 @@
 
                 echo $userId;
             } else
-                echo "0";
+                echo "$sql2";
         }
     } else if(isset($_POST["actualizar"])) {    //Actualizar la informacion de un usuario
         $idUser = $conexion->real_escape_string($_POST["idUser"]);
