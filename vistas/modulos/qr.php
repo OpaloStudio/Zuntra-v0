@@ -28,7 +28,10 @@
       <p id = "infoReserva" ></p>
   
     </div>
-    <div class="col-4 flecQr borde"><p>Sábado<br>12/06/19 - 10:30pm</p></div>
+    <div class="col-4 flecQr borde">
+    <p id="diaRes"></p><br>
+    <p id="fechaRes"></p>
+    </div>
     <div class="col-4 flecQr borde">
       <p>Nº de reservación:</p>
       <p id = "numeroReserva" ></p>
