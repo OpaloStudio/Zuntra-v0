@@ -42,7 +42,7 @@ $(document).ready(function () {
             sesion:sesion
         }),
         success: function(msg) {
-            // alert(JSON.stringify(msg));
+            console.log(msg);
             if (msg == false){
                 $("#salas").html('<h1 class="dorado text-center">No tienes mensajes </h1>');
             }
@@ -55,17 +55,21 @@ $(document).ready(function () {
                 if(info[i].usuario1 == sesion){
 
                     listaId.push(info[i].usuario2);
+                    nombres.push(info[i].nombre2);
 
                 }else if(info[i].usuario2 == sesion){
 
                     listaId.push(info[i].usuario1);
+                    nombres.push(info[i].nombre1);
 
                 }
             }
 
             console.log(listaId);
+            console.log(nombres);
             console.log(sala);
-            traerNombres();
+            ultimoMsj();
+            
         },
         dataType: "json"
     });
@@ -75,78 +79,32 @@ $(document).ready(function () {
 
 });
 
-function traerNombres(){
-
-    console.log(listaId.length);
-    var contador = 1;
-
-    for(var i = 0; i < listaId.length; i++){
-
-        var elId = listaId[i];
-
-        console.log(elId);
-
-        $.ajax({
-            url: "modelos/modelo.infoUsuario.php",
-            type: "POST",
-            data: ({
-                elId:elId
-            }),
-            success: function(msg) {
-                //console.log(msg);
-                console.log("Contador: "+contador);
-                console.log(msg);
-
-                nombres.push(msg);
-                if(contador == listaId.length){
-                    ultimoMsj();
-                }else{
-                    contador++;
-                }
-            },
-            dataType: "json"
-        });
-
-    }
-}
-
 function ultimoMsj(){
     var contador2 = 1;
+    var saveData = {};
+        console.log(sala);
 
-    for(var i = 0; i < sala.length; i++){
-
-        var laSala = sala[i];
-
-        $.ajax({
-            url: "modelos/modelo.ultimoMsj.php",
-            type: "POST",
-            data: ({
-                laSala:laSala
-            }),
-            success: function(msg) {
-                console.log("mensaje: "+msg);
-
-                if(msg==null){
-                    ultimosMsj.push(" ");
-                }else if(msg.indexOf("data:image/png;base64") != -1){
-                    ultimosMsj.push("Image");
-                }else{
-                    ultimosMsj.push(msg);
-                }
-                
-
-                if(contador2 == sala.length){
-                    imprimirSalas();
-                }else{
-                    contador2++;
-                }
-            
-            },
-            dataType: "json"
-        });
-        
-
+    for(var i = 0; i<sala.length; i++){
+        saveData[i] = sala[i];
     }
+
+    console.log(saveData);
+
+    $.ajax({
+        url: "modelos/modelo.ultimoMsj.php",
+        type: "POST",
+        data: ({
+            saveData:saveData
+        }),
+        success: function(msg) {
+            console.log(msg);
+
+            ultimosMsj = msg;
+            imprimirSalas();
+            
+        },
+        dataType: "json"
+    });
     
 
 }
@@ -164,7 +122,7 @@ function imprimirSalas(){
         console.log(ultimosMsj[i]);
         var palabra = nombres[i];
         palabra = palabra.replace(/\s/g,"_");
-        var lonk = "cambiar('?page=9&chat="+listaId[i]+"&sala="+sala[i]+"&nombri="+palabra+"')";
+        var lonk = "cambiar('?page=9&chat="+listaId[i]+"&sala="+sala[i]+"&nombre="+palabra+"')";
         console.log(lonk);
         var link = String(lonk);
         console.log(link);
@@ -176,8 +134,9 @@ function imprimirSalas(){
                     "</h5><p class='leMensaje'>"
                     +ultimosMsj[i]+
                     "</p></div></div></div>"
-    }
 
+                }
+                
     $("#salas").html(String(content));
     
     for(var i = 0; i < listaId.length; i++){
