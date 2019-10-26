@@ -92,7 +92,7 @@ session_start();
 
 			case '8':
 			//Panel de publicaciones
-			include('controladores/controlador.swipe.php');
+			include('controladores/controlador.perfilRp.php');
 			break;
 
 			case '9':
@@ -189,7 +189,7 @@ elseif(isset($_GET['page'])){
 
 		case '8':
 		//vista de configuracion
-		include('vistas/modulos/swipe.php');
+		include('vistas/modulos/perfilRp.php');
 		break;
 
 		case '9':
