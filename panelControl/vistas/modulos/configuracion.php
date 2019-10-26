@@ -34,7 +34,7 @@
                                 <option>Mesero </option>
                                 <option>Capitán </option>
                                 <option>Cadenero </option>
-                                <option>Gerente </option>
+                                <option>Gerencia </option>
                             </select>
                         </div>
 
