@@ -128,6 +128,7 @@
     }
 
     function btnRegistrar() {
+        var foto = $("#registroFoto").prop("files")[0];
         var nombre = $("#nombre").val();
         var telefono = $("#telefono").val();
         var puesto = $("#puesto").val();
@@ -142,21 +143,26 @@
             if(password == password2) {
                 aux = cumpleanos.split("/");
                 cumpleanos = aux[2] + "-" + aux[0] + "-" + aux[1];
+
+                var datos = new FormData();
+                datos.append("registrar", "1");
+                datos.append("foto", foto);
+                datos.append("nombre", nombre);
+                datos.append("telefono", telefono);
+                datos.append("puesto", puesto);
+                datos.append("mail", mail);
+                datos.append("cunpleanos", cumpleanos);
+                datos.append("password", password);
+                datos.append("scanner", scanner);
+                datos.append("panelControl", panelControl);
+
                 $.ajax({
                     type: "post",
                     url: "modelos/modelo.configuracion.php",
-                    data: {
-                        "registrar": "1",
-                        "nombre": nombre,
-                        "telefono": telefono,
-                        "puesto": puesto,
-                        "mail": mail,
-                        "cumpleanos": cumpleanos,
-                        "password": password,
-                        "scanner": scanner,
-                        "panelControl": panelControl
-                    },
-                    success: function(response) {
+                    data: datos,
+                    contentType: false,
+                    processData: false,
+                    success: function(response) {alert(response);
                         if(response == "0")
                             alert("Error: El Usuario no pudo ser creado");
                         else if(response == "-1")

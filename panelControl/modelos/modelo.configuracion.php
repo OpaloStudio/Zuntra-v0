@@ -26,6 +26,7 @@
             echo json_encode($row);
         }
     } else if(isset($_POST["registrar"])) { //Registrar a un nuevo usuario
+        $foto = $_FILES["foto"]["name"];
         $nombre = $conexion->real_escape_string($_POST["nombre"]);
         $telefono = $conexion->real_escape_string($_POST["telefono"]);
         $puesto = $conexion->real_escape_string($_POST["puesto"]);
@@ -45,9 +46,19 @@
             //Guardar la información del nuevo usuario en la base de datos
             $sql2 = "INSERT INTO usuarios (nombre, telefono, cumpleanos, correo, contrasena, scanner, panelControl, idTipoUsuario) SELECT '$nombre', '$telefono', '$cumpleanos', '$mail', '$password', $scanner, $panelControl, idTipoUsuario FROM tipoUsuario WHERE tipoUsuario LIKE '$puesto'";
             
-            if($conexion->query($sql2))
-                echo $conexion->insert_id;
-            else
+            if($conexion->query($sql2)) {
+                $userId = $conexion->insert_id;
+                $userDir = "../vistas/img/usuarios/".(string)$userId."/";
+
+                mkdir($userDir);
+                mkdir($userDir."perfil/");
+
+                $fileName = "perfil.".explode(".", $foto)[1];
+                unlink($userDir."perfil/".$fileName);
+                move_uploaded_file($_FILES["foto"]["tmp_name"], $userDir."perfil/".$fileName);
+
+                echo $userId;
+            } else
                 echo "0";
         }
     } else if(isset($_POST["actualizar"])) {    //Actualizar la informacion de un usuario
