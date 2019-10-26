@@ -14,9 +14,9 @@
                 <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
                     <form class="newStaff">
                         <div class=" flex1">
-                            <input type="file" class="hideInput" id="customFile1" name="pic1"
+                            <input type="file" class="hideInput" id="registroFoto" name="pic1"
                                 onchange="openFile(event)">
-                            <label for="customFile1"><img id="foto1" src="vistas/img/cuadroCarga.svg"> </label>
+                            <label for="registroFoto"><img id="foto1" src="vistas/img/cuadroCarga.svg"> </label>
                         </div>
                         <div class="form-group">
                             <label for="nombre">Nombre</label>
@@ -142,8 +142,8 @@
             <div class="modal-body">
                 <form class="editarStaff">
                     <div class=" flex1">
-                        <input type="file" class="hideInput" id="customFile1" name="pic1" onchange="openFile(event)">
-                        <label for="customFile1"><img id="foto1" src="vistas/img/cuadroCarga.svg"> </label>
+                        <input type="file" class="hideInput" id="editarFoto" name="pic1" onchange="openFile2(event)">
+                        <label for="editarFoto"><img id="foto2" src="vistas/img/cuadroCarga.svg"> </label>
                     </div>
                     <input type="hidden" value="" id="idUser">
                     <div class="form-group">
