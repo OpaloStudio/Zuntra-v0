@@ -13,7 +13,7 @@
             <div class="zonaScroll">
                 <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
                     <form class="newStaff">
-                        <div class=" flex1">
+                        <div class=" divImgPerf">
                             <input type="file" class="hideInput" id="registroFoto" name="pic1"
                                 onchange="openFile(event)">
                             <label for="registroFoto"><img id="foto1" src="vistas/img/cuadroCarga.svg"> </label>
@@ -141,7 +141,7 @@
             </div>
             <div class="modal-body">
                 <form class="editarStaff">
-                    <div class=" flex1">
+                    <div class=" divImgPerf">
                         <input type="file" class="hideInput" id="editarFoto" name="pic1" onchange="openFile2(event)">
                         <label for="editarFoto"><img id="foto2" src="vistas/img/cuadroCarga.svg"> </label>
                     </div>

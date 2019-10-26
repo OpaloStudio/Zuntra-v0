@@ -247,14 +247,21 @@
   width: 10rem;
   object-fit: cover !important;
   object-position: center center !important;
-  padding: 1rem; }
+  padding: 1rem;
+  cursor: pointer; }
 
 #foto2 {
   height: 10rem;
   width: 10rem;
   object-fit: cover !important;
   object-position: center center !important;
-  padding: 1rem; }
+  padding: 1rem;
+  cursor: pointer; }
+
+.divImgPerf {
+  width: 100%;
+  display: flex;
+  justify-content: center; }
 
 .btnRegistro {
   -webkit-border-radius: 20px;
