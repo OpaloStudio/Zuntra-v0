@@ -133,7 +133,7 @@
         var telefono = $("#telefono").val();
         var puesto = $("#puesto").val();
         var mail = $("#mail").val();
-        var cumpleanos = $("#cumpleanos").val();
+        var cumpleanos = $("#cunpleanos").val();
         var password = $("#password").val();
         var password2 = $("#password2").val();
         var scanner = $("input[name='scanner']:checked").val();

@@ -1,9 +1,15 @@
 <div class="container-fluid reservaciones">
-    <div class="zonaReservaciones">
-        <div class="card cardReservTotales">
+    <div class="zonaReservaciones2">
+        <div class="card cardReservTotales2 ">
             <h2>Reservaciones Totales</h2>
             <h1 id="reservacionesTotales">0 / 0</h1>
         </div>
+
+        <div class="card cardReservTotales2 ">
+            <h2>Días con Reservaciones</h2>
+            <h1 id="reservacionesTotales">0</h1>
+        </div>
+
     </div>
     <div class="divTabla d-flex flex-column">
         <div class="zonaZona">
@@ -16,10 +22,11 @@
                         <thead class="headTabla">
                             <tr>
                                 <th scope="col">#</th>
-                                <th scope="col">Nombre de quién Reserva</th>
-                                <th scope="col">Tipo de reservación</th>
-                                <th scope="col">Reserva con</th>
-                                <th scope="col">Número de personas</th>
+                                <th scope="col">Fecha</th>
+                                <th scope="col">Nombre Reservación</th>
+                                <th scope="col">Tipo de Reservación</th>
+                                <th scope="col">Nº de Reservaciones</th>
+                                <th scope="col">Status</th>
                             </tr>
                         </thead>
                         <tbody>
