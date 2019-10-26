@@ -2,7 +2,7 @@
     var usuarios;
 
     $(document).ready(function() {
-        $(".zonaRps").niceScroll(".wrap",{cursorcolor:"aquamarine"});
+        $(".zonaRps").niceScroll(".wrap",{cursorcolor:"#DEC9A1"});
         $('#2').addClass('actived'); 
 
         //Cargar rps
