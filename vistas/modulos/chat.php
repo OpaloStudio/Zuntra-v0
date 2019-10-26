@@ -38,6 +38,7 @@
             <i class="fas fa-times" onclick="cerrarCochinadas()"></i>
           </div>
         </div>
+        <button type="button" class="btn btnMostrar" onclick="mostrarFotitos()">Ver fotos</button>
         <div class="scrollZone">
           <canvas id="myCanvas" style="display: none"></canvas>
 
