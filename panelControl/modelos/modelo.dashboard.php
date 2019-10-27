@@ -70,8 +70,13 @@
                 $result3 = $conexion->query("SELECT usuarios.idUser, usuarios.nombre, '0' AS total, SUM(reservaciones.numPersonas) AS personas FROM usuarios, reservaciones WHERE usuarios.idUser = reservaciones.idRp GROUP BY reservaciones.idRp");
 
                 $rps = array();
-                while($row = $result3->fetch_assoc())
+                while($row = $result3->fetch_assoc()) {
+                    if(file_exists("../vistas/img/usuarios/".$row["idUser"]."/perfil/perfil.jpg"))
+                        $row["foto"] = "vistas/img/usuarios/".$row["idUser"]."/perfil/perfil.jpg";
+                    else
+                        $row["foto"] = "vistas/img/logo.png";
                     $rps[] = $row;
+                }
                 while($row = $result1->fetch_assoc())
                     for($i = 0; $i < count($rps); $i++)
                         if($row["idUser"] == $rps[$i]["idUser"]) 
