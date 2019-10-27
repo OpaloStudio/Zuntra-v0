@@ -4,12 +4,12 @@
         <div class="form-group">
             <label class="negro" for="tipoStaff">Cargo de staff</label>
             <select class="form-control inputsClaros" id="tipoStaff" onchange="changeTipoStaff(this)">
-                <option selected disabled>-Elige el cargo de Staff-</option>
-                <option>Gerencia</option>
-                <option>RP</option>
-                <option>Mesero</option>
-                <option>Cadenero</option>
-                <option>Capitán</option>
+                <option selected value="0">-Todos-</option>
+                <option value="2">Gerencia</option>
+                <option value="3">RP</option>
+                <option value="4">Mesero</option>
+                <option value="7">Cadenero</option>
+                <option value="8">Capitán</option>
             </select>
         </div>
     </div>
@@ -31,9 +31,6 @@
                         </div>
                     </div>
                 </div>
-       
-       
-       
                 -->
             </div>
         </div>
