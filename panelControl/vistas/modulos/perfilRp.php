@@ -7,7 +7,7 @@
 
         <div class="card cardReservTotales2 ">
             <h2>Días con Reservaciones</h2>
-            <h1 id="reservacionesTotales">0</h1>
+            <h1 id="">0</h1>
         </div>
 
     </div>
