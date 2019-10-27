@@ -29,12 +29,12 @@
                         <div class="form-group">
                             <label class="negro" for="exampleFormControlSelect1">Puesto</label>
                             <select class="form-control inputsClaros" id="puesto">
-                                <option selected value='0'>-Selecciona uno-</option>
-                                <option>RP </option>
-                                <option>Mesero </option>
-                                <option>Capitán </option>
-                                <option>Cadenero </option>
-                                <option>Gerencia </option>
+                                <option selected value="0">-Selecciona uno-</option>
+                                <option value="3">RP</option>
+                                <option value="4">Mesero</option>
+                                <option value="8">Capitán</option>
+                                <option value="7">Cadenero</option>
+                                <option value="2">Gerente</option>
                             </select>
                         </div>
 
@@ -157,12 +157,12 @@
                     <div class="form-group">
                         <label class="negro" for="epuesto">Puesto</label>
                         <select class="form-control inputsClaros" id="epuesto">
-                            <option selected value='0'>-Selecciona uno-</option>
-                            <option value='RP'>RP </option>
-                            <option value='Mesero'>Mesero </option>
-                            <option value='Capitán'>Capitán </option>
-                            <option value='Cadenero'>Cadenero </option>
-                            <option value='Gerente'>Gerencia </option>
+                            <option selected value="0">-Selecciona uno-</option>
+                            <option value="3">RP</option>
+                            <option value="4">Mesero</option>
+                            <option value="8">Capitán</option>
+                            <option value="7">Cadenero</option>
+                            <option value="2">Gerente</option>
                         </select>
                     </div>
                     <div class="form-group">

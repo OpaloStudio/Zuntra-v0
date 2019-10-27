@@ -3,26 +3,36 @@
     if ($conexion->connect_error) {
         die("La conexion falló: " . $conexion->connect_error);
     }
+    $conexion->set_charset("utf8");
 
     if(isset($_POST["staff"])) {
         //Obtener a todos los usuarios de staff registrados
-        $result = $conexion->query("SELECT usuarios.idUser, usuarios.nombre FROM usuarios, tipoUsuario WHERE NOT(tipoUsuario.tipoUsuario LIKE 'Cliente') AND NOT(tipoUsuario.tipoUsuario LIKE 'Guest') AND usuarios.idTipoUsuario = tipoUsuario.idTipoUsuario");
+        $result = $conexion->query("SELECT usuarios.idUser, usuarios.nombre FROM usuarios, tipoUsuario WHERE tipoUsuario.idTipoUsuario != 5 AND tipoUsuario.idTipoUsuario != 6 AND tipoUsuario.idTipoUsuario != 1 AND usuarios.idTipoUsuario = tipoUsuario.idTipoUsuario");
         if($result->num_rows === 0)
             echo "0";
         else {
             $rows = array();
-            while($row = $result->fetch_assoc()) 
+            while($row = $result->fetch_assoc()) {
+                if(file_exists("../vistas/img/usuarios/".$row["idUser"]."/perfil/perfil.jpg"))
+                    $row["foto"] = "vistas/img/usuarios/".$row["idUser"]."/perfil/perfil.jpg";
+                else
+                    $row["foto"] = "vistas/img/perfil.jpg";
                 $rows[] = $row;
+            }
             echo json_encode($rows);
         }
     } else if(isset($_POST["editar"])) { 
         //Obtener la informacion del staff que se desea editar
         $idUser = $_POST["idUser"];
-        $result = $conexion->query("SELECT usuarios.nombre, usuarios.telefono, tipoUsuario.tipoUsuario, usuarios.correo, usuarios.cumpleanos, usuarios.scanner, usuarios.panelControl FROM usuarios, tipoUsuario WHERE usuarios.idUser = $idUser AND tipoUsuario.idTipoUsuario = usuarios.idTipoUsuario");
+        $result = $conexion->query("SELECT usuarios.nombre, usuarios.telefono, tipoUsuario.idTipoUsuario, usuarios.correo, usuarios.cumpleanos, usuarios.scanner, usuarios.panelControl FROM usuarios, tipoUsuario WHERE usuarios.idUser = $idUser AND tipoUsuario.idTipoUsuario = usuarios.idTipoUsuario");
         if($result->num_rows === 0)
             echo "0";
         else {
             $row = $result->fetch_assoc();
+            if(file_exists("../vistas/img/usuarios/".$idUser."/perfil/perfil.jpg"))
+                $row["foto"] = "vistas/img/usuarios/".$idUser."/perfil/perfil.jpg";
+            else
+                $row["foto"] = "vistas/img/cuadroCarga.svg";
             echo json_encode($row);
         }
     } else if(isset($_POST["registrar"])) { //Registrar a un nuevo usuario
@@ -39,28 +49,25 @@
         $sql = "SELECT correo FROM usuarios WHERE correo = '$mail'";
         $result = $conexion->query($sql);
             
-            
         if($result->num_rows > 0 )
             echo "-1"; //Registrado
         else {
             //Guardar la información del nuevo usuario en la base de datos
-            $sql2 = "INSERT INTO usuarios (nombre, telefono, cumpleanos, correo, contrasena, scanner, panelControl, idTipoUsuario) SELECT '$nombre', '$telefono', '$cumpleanos', '$mail', '$password', $scanner, $panelControl, idTipoUsuario FROM tipoUsuario WHERE tipoUsuario LIKE '$puesto'";
+            $sql2 = "INSERT INTO usuarios (nombre, telefono, cumpleanos, correo, contrasena, scanner, panelControl, idTipoUsuario) VALUES ('$nombre', '$telefono', '$cumpleanos', '$mail', '$password', $scanner, $panelControl, $puesto)";
             
             if($conexion->query($sql2)) {
                 $userId = $conexion->insert_id;
                 $userDir = "../vistas/img/usuarios/".(string)$userId."/";
-                error_reporting(E_ALL);
-                ini_set('display_errors', '1');
-                mkdir($userDir, 0777, true);
-                mkdir($userDir."perfil/", 0777, true);
+                
+                mkdir($userDir);
+                mkdir($userDir."perfil/");
 
-                $fileName = "perfil.".explode(".", $foto)[1];
-                unlink($userDir."perfil/".$fileName);
-                move_uploaded_file($_FILES["foto"]["tmp_name"], $userDir."perfil/".$fileName);
+                unlink($userDir."perfil/perfil.jpg");
+                move_uploaded_file($_FILES["foto"]["tmp_name"], $userDir."perfil/perfil.jpg");
 
                 echo $userId;
             } else
-                echo "$sql2";
+                echo "0";
         }
     } else if(isset($_POST["actualizar"])) {    //Actualizar la informacion de un usuario
         $idUser = $conexion->real_escape_string($_POST["idUser"]);
@@ -75,9 +82,6 @@
         //Verificar si se desea cambiar el email del usuario
         $sql = "SELECT correo FROM usuarios WHERE idUser = $idUser AND NOT(correo LIKE '$mail')";
         $result = $conexion->query($sql);
-
-        //Obtener el id del tipo de usuario
-        $puesto = $conexion->query("SELECT idTipoUsuario FROM tipoUsuario WHERE tipoUsuario LIKE '$puesto'")->fetch_assoc()["idTipoUsuario"];
             
         if($result->num_rows > 0) { //Se quiere cambiar el email
             $result->free();
@@ -95,9 +99,18 @@
                     $password = password_hash($conexion->real_escape_string($_POST["password"]), PASSWORD_DEFAULT);
                 }
                 
-                if($conexion->query($sql2))
+                if($conexion->query($sql2)) {
+                    if(isset($_FILES["foto"])) {
+                        $userDir = "../vistas/img/usuarios/".(string)$userId."/";
+                
+                        mkdir($userDir);
+                        mkdir($userDir."perfil/");
+
+                        unlink($userDir."perfil/perfil.jpg");
+                        move_uploaded_file($_FILES["foto"]["tmp_name"], $userDir."perfil/perfil.jpg");
+                    }
                     echo "1";
-                else
+                } else
                     echo "0";
             }
         } else {
@@ -107,18 +120,35 @@
                 $password = password_hash($conexion->real_escape_string($_POST["password"]), PASSWORD_DEFAULT);
                 $sql2 = "UPDATE usuarios SET nombre='$nombre', telefono='$telefono', cumpleanos='$cumpleanos', contrasena='$password', idTipoUsuario=$puesto, scanner=$scanner, panelControl=$panelControl WHERE idUser=$idUser";
             }
+
+            if($conexion->query($sql2)) {
+                if(isset($_FILES["foto"])) {
+                    $userDir = "../vistas/img/usuarios/".(string)$idUser."/";
             
-            if($conexion->query($sql2))
-                echo "1";
-            else
+                    mkdir($userDir);
+                    mkdir($userDir."perfil/");
+
+                    unlink($userDir."perfil/perfil.jpg");
+                    move_uploaded_file($_FILES["foto"]["tmp_name"], $userDir."perfil/perfil.jpg");
+                }
+                echo "1";                
+            } else
                 echo "0";
         }
     } else if(isset($_POST["eliminar"])) {
         $idUser = $_POST["idUser"];
-        if($conexion->query("DELETE FROM usuarios WHERE idUser = $idUser"))
+        if($conexion->query("DELETE FROM usuarios WHERE idUser = $idUser")) {
+            recurseRmdir("../vistas/img/usuarios/".(string)$idUser."/");
             echo "1";
-        else
+        } else
             echo "0";
+    }
+
+    function recurseRmdir($dir) {
+        $files = array_diff(scandir($dir), array('.', '..'));
+        foreach ($files as $file)
+          (is_dir("$dir/$file")) ? recurseRmdir("$dir/$file") : unlink("$dir/$file");
+        return rmdir($dir);
     }
 
     $conexion->close();
