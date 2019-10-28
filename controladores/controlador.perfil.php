@@ -114,7 +114,17 @@ function irSwipe(){
     data.append("fotoPerfil4", file_data4);
     data.append("fotoPerfil5", file_data5);
 
-    console.log(file_data2);
+    file_data6 = $("#customNasty1").prop("files")[0];
+    file_data7 = $("#customNasty2").prop("files")[0];
+    file_data8 = $("#customNasty3").prop("files")[0];
+    file_data9 = $("#customNasty4").prop("files")[0];
+    file_data10 = $("#customNasty5").prop("files")[0];
+
+    data.append("fotoNasty1", file_data6);
+    data.append("fotoNasty2", file_data7);
+    data.append("fotoNasty3", file_data8);
+    data.append("fotoNasty4", file_data9);
+    data.append("fotoNasty5", file_data10);
 
     if(trigger == false){
 
@@ -167,6 +177,12 @@ function listo(){
                 break;
 
                 case '997':
+                    alert("Ha ocurrido un error interno, inténtalo más tarde.");
+                    document.getElementById("botonRbtnActualizaregistrar").disabled = false;
+                    location.reload();
+                break;
+
+                case '888':
                     alert("Ha ocurrido un error interno, inténtalo más tarde.");
                     document.getElementById("botonRbtnActualizaregistrar").disabled = false;
                     location.reload();
