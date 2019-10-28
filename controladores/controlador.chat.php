@@ -16,7 +16,7 @@ if(isset($_SESSION['loggedin'])){
 if($_GET['sala'] != 0){
     $sala = $_GET['sala'];
     $user2 = $_GET['chat'];
-    $nombri = $_GET['nombri'];
+    $nombri = $_GET['nombre'];
 }else{
   $sala = 0;
   $user2 = 0;

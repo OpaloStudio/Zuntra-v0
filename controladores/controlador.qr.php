@@ -2,6 +2,7 @@
 
 $user = $_GET['usuario'];
 $reservacion = $_GET['reservacion'];
+$fecha = $_GET['fecha'];
 
 if(isset($_SESSION['loggedin'])){
     $idsesion = $_SESSION['userId'];
@@ -45,6 +46,23 @@ if(isset($_GET['nombre'])){
     //Información de Invitación
     var usuarioReservacion = <?php echo $user; ?>;
     var idReservacion = <?php echo $reservacion; ?>;
+    var fechaReserva = "<?php echo $fecha; ?>";
+    var ano = fechaReserva.substring(0,4);
+    var mes = fechaReserva.substring(5,7);
+    var dia = fechaReserva.substring(8);
+    var dateRes = new Date(ano,mes-1,dia);
+    var numDiaReserva = dateRes.getDay(fechaReserva);
+    var diaReserva;
+
+    switch(numDiaReserva){
+        case 0: diaReserva = "Domingo"; break;
+        case 1: diaReserva = "Lunes"; break;
+        case 2: diaReserva = "Martes"; break;
+        case 3: diaReserva = "Miércoles"; break;
+        case 4: diaReserva = "Jueves"; break;
+        case 5: diaReserva = "Viernes"; break;
+        case 6: diaReserva = "Sábado"; break;
+    }
     var personasTotales;
 
     //Información de los invitados de la DB
@@ -75,7 +93,7 @@ if(isset($_GET['nombre'])){
     
             } else{
                 console.log("Por Favor Inicia Sesión");
-                var linkReservacion = "?page=1&usuario="+usuarioReservacion+"&reservacion="+idReservacion+"&log=invitados";
+                var linkReservacion = "?page=1&usuario="+usuarioReservacion+"&reservacion="+idReservacion+"&fecha="+fechaReserva+"log=invitados";
                 window.location.href = linkReservacion;
             }
 
@@ -118,6 +136,8 @@ if(isset($_GET['nombre'])){
                     var infoReserva = invitados.length+ "/" + personasTotales;
                     document.getElementById('infoReserva').innerText = infoReserva;
                     document.getElementById('numeroReserva').innerText = idReservacion;
+                    document.getElementById('diaRes').innerText = diaReserva;
+                    document.getElementById('fechaRes').innerText = ""+dia+"/"+mes+"/"+ano+"";
 
                     console.log(infoReserva);
                     console.log(typeof infoReserva);

@@ -4,6 +4,7 @@ $tipo = $_GET['tipo'];
 
 if(isset($_SESSION['loggedin'])){
     $idsesion = $_SESSION['userId'];
+    $nombre = $_SESSION['username'];
     //echo $idsesion;
     
 }else{
@@ -15,6 +16,7 @@ if(isset($_SESSION['loggedin'])){
 
 <script>
     var sesion = <?php echo $idsesion; ?>;
+    var miNombre = "<?php echo $nombre; ?>";
     var perfiles;
     var perfilesID = new Array();
     var perfilesNombre = new Array();
@@ -170,6 +172,7 @@ if(isset($_SESSION['loggedin'])){
 
     function match(){
         var like = perfilesID[indiceSwipe];
+        var nameLike = perfilesNombre[indiceSwipe];
         option = 3;
         console.log("se agregó a " + perfilesNombre[indiceSwipe] + " a la lista buena :D");
         console.log(sesion);
@@ -180,7 +183,9 @@ if(isset($_SESSION['loggedin'])){
             type: "POST",
             data: ({
                 sesion:sesion,
+                miNombre:miNombre,
                 like:like,
+                nameLike:nameLike,
                 option:option
 
             }),
@@ -206,6 +211,7 @@ if(isset($_SESSION['loggedin'])){
     }
 
     function iniciarMsg(){
+        var nameLike = perfilesNombre[indiceSwipe];
 
         console.log('hola');
         
@@ -222,7 +228,9 @@ if(isset($_SESSION['loggedin'])){
             type: "POST",
             data: ({
                 sesion:sesion,
+                miNombre:miNombre,
                 like:like,
+                nameLike:nameLike,
                 option:option
 
             }),
@@ -235,7 +243,7 @@ if(isset($_SESSION['loggedin'])){
                 }else if(msg == 9999999997){
                     alert("Error al entrar a sala");
                 }else if(msg != 0){
-                    window.location.href = "?page=9&chat="+like+"&sala="+msg;
+                    window.location.href = "?page=9&chat="+like+"&sala="+msg+"&nombre="+nameLike;
                 }
 
             },

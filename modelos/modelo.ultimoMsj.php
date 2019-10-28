@@ -5,28 +5,30 @@ if ($conexion->connect_error) {
   die("La conexion falló: " . $conexion->connect_error);
 }
 
-$laSala = $_POST['laSala'];
+$salasID = $_POST['saveData'];
 $status = '999';
 
 
+$ultimoMsj = array();
 
-$sql = "SELECT mensaje FROM mensaje WHERE idSala='$laSala'";
-$result = $conexion->query($sql);
+for($i = 0; $i < sizeof($salasID); $i++ ){
+  $laSala = $salasID[$i];
+  $sql = "SELECT mensaje FROM mensaje WHERE idSala='$laSala'";
+  $result = $conexion->query($sql);
 
-$mensajes = array();
-while($row = mysqli_fetch_array($result)){
-	array_push($mensajes, $row[0]);
-}
+  $mensajes = array();
+  while($row = mysqli_fetch_array($result)){
+	  array_push($mensajes, $row[0]);
+  }
 
-
-if(sizeof($mensajes) == 0){
+  if(sizeof($mensajes) == 0){
     $mensajes = false;
+  }
+
+  $x = sizeof($mensajes) - 1;
+
+  array_push($ultimoMsj, $mensajes[$x]);
 }
-
-$x = sizeof($mensajes) - 1;
-
-
-$ultimoMsj = $mensajes[$x];
 
 echo json_encode($ultimoMsj);
 

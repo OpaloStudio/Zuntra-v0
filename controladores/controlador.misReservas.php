@@ -111,7 +111,7 @@
 
                         miFecha = msg[i].fecha;
                         misPersonas = msg[i].numPersonas;
-                        miLink = msg[i].invitacion;
+                        miLink = msg[i].invitacion+"&fecha="+miFecha;
         
                         console.log(miFecha);
                         console.log(misPersonas);

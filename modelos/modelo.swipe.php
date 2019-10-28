@@ -6,8 +6,10 @@ if ($conexion->connect_error) {
 }
 
 $sesion = $_POST['sesion'];
+$miNombre = $_POST['miNombre'];
 $option = $_POST['option'];
 $like	= $_POST['like'];
+$nameLike	= $_POST['nameLike'];
 $status = '999';
 
 
@@ -59,7 +61,7 @@ switch($option){
 			if($lista2 == null){
 				//No hay sala con estos usuarios por lo tanto se crea
 
-				$sql3 = "INSERT INTO salaChat (usuario1, usuario2) VALUES ('$sesion', '$like')";
+				$sql3 = "INSERT INTO salaChat (usuario1, nombre1, usuario2, nombre2) VALUES ('$sesion', '$miNombre', '$like', '$nameLike')";
 
 				if($conexion->query($sql3)){
 
@@ -119,7 +121,7 @@ switch($option){
 			if($lista2 == null){
 				//No hay sala con estos usuarios por lo tanto se crea
 
-				$sql3 = "INSERT INTO salaChat (usuario1, usuario2) VALUES ('$sesion', '$like')";
+				$sql3 = "INSERT INTO salaChat (usuario1, nombre1, usuario2, nombre2) VALUES ('$sesion', '$miNombre', '$like', '$nameLike')";
 
 				if($conexion->query($sql3)){
 
