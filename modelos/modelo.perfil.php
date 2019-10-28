@@ -94,6 +94,7 @@ switch($option){
         $status = '999';//Error al actualizar info
     }
     
+    $arrayNasty = array();
     $nombresImgNasty = array();
     $targetPathsNasty = array();
     $idFotosNasty = array();
@@ -118,21 +119,8 @@ switch($option){
         if(move_uploaded_file($fotosNasty[$x]['tmp_name'], $targetPathsNasty[$x])){
       
           //Update picture name in the database
+          array_push($arrayNasty, $x);
 
-          /* switch(){
-            case 1:
-            break;
-            case 1:
-            break;
-            case 1:
-            break;
-            case 1:
-            break;
-            case 1:
-            break;
-            case 1:
-            break;
-          } */
           $status = $x;
         } else {
           $status = 888;
@@ -140,13 +128,66 @@ switch($option){
       }
     }
 
-    if($status == 888){
-      $status == 888;
-    }else{
-      $status == 1;
+    $sql3 = "SELECT fotosNasty FROM usuarios WHERE idUser='$userId'";
+    $result3 = $conexion->query($sql3);
+
+    while($row = mysqli_fetch_array($result3)){
+      $stringNasty = $row[0];
     }
 
+    $nastyPic1 = substr($stringNasty,0,1);
+    $nastyPic2 = substr($stringNasty,1,1);
+    $nastyPic3 = substr($stringNasty,2,1);
+    $nastyPic4 = substr($stringNasty,3,1);
+    $nastyPic5 = substr($stringNasty,4,1);
+
+    $w = count($arrayNasty);
+
+    for($i=0; $i<count($arrayNasty); $i++){
+      
+      switch($arrayNasty[$i]){
+
+        case 1:
+            $nastyPic1 = "1";
+            $newString = $nastyPic1.$nastyPic2.$nastyPic3.$nastyPic4.$nastyPic5;
+        break;
+            
+        case 2:
+            $nastyPic2 = "1";
+            $newString = $nastyPic1.$nastyPic2.$nastyPic3.$nastyPic4.$nastyPic5;
+            
+        break;
+            
+        case 3:
+            $nastyPic3 = "1";
+            $newString = $nastyPic1.$nastyPic2.$nastyPic3.$nastyPic4.$nastyPic5;
+        break;
+
+        case 4:
+            $nastyPic4 = "1";
+            $newString = $nastyPic1.$nastyPic2.$nastyPic3.$nastyPic4.$nastyPic5;
+        break;
+
+        case 5:
+            $nastyPic5 = "1";
+            $newString = $nastyPic1.$nastyPic2.$nastyPic3.$nastyPic4.$nastyPic5;
+        break;
+
+      
+      }
+    }
+
+    $sql="UPDATE usuarios SET fotosNasty='$newString' WHERE idUser='$userId'";
+
+    if($conexion->query($sql)){
+        $status = '1';
+        $_SESSION['userChat'] = $newString;
+    } else{
+        $status = '9993';//Error al actualizar info
+    } 
+
     echo $status;
+
   break;
 }
 
