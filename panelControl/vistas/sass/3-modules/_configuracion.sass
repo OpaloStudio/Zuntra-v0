@@ -92,6 +92,22 @@
     padding: 1rem
     cursor: pointer
 
+#fotoHorizontal
+    height: 10rem
+    width: 10rem
+    object-fit: cover !important
+    object-position: center center !important
+    padding: 1rem
+    cursor: pointer
+
+#fotoVertical
+    height: 10rem
+    width: 10rem
+    object-fit: cover !important
+    object-position: center center !important
+    padding: 1rem
+    cursor: pointer
+
 .divImgPerf
     width: 100%
     display: flex
@@ -113,7 +129,7 @@
     width: 100%
     display: flex
     flex-wrap: wrap
-    margin-top: -58rem
+    //margin-top: -58rem
 
 .znBtns
     display: flex
@@ -135,3 +151,38 @@
     justify-content: center
     align-items: center
     cursor: pointer
+
+.eventoPromo
+    width: 60vw
+    display: flex
+    flex-direction: column
+
+.divVerPublicaciones
+    width: 60vw
+    display: flex
+    flex-direction: column
+    display: none
+
+#btnCrearPub
+    margin-right: 2rem !important
+
+.cardPublicacion
+    height: 3rem
+    +redondeado(15px)
+    border: 1px solid $grisOscuro
+    display: flex
+    flex-direction: row
+    align-items: center
+    padding: 0rem 1rem 0rem 1rem
+    justify-content: space-between
+
+.juntitos
+    width: 10rem
+    display: flex
+    flex-direction: row
+    align-items: center
+    justify-content: space-between
+    cursor: pointer
+
+.red
+    color: red !important
