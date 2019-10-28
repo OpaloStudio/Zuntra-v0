@@ -81,8 +81,52 @@
 
     <div class="form-group">
       <span class="switch switch-sm">
-        <input type="checkbox" class="switch " id="switch-sm" onclick="mostrarEts()">
-        <label for="switch-sm">Cuida tu salud (opcional)</label>
+        <input type="checkbox" class="switch " id="switch-sm" onclick="mostrarNastyZone()">
+        <label for="switch-sm">Gaurda fotos para el chat (opcional)</label>
+      </span>
+    </div>
+
+    <div class="divNastyPics">
+    <div class="row  ">
+   <div class="fullDiv">
+      <h5 class="text-center dorado">Aquí puedes guardar esa "foto" que necesitas mandar rápidamente. Puedes cambiarlas cuando quieras</h5>
+   </div>
+
+<div class="col-6 flex1">
+    <input type="file" class="hideInput" id="customNasty1" name="pic1" onchange="openFileNasty(event)" accept="image/x-png,image/gif,image/jpeg" >
+    <label  for="customNasty1"><img id="fotoNasty1" src="vistas/img/cuadroCarga.svg"> </label>
+</div>
+
+<div class="col-6 flex1">
+      <input type="file" class="hideInput" id="customNasty2" name="pic2" onchange="openFile2Nasty(event)" accept="image/x-png,image/gif,image/jpeg">
+      <label for="customNasty2"><img id="fotoNasty2" src="vistas/img/cuadroCarga.svg"> </label>
+  </div>
+     
+</div>
+<div class="row">
+        <div class="col-4 flex1">
+        <input type="file" class="hideInput" id="customNasty3" name="pic3" onchange="openFile3Nasty(event)" accept="image/x-png,image/gif,image/jpeg">
+            <label for="customNasty3"><img id="fotoNasty3" src="vistas/img/cuadroCarga.svg"> </label>
+</div>
+<div class="col-4 flex1">
+            <input type="file" class="hideInput" id="customNasty4" name="pic4" onchange="openFile4Nasty(event)" accept="image/x-png,image/gif,image/jpeg">
+            <label for="customNasty4"><img id="fotoNasty4" src="vistas/img/cuadroCarga.svg"> </label>
+            </div>
+
+            <div class="col-4 flex1">
+            <input type="file" class="hideInput" id="customNasty5" name="pic5" onchange="openFile5Nasty(event)" accept="image/x-png,image/gif,image/jpeg">
+            <label for="customFile5"><img id="fotoNasty5" src="vistas/img/cuadroCarga.svg"> </label>
+            </div>
+
+        </div><br>
+
+  
+    </div>
+
+    <div class="form-group">
+      <span class="switch switch-sm">
+        <input type="checkbox" class="switch " id="switch-sm2" onclick="mostrarEts()">
+        <label for="switch-sm2">Cuida tu salud (opcional)</label>
       </span>
     </div>
 
@@ -102,7 +146,7 @@
       </div>
 
       <div class="form-group">
-        <label for="chequeo">¿Cuando fué tu ultimo chequeo?</label>
+        <label for="chequeo"></label>
         <select class="form-control inputOscuro" id="chequeo">
           <option selected>-Elige una opción-</option>
           <option>1 més</option>
@@ -111,7 +155,11 @@
         </select>
       </div>
     </div>
-    <button type="button" class="btn btnOscuro" id="btnActualizar" onclick="irSwipe()">Iniciar</button>
+
+    
+
+   
+    <button type="button" class="btn btnOscuro" id="btnActualizar" onclick="irSwipe()">Actualizar Perfil</button>
     <br><br>
   </form>
 </div>

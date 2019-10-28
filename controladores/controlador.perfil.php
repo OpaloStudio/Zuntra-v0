@@ -4,6 +4,7 @@ $tipo = $_GET['tipo'];
 
 if(isset($_SESSION['loggedin'])){
     $idsesion = $_SESSION['userId'];
+    $nastyPics = $_SESSION['userChat'];
     //echo $idsesion;
     
 }else{
@@ -183,6 +184,11 @@ function listo(){
 
 function mostrarEts(){
     $('.divEts').toggleClass( "aparecer" );
+
+}
+
+function mostrarNastyZone(){
+    $('.divNastyPics').toggleClass( "aparecer" );
 
 }
 
