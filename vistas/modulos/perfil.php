@@ -115,7 +115,7 @@
 
             <div class="col-4 flex1">
             <input type="file" class="hideInput" id="customNasty5" name="pic5" onchange="openFile5Nasty(event)" accept="image/x-png,image/gif,image/jpeg">
-            <label for="customFile5"><img id="fotoNasty5" src="vistas/img/cuadroCarga.svg"> </label>
+            <label for="customNasty5"><img id="fotoNasty5" src="vistas/img/cuadroCarga.svg"> </label>
             </div>
 
         </div><br>

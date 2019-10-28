@@ -193,65 +193,66 @@ function mostrarNastyZone(){
 }
 
 
-  var openFile = function(event) {
+  
+var openFileNasty = function(event) {
     var input = event.target;
 
     var reader = new FileReader();
     reader.onload = function(){
       var dataURL = reader.result;
-      var output = document.getElementById('foto1');
+      var output = document.getElementById('fotoNasty1');
       output.src = dataURL;
       console.log(dataURL);
     };
     reader.readAsDataURL(input.files[0]);
   };
 
-  var openFile2 = function(event) {
+  var openFile2Nasty = function(event) {
     var input = event.target;
 
     var reader = new FileReader();
     reader.onload = function(){
       var dataURL = reader.result;
-      var output = document.getElementById('foto2');
+      var output = document.getElementById('fotoNasty2');
       output.src = dataURL;
       console.log(dataURL);
     };
     reader.readAsDataURL(input.files[0]);
   };
 
-  var openFile3 = function(event) {
+  var openFile3Nasty = function(event) {
     var input = event.target;
 
     var reader = new FileReader();
     reader.onload = function(){
       var dataURL = reader.result;
-      var output = document.getElementById('foto3');
+      var output = document.getElementById('fotoNasty3');
       output.src = dataURL;
       console.log(dataURL);
     };
     reader.readAsDataURL(input.files[0]);
   };
 
-  var openFile4 = function(event) {
+  var openFile4Nasty = function(event) {
     var input = event.target;
 
     var reader = new FileReader();
     reader.onload = function(){
       var dataURL = reader.result;
-      var output = document.getElementById('foto4');
+      var output = document.getElementById('fotoNasty4');
       output.src = dataURL;
       console.log(dataURL);
     };
     reader.readAsDataURL(input.files[0]);
   };
 
-  var openFile5 = function(event) {
+  var openFile5Nasty = function(event) {
     var input = event.target;
 
     var reader = new FileReader();
     reader.onload = function(){
       var dataURL = reader.result;
-      var output = document.getElementById('foto5');
+      var output = document.getElementById('fotoNasty5');
       output.src = dataURL;
       console.log(dataURL);
     };

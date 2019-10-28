@@ -487,6 +487,72 @@ function mostrarFotitos() {
   $('.btnMostrar').hide();
 }
 
+var openFileNasty = function(event) {
+    var input = event.target;
+
+    var reader = new FileReader();
+    reader.onload = function(){
+      var dataURL = reader.result;
+      var output = document.getElementById('foto1');
+      output.src = dataURL;
+      console.log(dataURL);
+    };
+    reader.readAsDataURL(input.files[0]);
+  };
+
+  var openFileNasty2 = function(event) {
+    var input = event.target;
+
+    var reader = new FileReader();
+    reader.onload = function(){
+      var dataURL = reader.result;
+      var output = document.getElementById('foto2');
+      output.src = dataURL;
+      console.log(dataURL);
+    };
+    reader.readAsDataURL(input.files[0]);
+  };
+
+  var openFileNasty3 = function(event) {
+    var input = event.target;
+
+    var reader = new FileReader();
+    reader.onload = function(){
+      var dataURL = reader.result;
+      var output = document.getElementById('foto3');
+      output.src = dataURL;
+      console.log(dataURL);
+    };
+    reader.readAsDataURL(input.files[0]);
+  };
+
+  var openFileNasty4 = function(event) {
+    var input = event.target;
+
+    var reader = new FileReader();
+    reader.onload = function(){
+      var dataURL = reader.result;
+      var output = document.getElementById('foto4');
+      output.src = dataURL;
+      console.log(dataURL);
+    };
+    reader.readAsDataURL(input.files[0]);
+  };
+
+  var openFileNasty5 = function(event) {
+    var input = event.target;
+
+    var reader = new FileReader();
+    reader.onload = function(){
+      var dataURL = reader.result;
+      var output = document.getElementById('foto5');
+      output.src = dataURL;
+      console.log(dataURL);
+    };
+    reader.readAsDataURL(input.files[0]);
+  };
+
+
 function quitarCochinadas(num){
 
   var info2 = new FormData();
