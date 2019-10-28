@@ -15,6 +15,7 @@ if(isset($_SESSION['loggedin'])){
 ?>
 <script>
 var sesion = <?php echo $idsesion; ?>;
+var nastyFotos = "<?php echo $nastyPics; ?>";
 var option;
 var data = new FormData();
 var file_data1;
@@ -28,6 +29,33 @@ $(document).ready(function () {
     if(sesion != 0){
         console.log("Sesión Iniciada");
         console.log(sesion);
+        console.log(nastyFotos);
+        var np1 = nastyFotos.substring(0,1);
+        var np2 = nastyFotos.substring(1,2);
+        var np3 = nastyFotos.substring(2,3);
+        var np4 = nastyFotos.substring(3,4);
+        var np5 = nastyFotos.substring(4,5);
+
+        if(np1 === "1"){
+          nastyFile_data1 = "vistas/img/usuarios/"+sesion+"/chat/"+sesion+"-1.jpg";
+          document.getElementById("fotoNasty1").src = nastyFile_data1;
+        }
+        if(np2 === "1"){
+          nastyFile_data2 = "vistas/img/usuarios/"+sesion+"/chat/"+sesion+"-2.jpg";
+          document.getElementById("fotoNasty2").src = nastyFile_data2;
+        }
+        if(np3 === "1"){
+          nastyFile_data3 = "vistas/img/usuarios/"+sesion+"/chat/"+sesion+"-3.jpg";
+          document.getElementById("fotoNasty3").src = nastyFile_data3;
+        }
+        if(np4 === "1"){
+          nastyFile_data4 = "vistas/img/usuarios/"+sesion+"/chat/"+sesion+"-4.jpg";
+          document.getElementById("fotoNasty4").src = nastyFile_data4;
+        }
+        if(np5 === "1"){
+          nastyFile_data5 = "vistas/img/usuarios/"+sesion+"/chat/"+sesion+"-5.jpg";
+          document.getElementById("fotoNasty5").src = nastyFile_data5;
+        }
 
     } else{
         console.log("Por Favor Inicia Sesión");
@@ -114,7 +142,17 @@ function irSwipe(){
     data.append("fotoPerfil4", file_data4);
     data.append("fotoPerfil5", file_data5);
 
-    console.log(file_data2);
+    file_data6 = $("#customNasty1").prop("files")[0];
+    file_data7 = $("#customNasty2").prop("files")[0];
+    file_data8 = $("#customNasty3").prop("files")[0];
+    file_data9 = $("#customNasty4").prop("files")[0];
+    file_data10 = $("#customNasty5").prop("files")[0];
+
+    data.append("fotoNasty1", file_data6);
+    data.append("fotoNasty2", file_data7);
+    data.append("fotoNasty3", file_data8);
+    data.append("fotoNasty4", file_data9);
+    data.append("fotoNasty5", file_data10);
 
     if(trigger == false){
 
@@ -167,6 +205,12 @@ function listo(){
                 break;
 
                 case '997':
+                    alert("Ha ocurrido un error interno, inténtalo más tarde.");
+                    document.getElementById("botonRbtnActualizaregistrar").disabled = false;
+                    location.reload();
+                break;
+
+                case '888':
                     alert("Ha ocurrido un error interno, inténtalo más tarde.");
                     document.getElementById("botonRbtnActualizaregistrar").disabled = false;
                     location.reload();
