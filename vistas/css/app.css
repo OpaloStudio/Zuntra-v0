@@ -1041,6 +1041,38 @@ label {
   object-fit: cover;
   object-position: center center; }
 
+#fotoNasty1 {
+  height: 10rem;
+  width: 10rem;
+  object-fit: cover !important;
+  object-position: center center !important;
+  padding: 1rem; }
+
+#fotoNasty2 {
+  height: 10rem;
+  width: 10rem;
+  object-fit: cover !important;
+  object-position: center center !important;
+  padding: 1rem; }
+
+#fotoNasty3 {
+  height: 5rem;
+  width: 5rem;
+  object-fit: cover !important;
+  object-position: center center !important; }
+
+#fotoNasty4 {
+  height: 5rem;
+  width: 5rem;
+  object-fit: cover;
+  object-position: center center; }
+
+#fotoNasty5 {
+  height: 5rem;
+  width: 5rem;
+  object-fit: cover;
+  object-position: center center; }
+
 .custom-file {
   background-color: yellow; }
 
@@ -1075,6 +1107,9 @@ label {
   padding-right: 20px; }
 
 .divEts {
+  display: none; }
+
+.divNastyPics {
   display: none; }
 
 .aparecer {
@@ -1167,6 +1202,25 @@ label {
   height: calc(calc(1.9375rem * .8) - calc(2px * 2)); }
 
 .switch.switch-sm input:checked + label::after {
+  margin-left: calc(1.9375rem * .8); }
+
+.switch.switch-sm2 {
+  font-size: 0.875rem; }
+
+.switch.switch-sm2 input + label {
+  min-width: calc(calc(1.9375rem * .8) * 2);
+  height: calc(1.9375rem * .8);
+  line-height: calc(1.9375rem * .8);
+  text-indent: calc(calc(calc(1.9375rem * .8) * 2) + .5rem); }
+
+.switch.switch-sm2 input + label::before {
+  width: calc(calc(1.9375rem * .8) * 2); }
+
+.switch.switch-sm2 input + label::after {
+  width: calc(calc(1.9375rem * .8) - calc(2px * 2));
+  height: calc(calc(1.9375rem * .8) - calc(2px * 2)); }
+
+.switch.switch-sm2 input:checked + label::after {
   margin-left: calc(1.9375rem * .8); }
 
 .switch.switch-lg {

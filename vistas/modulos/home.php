@@ -37,8 +37,8 @@
   <div class="row">
     <div iv class="col-6 slideReservar">
       <a id="linkReservar">
-        <h4 class="tituloHome">Reserva tu lugar y no te pierdas de la fiesta</h4>
-        <p class="pHome">Reservaciones para
+        <h4 class="tituloHome" id="tituloReserva">Reserva tu lugar y no te pierdas de la fiesta</h4>
+        <p class="pHome" id="textoReserva">Reservaciones para
           Viernes, Sábado y Domingo.
           Valida solo hasta las 11:30 pm </p>
         <i class="fas fa-arrow-circle-right"></i>
@@ -46,8 +46,8 @@
     </div>
     <div class="col-6 slideSwipe">
       <a id="linkSwipe">
-        <h4 class="tituloHome">Conoce gente nueva en Zuntra</h4>
-        <p class="pHome">El modo búsqueda
+        <h4 class="tituloHome" id="tituloSwipe">Conoce gente nueva en Zuntra</h4>
+        <p class="pHome" id="textoSwipe">El modo búsqueda
           solo funciona dentro del
           establecimiento </p>
         <i class="fas fa-arrow-circle-right"></i>

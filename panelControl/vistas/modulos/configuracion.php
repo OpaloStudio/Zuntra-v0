@@ -2,11 +2,11 @@
     <div class="zonaCuadro">
         <nav class="navConfiguracion">
             <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                <a class="nav-item nav-link" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="false">Nuevo Staff</a>
-                <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false" onclick="adminStaff()">Administrar Staff</a>
-                <a class="nav-item nav-link" id="nav-eventos-tab" data-toggle="tab" href="#nav-eventos" role="tab" aria-controls="nav-eventos" aria-selected="false">Eventos y Promos</a>
-                <a class="nav-item nav-link" id="nav-diseno-tab" data-toggle="tab" href="#nav-diseno" role="tab" aria-controls="nav-diseno" aria-selected="false">Diseño y Contenido</a>
-                <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Cerrar Sesión</a>
+                <a class="nav-item nav-link" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="false" onclick="nuevoStaff()">Nuevo Staff</a>
+                <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false" onclick="asyncCall()">Administrar Staff</a>
+                <a class="nav-item nav-link" id="nav-eventos-tab" data-toggle="tab" href="#nav-eventos" role="tab" aria-controls="nav-eventos" aria-selected="false" onclick="eventPromo()">Eventos y Promos</a>
+                <a class="nav-item nav-link" id="nav-diseno-tab" data-toggle="tab" href="#nav-diseno" role="tab" aria-controls="nav-diseno" aria-selected="false" onclick="contenido()">Diseño y Contenido</a>
+                <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false" onclick="cerrarCesion()">Cerrar Sesión</a>
             </div>
         </nav>
         <div class="tab-content" id="nav-tabContent">
@@ -85,7 +85,7 @@
                        </div>
 
                         <div class="zonaBtnRegistro">
-                            <button type="button" class="btn btnRegistro" id="botonRegistrar" onclick="btnRegistrar()">Agregar</button>
+                            <button type="button" class="btn btnRegistro" id="botonAgregar" onclick="btnRegistrar()">Agregar</button>
                         </div>
                     </form>
 
@@ -122,8 +122,168 @@
                         </div>
                     </div>
                 </div>
-                <div class="tab-pane fade" id="nav-eventos" role="tabpanel" aria-labelledby="nav-eventos-tab">...</div>
-                <div class="tab-pane fade" id="nav-diseno" role="tabpanel" aria-labelledby="nav-diseno-tab">...</div>
+
+                 <!--Div de eventos y promos -->
+                <div class="tab-pane fade" id="nav-eventos" role="tabpanel" aria-labelledby="nav-eventos-tab"><br><br>
+                <div class="zonaBtnRegistro">
+                            <button type="button" class="btn btnRegistro" id="btnCrearPub" onclick="crearPublicacion()">Crear Publicación</button>
+                            <button type="button" class="btn btnRegistro" id="btnVerPub" onclick="VerPublicaciones()">Ver Publicaciones</button>
+                        </div><br>
+                    <form class="eventoPromo">
+                    <div class="form-group">
+                            <label for="nombre">Título</label>
+                            <input type="text" class="form-control inputsClaros" id="titulo">
+                        </div>
+
+                        <div class="zoneRadios">
+                        <label class="negro">Tipo de Publcidad</label><br>
+                            <div class="form-check form-check-inline">
+                            
+                                <input class="form-check-input" type="radio" name="scanner" id="crearEvento" value="1" checked>
+                                <label class="form-check-label" for="scannerSi">Evento</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="scanner" id="crearPromo" value="0">
+                                <label class="form-check-label" for="scannerNo">Promoción</label>
+                            </div>
+                       </div><br>
+                        
+                        <div class="form-group">
+                            <label class="negro" for="exampleFormControlSelect1">Día de la Semana</label>
+                            <select class="form-control inputsClaros" id="puestoCrear">
+                                <option selected value="0">-Selecciona uno-</option>
+                                <option value="j">Jueves</option>
+                                <option value="v">Viernes</option>
+                                <option value="s">Sábado</option>
+                            </select>
+                        </div>
+                        <label class="negro" for="imgHorizontal">Foto Horizontal</label>
+                        <div class=" divImgPerf">
+                        
+                            <input type="file" class="hideInput" id="imgHorizontal" name="pic1"
+                                onchange="openFileHorizontal(event)">
+                            <label for="imgHorizontal"><img id="fotoHorizontal" src="vistas/img/cuadroCarga.svg"> </label>
+                        </div>
+                        <label class="negro" for="registroFoto">Foto Vertical</label>
+
+                        <div class=" divImgPerf">
+                            <input type="file" class="hideInput" id="imgVertical" name="pic2"
+                                onchange="openFileVertical(event)">
+                            <label for="imgVertical"><img id="fotoVertical" src="vistas/img/cuadroCarga.svg"> </label>
+                        </div>
+
+                        <div class="zonaBtnRegistro">
+                            <button type="button" class="btn btnRegistro" id="botonRegistrar" onclick="btnRegistrar()">Crear Publicación</button>
+                        </div><br>
+                        
+
+                    </form>
+                    <div class="divVerPublicaciones">
+                    <div class="zoneRadios">
+                        <label class="negro">Tipo de Publcidad</label><br>
+                            <div class="form-check form-check-inline">
+                            
+                                <input class="form-check-input" type="radio" name="scanner" id="verEvento" value="1" checked>
+                                <label class="form-check-label" for="scannerSi">Evento</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="scanner" id="verPromo" value="0">
+                                <label class="form-check-label" for="scannerNo">Promoción</label>
+                            </div>
+                       </div><br>
+                    <div class="form-group">
+                            <label class="negro" for="exampleFormControlSelect1">Día de la Semana</label>
+                            <select class="form-control inputsClaros" id="puestoVer">
+                                <option selected value="0">-Selecciona uno-</option>
+                                <option value="j">Jueves</option>
+                                <option value="v">Viernes</option>
+                                <option value="s">Sábado</option>
+                            </select>
+                        </div>
+                        <div class="zonaPublicaciones">
+                            <!-- Aquí va lo editable -->
+                            <h2 class="dorado text-center" id="tituloPublic">Eventos del día Algo</h2><br>
+                            <div class="lasPublicaciones" id="lasPublicaciones">
+                                <div class="card cardPublicacion">
+                                    <h5 class="dorado">Titulo e la card</h5>
+                                    <div class="juntitos">
+                                        <h5 class="dorado"  onclick="editarPublicacion(this)">Editar</h5>
+                                        <h5 class="dorado red" data-toggle="modal" data-target="#eliminarPublicacion" onclick="eliminarPublicacion(this)">Eliminar</h5>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--Div de diseño y contenido -->
+                <div class="tab-pane fade" id="nav-diseno" role="tabpanel" aria-labelledby="nav-diseno-tab">
+                    <div class="card cardDiseno">
+                        <div class="row rowVideo">
+                            <div class="col-12">
+                                <h4 class="dorado text-center">Video Pincipal</h4>
+                           
+                            <div class=" divImgPerf">
+                            
+                                <input type="file" class="hideInput" id="videoPrincipal" name="pic1"
+                                    onchange="openFileVideo(event)">
+                                <label for="imgHorizontal"><img id="fotoVideoPrincipal" src="vistas/img/cuadroCarga.svg"> </label>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class=" col-6 editarZonaIzquierda">
+                                <form class="formZonaIzquierda">
+                                <h4 class="dorado text-center">Imagen Fondo</h4>
+                            <div class=" divImgPerf">
+                            
+                                <input type="file" class="hideInput" id="imgIzq" name="pic1"
+                                    onchange="openFileHorizontal(event)">
+                                <label for="imgIzq"><img id="fotoZonaIzq" src="vistas/img/cuadroCarga.svg"> </label>
+                            </div>
+                            <div class="form-group">
+                            <h4 class="dorado text-center">Título de la zona de Reservaciones</h4>
+                            <input type="text" class="form-control inputsClaros" id="tituloZR">
+                        </div>
+                        <div class="form-group">
+                        <h4 class="dorado text-center">Texto de la zona de Reservaciones</h4>
+                            <input type="text" class="form-control inputsClaros" id="textoZR">
+                        </div>
+                       
+                                </form>
+                            </div>
+                            
+                            <div class="col-6 editarZonaDerecha">
+                                <form class="formDiseno">
+                                <h4 class="dorado text-center">Imagen Fondo</h4>
+                            <div class=" divImgPerf">
+                            
+                                <input type="file" class="hideInput" id="imgDer" name="pic1"
+                                    onchange="openFileHorizontal(event)">
+                                <label for="imgDer"><img id="fotoZonaDer" src="vistas/img/cuadroCarga.svg"> </label>
+                            </div>
+                            <div class="form-group">
+                            <h4 class="dorado text-center">Título de la zona del Swipe</h4>
+                            <input type="text" class="form-control inputsClaros" id="tituloZS">
+                        </div>
+                        <div class="form-group">
+                        <h4 class="dorado text-center">Texto de la zona del Swipe</h4>
+                            <input type="text" class="form-control inputsClaros" id="textoZS">
+                        </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                 <!--Div de cerrar  sesion -->
+                <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+                <div class="zonaBtnRegistro">
+                        <button type="button" class="btn btnRegistro" id="btnCerrarSesion" onclick="cerrarSesion()">Cerrar Sesión</button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -232,6 +392,29 @@
             <div class="modal-body">
                 <input type="hidden" value="" id="idUserEliminar">
                 ¿Realmente deseas eliminar a <b id="eliminarUsuarioNombre"></b>?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                <button type="button" class="btn btn-danger" onclick="btnEliminarUsuario()" data-dismiss="modal">Eliminar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal eliminar Publicaciones -->
+<div class="modal fade" id="eliminarPublicacion" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Eliminar Publicación</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <input type="hidden" value="" id="idUserEliminar">
+                ¿Realmente deseas eliminar la publicación de  <b id="eliminarUsuarioNombre"></b>?
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>

@@ -1,5 +1,7 @@
 <script>
     $(document).ready(function() {
+        $('#btnCrearPub').css('background-color','#212121');
+        $('#btnCrearPub').css('color','#DEC9A1');
         $(".zonaScroll").niceScroll({cursorcolor:"#DEC9A1"});
         $('#5').addClass('activeMenos');
 
@@ -43,7 +45,97 @@
         reader.readAsDataURL(input.files[0]);
     };
 
-    function adminStaff() {
+    var openFileHorizontal = function(event) {
+        var input = event.target;
+
+        var reader = new FileReader();
+        reader.onload = function() {
+            var dataURL = reader.result;
+            var output = document.getElementById('foto1Horizontal');
+            output.src = dataURL;
+            console.log(dataURL);
+        };
+        reader.readAsDataURL(input.files[0]);
+    };
+
+    var openFileVertical = function(event) {
+        var input = event.target;
+
+        var reader = new FileReader();
+        reader.onload = function() {
+            var dataURL = reader.result;
+            var output = document.getElementById('foto1Vertical');
+            output.src = dataURL;
+            console.log(dataURL);
+        };
+        reader.readAsDataURL(input.files[0]);
+    };
+
+function crearPublicacion() {
+    $('.eventoPromo').show();
+    $('.divVerPublicaciones').hide();
+    $('#btnCrearPub').css('background-color','#212121');
+    $('#btnCrearPub').css('color','#DEC9A1');
+    $('#btnVerPub').css('background-color','#DEC9A1');
+    $('#btnVerPub').css('color','white');
+}
+
+function VerPublicaciones() {
+    $('.eventoPromo').hide();
+    $('.divVerPublicaciones').show();
+    $('#btnVerPub').css('background-color','#212121');
+    $('#btnVerPub').css('color','#DEC9A1');
+    $('#btnCrearPub').css('background-color','#DEC9A1');
+    $('#btnCrearPub').css('color','white');
+}
+
+function nuevoStaff() {
+        $('#nav-home').show();
+        $('#rps').hide();
+        $('#nav-eventos').hide();
+        $('#nav-diseno').hide();
+        $('#nav-contact').hide();
+}
+
+function eventPromo() {
+        $('#nav-home').hide();
+        $('#rps').hide();
+        $('#nav-eventos').show();
+        $('#nav-diseno').hide();
+        $('#nav-contact').hide();
+}
+
+function contenido() {
+        $('#nav-home').hide();
+        $('#rps').hide();
+        $('#nav-eventos').hide();
+        $('#nav-diseno').show();
+        $('#nav-contact').hide();
+}
+
+function cerrarCesion() {
+        $('#nav-home').hide();
+        $('#rps').hide();
+        $('#nav-eventos').hide();
+        $('#nav-diseno').hide();
+        $('#nav-contact').show();
+}
+
+function lol(){
+    $('#nav-home').hide();
+    $('#rps').show();
+    $('#nav-eventos').hide();
+    $('#nav-diseno').hide();
+    $('#nav-contact').hide();
+}
+
+async function asyncCall() {
+  var result = await lol();
+  adminStaff()
+  // expected output: 'resolved'
+}
+
+function adminStaff() {
         //Cargar usuarios
         $.ajax({
             type: "post",
