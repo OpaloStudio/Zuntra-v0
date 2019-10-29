@@ -29,6 +29,7 @@ $(function () {
     $('#datetimepicker1').datetimepicker({
             viewMode: 'months',
             format: 'L',
+            minDate: new Date(),
             daysOfWeekDisabled: [0, 1, 2, 3]
         });
 });

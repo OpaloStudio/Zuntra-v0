@@ -1,5 +1,7 @@
 <script>
     $(document).ready(function() {
+        $('#btnCrearPub').css('background-color','#212121');
+        $('#btnCrearPub').css('color','#DEC9A1');
         $(".zonaScroll").niceScroll({cursorcolor:"#DEC9A1"});
         $('#5').addClass('activeMenos');
 
@@ -43,7 +45,97 @@
         reader.readAsDataURL(input.files[0]);
     };
 
-    function adminStaff() {
+    var openFileHorizontal = function(event) {
+        var input = event.target;
+
+        var reader = new FileReader();
+        reader.onload = function() {
+            var dataURL = reader.result;
+            var output = document.getElementById('foto1Horizontal');
+            output.src = dataURL;
+            console.log(dataURL);
+        };
+        reader.readAsDataURL(input.files[0]);
+    };
+
+    var openFileVertical = function(event) {
+        var input = event.target;
+
+        var reader = new FileReader();
+        reader.onload = function() {
+            var dataURL = reader.result;
+            var output = document.getElementById('foto1Vertical');
+            output.src = dataURL;
+            console.log(dataURL);
+        };
+        reader.readAsDataURL(input.files[0]);
+    };
+
+function crearPublicacion() {
+    $('.eventoPromo').show();
+    $('.divVerPublicaciones').hide();
+    $('#btnCrearPub').css('background-color','#212121');
+    $('#btnCrearPub').css('color','#DEC9A1');
+    $('#btnVerPub').css('background-color','#DEC9A1');
+    $('#btnVerPub').css('color','white');
+}
+
+function VerPublicaciones() {
+    $('.eventoPromo').hide();
+    $('.divVerPublicaciones').show();
+    $('#btnVerPub').css('background-color','#212121');
+    $('#btnVerPub').css('color','#DEC9A1');
+    $('#btnCrearPub').css('background-color','#DEC9A1');
+    $('#btnCrearPub').css('color','white');
+}
+
+function nuevoStaff() {
+        $('#nav-home').show();
+        $('#rps').hide();
+        $('#nav-eventos').hide();
+        $('#nav-diseno').hide();
+        $('#nav-contact').hide();
+}
+
+function eventPromo() {
+        $('#nav-home').hide();
+        $('#rps').hide();
+        $('#nav-eventos').show();
+        $('#nav-diseno').hide();
+        $('#nav-contact').hide();
+}
+
+function contenido() {
+        $('#nav-home').hide();
+        $('#rps').hide();
+        $('#nav-eventos').hide();
+        $('#nav-diseno').show();
+        $('#nav-contact').hide();
+}
+
+function cerrarCesion() {
+        $('#nav-home').hide();
+        $('#rps').hide();
+        $('#nav-eventos').hide();
+        $('#nav-diseno').hide();
+        $('#nav-contact').show();
+}
+
+function lol(){
+    $('#nav-home').hide();
+    $('#rps').show();
+    $('#nav-eventos').hide();
+    $('#nav-diseno').hide();
+    $('#nav-contact').hide();
+}
+
+async function asyncCall() {
+  var result = await lol();
+  adminStaff()
+  // expected output: 'resolved'
+}
+
+function adminStaff() {
         //Cargar usuarios
         $.ajax({
             type: "post",
@@ -56,7 +148,7 @@
                 $("#rps").empty();
                 
                 for(var i = 0; i < usuarios.length; i++)
-                    $("#rps").append('<div class="card cardNegra cardRp mb-3" style="max-width: 540px;" id="usuario' + usuarios[i].idUser + '"><div class="row no-gutters"><div class="col-md-4"><img src=' + usuarios[i].foto + ' class="card-img" alt="profile-pic"></div><div class="col-md-6"><div class="card-body"><h5 class="card-title text-center">' + usuarios[i].nombre + '</h5><p class="card-text text-center">30/50</p></div></div><div class="col-md-2 znBtns"><div class="editar"><h5 class="dorado" data-toggle="modal" data-target="#editarModal" onclick="editarModal(this)">Editar</h5></div><div class="eliminar" data-toggle="modal" data-target="#eliminarModal"><h5 class="dorado" onclick="btnEliminarVerificar(this)">Eliminar</h5></div></div></div></div>');
+                    $("#rps").append('<div class="card cardNegra cardRp mb-3" style="max-width: 540px;" id="usuario' + usuarios[i].idUser + '"><div class="row no-gutters"><div class="col-md-4"><img src=' + usuarios[i].foto + ' class="card-img" alt="profile-pic"></div><div class="col-md-6"><div class="card-body"><h5 class="card-title text-center">' + usuarios[i].nombre + '</h5><p class="card-text text-center">' + usuarios[i].total + " / " + usuarios[i].personas + '</p></div></div><div class="col-md-2 znBtns"><div class="editar"><h5 class="dorado" data-toggle="modal" data-target="#editarModal" onclick="editarModal(this)">Editar</h5></div><div class="eliminar" data-toggle="modal" data-target="#eliminarModal"><h5 class="dorado" onclick="btnEliminarVerificar(this)">Eliminar</h5></div></div></div></div>');
                 $(".zonaScroll").getNiceScroll().resize();
             }
         });

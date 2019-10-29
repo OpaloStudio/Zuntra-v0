@@ -1,6 +1,7 @@
 <?php
     if(isset($_POST["opcion"])) {
         $conexion = mysqli_connect("zuntrapopclub.com", "zuntrapo_user", ".Pinshicontra", "zuntrapo_bd");
+        $conexion->set_charset("utf8");
         if ($conexion->connect_error)
             die("La conexion falló: " . $conexion->connect_error);
         switch($_POST["opcion"]) {
@@ -19,6 +20,20 @@
                 $result1->free();
                 $result2->free();
                 $result3->free();
+                $conexion->close();
+                break;
+            case '2':
+                $idUser = $_POST["rp"];
+                $query = "SELECT reservaciones.nombre AS usuario, tipoReservacion.tipoRes, usuarios.nombre AS staff, reservaciones.numPersonas FROM reservaciones, usuarios, tipoReservacion WHERE tipoReservacion.idTipoRes = reservaciones.idTipoRes AND reservaciones.idRp = usuarios.idUser AND usuarios.idUser = $idUser";
+                $result = $conexion->query($query);
+                $rows = array();
+                if($result->num_rows > 0) {
+                    while($row = $result->fetch_assoc())
+                        $rows[] = $row;
+                    echo json_encode($rows);
+                } else
+                    echo "0";
+                $result->free();
                 $conexion->close();
                 break;
         }

@@ -20,7 +20,7 @@
                 $conexion->close();
                 break;
             case '2':
-                $result1 = $conexion->query("SELECT SUM(numPersonas) AS total FROM reservaciones WHERE idTipoRes = 1");
+                $result1 = $conexion->query("SELECT SUM(numPersonas) AS total FROM reservaciones WHERE idTipoRes = 2");
                 $result2 = $conexion->query("SELECT COUNT(*) AS total FROM reservaciones, invitados WHERE reservaciones.idTipoRes = 1 AND invitados.idRes = reservaciones.idRes AND invitados.scan = 1");
                 $result3 = $conexion->query("SELECT COUNT(*) AS total FROM reservaciones, invitadosGuest WHERE reservaciones.idTipoRes = 1 AND invitadosGuest.idRes = reservaciones.idRes AND invitadosGuest.scan = 1");
 
@@ -35,7 +35,7 @@
                 $conexion->close();
                 break;
             case '3':
-                $result1 = $conexion->query("SELECT SUM(numPersonas) AS total FROM reservaciones WHERE idTipoRes = 2");
+                $result1 = $conexion->query("SELECT SUM(numPersonas) AS total FROM reservaciones WHERE idTipoRes = 3");
                 $result2 = $conexion->query("SELECT COUNT(*) AS total FROM reservaciones, invitados WHERE reservaciones.idTipoRes = 1 AND invitados.idRes = reservaciones.idRes AND invitados.scan = 2");
                 $result3 = $conexion->query("SELECT COUNT(*) AS total FROM reservaciones, invitadosGuest WHERE reservaciones.idTipoRes = 1 AND invitadosGuest.idRes = reservaciones.idRes AND invitadosGuest.scan = 2");
 
@@ -50,7 +50,7 @@
                 $conexion->close();
                 break;
             case '4':
-                $result1 = $conexion->query("SELECT SUM(numPersonas) AS total FROM reservaciones WHERE idTipoRes = 3");
+                $result1 = $conexion->query("SELECT SUM(numPersonas) AS total FROM reservaciones WHERE idTipoRes = 1");
                 $result2 = $conexion->query("SELECT COUNT(*) AS total FROM reservaciones, invitados WHERE reservaciones.idTipoRes = 1 AND invitados.idRes = reservaciones.idRes AND invitados.scan = 3");
                 $result3 = $conexion->query("SELECT COUNT(*) AS total FROM reservaciones, invitadosGuest WHERE reservaciones.idTipoRes = 1 AND invitadosGuest.idRes = reservaciones.idRes AND invitadosGuest.scan = 3");
 

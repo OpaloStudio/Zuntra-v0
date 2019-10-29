@@ -278,6 +278,46 @@
   padding: 1rem;
   cursor: pointer; }
 
+#fotoHorizontal {
+  height: 10rem;
+  width: 10rem;
+  object-fit: cover !important;
+  object-position: center center !important;
+  padding: 1rem;
+  cursor: pointer; }
+
+#fotoVertical {
+  height: 10rem;
+  width: 10rem;
+  object-fit: cover !important;
+  object-position: center center !important;
+  padding: 1rem;
+  cursor: pointer; }
+
+#fotoVideoPrincipal {
+  height: 10rem;
+  width: 10rem;
+  object-fit: cover !important;
+  object-position: center center !important;
+  padding: 1rem;
+  cursor: pointer; }
+
+#fotoZonaIzq {
+  height: 10rem;
+  width: 10rem;
+  object-fit: cover !important;
+  object-position: center center !important;
+  padding: 1rem;
+  cursor: pointer; }
+
+#fotoZonaDer {
+  height: 10rem;
+  width: 10rem;
+  object-fit: cover !important;
+  object-position: center center !important;
+  padding: 1rem;
+  cursor: pointer; }
+
 .divImgPerf {
   width: 100%;
   display: flex;
@@ -307,8 +347,7 @@
 .zonaRps2 {
   width: 100%;
   display: flex;
-  flex-wrap: wrap;
-  margin-top: -58rem; }
+  flex-wrap: wrap; }
 
 .znBtns {
   display: flex;
@@ -329,6 +368,78 @@
   justify-content: center;
   align-items: center;
   cursor: pointer; }
+
+.eventoPromo {
+  width: 60vw;
+  display: flex;
+  flex-direction: column; }
+
+.divVerPublicaciones {
+  width: 60vw;
+  display: flex;
+  flex-direction: column;
+  display: none; }
+
+#btnCrearPub {
+  margin-right: 2rem !important; }
+
+.cardPublicacion {
+  height: 3rem;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  border-radius: 15px;
+  border: 1px solid #212121;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0rem 1rem 0rem 1rem;
+  justify-content: space-between; }
+
+.juntitos {
+  width: 10rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer; }
+
+.red {
+  color: red !important; }
+
+.cardDiseno {
+  width: 70vw;
+  margin-top: 2rem;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  border-radius: 15px;
+  border: 1px solid #212121;
+  padding: 0rem 0.9rem 0rem 0.9rem; }
+
+.rowVideo {
+  width: 70vw;
+  margin-left: -1rem;
+  border: 1px solid #212121;
+  -webkit-border-radius: 15px 15px 0px 0px;
+  -moz-border-radius: 15px 15px 0px 0px;
+  border-radius: 15px 15px 0px 0px; }
+
+.editarZonaDerecha {
+  border: 1px solid #212121;
+  -webkit-border-radius: 0px 0px 15px 0px;
+  -moz-border-radius: 0px 0px 15px 0px;
+  border-radius: 0px 0px 15px 0px;
+  width: 35vw; }
+
+.editarZonaIzquierda {
+  border: 1px solid #212121;
+  -webkit-border-radius: 0px 0px 0px 15px;
+  -moz-border-radius: 0px 0px 0px 15px;
+  border-radius: 0px 0px 0px 15px;
+  width: 35vw; }
+
+#btnCerrarSesion {
+  background-color: red !important;
+  margin-top: 5rem; }
 
 .barra {
   background-color: #212121 !important;
