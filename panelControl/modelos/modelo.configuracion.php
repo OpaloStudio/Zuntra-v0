@@ -52,7 +52,7 @@
             echo json_encode($row);
         }
     } else if(isset($_POST["registrar"])) { //Registrar a un nuevo usuario
-        $foto = $_FILES["foto"]["name"];
+        $foto = $_POST["foto"];
         $nombre = $conexion->real_escape_string($_POST["nombre"]);
         $telefono = $conexion->real_escape_string($_POST["telefono"]);
         $puesto = $conexion->real_escape_string($_POST["puesto"]);
@@ -69,7 +69,7 @@
             echo "-1"; //Registrado
         else {
             //Guardar la información del nuevo usuario en la base de datos
-            $sql2 = "INSERT INTO usuarios (nombre, telefono, cumpleanos, correo, contrasena, scanner, panelControl, idTipoUsuario) VALUES ('$nombre', '$telefono', '$cumpleanos', '$mail', '$password', $scanner, $panelControl, $puesto)";
+            $sql2 = "INSERT INTO usuarios (nombre, telefono, cumpleanos, correo, contrasena, scanner, panelControl, idTipoUsuario, picPerfil) VALUES ('$nombre', '$telefono', '$cumpleanos', '$mail', '$password', $scanner, $panelControl, $puesto, '$foto')";
             
             if($conexion->query($sql2)) {
                 $userId = $conexion->insert_id;

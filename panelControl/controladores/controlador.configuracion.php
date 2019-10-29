@@ -1,5 +1,5 @@
 <script>
-    var base64;
+    var band = false;
 
     $(document).ready(function() {
         $('#btnCrearPub').css('background-color','#212121');
@@ -24,14 +24,26 @@
     var openFile = function(event) {
         var input = event.target;
 
-        var reader = new FileReader();
-        reader.onload = function() {
-            var dataURL = reader.result;
-            var output = document.getElementById('foto1');
-            output.src = dataURL;
-            console.log(dataURL);
-        };
-        reader.readAsDataURL(input.files[0]);
+        new ImageCompressor(input.files[0], {
+            quality: 0.5,
+            success(result) {
+                //alert(reader.readAsDataURL(result));
+                $("#foto1").attr("src", URL.createObjectURL(result));
+
+                var reader = new FileReader();
+                reader.onload = function() {
+                    var dataURL = reader.result;
+                    var output = document.getElementById('foto1');
+                    //output.src = dataURL;
+                    console.log(dataURL);
+                };
+                reader.readAsDataURL(input.files[0]);
+                band = true;
+            },
+            error(err) {
+                console.log(err.message);
+            },
+        });
     };
 
     var openFile2 = function(event) {
@@ -48,9 +60,7 @@
                     var dataURL = reader.result;
                     var output = document.getElementById('foto2');
                     //output.src = dataURL;
-                    console.log("BASE64\n");
                     console.log(dataURL);
-                    base64 = dataURL;
                 };
                 reader.readAsDataURL(input.files[0]);
             },
@@ -151,6 +161,8 @@ async function asyncCall() {
 }
 
     function adminStaff() {
+        $("#rps").empty();
+
         //Cargar usuarios
         $.ajax({
             type: "post",
@@ -159,8 +171,7 @@ async function asyncCall() {
                 "staff": "1"
             },
             success: function(response) {
-                var usuarios = JSON.parse(response);
-                $("#rps").empty();
+                var usuarios = JSON.parse(response);        
         
                 for(var i = 0; i < usuarios.length; i++)
                     $("#rps").append('<div class="card cardNegra cardRp mb-3" style="max-width: 540px;" id="usuario' + usuarios[i].idUser + '"><div class="row no-gutters"><div class="col-md-4"><img src="' + usuarios[i].foto + '" class="card-img" alt="profile-pic"></div><div class="col-md-6"><div class="card-body"><h5 class="card-title text-center">' + usuarios[i].nombre + '</h5><p class="card-text text-center">' + usuarios[i].total + " / " + usuarios[i].personas + '</p></div></div><div class="col-md-2 znBtns"><div class="editar"><h5 class="dorado" data-toggle="modal" data-target="#editarModal" onclick="editarModal(this)">Editar</h5></div><div class="eliminar" data-toggle="modal" data-target="#eliminarModal"><h5 class="dorado" onclick="btnEliminarVerificar(this)">Eliminar</h5></div></div></div></div>');
@@ -194,7 +205,7 @@ async function asyncCall() {
                     $("#epuesto").val(usuario.idTipoUsuario);
                     $("#email").val(usuario.correo);
                     var aux = usuario.cumpleanos.split("-");
-                    $("#ecumpleanos").val(aux[2] + "/" + aux[1] + "/" + aux[0]);
+                    $("#ecumpleanos").val(aux[1] + "/" + aux[2] + "/" + aux[0]);
                     if(usuario.scanner == "1")
                         $("#escannerSi").prop("checked", true);
                     else
@@ -236,7 +247,7 @@ async function asyncCall() {
     }
 
     function btnRegistrar() {
-        var foto = $("#registroFoto").prop("files");
+        var foto = $("#foto1").attr("src");
         var nombre = $("#nombre").val();
         var telefono = $("#telefono").val();
         var puesto = $("#puesto").val();
@@ -247,14 +258,14 @@ async function asyncCall() {
         var scanner = $("input[name='scanner']:checked").val();
         var panelControl = $("input[name='controlPane']:checked").val();
 
-        if(nombre != "" && telefono !="" && puesto != "" && scanner != "" && panelControl != "" && mail != "" && cumpleanos != "" && password != "" && foto.length > 0) {
+        if(nombre != "" && telefono !="" && puesto != "" && scanner != "" && panelControl != "" && mail != "" && cumpleanos != "" && password != "" && band) {
             if(password == password2) {
                 aux = cumpleanos.split("/");
                 cumpleanos = aux[2] + "-" + aux[0] + "-" + aux[1];
 
                 var datos = new FormData();
                 datos.append("registrar", "1");
-                datos.append("foto", foto[0]);
+                datos.append("foto", foto);
                 datos.append("nombre", nombre);
                 datos.append("telefono", telefono);
                 datos.append("puesto", puesto);
@@ -276,7 +287,7 @@ async function asyncCall() {
                         else if(response == "-1")
                             alert("Error: El correo electronico ya esta en uso");
                         else
-                            alert("Fue creado correctamente");
+                            alert("El usuario fue creado correctamente");
                     }
                 });
             } else
@@ -286,7 +297,7 @@ async function asyncCall() {
     }
 
     function actualizarStaff() {
-        var foto = $("#editarFoto").prop("files");
+        var foto = $("#foto2").attr("src");
         var idUser = $("#idUser").val();
         var nombre = $("#enombre").val();
         var telefono = $("#etelefono").val();
@@ -300,7 +311,7 @@ async function asyncCall() {
 
         if(nombre != "" && telefono !="" && puesto != "" && scanner != "" && panelControl != "" && mail != "" && cumpleanos != "") {
             aux = cumpleanos.split("/");
-            cumpleanos = aux[2] + "-" + aux[1] + "-" + aux[0];
+            cumpleanos = aux[2] + "-" + aux[0] + "-" + aux[1];
 
             var datos = new FormData();
             datos.append("actualizar", "1");
@@ -315,7 +326,7 @@ async function asyncCall() {
             datos.append("panelControl", panelControl);
             
             if(foto.length > 0)
-                datos.append("foto", base64);
+                datos.append("foto", foto);
 
             if(password != "") {
                 if(password == password2)
