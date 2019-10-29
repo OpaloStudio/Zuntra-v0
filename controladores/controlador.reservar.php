@@ -138,6 +138,10 @@ function reservacionAdb(){
     var stringlink = String(linkReservacion);
     
     var baseString = String(basechida);
+
+    var fechaLink = fechaReserva.substring(6)+"-"+fechaReserva.substring(0,2)+"-"+fechaReserva.substring(3,5);
+    console.log(fechaLink);
+
     
     console.log(idTipoRes);
     console.log(numPersonas);
@@ -182,7 +186,7 @@ function reservacionAdb(){
 
                         if(msg != "996"){
 
-                            window.location.href = msg;
+                            window.location.href = msg+"&fecha="+fechaLink;
 
                         } else {
                             alert("Ha ocurrido un error interno, inténtalo más tarde.");
@@ -212,6 +216,7 @@ function reservacionAdb(){
     console.log(session);
     console.log(fechaReserva);
     //console.log(newFecha);
+
     option = 1;
     
     $.ajax({
