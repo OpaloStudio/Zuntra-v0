@@ -13,6 +13,8 @@
             success: function (response) {
                 if(response != "0") {
                     var datos = response.split("-");
+                    datos[1] = (datos[1] == "") ? "0" : datos[1];
+                    datos[0] = (datos[0] == "") ? "0" : datos[0];
                     $("#reservacionesTotales").text(datos[1] + " / " + datos[0]);
                 }
             }
@@ -28,6 +30,8 @@
             success: function (response) {
                 if(response != "0") {
                     var datos = response.split("-");
+                    datos[1] = (datos[1] == "") ? "0" : datos[1];
+                    datos[0] = (datos[0] == "") ? "0" : datos[0];
                     $("#reservacionesSimples").text(datos[1] + " / " + datos[0]);
                 }
             }
@@ -43,6 +47,8 @@
             success: function (response) {
                 if(response != "0") {
                     var datos = response.split("-");
+                    datos[1] = (datos[1] == "") ? "0" : datos[1];
+                    datos[0] = (datos[0] == "") ? "0" : datos[0];
                     $("#reservacionesGrupo").text(datos[1] + " / " + datos[0]);
                 }
             }
@@ -58,6 +64,8 @@
             success: function (response) {
                 if(response != "0") {
                     var datos = response.split("-");
+                    datos[1] = (datos[1] == "") ? "0" : datos[1];
+                    datos[0] = (datos[0] == "") ? "0" : datos[0];
                     $("#reservacionesCumple").text(datos[1] + " / " + datos[0]);
                 }
             }

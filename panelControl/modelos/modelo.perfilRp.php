@@ -21,6 +21,25 @@
                 $result3->free();
                 $conexion->close();
                 break;
+            case '2':
+                $query = "SELECT reservaciones.nombre AS usuario, tipoReservacion.tipoRes, usuarios.nombre AS staff, reservaciones.numPersonas FROM reservaciones, usuarios, tipoReservacion WHERE tipoReservacion.idTipoRes = reservaciones.idTipoRes AND reservaciones.idRp = usuarios.idUser AND usuarios.idUser = $idUser";
+                $result = $conexion->query($query);
+                $rows = array();
+                if($result->num_rows > 0) {
+                    while($row = $result->fetch_assoc())
+                        $rows[] = $row;
+                    $result->free();
+                    $query = "SELECT reservaciones.nombre AS usuario, tipoReservacion.tipoRes, 'Ninguno' AS staff, reservaciones.numPersonas FROM reservaciones, tipoReservacion WHERE tipoReservacion.idTipoRes = reservaciones.idTipoRes AND idRp = 0";
+                    $result = $conexion->query($query);
+                    if($result->num_rows > 0)
+                        while($row = $result->fetch_assoc())
+                            $rows[] = $row;
+                    echo json_encode($rows);
+                } else
+                    echo "0";
+                $result->free();
+                $conexion->close();
+                break;
         }
     }
  ?>

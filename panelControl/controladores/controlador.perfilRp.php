@@ -31,6 +31,8 @@
             },
             success: function(response) {
                 var datos = response.split("-");
+                datos[1] = (datos[1] == "") ? "0" : datos[1];
+                datos[0] = (datos[0] == "") ? "0" : datos[0];
                 $("#reservacionesTotales").text(datos[1] + " / " + datos[0]);
             }
         });
@@ -117,9 +119,10 @@
     function cargarUsuarios() {
         $.ajax({
             type: "post",
-            url: "modelos/modelo.reservaciones.php",
+            url: "modelos/modelo.perfilRp.php",
             data: {
-                "opcion": "1"
+                "opcion": "1",
+                "rp": rp
             },
             success: function(response) {
                 usuario = JSON.parse(response);
