@@ -1,5 +1,5 @@
 <script>
-    var band = false;
+    var base64, base642 = "";
 
     $(document).ready(function() {
         $('#btnCrearPub').css('background-color','#212121');
@@ -35,6 +35,7 @@
                     var dataURL = reader.result;
                     var output = document.getElementById('foto1');
                     //output.src = dataURL;
+                    base64 = dataURL;
                     console.log(dataURL);
                 };
                 reader.readAsDataURL(input.files[0]);
@@ -60,6 +61,7 @@
                     var dataURL = reader.result;
                     var output = document.getElementById('foto2');
                     //output.src = dataURL;
+                    base642 = dataURL;
                     console.log(dataURL);
                 };
                 reader.readAsDataURL(input.files[0]);
@@ -236,7 +238,7 @@ async function asyncCall() {
                 "eliminar": "1",
                 "idUser": idUser
             },
-            success: function(response) {alert(response);
+            success: function(response) {
                 if(response != "0") {
                     adminStaff();
                     alert("Usuario eliminado correctamente");
@@ -247,7 +249,7 @@ async function asyncCall() {
     }
 
     function btnRegistrar() {
-        var foto = $("#foto1").attr("src");
+        var foto = base64;
         var nombre = $("#nombre").val();
         var telefono = $("#telefono").val();
         var puesto = $("#puesto").val();
@@ -258,7 +260,7 @@ async function asyncCall() {
         var scanner = $("input[name='scanner']:checked").val();
         var panelControl = $("input[name='controlPane']:checked").val();
 
-        if(nombre != "" && telefono !="" && puesto != "" && scanner != "" && panelControl != "" && mail != "" && cumpleanos != "" && password != "" && band) {
+        if(nombre != "" && telefono !="" && puesto != "" && scanner != "" && panelControl != "" && mail != "" && cumpleanos != "" && password != "" && foto != "") {
             if(password == password2) {
                 aux = cumpleanos.split("/");
                 cumpleanos = aux[2] + "-" + aux[0] + "-" + aux[1];
@@ -297,7 +299,7 @@ async function asyncCall() {
     }
 
     function actualizarStaff() {
-        var foto = $("#foto2").attr("src");
+        var foto = (base642 != "") ? base642 : $("#foto2").attr("src");
         var idUser = $("#idUser").val();
         var nombre = $("#enombre").val();
         var telefono = $("#etelefono").val();
@@ -348,6 +350,7 @@ async function asyncCall() {
                         alert("Error: El correo ya esta en uso");
                     else {
                         adminStaff();
+                        base642 = "";
                         alert("Datos actualizados correctamente");
                     }
                 }
