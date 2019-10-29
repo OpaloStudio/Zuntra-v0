@@ -6,7 +6,6 @@ const resourcesToPrecache = [
 'vistas/modulos/inbox.php',
 'vistas/modulos/login.php',
 'vistas/modulos/logScreen.php',
-'vistas/modulos/perfil.php',
 'vistas/modulos/promos.php',
 'vistas/modulos/qr.php',
 'vistas/modulos/recuperar.php',

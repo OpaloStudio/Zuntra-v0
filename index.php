@@ -15,6 +15,10 @@ session_start();
     <meta name="description" content="">
 
     <meta name="keyword" content="">
+	<meta http-equiv="Expires" content="0">
+  <meta http-equiv="Last-Modified" content="0">
+  <meta http-equiv="Cache-Control" content="no-cache, mustrevalidate">
+  <meta http-equiv="Pragma" content="no-cache">
 
     <title>Zuntra POP CLUB</title>
 	<link rel="icon" type="image/png" id="dinamico" href="vistas/img/favicon/favicon.png" />
