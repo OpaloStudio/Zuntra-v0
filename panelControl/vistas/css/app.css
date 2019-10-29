@@ -437,6 +437,10 @@
   border-radius: 0px 0px 0px 15px;
   width: 35vw; }
 
+#btnCerrarSesion {
+  background-color: red !important;
+  margin-top: 5rem; }
+
 .barra {
   background-color: #212121 !important;
   height: 100vh;
