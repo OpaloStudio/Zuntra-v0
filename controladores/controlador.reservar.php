@@ -34,6 +34,7 @@ $(function () {
         });
 });
     var session = <?php echo $idsesion; ?>;
+    var tipoUser = <?php echo $userType; ?>;
     var nombreReserva = String("<?php echo $userName; ?>");
     var tipo = String("<?php echo $tipo; ?>");
     var telefonoReserva = <?php echo $userPhone; ?>;
@@ -117,7 +118,7 @@ function generarReservacion(){
     var textoNuevo = fechaReserva.normalize('NFD');
     
     //Se une todo en una cadena para que no cause problemas a la hora de generar el código QR
-    var txt1 = "RP: "+ rpReserva +"\nTipo Reservacion: "+ tipoReserva +"\nFecha y Hora: "+ fechaReserva +"\nTelefono: "+ telefonoReserva +"\n\nNombre: "+ nombreReserva +"\nCódigo: "+ session;
+    var txt1 = "RP: "+ rpReserva +"\nTipo Reservacion: "+ tipoReserva +"\nFecha: "+ fechaReserva +"\n\nNombre: "+ nombreReserva + "\nTipo usuario: " + tipoUser + "\nCódigo: "+ session;
     console.log(txt1);
 
     qrcode.makeCode(txt1);
@@ -135,13 +136,14 @@ function reservacionAdb(){
     var telefono = telefonoReserva;
     
     //Aquí se crea el link
-    var linkReservacion = "?page=6&usuario="+session+"&reservacion=";
+    var fechaLink = fechaReserva.substring(6)+"-"+fechaReserva.substring(0,2)+"-"+fechaReserva.substring(3,5);
+    console.log(fechaLink);
+    
+    var linkReservacion = "?page=6&fecha="+fechaLink+"&usuario="+session+"&reservacion=";
     var stringlink = String(linkReservacion);
     
     var baseString = String(basechida);
 
-    var fechaLink = fechaReserva.substring(6)+"-"+fechaReserva.substring(0,2)+"-"+fechaReserva.substring(3,5);
-    console.log(fechaLink);
 
     
     console.log(idTipoRes);
@@ -187,7 +189,7 @@ function reservacionAdb(){
 
                         if(msg != "996"){
 
-                            window.location.href = msg+"&fecha="+fechaLink;
+                            window.location.href = msg;
 
                         } else {
                             alert("Ha ocurrido un error interno, inténtalo más tarde.");
