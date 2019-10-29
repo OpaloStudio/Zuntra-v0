@@ -85,7 +85,7 @@
                        </div>
 
                         <div class="zonaBtnRegistro">
-                            <button type="button" class="btn btnRegistro" id="botonRegistrar" onclick="btnRegistrar()">Agregar</button>
+                            <button type="button" class="btn btnRegistro" id="botonAgregar" onclick="btnRegistrar()">Agregar</button>
                         </div>
                     </form>
 
@@ -139,18 +139,18 @@
                         <label class="negro">Tipo de Publcidad</label><br>
                             <div class="form-check form-check-inline">
                             
-                                <input class="form-check-input" type="radio" name="scanner" id="scannerSi" value="1" checked>
+                                <input class="form-check-input" type="radio" name="scanner" id="crearEvento" value="1" checked>
                                 <label class="form-check-label" for="scannerSi">Evento</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="scanner" id="scannerNo" value="0">
+                                <input class="form-check-input" type="radio" name="scanner" id="crearPromo" value="0">
                                 <label class="form-check-label" for="scannerNo">Promoción</label>
                             </div>
                        </div><br>
                         
                         <div class="form-group">
                             <label class="negro" for="exampleFormControlSelect1">Día de la Semana</label>
-                            <select class="form-control inputsClaros" id="puesto">
+                            <select class="form-control inputsClaros" id="puestoCrear">
                                 <option selected value="0">-Selecciona uno-</option>
                                 <option value="j">Jueves</option>
                                 <option value="v">Viernes</option>
@@ -183,17 +183,17 @@
                         <label class="negro">Tipo de Publcidad</label><br>
                             <div class="form-check form-check-inline">
                             
-                                <input class="form-check-input" type="radio" name="scanner" id="scannerSi" value="1" checked>
+                                <input class="form-check-input" type="radio" name="scanner" id="verEvento" value="1" checked>
                                 <label class="form-check-label" for="scannerSi">Evento</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="scanner" id="scannerNo" value="0">
+                                <input class="form-check-input" type="radio" name="scanner" id="verPromo" value="0">
                                 <label class="form-check-label" for="scannerNo">Promoción</label>
                             </div>
                        </div><br>
                     <div class="form-group">
                             <label class="negro" for="exampleFormControlSelect1">Día de la Semana</label>
-                            <select class="form-control inputsClaros" id="puesto">
+                            <select class="form-control inputsClaros" id="puestoVer">
                                 <option selected value="0">-Selecciona uno-</option>
                                 <option value="j">Jueves</option>
                                 <option value="v">Viernes</option>
@@ -244,11 +244,11 @@
                             </div>
                             <div class="form-group">
                             <h4 class="dorado text-center">Título de la zona de Reservaciones</h4>
-                            <input type="text" class="form-control inputsClaros" id="titulo">
+                            <input type="text" class="form-control inputsClaros" id="tituloZR">
                         </div>
                         <div class="form-group">
                         <h4 class="dorado text-center">Texto de la zona de Reservaciones</h4>
-                            <input type="text" class="form-control inputsClaros" id="titulo">
+                            <input type="text" class="form-control inputsClaros" id="textoZR">
                         </div>
                        
                                 </form>
@@ -265,11 +265,11 @@
                             </div>
                             <div class="form-group">
                             <h4 class="dorado text-center">Título de la zona del Swipe</h4>
-                            <input type="text" class="form-control inputsClaros" id="titulo">
+                            <input type="text" class="form-control inputsClaros" id="tituloZS">
                         </div>
                         <div class="form-group">
                         <h4 class="dorado text-center">Texto de la zona del Swipe</h4>
-                            <input type="text" class="form-control inputsClaros" id="titulo">
+                            <input type="text" class="form-control inputsClaros" id="textoZS">
                         </div>
                                 </form>
                             </div>
