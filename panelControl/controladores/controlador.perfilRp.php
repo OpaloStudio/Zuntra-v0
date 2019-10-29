@@ -37,6 +37,21 @@
             }
         });
 
+/*        $.ajax({
+            type: "post",
+            url: "modelos/modelo.perfilRp.php",
+            data: {
+                "opcion": "3",
+                "rp": rp
+            },
+            success: function(response) {
+                var datos = response.split("-");
+                datos[1] = (datos[1] == "") ? "0" : datos[1];
+                datos[0] = (datos[0] == "") ? "0" : datos[0];
+                $("#reservacionesTotales").text(datos[1] + " / " + datos[0]);
+            }
+        });*/
+
         //Obtener los primeros 10 usuarios
         cargarUsuarios();
 
