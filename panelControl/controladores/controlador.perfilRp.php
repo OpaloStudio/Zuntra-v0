@@ -15,13 +15,13 @@
     var pagina_ultima;
     var pagina_primera = 1;
     var pagina_actual = 1;
+    var rp = "<?php echo $rp; ?>";
 
     $(document).ready(function () {
         $(".cardTableReserv").niceScroll({cursorcolor:"#DEC9A1"});
         $('#4').addClass('activeMas'); 
 
         //Cargar reservaciones
-        var rp = "<?php echo $rp; ?>";
         $.ajax({
             type: "post",
             url: "modelos/modelo.perfilRp.php",
@@ -121,12 +121,14 @@
             type: "post",
             url: "modelos/modelo.perfilRp.php",
             data: {
-                "opcion": "1",
+                "opcion": "2",
                 "rp": rp
             },
             success: function(response) {
-                usuario = JSON.parse(response);
-                total_usuarios = usuario.length;
+                if(response != "0") {
+                    usuario = JSON.parse(response);
+                    total_usuarios = usuario.length;
+                }
 
                 //Mostrar os usuarios
                 obtenerUsuarios(0, 10);
