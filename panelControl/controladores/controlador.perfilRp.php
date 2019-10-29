@@ -15,13 +15,13 @@
     var pagina_ultima;
     var pagina_primera = 1;
     var pagina_actual = 1;
+    var rp = "<?php echo $rp; ?>";
 
     $(document).ready(function () {
         $(".cardTableReserv").niceScroll({cursorcolor:"#DEC9A1"});
         $('#4').addClass('activeMas'); 
 
         //Cargar reservaciones
-        var rp = "<?php echo $rp; ?>";
         $.ajax({
             type: "post",
             url: "modelos/modelo.perfilRp.php",
@@ -31,6 +31,8 @@
             },
             success: function(response) {
                 var datos = response.split("-");
+                datos[1] = (datos[1] == "") ? "0" : datos[1];
+                datos[0] = (datos[0] == "") ? "0" : datos[0];
                 $("#reservacionesTotales").text(datos[1] + " / " + datos[0]);
             }
         });
@@ -117,13 +119,16 @@
     function cargarUsuarios() {
         $.ajax({
             type: "post",
-            url: "modelos/modelo.reservaciones.php",
+            url: "modelos/modelo.perfilRp.php",
             data: {
-                "opcion": "1"
+                "opcion": "2",
+                "rp": rp
             },
             success: function(response) {
-                usuario = JSON.parse(response);
-                total_usuarios = usuario.length;
+                if(response != "0") {
+                    usuario = JSON.parse(response);
+                    total_usuarios = usuario.length;
+                }
 
                 //Mostrar os usuarios
                 obtenerUsuarios(0, 10);
