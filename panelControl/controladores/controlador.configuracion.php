@@ -1,5 +1,7 @@
 <script>
     $(document).ready(function() {
+        $('#btnCrearPub').css('background-color','#212121');
+        $('#btnCrearPub').css('color','#DEC9A1');
         $(".zonaScroll").niceScroll({cursorcolor:"#DEC9A1"});
         $('#5').addClass('activeMenos');
 
@@ -105,7 +107,7 @@ function eventPromo() {
 
 function contenido() {
         $('#nav-home').hide();
-        $('#rps').show();
+        $('#rps').hide();
         $('#nav-eventos').hide();
         $('#nav-diseno').show();
         $('#nav-contact').hide();

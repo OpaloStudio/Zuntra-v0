@@ -122,6 +122,8 @@
                         </div>
                     </div>
                 </div>
+
+                 <!--Div de eventos y promos -->
                 <div class="tab-pane fade" id="nav-eventos" role="tabpanel" aria-labelledby="nav-eventos-tab"><br><br>
                 <div class="zonaBtnRegistro">
                             <button type="button" class="btn btnRegistro" id="btnCrearPub" onclick="crearPublicacion()">Crear Publicación</button>
@@ -214,7 +216,69 @@
                         </div>
                     </div>
                 </div>
-                <div class="tab-pane fade" id="nav-diseno" role="tabpanel" aria-labelledby="nav-diseno-tab">...</div>
+
+                <!--Div de diseño y contenido -->
+                <div class="tab-pane fade" id="nav-diseno" role="tabpanel" aria-labelledby="nav-diseno-tab">
+                    <div class="card cardDiseno">
+                        <div class="row rowVideo">
+                            <div class="col-12">
+                                <h4 class="dorado text-center">Video Pincipal</h4>
+                           
+                            <div class=" divImgPerf">
+                            
+                                <input type="file" class="hideInput" id="videoPrincipal" name="pic1"
+                                    onchange="openFileVideo(event)">
+                                <label for="imgHorizontal"><img id="fotoVideoPrincipal" src="vistas/img/cuadroCarga.svg"> </label>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class=" col-6 editarZonaIzquierda">
+                                <form class="formZonaIzquierda">
+                                <h4 class="dorado text-center">Imagen Fondo</h4>
+                            <div class=" divImgPerf">
+                            
+                                <input type="file" class="hideInput" id="imgIzq" name="pic1"
+                                    onchange="openFileHorizontal(event)">
+                                <label for="imgIzq"><img id="fotoZonaIzq" src="vistas/img/cuadroCarga.svg"> </label>
+                            </div>
+                            <div class="form-group">
+                            <h4 class="dorado text-center">Título de la zona de Reservaciones</h4>
+                            <input type="text" class="form-control inputsClaros" id="titulo">
+                        </div>
+                        <div class="form-group">
+                        <h4 class="dorado text-center">Texto de la zona de Reservaciones</h4>
+                            <input type="text" class="form-control inputsClaros" id="titulo">
+                        </div>
+                       
+                                </form>
+                            </div>
+                            
+                            <div class="col-6 editarZonaDerecha">
+                                <form class="formDiseno">
+                                <h4 class="dorado text-center">Imagen Fondo</h4>
+                            <div class=" divImgPerf">
+                            
+                                <input type="file" class="hideInput" id="imgDer" name="pic1"
+                                    onchange="openFileHorizontal(event)">
+                                <label for="imgDer"><img id="fotoZonaDer" src="vistas/img/cuadroCarga.svg"> </label>
+                            </div>
+                            <div class="form-group">
+                            <h4 class="dorado text-center">Título de la zona del Swipe</h4>
+                            <input type="text" class="form-control inputsClaros" id="titulo">
+                        </div>
+                        <div class="form-group">
+                        <h4 class="dorado text-center">Texto de la zona del Swipe</h4>
+                            <input type="text" class="form-control inputsClaros" id="titulo">
+                        </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                 <!--Div de cerrar  sesion -->
                 <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">...</div>
             </div>
         </div>
