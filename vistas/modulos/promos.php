@@ -5,12 +5,18 @@
       <h1 class=" divTitutlo text-center"></h1>
     </div>
   </nav><br><br><br>
+  <div id="lightbox">
+    <p>Click to close</p>
+    <div id="content">
+        <img src="#" />
+    </div>
+</div>
   <div class="container contPromo">
     <div class="row">
       <div class="col-12 zonaPromos">
         <h1 class="dia">Jueves</h1>
         <div class="imgPromoJueves">
-          <img class="promo" src="vistas/img/promo2.jpg">
+          <a href="vistas/img/promo3.jpg" class="lightbox_trigger"><img class="promo" src="vistas/img/promo2.jpg"></a>
         </div>
         
       </div>
