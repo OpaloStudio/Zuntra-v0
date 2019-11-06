@@ -29,14 +29,14 @@ $(document).ready(function() {
 }setTimeout(mensajito,3000);*/
     
 if(tipoUser == 6){
-        $("#linkSwipe").attr("onclick","noInvitados()");
+        //$("#linkSwipe").attr("onclick","noInvitados()");   Acceso a swipe
         $("#linkReservar").attr("onclick","noInvitados()");
         $("#homeCerrarSesion").removeAttr("hidden");
         $("#homeIniciarSesion").hide();
     }
      else if(idUser != 0){
         console.log("Sesión Iniciada");
-        $("#linkSwipe").attr("href","?page=8");
+        //$("#linkSwipe").attr("href","?page=8");    Acceso a swipe
         $("#linkReservar").attr("href","?page=17");
         $("#homeComentarios").removeAttr("hidden");
         $("#homeCerrarSesion").removeAttr("hidden");
@@ -44,7 +44,7 @@ if(tipoUser == 6){
     }
     else if(idUser == 0){
         console.log("Por Favor Inicia Sesión");
-        $("#linkSwipe").attr("href","?page=1&log=swipe");
+        //$("#linkSwipe").attr("href","?page=1&log=swipe");    Acceso a swipe
         $("#linkReservar").attr("href","?page=1&log=reserva");
     }
     if(!('serviceWorker' in navigator)){

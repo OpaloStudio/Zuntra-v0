@@ -120,7 +120,7 @@
             break;
 
             case "firstLog":
-                nuevoLink = "?page=7";
+                nuevoLink = "?page=17";
             break;
 
             case "scrRes":
