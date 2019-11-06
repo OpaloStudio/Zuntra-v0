@@ -44,7 +44,15 @@
         <i class="fas fa-arrow-circle-right"></i>
       </a>
     </div>
-    <div class="col-6 slideSwipe">
+    <div class="col-6  slideSwipe proxSwipe"> 
+    <div class="centrarCosito">
+      <div class="lds-grid"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+    </div>
+        <h4 class="tituloHome dorado text-center" id="tituloSwipe">Espera la actualización</h4>
+        <p class="pHome dorado text-center" id="textoSwipe">Te vamos a sorprender...</p>
+       
+    </div>
+    <!--<div class="col-6 slideSwipe">
       <a id="linkSwipe">
         <h4 class="tituloHome" id="tituloSwipe">Conoce gente nueva en Zuntra</h4>
         <p class="pHome" id="textoSwipe">El modo búsqueda
@@ -52,7 +60,7 @@
           establecimiento </p>
         <i class="fas fa-arrow-circle-right"></i>
       </a>
-    </div>
+    </div>-->
   </div>
   <!--<button type="button" id="btnAdd" class="btn btnOscuro" >Añadir</button>-->
   <div class="divAcceso">
