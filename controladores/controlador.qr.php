@@ -94,7 +94,7 @@ if(isset($_GET['nombre'])){
     
             } else{
                 console.log("Por Favor Inicia Sesión");
-                var linkReservacion = "?page=1&usuario="+usuarioReservacion+"&reservacion="+idReservacion+"&fecha="+fechaReserva+"log=invitados";
+                var linkReservacion = "?page=1&usuario="+usuarioReservacion+"&reservacion="+idReservacion+"&fecha="+fechaReserva+"&log=invitados";
                 window.location.href = linkReservacion;
             }
 

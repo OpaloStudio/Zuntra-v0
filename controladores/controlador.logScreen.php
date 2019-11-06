@@ -33,10 +33,10 @@ $( document ).ready(function() {
 
     switch(tipoLink){
         case "invitados":
+            btnGuest.style.display = 'block';
             var usuarioReservacion = <?php echo $user; ?>;
             var idReservacion = <?php echo $reservacion; ?>;
             nuevoLink = "?page=4&usuario="+usuarioReservacion+"&reservacion="+idReservacion + "&log=invitados";
-            btnGuest.style.display = 'block';
         break;
 
         case "swipe":
