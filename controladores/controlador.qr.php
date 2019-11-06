@@ -53,6 +53,7 @@ if(isset($_GET['nombre'])){
     var dateRes = new Date(ano,mes-1,dia);
     var numDiaReserva = dateRes.getDay(fechaReserva);
     var diaReserva;
+    var fechaQR = dia+"-"+mes+"-"+ano;
 
     switch(numDiaReserva){
         case 0: diaReserva = "Domingo"; break;
@@ -228,7 +229,7 @@ if(isset($_GET['nombre'])){
     function invitacionQR(){
     
         //Se une todo en una cadena para que no cause problemas a la hora de generar el código QR
-        var txt = "Invitación de: "+ nombreReservacion +"\nNúmero de Host: "+ usuarioReservacion +"\nNúmero de Reservación: "+ idReservacion +"\nNombre: "+ nombreUser +"\nCódigo: "+ idUser + "\nTipo usuario: " + tipoUser;
+        var txt = "Invitación de: "+ nombreReservacion +"\nNúmero de Host: "+ usuarioReservacion +"\n\nNúmero de Reservación: "+ idReservacion +"\nFecha: "+mes+"/"+dia+"/"+ano+"\n\nNombre: "+ nombreUser + "\nTipo usuario: " + tipoUser+"\nCódigo: "+ idUser;
         console.log(txt);
 
         qrcode.makeCode(txt);
@@ -266,6 +267,7 @@ if(isset($_GET['nombre'])){
         console.log(idReservacion);
         console.log(baseString);
         console.log(opcion);
+        console.log(fechaQR);
 
         $.ajax({
             url: "modelos/modelo.qr.php",
@@ -277,6 +279,7 @@ if(isset($_GET['nombre'])){
                 usuarioReservacion:usuarioReservacion,
                 personasTotales:personasTotales,
                 baseString:baseString,
+                fechaQR:fechaQR,
                 opcion:opcion
             }),
             success: function(msg) {

@@ -58,10 +58,10 @@ switch($option){
 
       if($reservacionID != 0){
       
-        //$nuevoLink = (string)$linkReservacion.(string)$reservacionID;
-        $nuevoLink = "?page=6&usuario=".(string)$idUser."&reservacion=".(string)$reservacionID;
+        $nuevoLink = (string)$linkReservacion.(string)$reservacionID;
+        //$nuevoLink = "?page=6&usuario=".(string)$idUser."&reservacion=".(string)$reservacionID;
 
-        $sql3 = "INSERT INTO invitados (idUser, nombreInvitado, idRes, userRes, personasTotales, invitadoQR) VALUES ('$idUser', '$nombreUser', '$reservacionID', '$idUser', '$numPersonas', '$baseString')";
+        $sql3 = "INSERT INTO invitados (idUser, nombreInvitado, idRes, fecha, userRes, personasTotales, invitadoQR) VALUES ('$idUser', '$nombreUser', '$reservacionID', '$newDate', '$idUser', '$numPersonas', '$baseString')";
       
         if($conexion->query($sql3)){
         

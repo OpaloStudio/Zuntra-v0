@@ -7,6 +7,9 @@ if ($conexion->connect_error) {
 
 $idUser = $_POST['idUser'];
 $idReservacion = $_POST['idReservacion'];
+$fecha = $_POST['fechaQR'];
+
+$newDate = date("Y-m-d", strtotime($fecha));
 
 //Variable especificas de opcion 1
 $usuarioReservacion = $_POST['usuarioReservacion'];
@@ -45,7 +48,7 @@ switch($opcion){
 	
 	case 2:
 
-		$sql2 = "INSERT INTO invitados (idUser, nombreInvitado, idRes, userRes, personasTotales, invitadoQR) VALUES ('$idUser', '$nombreUser', '$idReservacion', '$usuarioReservacion', '$personasTotales', '$baseString')";
+		$sql2 = "INSERT INTO invitados (idUser, nombreInvitado, idRes, fecha, userRes, personasTotales, invitadoQR) VALUES ('$idUser', '$nombreUser', '$idReservacion', '$newDate', '$usuarioReservacion', '$personasTotales', '$baseString')";
 		
 		if($conexion->query($sql2)){
 
@@ -60,7 +63,7 @@ switch($opcion){
 		break;
 
 	case 3:
-		$sql2 = "INSERT INTO invitadosGuest (idUser, nombreInvitado, idRes, userRes, personasTotales, invitadoQR) VALUES ('$idUser', '$nombreUser', $idReservacion, $usuarioReservacion, $personasTotales, '$baseString')";
+		$sql2 = "INSERT INTO invitadosGuest (idUser, nombreInvitado, idRes, fecha, userRes, personasTotales, invitadoQR) VALUES ('$idUser', '$nombreUser', '$idReservacion', '$newDate', '$usuarioReservacion', '$personasTotales', '$baseString')";
 		if($conexion->query($sql2)){
 
 			$final = '1';

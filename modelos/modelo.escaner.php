@@ -12,7 +12,7 @@ $option = $_POST['option'];
 
 $nombre = $_POST['nombre'];
 $codigo = $_POST['codigo'];
-$idReservacion = $_POST["idReservacion"];
+$fecha = $_POST['fecha'];
 
 $dia1 = $_POST['dia1'];
 $dia2 = $_POST['dia2'];
@@ -104,116 +104,84 @@ switch($option){
 
     break;
 
-    case '3';
-        $sql = "SELECT idRes FROM invitados WHERE nombreInvitado='$nombre' AND idUser='$codigo' AND scan='0' AND idRes = $idReservacion";
-        $result = $conexion->query($sql);   
-
-        while($row = mysqli_fetch_array($result)){  
-            $idRes = (int)$row[0];
-        }   
-
-        
-        $sql2 = "SELECT * FROM reservaciones WHERE idRes='$idRes' AND activa='1'";
-        $result2 = $conexion->query($sql2); 
-        
-        $arregloIDqr = array(); 
-        
-        while($row = mysqli_fetch_array($result2)){
-            array_push($arregloIDqr, $row);
-        }   
-        
-
-        if(sizeof($arregloIDqr) == 0){  
-            $status = "997"; //No hay publicaciones con esas características o no está activa
-        } else{ 
-        
-            $sql3 = "UPDATE invitados SET scan='1' WHERE nombreInvitado='$nombre' AND idUser='$codigo' AND scan='0'";
-            $result3 = $conexion->query($sql3); 
-        
-            if($conexion->query($sql3)){
-
-                $sql4 = "SELECT * FROM usuarios WHERE idUser='$codigo'";
-                $result4 = $conexion->query($sql4);
-
-                while($row = mysqli_fetch_array($result4)){
-                    $status = $row;
-                }
-
-                if($status == null){
-
-                    $sql5 = "SELECT * FROM invitados WHERE idUser='$codigo'";
-                    $result5 = $conexion->query($sql5);
-
-                    while($row = mysqli_fetch_array($result5)){
-                        $status = $row;
-                    }
-
-                    if($status == null){
-                        $status = false;
-                    }
-                }
-                
-
-            } else{
-                $status = '996';//Error al actualizar info
-            }   
-        
-        }
-        echo json_encode($status);
-        break;
-
-    case '4';
-        $sql = "SELECT idRes FROM invitadosGuest WHERE nombreInvitado='$nombre' AND idUser='$codigo' AND scan='0' AND idRes = $idReservacion";
+    case '3':
+        // Se obtiene el id de la reservacion a partir de la invitacion
+        $sql = "SELECT idRes FROM invitados WHERE nombreInvitado='$nombre' AND idUser='$codigo' AND scan='0' AND fecha = '$fecha'";
         $result = $conexion->query($sql);
+        
         while($row = mysqli_fetch_array($result)) {  
             $idRes = (int)$row[0];
-        }   
-
-        $sql2 = "SELECT * FROM reservaciones WHERE idRes='$idRes' AND activa='1'";
-        $result2 = $conexion->query($sql2); 
-        
-        $arregloIDqr = array(); 
-        
-        while($row = mysqli_fetch_array($result2)) {
-            array_push($arregloIDqr, $row);
-        }   
-
-        if(sizeof($arregloIDqr) == 0) {
-            $status = "997"; //No hay publicaciones con esas características o no está activa
-        } else { 
-            $sql3 = "UPDATE invitadosGuest SET scan='1' WHERE nombreInvitado='$nombre' AND idUser='$codigo' AND scan='0'";
-            $result3 = $conexion->query($sql3); 
-        
-            if($conexion->query($sql3)){
-
-                $sql4 = "SELECT * FROM guest WHERE telefono='$codigo'";
-                $result4 = $conexion->query($sql4);
-
-                while($row = mysqli_fetch_array($result4)){
-                    $status = $row;
-                }
-
-                if($status == null){
-
-                    $sql5 = "SELECT * FROM invitadosGuest WHERE idUser='$codigo'";
-                    $result5 = $conexion->query($sql5);
-
-                    while($row = mysqli_fetch_array($result5)){
-                        $status = $row;
-                    }
-
-                    if($status == null){
-                        $status = false;
-                    }
-                }
-                
-            } else{
-                $status = '996';//Error al actualizar info
-            }   
-        
         }
-        echo json_encode($status);
-        break;
+
+        if($idRes == null){
+            $status = 999; //No existe reserva
+        }else{
+            //Se revisa si la reservacion esta activa
+            $sql2 = "SELECT * FROM reservaciones WHERE idRes='$idRes' AND activa='1' AND fecha = '$fecha'";
+            $result2 = $conexion->query($sql2);
+
+            while($row = mysqli_fetch_array($result2)) {  
+                $reserva = (int)$row[0];
+            }
+
+            if($reserva == null){
+                $status = 998; //No reserva no activa, no existente o fecha no coincide
+            }else{
+                //Se cambia el estado de la invitacion a 1 = escaneado
+                $sql3 = "UPDATE invitados SET scan='1' WHERE idRes='$idRes' AND nombreInvitado='$nombre' AND idUser='$codigo' AND scan='0' AND fecha = '$fecha'";
+                $result3 = $conexion->query($sql3); 
+        
+                if($conexion->query($sql3)){
+                    $status = 1; //Actualizacion exitosa
+                }else{
+                    $status = 997; //Error al actualizar
+                }
+            }
+        }
+
+        
+        echo $status;
+    break;
+
+    case '4':
+        // Se obtiene el id de la reservacion a partir de la invitacion
+        $sql = "SELECT idRes FROM invitadosGuest WHERE nombreInvitado='$nombre' AND idUser='$codigo' AND scan='0' AND fecha = '$fecha'";
+        $result = $conexion->query($sql);
+        
+        while($row = mysqli_fetch_array($result)) {  
+            $idRes = (int)$row[0];
+        }
+
+        if($idRes == null){
+            $status = 999; //No existe reserva
+        }else{
+            //Se revisa si la reservacion esta activa
+            $sql2 = "SELECT * FROM reservaciones WHERE idRes='$idRes' AND activa='1' AND fecha = '$fecha'";
+            $result2 = $conexion->query($sql2);
+
+            while($row = mysqli_fetch_array($result2)) {  
+                $reserva = (int)$row[0];
+            }
+
+            if($reserva == null){
+                $status = 998; //No reserva no activa, no existente o fecha no coincide
+            }else{
+                //Se cambia el estado de la invitacion a 1 = escaneado
+                $sql3 = "UPDATE invitadosGuest SET scan='1' WHERE idRes='$idRes' AND nombreInvitado='$nombre' AND idUser='$codigo' AND scan='0' AND fecha = '$fecha'";
+                $result3 = $conexion->query($sql3); 
+            
+                if($conexion->query($sql3)){
+                    $status = 1; //Actualizacion exitosa
+                }else{
+                    $status = 997; //Error al actualizar
+                }
+            }
+        }
+
+
+        echo $status;
+    break;
+    
 }
 
 

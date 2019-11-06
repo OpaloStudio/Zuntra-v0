@@ -234,80 +234,71 @@ if(isset($_SESSION['loggedin'])){
             var name = "Nombre: ";
             var code = "Código: ";
             var type = "Tipo usuario: ";
+            var date = "Fecha: ";
 
-            var Z = content.slice(content.indexOf(reser) + reser.length);
-            var reservacion = Z.slice(0, Z.indexOf("Nombre") - 1);
+            var W = content.slice(content.indexOf(type) + type.length);
+            var tpUsrQR = W.slice(0, W.indexOf("Código") - 1);
 
-            Z = content.slice(content.indexOf(name) + name.length);
-            var nombre = Z.slice(0, Z.indexOf("Código") - 1);
-            
-            Z = content.slice(content.indexOf(code) + code.length);
-            var codigo = Z.slice(0, Z.indexOf("Tipo usuario") - 1);
-            
-            var tipo = content.slice(content.indexOf(type) + type.length);
-            
-            option = (tipo == "6") ? 4 : 3;
+            var X = content.slice(content.indexOf(date) + date.length);
+            var fechaQR = X.slice(0, X.indexOf("Nombre") - 2);
 
-            console.log(reservacion);
-            console.log(nombre);
-            console.log(codigo);
-            console.log(tipo);
-
-            console.log(reservacion.length);
-            console.log(nombre.length);
-            console.log(codigo.length);
-            console.log(tipo.length);
+            var Y = content.slice(content.indexOf(name) + name.length);
+            var nombreQR = Y.slice(0, Y.indexOf("Tipo") - 1);
             
+            var Z = content.slice(content.indexOf(code) + code.length);
+            var codigo = Z;
+
+            var fechaLink = fechaQR.substring(6)+"-"+fechaQR.substring(0,2)+"-"+fechaQR.substring(3,5);
+            console.log(fechaLink);
+            
+            
+            option = (tpUsrQR == "6") ? 4 : 3;
+
+            console.log("Fecha: "+fechaQR);
+
+            console.log("Nombre: "+nombreQR);
+
+            console.log("ID usuario: "+Z);
+
+            console.log("Tipo Usr: "+tpUsrQR);
+
             $.ajax({
                 url: "modelos/modelo.escaner.php",
                 type: "POST",
                 data: ({
-                    idReservacion: reservacion,
-                    nombre: nombre,
+                    fecha: fechaLink,
+                    nombre: nombreQR,
                     codigo: codigo,
                     option: option
                 }),
                 success: function(msg) {
                     console.log(msg);
-                    console.log(typeof msg);
+
+                    switch(msg){
     
-                    if(typeof msg == "object"){
+                      case 1:
+                        $("#aprobada").modal("show");
+                      break;
     
-                      $("#aprobada").modal("show");
-                      $("#nombreQR").text("Nombre: "+msg.nombre);
+                      case 999:
+                        $("#rechazada").modal("show");
+                      break;
     
-                    } else if(typeof msg == "string") {
+                      case 998:
+                        $("#rechazada").modal("show");
+                      break;
     
-                      console.log("string");
-                      
-                      switch(msg){
-      
-                        case "1":
-                          $("#aprobada").modal("show");
-                        break;
-      
-                        case "999":
-                          $("#rechazada").modal("show");
-                        break;
-      
-                        case "998":
-                          $("#rechazada").modal("show");
-                        break;
-      
-                        case "997":
-                          $("#rechazada").modal("show");
-                        break;
-      
-                        case "996":
-                          $("#rechazada").modal("show");
-                        break;
-                      }
+                      case 997:
+                        $("#rechazada").modal("show");
+                      break;
+    
+                      case 996:
+                        $("#rechazada").modal("show");
+                      break;
                     }
-    
-    
                 },
                 dataType: "json"
-            });  
+            });
           }
 
         } else{
