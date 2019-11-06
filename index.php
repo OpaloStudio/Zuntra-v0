@@ -41,6 +41,8 @@ session_start();
     <link href="vistas/css/app.css" media="all" rel="stylesheet" type="text/css" />
 	<link href="vistas/js/plugins/fileinput/css/fileinput.css" media="all" rel="stylesheet" type="text/css"/>
 	<link href="vistas/js/plugins/fileinput/themes/explorer-fas/theme.css" media="all" rel="stylesheet" type="text/css"/>
+	<link href="vistas/js/lightbox.min.css" rel="stylesheet" />
+	<script src="vistas/js/lightbox-plus-jquery.min.js"></script>
 	<link rel="manifest" href="manifest.json">
 	
 	
