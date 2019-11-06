@@ -7,7 +7,7 @@
 
     if(isset($_POST["staff"])) {
         //Obtener a todos los usuarios de staff registrados
-        $result = $conexion->query("SELECT usuarios.nombre, usuarios.idUser, 0 AS total, 0 AS personas FROM usuarios, tipoUsuario WHERE NOT(tipoUsuario.tipoUsuario LIKE 'Cliente') AND NOT(tipoUsuario.tipoUsuario LIKE 'Admin') AND tipoUsuario.idTipoUsuario = usuarios.idTipoUsuario");
+        $result = $conexion->query("SELECT usuarios.nombre, usuarios.idUser, usuarios.picPerfil AS foto, 0 AS total, 0 AS personas FROM usuarios, tipoUsuario WHERE NOT(tipoUsuario.tipoUsuario LIKE 'Cliente') AND NOT(tipoUsuario.tipoUsuario LIKE 'Admin') AND tipoUsuario.idTipoUsuario = usuarios.idTipoUsuario");
         $result1 = $conexion->query("SELECT usuarios.idUser, COUNT(*) AS total FROM invitados, usuarios, reservaciones WHERE reservaciones.idRp = usuarios.idUser AND invitados.idRes = reservaciones.idRes AND invitados.scan = 1 GROUP BY usuarios.idUser");
         $result2 = $conexion->query("SELECT usuarios.idUser, COUNT(*) AS total FROM invitadosGuest, usuarios, reservaciones WHERE reservaciones.idRp = usuarios.idUser AND invitadosGuest.idRes = reservaciones.idRes AND invitadosGuest.scan = 1 GROUP BY usuarios.idUser");
         $result3 = $conexion->query("SELECT usuarios.idUser, '0' AS total, SUM(reservaciones.numPersonas) AS personas FROM usuarios, reservaciones WHERE usuarios.idUser = reservaciones.idRp GROUP BY reservaciones.idRp");
@@ -16,10 +16,10 @@
         else {
             $rows = array();
             while($row = $result->fetch_assoc()) {
-                if(file_exists("../vistas/img/usuarios/".$row["idUser"]."/perfil/perfil.jpg"))
+                /*if(file_exists("../vistas/img/usuarios/".$row["idUser"]."/perfil/perfil.jpg"))
                     $row["foto"] = "vistas/img/usuarios/".$row["idUser"]."/perfil/perfil.jpg";
                 else
-                    $row["foto"] = "vistas/img/perfil.jpg";
+                    $row["foto"] = "vistas/img/perfil.jpg";*/
                 $rows[] = $row;
             }
             while($row = $result1->fetch_assoc()) 
@@ -40,19 +40,19 @@
     } else if(isset($_POST["editar"])) { 
         //Obtener la informacion del staff que se desea editar
         $idUser = $_POST["idUser"];
-        $result = $conexion->query("SELECT usuarios.nombre, usuarios.telefono, tipoUsuario.idTipoUsuario, usuarios.correo, usuarios.cumpleanos, usuarios.scanner, usuarios.panelControl FROM usuarios, tipoUsuario WHERE usuarios.idUser = $idUser AND tipoUsuario.idTipoUsuario = usuarios.idTipoUsuario");
+        $result = $conexion->query("SELECT usuarios.nombre, usuarios.telefono, tipoUsuario.idTipoUsuario, usuarios.correo, usuarios.cumpleanos, usuarios.scanner, usuarios.panelControl, usuarios.picPerfil AS foto FROM usuarios, tipoUsuario WHERE usuarios.idUser = $idUser AND tipoUsuario.idTipoUsuario = usuarios.idTipoUsuario");
         if($result->num_rows === 0)
             echo "0";
         else {
             $row = $result->fetch_assoc();
-            if(file_exists("../vistas/img/usuarios/".$idUser."/perfil/perfil.jpg"))
+            /*if(file_exists("../vistas/img/usuarios/".$idUser."/perfil/perfil.jpg"))
                 $row["foto"] = "vistas/img/usuarios/".$idUser."/perfil/perfil.jpg";
             else
-                $row["foto"] = "vistas/img/cuadroCarga.svg";
+                $row["foto"] = "vistas/img/cuadroCarga.svg";*/
             echo json_encode($row);
         }
     } else if(isset($_POST["registrar"])) { //Registrar a un nuevo usuario
-        $foto = $_FILES["foto"]["name"];
+        $foto = $_POST["foto"];
         $nombre = $conexion->real_escape_string($_POST["nombre"]);
         $telefono = $conexion->real_escape_string($_POST["telefono"]);
         $puesto = $conexion->real_escape_string($_POST["puesto"]);
@@ -69,17 +69,17 @@
             echo "-1"; //Registrado
         else {
             //Guardar la información del nuevo usuario en la base de datos
-            $sql2 = "INSERT INTO usuarios (nombre, telefono, cumpleanos, correo, contrasena, scanner, panelControl, idTipoUsuario) VALUES ('$nombre', '$telefono', '$cumpleanos', '$mail', '$password', $scanner, $panelControl, $puesto)";
+            $sql2 = "INSERT INTO usuarios (nombre, telefono, cumpleanos, correo, contrasena, scanner, panelControl, idTipoUsuario, picPerfil) VALUES ('$nombre', '$telefono', '$cumpleanos', '$mail', '$password', $scanner, $panelControl, $puesto, '$foto')";
             
             if($conexion->query($sql2)) {
                 $userId = $conexion->insert_id;
-                $userDir = "../vistas/img/usuarios/".(string)$userId."/";
+                /*$userDir = "../vistas/img/usuarios/".(string)$userId."/";
                 
                 mkdir($userDir);
                 mkdir($userDir."perfil/");
 
                 unlink($userDir."perfil/perfil.jpg");
-                move_uploaded_file($_FILES["foto"]["tmp_name"], $userDir."perfil/perfil.jpg");
+                move_uploaded_file($_FILES["foto"]["tmp_name"], $userDir."perfil/perfil.jpg");*/
 
                 echo $userId;
             } else
@@ -87,6 +87,7 @@
         }
     } else if(isset($_POST["actualizar"])) {    //Actualizar la informacion de un usuario
         $idUser = $conexion->real_escape_string($_POST["idUser"]);
+        $foto = $_POST["foto"];
         $nombre = $conexion->real_escape_string($_POST["nombre"]);
         $telefono = $conexion->real_escape_string($_POST["telefono"]);
         $puesto = $conexion->real_escape_string($_POST["puesto"]);
@@ -109,14 +110,14 @@
             else {
                 //Verificar si el password va a cambiar
                 if($_POST["password"] == "")
-                    $sql2 = "UPDATE usuarios SET nombre='$nombre', telefono='$telefono', correo='$mail', cumpleanos='$cumpleanos', idTipoUsuario=$puesto, scanner=$scanner, panelControl=$panelControl WHERE idUser=$idUser";
+                    $sql2 = "UPDATE usuarios SET nombre='$nombre', telefono='$telefono', correo='$mail', cumpleanos='$cumpleanos', idTipoUsuario=$puesto, scanner=$scanner, panelControl=$panelControl, picPerfil='$foto' WHERE idUser=$idUser";
                 else {
-                    $sql2 = "UPDATE usuarios SET nombre='$nombre', telefono='$telefono', correo='$mail', cumpleanos='$cumpleanos', contrasena='$password', idTipoUsuario=$puesto, scanner=$scanner, panelControl=$panelControl WHERE idUser=$idUser";
+                    $sql2 = "UPDATE usuarios SET nombre='$nombre', telefono='$telefono', correo='$mail', cumpleanos='$cumpleanos', contrasena='$password', idTipoUsuario=$puesto, scanner=$scanner, panelControl=$panelControl, picPerfil='$foto' WHERE idUser=$idUser";
                     $password = password_hash($conexion->real_escape_string($_POST["password"]), PASSWORD_DEFAULT);
                 }
                 
                 if($conexion->query($sql2)) {
-                    if(isset($_FILES["foto"])) {
+                    /*if(isset($_FILES["foto"])) {
                         $userDir = "../vistas/img/usuarios/".(string)$userId."/";
                 
                         mkdir($userDir);
@@ -124,21 +125,21 @@
 
                         unlink($userDir."perfil/perfil.jpg");
                         move_uploaded_file($_FILES["foto"]["tmp_name"], $userDir."perfil/perfil.jpg");
-                    }
+                    }*/
                     echo "1";
                 } else
                     echo "0";
             }
         } else {
             if($_POST["password"] == "")
-                $sql2 = "UPDATE usuarios SET nombre='$nombre', telefono='$telefono', cumpleanos='$cumpleanos', idTipoUsuario=$puesto, scanner=$scanner, panelControl=$panelControl WHERE idUser=$idUser";
+                $sql2 = "UPDATE usuarios SET nombre='$nombre', telefono='$telefono', cumpleanos='$cumpleanos', idTipoUsuario=$puesto, scanner=$scanner, panelControl=$panelControl, picPerfil='$foto' WHERE idUser=$idUser";
             else {
                 $password = password_hash($conexion->real_escape_string($_POST["password"]), PASSWORD_DEFAULT);
-                $sql2 = "UPDATE usuarios SET nombre='$nombre', telefono='$telefono', cumpleanos='$cumpleanos', contrasena='$password', idTipoUsuario=$puesto, scanner=$scanner, panelControl=$panelControl WHERE idUser=$idUser";
+                $sql2 = "UPDATE usuarios SET nombre='$nombre', telefono='$telefono', cumpleanos='$cumpleanos', contrasena='$password', idTipoUsuario=$puesto, scanner=$scanner, panelControl=$panelControl, picPerfil='$foto' WHERE idUser=$idUser";
             }
 
             if($conexion->query($sql2)) {
-                if(isset($_FILES["foto"])) {
+                /*if(isset($_FILES["foto"])) {
                     $userDir = "../vistas/img/usuarios/".(string)$idUser."/";
             
                     mkdir($userDir);
@@ -146,15 +147,15 @@
 
                     unlink($userDir."perfil/perfil.jpg");
                     move_uploaded_file($_FILES["foto"]["tmp_name"], $userDir."perfil/perfil.jpg");
-                }
+                }*/
                 echo "1";                
             } else
-                echo "0";
+                echo "$sql2";
         }
     } else if(isset($_POST["eliminar"])) {
         $idUser = $_POST["idUser"];
         if($conexion->query("DELETE FROM usuarios WHERE idUser = $idUser")) {
-            recurseRmdir("../vistas/img/usuarios/".(string)$idUser."/");
+            //recurseRmdir("../vistas/img/usuarios/".(string)$idUser."/");
             echo "1";
         } else
             echo "0";

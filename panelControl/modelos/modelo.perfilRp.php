@@ -36,6 +36,10 @@
                 $result->free();
                 $conexion->close();
                 break;
+            case '3':
+                
+                $conexion->close();
+                break;
         }
     }
  ?>

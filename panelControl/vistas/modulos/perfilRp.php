@@ -6,8 +6,8 @@
         </div>
 
         <div class="card cardReservTotales2 ">
-            <h2>Días con Reservaciones</h2>
-            <h1 id="">0</h1>
+            <h2>Reservaciones del día</h2>
+            <h1 id="reservacionesDia">0</h1>
         </div>
 
     </div>
