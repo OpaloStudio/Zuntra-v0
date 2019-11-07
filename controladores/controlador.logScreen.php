@@ -123,7 +123,7 @@ function enviarCorreo() {
                 "opcion": "1",
                 "correo": correo
             },
-            success: function(response) {
+            success: function(response) { alert(response);
                 switch(response) {
                     case "-1":
                         alert("El correo no corresponde a ningun usuario registrado");
