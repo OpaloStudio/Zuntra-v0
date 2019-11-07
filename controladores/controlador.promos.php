@@ -40,7 +40,8 @@ $( document ).ready(function() {
                         sabado.push(dato);
                     }
                 }
-                
+                console.log("Viernes");
+                console.log(viernes);
                 $('#promoJueves').empty();
                 $('#promoViernes').empty();
                 $('#promoSabado').empty();
@@ -75,31 +76,32 @@ $( document ).ready(function() {
                     }, // data recive un objeto con la informacion que se enviara al servidor
                 success:function(datos){ //success es una funcion que se utiliza si el servidor retorna informacion
                 console.log(JSON.parse(datos));
-                for( var dato of datos){
-                    if(datos.dia == 1){
-                        jueves.push(dato);
+                eventos = JSON.parse(datos);
+                for( var evento of eventos){
+                    if(evento.dia == "1"){
+                        jueves.push(evento);
                     }
-                    else if(datos.dia == 2){
-                        viernes.push(dato);
+                    else if(evento.dia == "2"){
+                        viernes.push(evento);
                     }
-                    else if(datos.dia == 3){
-                        sabado.push(dato);
+                    else if(evento.dia == "3"){
+                        sabado.push(evento);
                     }
                 }
                 
-                $('#promoJueves').empty();
-                $('#promoViernes').empty();
-                $('#promoSabado').empty();
+                $('#eventoJueves').empty();
+                $('#eventoViernes').empty();
+                $('#eventoSabado').empty();
                 
 
                 for(var jueve of jueves){
-                    $('#promoJueves').append('<a href="'+jueve.fotoV+'"  data-lightbox="promoJueves" data-title="'+jueve.titulo+'"><img class="promo" id="jImgV" src="'+jueve.fotoH+'"></a>');
+                    $('#eventoJueves').append('<a href="'+jueve.fotoV+'"  data-lightbox="eventoJueves" data-title="'+jueve.titulo+'"><img class="promo" id="jImgV" src="'+jueve.fotoH+'"></a>');
                 }
                 for(var vierne of viernes){
-                    $('#promoViernes').append('<a href="'+vierne.fotoV+'"  data-lightbox="promoJueves" data-title="'+vierne.titulo+'"><img class="promo" id="jImgV" src="'+vierne.fotoH+'"></a>');
+                    $('#eventoViernes').append('<a href="'+vierne.fotoV+'"  data-lightbox="eventoViernes" data-title="'+vierne.titulo+'"><img class="promo" id="jImgV" src="'+vierne.fotoH+'"></a>');
                 }
                 for(var sabad of sabado){
-                    $('#promoSabado').append('<a href="'+sabad.fotoV+'"  data-lightbox="promoJueves" data-title="'+sabad.titulo+'"><img class="promo" id="jImgV" src="'+sabad.fotoH+'"></a>');
+                    $('#eventoSabado').append('<a href="'+sabad.fotoV+'"  data-lightbox="eventoSabado" data-title="'+sabad.titulo+'"><img class="promo" id="jImgV" src="'+sabad.fotoH+'"></a>');
                 }
 
 
