@@ -112,6 +112,40 @@ function recoverPass(){
     $("#btnCorreo").show();
 }
 
+function enviarCorreo() {
+    var correo = $("#emailRecover").val();
+
+    if(correo != "") {
+        $.ajax({
+            type: "post",
+            url: "modelos/modelo.logScreen.php",
+            data: {
+                "opcion": "1",
+                "correo": correo
+            },
+            success: function(response) {
+                switch(response) {
+                    case "-1":
+                        alert("El correo no corresponde a ningun usuario registrado");
+                        break;
+                    case "0":
+                        alert("Error interno el correo no pudo ser enviado");
+                        break;
+                    case "1":
+                        alert("Se acaba de enviar un correo para recuperar su contraseña");
+                        document.location = "?page=1";
+                        break;
+                    default:
+                        alert("Error interno el correo no pudo ser enviado");
+                        break;
+                }
+            }
+        });
+    } else
+        alert("No debe haber campos vacios");
+    
+}
+
 function irLogin(){
     var newLink = nuevoLink;
     window.location.href = newLink;

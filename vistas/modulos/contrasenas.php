@@ -1,3 +1,8 @@
+<?php
+  if(!isset($_GET["usuario"]) || !isset($_GET["token"]))
+    header("Location: index.php");
+ ?>
+
 <div class="contenedorLogScreen">
   <a href="?page=13">
     <img class="logoLog" src="vistas/img/logo.png">
