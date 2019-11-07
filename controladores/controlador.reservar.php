@@ -48,10 +48,20 @@ $(function () {
 
     var option;
 
+    var vip = false;
+
 
     $( document ).ready(function() {
         console.log( "Usuario: " +  session );
+        console.log( "Tipo Usuario: " +  tipoUser ); 
+        
+        if(tipoUser == 2 || tipoUser == 3 || tipoUser == 4 || tipoUser == 7 || tipoUser == 8){
 
+            vip = true;
+            $("#divTipoStaff").css("display", "none");
+            rpReserva=session;
+            $("#divStaff").css("display", "none");
+        }
         nombreUser = String("<?php echo $userName; ?>");
         $('#nombreReservacion').html(nombreUser);
         //Revisar que la sesión este iniciada
@@ -107,7 +117,9 @@ $(function () {
 
 function generarReservacion(){
     
-    rpReserva = document.getElementById('selectorRP').value;//alert(rpReserva);
+    if(vip == false)
+        rpReserva = document.getElementById('selectorRP').value;//alert(rpReserva);
+
     tipoReserva = document.getElementById('tipoReserva').value;
     fechaReserva = document.getElementById('fechaReservacion').value;
     numPersonasReserva = document.getElementById('personasReservacion').value;
@@ -189,8 +201,10 @@ function reservacionAdb(){
 
                         if(msg != "996"){
 
-                            window.location.href = msg;
-
+                            if(vip == true)
+                                window.location.href = msg+"&VIP=si";
+                            else    
+                                window.location.href = msg;
                         } else {
                             alert("Ha ocurrido un error interno, inténtalo más tarde.");
                         }
