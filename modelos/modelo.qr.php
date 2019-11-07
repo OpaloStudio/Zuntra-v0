@@ -6,6 +6,7 @@ if ($conexion->connect_error) {
 }
 
 $idUser = $_POST['idUser'];
+$telUsr = $_SESSION['userPhone'];
 $idReservacion = $_POST['idReservacion'];
 $fecha = $_POST['fechaQR'];
 
@@ -19,6 +20,9 @@ $opcion = $_POST['opcion'];
 $nombreUser = $_POST['nombreUser'];
 $baseString = $_POST['baseString'];
 $personasTotales = $_POST['personasTotales'];
+
+//Variable especificas de opcion 2
+$lonk = $_POST['link'];
 
 $final = '999';
 
@@ -84,6 +88,24 @@ switch($opcion){
 		}
 		else{
 			$status = '1';
+		}
+
+		echo $status;
+    	break;
+	case 5:
+		$sql="UPDATE reservaciones SET idUser='$idUser', nombre='$nombreUser', telefono='$telUsr', invitacion='$lonk'"; 
+		
+		if($conexion->query($sql)){
+			$sql2="UPDATE invitados SET idUser='$idUser', nombreInvitado='$nombreUser', userRes='$idUser', invitadoQR='$baseString'"; 
+		
+			if($conexion->query($sql2)){
+				$status = '1';
+			}else{
+				$status = '998';
+			}
+		}
+		else{
+			$status = '999';
 		}
 
 		echo $status;

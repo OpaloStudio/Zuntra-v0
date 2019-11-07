@@ -8,7 +8,7 @@
   
   <form class="formReservar">
     <h2 class="dorado text-center">Reservación de  <span class="dorado" id="nombreReservacion"></span></h2><br>
-    <div class="form-group">
+    <div class="form-group" id="divTipoStaff" >
       <label class="negro" for="tipoStaff">Cargo de staff</label>
       <select class="form-control inputsClaros" id="tipoStaff" onchange="changeTipoStaff(this)">
         <option selected disabled>-Elige el cargo de Staff-</option>
@@ -20,7 +20,7 @@
         <option>Ninguno</option>
       </select>
     </div>
-  <div class="form-group">
+  <div class="form-group" id="divStaff">
       <label class="negro" for="selectorRP">¿Con quién quieres reservar?</label>
       <select class="form-control inputsClaros" id="selectorRP">
         <option selected disabled>-Elige a alguien-</option>

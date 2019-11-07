@@ -29,6 +29,12 @@ if(isset($_GET['nombre'])){
     $telefonoInvitado = 0;
 }
 
+if(isset($_GET['VIP'])){
+    $vip = $_GET['VIP'];
+}else{
+    $vip = "no";
+}
+
 ?>
 
 <script type="text/javascript">
@@ -46,6 +52,8 @@ if(isset($_GET['nombre'])){
     //Información de Invitación
     var usuarioReservacion = <?php echo $user; ?>;
     var idReservacion = <?php echo $reservacion; ?>;
+    var vip = "<?php echo $vip; ?>";
+    var banderaVIP = false;
     var fechaReserva = "<?php echo $fecha; ?>";
     var ano = fechaReserva.substring(0,4);
     var mes = fechaReserva.substring(5,7);
@@ -104,9 +112,15 @@ if(isset($_GET['nombre'])){
             nombreUser = String("<?php echo $nombreInvitado; ?>");
         }
 
+
         console.log(idUser);
         console.log(usuarioReservacion);
         console.log(idReservacion);
+
+        if(vip === "si" && idUser !=  usuarioReservacion)
+            banderaVIP = true;
+        else
+            banderaVIP = false;
 
         opcion = 1;
 
@@ -196,7 +210,11 @@ if(isset($_GET['nombre'])){
     function generarQR(){
         var numLogoQR = Math.floor((Math.random() * 6) + 1);
 
-        var logoQR = "vistas/img/imgsQr/pix"+numLogoQR+".png"
+        if(banderaVIP == true)
+            var logoQR = "vistas/img/imgsQrVIP/pixVIP"+numLogoQR+".png";
+        else
+            var logoQR = "vistas/img/imgsQr/pix"+numLogoQR+".png";
+
         console.log(logoQR);
 
         qrcode = new QRCode(document.getElementById('idQR'), {
@@ -229,7 +247,12 @@ if(isset($_GET['nombre'])){
     function invitacionQR(){
     
         //Se une todo en una cadena para que no cause problemas a la hora de generar el código QR
-        var txt = "Invitación de: "+ nombreReservacion +"\nNúmero de Host: "+ usuarioReservacion +"\n\nNúmero de Reservación: "+ idReservacion +"\nFecha: "+mes+"/"+dia+"/"+ano+"\n\nNombre: "+ nombreUser + "\nTipo usuario: " + tipoUser+"\nCódigo: "+ idUser;
+        
+        if(banderaVIP == true)
+            var txt = "RP: "+ usuarioReservacion +"\nTipo Reservacion: "+ "VIP" +"\nFecha: "+ fechaQR +"\n\nNombre: "+ nombreUser + "\nTipo usuario: " + tipoUser + "\nCódigo: "+ idUser;
+        else
+            var txt = "Invitación de: "+ nombreReservacion +"\nNúmero de Host: "+ usuarioReservacion +"\n\nNúmero de Reservación: "+ idReservacion +"\nFecha: "+mes+"/"+dia+"/"+ano+"\n\nNombre: "+ nombreUser + "\nTipo usuario: " + tipoUser+"\nCódigo: "+ idUser;
+
         console.log(txt);
 
         qrcode.makeCode(txt);
@@ -260,7 +283,17 @@ if(isset($_GET['nombre'])){
 
     function aceptarInvitacion(){
         var baseString = String(basechida);
-        opcion = (tipoUser == 6) ? 3 : 2;
+        var stringLonk = String(location.href);
+
+        var elLonk = stringLonk.substring(0, stringLonk.length - 7);
+        var lonkPt1 = elLonk.substring(0, elLonk.indexOf(usuarioReservacion));
+        var lonkPt2 = elLonk.substring(elLonk.indexOf(usuarioReservacion)+usuarioReservacion.toString().length);
+        var nuevoLonk = lonkPt1 + idUser.toString() + lonkPt2;
+
+        if(banderaVIP == true)
+            opcion = 5;
+        else
+            opcion = (tipoUser == 6) ? 3 : 2;
 
         console.log(idUser);
         console.log(nombreUser);
@@ -268,6 +301,10 @@ if(isset($_GET['nombre'])){
         console.log(baseString);
         console.log(opcion);
         console.log(fechaQR);
+        console.log(lonkPt1);
+        console.log(lonkPt2);
+        console.log(nuevoLonk);
+      
 
         $.ajax({
             url: "modelos/modelo.qr.php",
@@ -280,7 +317,9 @@ if(isset($_GET['nombre'])){
                 personasTotales:personasTotales,
                 baseString:baseString,
                 fechaQR:fechaQR,
-                opcion:opcion
+                opcion:opcion,
+                link:nuevoLonk
+
             }),
             success: function(msg) {
                 console.log(msg);
@@ -288,12 +327,16 @@ if(isset($_GET['nombre'])){
 
                 switch(msg){
 
-                    case '1':
+                    case 1:
                         alert("Invitación Aceptada");
-                        location.reload();
+                        if(banderaVIP == true){
+                            window.location.href = nuevoLonk;
+                        }else{
+                            location.reload();
+                        }
                     break;
 
-                    case '999':
+                    case 999:
                         alert("Ha ocurrido un error interno, inténtalo más tarde.");
                     break;
 
