@@ -1,4 +1,8 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', '1');
+    require_once("modelo.enviarCorreo.php");
+
     if(isset($_POST["opcion"])) {
         $conexion = mysqli_connect("zuntrapopclub.com", "zuntrapo_user", ".Pinshicontra", "zuntrapo_bd");
         if ($conexion->connect_error) {
@@ -21,7 +25,8 @@
                     $mensaje = "$nombre ha solicitado un cambio de contraseña, haga <a href='$url'>click aquí</a> para recuperar su contraseña";
 
                     if($conexion->query("UPDATE usuarios SET tokenPass = '$token' WHERE correo LIKE '$correo'")) {
-                        mail($correo, "Zuntra Pop Club recupera tu contraseña", $mensaje);
+                        //mail($correo, "Zuntra Pop Club recupera tu contraseña", $mensaje);
+                        enviarCorreo("ZuntraPopClub", $nombre, $correo, "ZuntraPopClub cambia tu contraseña", $mensaje);
                         echo "1";
                     } else
                         echo "0";

@@ -131,7 +131,7 @@
                         </div><br>
                     <form class="eventoPromo">
                     <div class="form-group">
-                            <label for="nombre">Título</label>
+                            <label for="titulo">Título</label>
                             <input type="text" class="form-control inputsClaros" id="titulo">
                         </div>
 
@@ -139,22 +139,22 @@
                         <label class="negro">Tipo de Publcidad</label><br>
                             <div class="form-check form-check-inline">
                             
-                                <input class="form-check-input" type="radio" name="scanner" id="crearEvento" value="1" checked>
-                                <label class="form-check-label" for="scannerSi">Evento</label>
+                                <input class="form-check-input" type="radio" name="tipo" id="crearEvento" value="1" checked>
+                                <label class="form-check-label" for="crearEvento">Evento</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="scanner" id="crearPromo" value="0">
-                                <label class="form-check-label" for="scannerNo">Promoción</label>
+                                <input class="form-check-input" type="radio" name="tipo" id="crearPromo" value="0">
+                                <label class="form-check-label" for="crearPromo">Promoción</label>
                             </div>
                        </div><br>
                         
                         <div class="form-group">
-                            <label class="negro" for="exampleFormControlSelect1">Día de la Semana</label>
-                            <select class="form-control inputsClaros" id="puestoCrear">
-                                <option selected value="0">-Selecciona uno-</option>
-                                <option value="j">Jueves</option>
-                                <option value="v">Viernes</option>
-                                <option value="s">Sábado</option>
+                            <label class="negro" for="puestoCrear">Día de la Semana</label>
+                            <select class="form-control inputsClaros" id="dia">
+                                <option selected value="0" disabled>-Selecciona uno-</option>
+                                <option value="1">Jueves</option>
+                                <option value="2">Viernes</option>
+                                <option value="3">Sábado</option>
                             </select>
                         </div>
                         <label class="negro" for="imgHorizontal">Foto Horizontal</label>
@@ -173,7 +173,7 @@
                         </div>
 
                         <div class="zonaBtnRegistro">
-                            <button type="button" class="btn btnRegistro" id="botonRegistrar" onclick="btnRegistrar()">Crear Publicación</button>
+                            <button type="button" class="btn btnRegistro" id="botonRegistrar" onclick="btnCrearPublicacion()">Crear Publicación</button>
                         </div><br>
                         
 

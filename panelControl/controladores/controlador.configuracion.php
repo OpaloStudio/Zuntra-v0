@@ -1,5 +1,6 @@
 <script>
     var base64, base642 = "";
+    var hb64 = "", vb64 = ""; 
 
     $(document).ready(function() {
         $('#btnCrearPub').css('background-color','#212121');
@@ -75,27 +76,54 @@
     var openFileHorizontal = function(event) {
         var input = event.target;
 
-        var reader = new FileReader();
-        reader.onload = function() {
-            var dataURL = reader.result;
-            var output = document.getElementById('foto1Horizontal');
-            output.src = dataURL;
-            console.log(dataURL);
-        };
-        reader.readAsDataURL(input.files[0]);
+        new ImageCompressor(input.files[0], {
+            quality: 0.5,
+            success(result) {
+                //alert(reader.readAsDataURL(result));
+                $("#fotoHorizontal").attr("src", URL.createObjectURL(result));
+
+                var reader = new FileReader();
+                reader.onload = function() {
+                    var dataURL = reader.result;
+                    var output = document.getElementById('fotoHorizontal');
+                    //output.src = dataURL;
+                    hb64 = dataURL;
+                    console.log(dataURL);
+                };
+                reader.readAsDataURL(input.files[0]);
+                band = true;
+            },
+            error(err) {
+                console.log(err.message);
+            },
+        });
     };
 
     var openFileVertical = function(event) {
         var input = event.target;
 
-        var reader = new FileReader();
-        reader.onload = function() {
-            var dataURL = reader.result;
-            var output = document.getElementById('foto1Vertical');
-            output.src = dataURL;
-            console.log(dataURL);
-        };
-        reader.readAsDataURL(input.files[0]);
+
+        new ImageCompressor(input.files[0], {
+            quality: 0.5,
+            success(result) {
+                //alert(reader.readAsDataURL(result));
+                $("#fotoVertical").attr("src", URL.createObjectURL(result));
+
+                var reader = new FileReader();
+                reader.onload = function() {
+                    var dataURL = reader.result;
+                    var output = document.getElementById('fotoVertical');
+                    //output.src = dataURL;
+                    vb64 = dataURL;
+                    console.log(dataURL);
+                };
+                reader.readAsDataURL(input.files[0]);
+                band = true;
+            },
+            error(err) {
+                console.log(err.message);
+            },
+        });
     };
 
 function crearPublicacion() {
@@ -357,5 +385,35 @@ async function asyncCall() {
             });
         } else
             alert("Error: No debe de haber campos vacios");
+    }
+
+    function btnCrearPublicacion() {
+        var titulo = $("#titulo").val();
+        var tipo = $("input[name='tipo']:checked").val();
+        var dia = $("#dia").val();
+        var fotoh = hb64;
+        var fotov = vb64;
+
+        if(titulo != "" && tipo != "" && dia != "" && fotoh != "" && fotov != "") {
+            $.ajax({
+                type: "post",
+                url: "modelos/modelo.configuracion.php",
+                data: {
+                    "promos": "1",
+                    "titulo": titulo,
+                    "tipo": tipo,
+                    "dia": dia,
+                    "fotoh": fotoh,
+                    "fotov": fotov
+                },
+                success: function(response) {
+                    if(response == "1")
+                        alert("Promo creada correctamente");
+                    else
+                        alert("La promo no pudo ser creada");
+                }
+            });
+        } else
+            alert("No debe de haber campos vacios");
     }
 </script>
