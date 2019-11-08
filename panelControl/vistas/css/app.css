@@ -1,3 +1,22 @@
+.logScreen {
+  background-color: black;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+
+.logoLog {
+  width: 50vw;
+  margin-top: -5rem; }
+
+.blanco {
+  color: white; }
+
+.formLoginPanel {
+  width: 30vw; }
+
 .barra {
   background-color: #212121 !important;
   height: 100vh;

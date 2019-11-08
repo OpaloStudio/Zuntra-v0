@@ -100,39 +100,7 @@ session_start();
 			include('controladores/controlador.perfilRp.php');
 			break;
 
-			case '9':
-			//chat
-			include('controladores/controlador.chat.php');
-			break;
-
-			case '10':
-			//Panel de chats
-			include('controladores/controlador.inbox.php');
-			break;
-
-			case '11':
-			//Cambiar contrasenas
-			include('controladores/controlador.cambiar.php');
-			break;
-
-			case '12':
-			//Recuperar contrasenas
-			include('controladores/controlador.recuperar.php');
-			break;
-
-			case '13':
-			//Home
-			include('controladores/controlador.home.php');
-			break;
-
-			case '14':
-			//Home
-			include('controladores/controlador.escaner.php');
-			break;
-
-			case 'default':
 			
-			break;
 
 		}
 	}
@@ -197,39 +165,7 @@ elseif(isset($_GET['page'])){
 		include('vistas/modulos/perfilRp.php');
 		break;
 
-		case '9':
-		//chat
-		include('vistas/modulos/chat.php');
-		break;
-
-		case '10':
-		//Panel de chats
-		include('vistas/modulos/inbox.php');
-		break;
-
-		case '11':
-		//Cambiar contrasena
-		include('vistas/modulos/cambiar.php');
-		break;
-
-		case '12':
-		//Recuperar contrasena
-		include('vistas/modulos/recuperar.php');
-		break;
-
-		case '13':
-		//Recuperar contrasena
-		include('vistas/modulos/home.php');
-		break;
-
-		case '14':
-		//Recuperar contrasena
-		include('vistas/modulos/escaner.php');
-		break;
-
-		case 'default':
-			
-		break;
+		
 
 	}
 }
