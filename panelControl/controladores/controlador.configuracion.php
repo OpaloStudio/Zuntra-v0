@@ -417,4 +417,18 @@ async function asyncCall() {
         } else
             alert("No debe de haber campos vacios");
     }
+
+    function cerrarSesion() {
+        $.ajax({
+            type: "post",
+            url: "modelos/modelo.configuracion.php",
+            data: {
+                "cerrar": "1"
+            },
+            success: function(response) {
+                if(response == "1")
+                    document.location = "index.php";
+            }
+        });
+    }
 </script>

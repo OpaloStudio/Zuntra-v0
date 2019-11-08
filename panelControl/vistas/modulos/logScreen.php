@@ -3,7 +3,7 @@
     <form class="formLoginPanel">
         <div class="form-group">
             <label for="nombre" class="blanco">Correo</label>
-            <input type="text" class="form-control inputsClaros" id="nombre">
+            <input type="text" class="form-control inputsClaros" id="correo">
         </div>
         <div class="form-group">
             <label for="password" class="blanco">Contraseña</label>

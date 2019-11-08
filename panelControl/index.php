@@ -1,5 +1,7 @@
 <?php
-session_start();
+	session_start();
+	if(!isset($_SESSION["idUser"]) && isset($_GET["page"]))
+		header("Location: index.php");
 ?>
 
 <!DOCTYPE html>

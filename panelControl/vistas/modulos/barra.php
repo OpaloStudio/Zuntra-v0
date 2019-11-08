@@ -1,4 +1,4 @@
-<ul class="nav  barra">
+<ul class="nav barra" id="barra">
   <li class="nav-item tooltip-dorado" aria-label="Dashboard" data-balloon-pos="down">
     <a class="nav-link linky" id="1" href="?page=2" onclick="selector(1)"><i class="fas fa-home iconito"></i></a>
   </li>

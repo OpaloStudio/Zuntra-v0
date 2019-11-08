@@ -169,6 +169,10 @@
             echo $conexion->insert_id;
         else
             echo "0";
+    } else if(isset($_POST["cerrar"])) {
+        session_start();
+        session_destroy();
+        echo "1";
     }
 
     $conexion->close();
