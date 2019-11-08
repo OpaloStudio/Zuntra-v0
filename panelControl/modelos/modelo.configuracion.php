@@ -159,13 +159,16 @@
             echo "1";
         } else
             echo "0";
-    }
-
-    function recurseRmdir($dir) {
-        $files = array_diff(scandir($dir), array('.', '..'));
-        foreach ($files as $file)
-          (is_dir("$dir/$file")) ? recurseRmdir("$dir/$file") : unlink("$dir/$file");
-        return rmdir($dir);
+    } else if(isset($_POST["promos"])) {
+        $titulo = $conexion->real_escape_string($_POST["titulo"]);
+        $tipo = $conexion->real_escape_string($_POST["tipo"]);
+        $dia = $conexion->real_escape_string($_POST["dia"]);
+        $fotoh = $conexion->real_escape_string($_POST["fotoh"]);
+        $fotov = $conexion->real_escape_string($_POST["fotov"]);
+        if($conexion->query("INSERT INTO promos (titulo, tipo, fotoH, fotoV, dia) VALUES ('$titulo', $tipo, '$fotoh', '$fotov', $dia)"))
+            echo $conexion->insert_id;
+        else
+            echo "0";
     }
 
     $conexion->close();
