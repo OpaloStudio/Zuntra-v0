@@ -62,6 +62,7 @@ if(isset($_GET['VIP'])){
     var numDiaReserva = dateRes.getDay(fechaReserva);
     var diaReserva;
     var fechaQR = dia+"-"+mes+"-"+ano;
+    var fechaEx = mes+"/"+dia+"/"+ano;
 
     switch(numDiaReserva){
         case 0: diaReserva = "Domingo"; break;
@@ -100,6 +101,10 @@ if(isset($_GET['VIP'])){
             if(idUser != 0){
                 console.log("Sesión Iniciada");
     
+            } else if(vip === "si"){
+                console.log("Por Favor Inicia Sesión");
+                var linkReservacion = "?page=1&usuario="+usuarioReservacion+"&reservacion="+idReservacion+"&fecha="+fechaReserva+"&log=invitados&VIP=si";
+                window.location.href = linkReservacion;
             } else{
                 console.log("Por Favor Inicia Sesión");
                 var linkReservacion = "?page=1&usuario="+usuarioReservacion+"&reservacion="+idReservacion+"&fecha="+fechaReserva+"&log=invitados";
@@ -324,8 +329,9 @@ if(isset($_GET['VIP'])){
             success: function(msg) {
                 console.log(msg);
                 console.log(typeof msg);
+                var response = Number(msg);
 
-                switch(msg){
+                switch(response){
 
                     case 1:
                         alert("Invitación Aceptada");
@@ -363,8 +369,9 @@ if(isset($_GET['VIP'])){
             success: function(msg) {
                 console.log(msg);
                 console.log(typeof msg);
+                var response = Number(msg);
 
-                switch(msg){
+                switch(response){
 
                     case 1:
                         var nuevoLink = "?page=15&usuario="+usuarioReservacion+"&reservacion="+idReservacion;
@@ -392,6 +399,41 @@ if(isset($_GET['VIP'])){
                             link.href = dataUrl
                             link.click()
                         })
+    }
+
+    function reservaExist(){
+        if(vip === "si"){
+
+            var fechaReserva = fechaEx;
+            var session = idUser;
+    
+            option = 1;
+    
+            $.ajax({
+              url: "modelos/modelo.reservar.php",
+              type: "POST",
+              data: ({
+                  session:session,
+                  fechaReserva:fechaReserva,
+                  option:option
+              }),
+                success: function(msg) {
+                console.log(msg);
+                
+                if(msg == false){
+                    console.log("No hay reserva registrada en esa fecha");
+                    invitacionQR();
+                }else{
+                    alert("Ya creaste una reserva en esa fecha");
+                }
+    
+    
+                },
+                dataType: "json"
+            });
+        }else{
+            invitacionQR();
+        }
     }
     
 
