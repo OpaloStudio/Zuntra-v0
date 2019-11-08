@@ -23,6 +23,17 @@
         //echo $idsesion;
     }
 
+    if(isset($_GET['VIP'])){
+        $vip = $_GET['VIP'];
+    }else{
+        $vip = "no";
+    }
+    if(isset($_GET['fecha'])){
+        $fechaLink = $_GET['fecha'];
+    }else{
+        $fechaLink = "1970-01-01";
+    }
+
 ?>
 <script>
 var tipoLink = "<?php echo $tipoLink; ?>";
@@ -36,7 +47,14 @@ $( document ).ready(function() {
             btnGuest.style.display = 'block';
             var usuarioReservacion = <?php echo $user; ?>;
             var idReservacion = <?php echo $reservacion; ?>;
-            nuevoLink = "?page=4&usuario="+usuarioReservacion+"&reservacion="+idReservacion + "&log=invitados";
+            var fechaLink = "<?php echo $fechaLink; ?>";
+            var vip = "<?php echo $vip; ?>";
+
+            if(vip === "si")
+                nuevoLink = "?page=4&usuario="+usuarioReservacion+"&reservacion="+idReservacion + "&log=invitados&VIP=si&fecha="+fechaLink;
+            else
+                nuevoLink = "?page=4&usuario="+usuarioReservacion+"&reservacion="+idReservacion + "&log=invitados&fecha="+fechaLink;
+
         break;
 
         case "swipe":

@@ -100,6 +100,10 @@ if(isset($_GET['VIP'])){
             if(idUser != 0){
                 console.log("Sesión Iniciada");
     
+            } else if(vip === "si"){
+                console.log("Por Favor Inicia Sesión");
+                var linkReservacion = "?page=1&usuario="+usuarioReservacion+"&reservacion="+idReservacion+"&fecha="+fechaReserva+"&log=invitados&VIP=si";
+                window.location.href = linkReservacion;
             } else{
                 console.log("Por Favor Inicia Sesión");
                 var linkReservacion = "?page=1&usuario="+usuarioReservacion+"&reservacion="+idReservacion+"&fecha="+fechaReserva+"&log=invitados";
@@ -324,8 +328,9 @@ if(isset($_GET['VIP'])){
             success: function(msg) {
                 console.log(msg);
                 console.log(typeof msg);
+                var response = Number(msg);
 
-                switch(msg){
+                switch(response){
 
                     case 1:
                         alert("Invitación Aceptada");
@@ -363,8 +368,9 @@ if(isset($_GET['VIP'])){
             success: function(msg) {
                 console.log(msg);
                 console.log(typeof msg);
+                var response = Number(msg);
 
-                switch(msg){
+                switch(response){
 
                     case 1:
                         var nuevoLink = "?page=15&usuario="+usuarioReservacion+"&reservacion="+idReservacion;
