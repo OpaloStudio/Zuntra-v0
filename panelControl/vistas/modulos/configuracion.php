@@ -95,6 +95,7 @@
                 <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
                     <div class="zonaRps2">
                         <div class="wrap flexRps2" id="rps">
+                        <div class="loader">Loading...</div>
                             <!--
                             <div class="card cardNegra cardRp mb-3" style="max-width: 540px;">
                                 <div class="row no-gutters">

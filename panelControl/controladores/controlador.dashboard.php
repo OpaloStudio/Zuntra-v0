@@ -83,8 +83,9 @@
                 rps.sort(function(a, b) {
                     return b.total - a.total;
                 });
+                $("#rps").empty();
                 for(var i = 0; i < rps.length && i < 5; i++)
-                    $("#rps").append('<div class="card cardNegra mb-3" style="max-width: 540px;"><div class="row no-gutters"><div class="col-md-4"><img src="' + rps[i].foto + '" class="card-img" alt="profile-pic"></div><div class="col-md-8"><div class="card-body"><h5 class="card-title">' + rps[i].nombre + '</h5><p class="card-text">' + rps[i].total + " / " + rps[i].personas + '</p></div></div></div></div>');
+                    $("#rps").append('<div class="card cardNegra mb-3" style="max-width: 540px;"><div class="row no-gutters"><div class="col-md-4"><img src="' + rps[i].foto + '" class="card-img" alt="profile-pic"></div><div class="col-md-8"><div class="card-body"><h5 class="card-title tituloRPD">' + rps[i].nombre + '</h5><p class="card-text totalPersonas">' + rps[i].total + " / " + rps[i].personas + '</p></div></div></div></div>');
             }
         });
     });

@@ -6,27 +6,27 @@
                 <div class="scrollIzquierda">
                     <div class="wrap">
                         <div class="card cardBlanca">
-                            <div class="card-body text-center">
+                            <div class="card-body text-center tituloReserv">
                                 Total de Reservas<br><br>
-                                <p id="reservacionesTotales">0 / 0</p>
+                                <p  class="numerosReserv" id="reservacionesTotales">0 / 0</p>
                             </div>
                         </div>
                         <div class="card cardBlanca">
-                            <div class="card-body text-center">
+                            <div class="card-body text-center tituloReserv">
                                 Reservaciones simples<br><br>
-                                <p id="reservacionesSimples">0 / 0</p>
+                                <p  class="numerosReserv" id="reservacionesSimples">0 / 0</p>
                             </div>
                         </div>
                         <div class="card cardBlanca">
-                            <div class="card-body text-center">
+                            <div class="card-body text-center tituloReserv">
                                 Reservaciones de Grupo<br><br>
-                                <p id="reservacionesGrupo">0 / 0</p>
+                                <p  class="numerosReserv" id="reservacionesGrupo">0 / 0</p>
                             </div>
                         </div>
                         <div class="card cardBlanca">
-                            <div class="card-body text-center">
+                            <div class="card-body text-center tituloReserv">
                                 Reservación de Cumpleaños<br><br>
-                                <p id="reservacionesCumple">0 / 0</p>
+                                <p  class="numerosReserv" id="reservacionesCumple">0 / 0</p>
                             </div>
                         </div>
                         <br><br>
@@ -37,6 +37,7 @@
             <div class="col-6 DashDerecha">
                 <div class="scrollIzquierda">
                     <div class="wrap" id="rps">
+                    <div class="loader">Loading...</div>
                         <!--
                         <div class="card cardNegra mb-3" style="max-width: 540px;">
                             <div class="row no-gutters">

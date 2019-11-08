@@ -15,7 +15,9 @@
     </div>
    <div class="zonaZona">
         <div class="zonaRps">
+        <div class="loader">Loading...</div>
             <div class="wrap flexRps" id="rps">
+           
                 <!--
                 <div class="card cardNegra cardRp mb-3" style="max-width: 540px;">
                     <div class="row no-gutters">
