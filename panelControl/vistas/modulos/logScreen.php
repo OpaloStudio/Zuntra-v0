@@ -2,7 +2,7 @@
     <img class="logoLog" src="vistas/img/otros/logoBlanco.png">
     <form class="formLoginPanel">
         <div class="form-group">
-            <label for="nombre" class="blanco">Nombre</label>
+            <label for="nombre" class="blanco">Correo</label>
             <input type="text" class="form-control inputsClaros" id="nombre">
         </div>
         <div class="form-group">
