@@ -35,6 +35,10 @@ if(isset($_GET['VIP'])){
     $vip = "no";
 }
 
+if(isset($_GET['v'])){
+    $vipUser = $_GET['v'];
+}
+
 ?>
 
 <script type="text/javascript">
@@ -53,6 +57,7 @@ if(isset($_GET['VIP'])){
     var usuarioReservacion = <?php echo $user; ?>;
     var idReservacion = <?php echo $reservacion; ?>;
     var vip = "<?php echo $vip; ?>";
+    var vipUser = "<?php echo $vipUser; ?>";
     var banderaVIP = false;
     var fechaReserva = "<?php echo $fecha; ?>";
     var ano = fechaReserva.substring(0,4);
@@ -121,6 +126,8 @@ if(isset($_GET['VIP'])){
         console.log(idUser);
         console.log(usuarioReservacion);
         console.log(idReservacion);
+        if(vipUser == 1)
+            $('#divTituloVip').html('<h2 class="dorado">Reservación VIP</h2>');
 
         if(vip === "si" && idUser !=  usuarioReservacion)
             banderaVIP = true;
@@ -165,6 +172,7 @@ if(isset($_GET['VIP'])){
                     for(var i = 0; i < invitados.length; i++){
 
                         var node = document.createElement("LI");  
+                        //alert(vipUser);
                         var textnode = document.createTextNode(invitados[i].nombreInvitado);
                         losInvitados.push(invitados[i].nombreInvitado);
                         //alert(losInvitados);
@@ -188,6 +196,7 @@ if(isset($_GET['VIP'])){
 
                     }
 
+
                     if(invitados.length == personasTotales){
                         alert("Ya se aceptaron todas las invitaciones");
                         if (losInvitados.includes(nombreUser)) {
@@ -200,6 +209,8 @@ if(isset($_GET['VIP'])){
                         $('#btnQRShare').hide();
                         }        
                     }
+
+                    
                     
                     console.log(idxInvitados);                    
                 } 
@@ -207,13 +218,19 @@ if(isset($_GET['VIP'])){
             dataType: "json"
         });
 
+       
         generarQR();
+        
+        //document.getElementById("listaInvitados").firstChild.classList.add('VIP');
+       
     });
 
 
 
     function generarQR(){
         var numLogoQR = Math.floor((Math.random() * 6) + 1);
+
+      
 
         if(banderaVIP == true)
             var logoQR = "vistas/img/imgsQrVIP/pixVIP"+numLogoQR+".png";
@@ -293,7 +310,9 @@ if(isset($_GET['VIP'])){
         var elLonk = stringLonk.substring(0, stringLonk.length - 7);
         var lonkPt1 = elLonk.substring(0, elLonk.indexOf(usuarioReservacion));
         var lonkPt2 = elLonk.substring(elLonk.indexOf(usuarioReservacion)+usuarioReservacion.toString().length);
-        var nuevoLonk = lonkPt1 + idUser.toString() + lonkPt2;
+        var ultimo = "&v=1";
+        var nuevoLonk = lonkPt1 + idUser.toString() + lonkPt2 + ultimo;
+
 
         if(banderaVIP == true)
             opcion = 5;

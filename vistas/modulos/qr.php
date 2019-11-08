@@ -19,6 +19,7 @@
    
     
   </div>
+  <div id="divTituloVip"></div>
   
     <!--img class="imgQr" src="vistas/img/pix3.png" id="img64"-->
     <div class="row">

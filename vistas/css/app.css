@@ -809,6 +809,9 @@ hr {
   width: 100%;
   height: 100%; }
 
+.VIP {
+  color: #DEC9A1 !important; }
+
 .contenedorRegister {
   display: flex;
   justify-content: center;
