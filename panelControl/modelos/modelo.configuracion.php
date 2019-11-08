@@ -169,6 +169,44 @@
             echo $conexion->insert_id;
         else
             echo "0";
+    } else if($_POST["publicaciones"]) {
+        $result = $conexion->query("SELECT idPromo, titulo FROM promos");
+        if($result->num_rows > 0) {
+            $rows = array();
+            while($row = $result->fetch_assoc())
+                $rows[] = $row;
+            echo json_encode($rows);
+        } else
+            echo "0";
+        $result->free();
+    } else if(isset($_POST["changePublicacion"])) {
+        $tipo = $_POST["tipo"];
+        $result = $conexion->query("SELECT idPromo, titulo FROM promos WHERE tipo = $tipo");
+        if($result->num_rows > 0) {
+            $rows = array();
+            while($row = $result->fetch_assoc())
+                $rows[] = $row;
+            echo json_encode($rows);
+        } else
+            echo "0";
+        $result->free();
+    } else if(isset($_POST["changePublicacionDia"])) {
+        $dia = $_POST["dia"];
+        $result = $conexion->query("SELECT idPromo, titulo FROM promos WHERE dia = $dia");
+        if($result->num_rows > 0) {
+            $rows = array();
+            while($row = $result->fetch_assoc())
+                $rows[] = $row;
+            echo json_encode($rows);
+        } else
+            echo "0";
+        $result->free();
+    } else if(isset($_POST["eliminarPublicacion"])) {
+        $idPromo = $_POST["idPublicacion"];
+        if($conexion->query("DELETE FROM promos WHERE idPromo = $idPromo"))
+            echo "1";
+        else
+            echo "0";
     } else if(isset($_POST["cerrar"])) {
         session_start();
         session_destroy();

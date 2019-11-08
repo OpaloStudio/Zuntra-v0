@@ -142,6 +142,98 @@ function VerPublicaciones() {
     $('#btnVerPub').css('color','#DEC9A1');
     $('#btnCrearPub').css('background-color','#DEC9A1');
     $('#btnCrearPub').css('color','white');
+
+    $.ajax({
+        type: "post",
+        url: "modelos/modelo.configuracion.php",
+        data: {
+            "publicaciones": "1"
+        },
+        success: function (response) {
+            if(response != "0") {
+                var publicaciones = JSON.parse(response);
+                $("#lasPublicaciones").empty();
+                for(const publicacion of publicaciones)
+                    $("#lasPublicaciones").append('<div class="card cardPublicacion"><h5 class="dorado">' + publicacion.titulo + '</h5><div class="juntitos"><h5 class="dorado red" data-toggle="modal" data-target="#eliminarPublicacion" id="' + publicacion.idPromo + '" onclick="eliminarPublicacion(this)">Eliminar</h5></div>');    
+                $(".zonaScroll").getNiceScroll().resize();
+            }
+        }
+    });
+}
+
+function changePublicaciones(param) {
+    var tipo;
+    switch(param) {
+        case "evento":
+            tipo = 1;
+            break;
+        case "promo":
+            tipo = 0;
+            break;
+    }
+
+    $.ajax({
+        type: "post",
+        url: "modelos/modelo.configuracion.php",
+        data: {
+            "changePublicacion": "1",
+            "tipo": tipo
+        },
+        success: function(response) {
+            if(response != "0") {
+                var publicaciones = JSON.parse(response);
+                $("#lasPublicaciones").empty();
+                for(const publicacion of publicaciones)
+                    $("#lasPublicaciones").append('<div class="card cardPublicacion"><h5 class="dorado">' + publicacion.titulo + '</h5><div class="juntitos"><h5 class="dorado red" data-toggle="modal" data-target="#eliminarPublicacion" id="' + publicacion.idPromo + '" onclick="eliminarPublicacion(this)">Eliminar</h5></div>');    
+                $(".zonaScroll").getNiceScroll().resize();
+            }
+        }
+    });
+}
+
+function changeDia(me) {
+    var dia = me.value;
+
+    $.ajax({
+        type: "post",
+        url: "modelos/modelo.configuracion.php",
+        data: {
+            "changePublicacionDia": "1",
+            "dia": dia
+        },
+        success: function(response) {
+            if(response != "0") {
+                var publicaciones = JSON.parse(response);
+                $("#lasPublicaciones").empty();
+                for(const publicacion of publicaciones)
+                    $("#lasPublicaciones").append('<div class="card cardPublicacion"><h5 class="dorado">' + publicacion.titulo + '</h5><div class="juntitos"><h5 class="dorado red" data-toggle="modal" data-target="#eliminarPublicacion" id="' + publicacion.idPromo + '" onclick="eliminarPublicacion(this)">Eliminar</h5></div>');    
+                $(".zonaScroll").getNiceScroll().resize();
+            }
+        }
+    });
+}
+
+function eliminarPublicacion(me) {
+    $("#idPublicacion").val(me.id);
+}
+
+function btnEliminarPublicacion() {
+    var idPublicacion = $("#idPublicacion").val();
+    $.ajax({
+        type: "post",
+        url: "modelos/modelo.configuracion.php",
+        data: {
+            "eliminarPublicacion": "1",
+            "idPublicacion": idPublicacion
+        },
+        success: function(response) {
+            if(response == "1") {
+                VerPublicaciones();
+                alert("Publicacion eliminada")
+            } else if(response == "0") 
+                alert("La publicacion no pudo eliminarse");
+        }
+    });
 }
 
 function nuevoStaff() {

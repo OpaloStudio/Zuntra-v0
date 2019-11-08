@@ -183,22 +183,21 @@
                     <div class="zoneRadios">
                         <label class="negro">Tipo de Publcidad</label><br>
                             <div class="form-check form-check-inline">
-                            
-                                <input class="form-check-input" type="radio" name="scanner" id="verEvento" value="1" checked>
-                                <label class="form-check-label" for="scannerSi">Evento</label>
+                                <input class="form-check-input" type="radio" name="promo" id="verEvento" value="1" checked onchange="changePublicaciones('evento')">
+                                <label class="form-check-label" for="verEvento">Evento</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="scanner" id="verPromo" value="0">
-                                <label class="form-check-label" for="scannerNo">Promoción</label>
+                                <input class="form-check-input" type="radio" name="promo" id="verPromo" value="0" onchange="changePublicaciones('promo')">
+                                <label class="form-check-label" for="verPromo">Promoción</label>
                             </div>
                        </div><br>
                     <div class="form-group">
                             <label class="negro" for="exampleFormControlSelect1">Día de la Semana</label>
-                            <select class="form-control inputsClaros" id="puestoVer">
+                            <select class="form-control inputsClaros" id="puestoVer" onchange="changeDia(this)">
                                 <option selected value="0">-Selecciona uno-</option>
-                                <option value="j">Jueves</option>
-                                <option value="v">Viernes</option>
-                                <option value="s">Sábado</option>
+                                <option value="1">Jueves</option>
+                                <option value="2">Viernes</option>
+                                <option value="3">Sábado</option>
                             </select>
                         </div>
                         <div class="zonaPublicaciones">
@@ -208,7 +207,7 @@
                                 <div class="card cardPublicacion">
                                     <h5 class="dorado">Titulo e la card</h5>
                                     <div class="juntitos">
-                                        <h5 class="dorado"  onclick="editarPublicacion(this)">Editar</h5>
+                                        <!--<h5 class="dorado"  onclick="editarPublicacion(this)">Editar</h5>-->
                                         <h5 class="dorado red" data-toggle="modal" data-target="#eliminarPublicacion" onclick="eliminarPublicacion(this)">Eliminar</h5>
                                     </div>
                                     
@@ -414,12 +413,12 @@
                 </button>
             </div>
             <div class="modal-body">
-                <input type="hidden" value="" id="idUserEliminar">
-                ¿Realmente deseas eliminar la publicación de  <b id="eliminarUsuarioNombre"></b>?
+                <input type="hidden" value="" id="idPublicacion">
+                ¿Realmente deseas eliminar la publicación?
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
-                <button type="button" class="btn btn-danger" onclick="btnEliminarUsuario()" data-dismiss="modal">Eliminar</button>
+                <button type="button" class="btn btn-danger" onclick="btnEliminarPublicacion()" data-dismiss="modal">Eliminar</button>
             </div>
         </div>
     </div>
